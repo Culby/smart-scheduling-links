@@ -18,18 +18,21 @@ Concretely, a _Slot Publisher_ hosts four kinds of files:
 
 * **Bulk Publication Manifest**. The manifest is a JSON file serving as the entry point for slot discovery. It provides links that clients can follow to retrieve all the other files. The manifest is always hosted at a URL that ends with `$bulk-publish` (a convention used when publishing data sets using FHIR; this convention applies any time a potentially large data set needs to be statically published).
   * [Details on JSON structure](#manifest-file)
-  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish) showing a manifest for the fictional "SMART Vaccine Clinic", a regional chain with ten locations in Massachusetts. 
+  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish) showing a manifest for the fictional "SMART Medicine", a regional chain with twenty locations in Massachusetts, a mix of urgent care and primary care practices. 
+* **PractitionerRole Files**.  Each line contains a minified JSON object representing a specific practitioner's participation in a practice where appointments are available.
+  * [Details on JSON structure](#practitionerrole-file)
+  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerrole.ndjson) showing ten practitioners for the fictional "SMART Primary Care". Each line provides details about a single PracitionerRole (practitioner + practice + location union) in the MA area.
 * **Location Files**.  Each line contains a minified JSON object representing a physical location where appointments are available.
   * [Details on JSON structure](#location-file)
-  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) showing ten locations for the fictional "SMART Vaccine Clinic". Each line provides details about a single physical location in the MA area.
+  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) showing ten locations for the fictional "SMART Urgent Care". Each line provides details about a single physical location in the MA area.
 * **Schedule Files**.  Each line contains a minified JSON object representing the calendar for a healthcare service offered at a specific location.
   * [Details on JSON structure](#schedule-file)
-  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson) showing ten locations for the fictional "SMART Vaccine Clinic". Since SMART Vaccine Clinics are offer only COVID-19 services, there is a single Schedule (the COVID-19 vaccination schedule) for each location. Each line provides details about a single schedule.
+  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson) showing ten schedules schedules for "SMART Primary Care" and ten schedules for "SMART Urgent Care." Each line provides details about a single schedule.
 * **Slot Files**.  Each line contains a minified JSON object representing an appointment slot (busy or free) for a healthcare service at a specific location.
   * [Details on JSON structure](#slot-file)
-  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson) showing coarse-grained slots for a single week, across all ten "SMART Vaccine Clinic" sites. (_Note: The choice to break down slots into weekly files is arbitrary; the fictional Clinic could instead choose to host a single slot file, or produce location-specific files, or even group slots randomly._) Each of the published slots in this example includes a "capacity" extension indicating that the slot has a capacity of 100 patients; furthermore the slots include only coarse-grained timing (indicating they fall sometime beetween 9a and 6p ET, the clinic's fictional hours of operation). Ideally, Slot Publishers should provide finer-grained slot information with specific timing (see "progressive enhancement" in [Goals](#goals-for-slot-discovery) above), but coarse-grained slots provide an easy way to get started.
+  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson) showing coarse-grained slots for a single week, across all twenty "SMART Medicine" sites. (_Note: The choice to break down slots into weekly files is arbitrary; the fictional Clinic could instead choose to host a single slot file, or produce location-specific files, or even group slots randomly._) Slots MAY include only coarse-grained timing (indicating they fall sometime beetween 9a and 6p ET, the clinic's fictional hours of operation). Ideally, Slot Publishers SHOULD provide finer-grained slot information with specific timing.
 
-A client queries the manifest on a regular basis, e.g. once every 1-5 minutes. The client iterates through the links in the manifest file to retrieve any Location, Schedule, or Slot files it is interested in. (Clients SHOULD ignore any output items with types other than Location, Schedule, or Slot.)
+A client queries the manifest on a regular basis, e.g. once every 1-5 minutes. The client iterates through the links in the manifest file to retrieve any PractitionerRole, Location, Schedule, or Slot files it is interested in. (Clients SHOULD ignore any output items with types other than PractitionerRole, Location, Schedule, or Slot.)
 
 ### Timestamps
 
@@ -56,9 +59,9 @@ For Bulk Output File requests, servers SHALL support at least the following `Acc
 
 ### Access Control Considerations
 
-* _Slot Publishers_ SHOULD host `$bulk-publish` content at open, publicly accessible endpoints when sharing COVID-19 appointment availability (no required access keys or client credentials). This pattern ensures that data can be used widely and without pre-coordination to meet public health use cases.
+* _Slot Publishers_ SHOULD host `$bulk-publish` content at open, publicly accessible endpoints when sharing general healthcare appointment availability (no required access keys or client credentials). This pattern ensures that data can be used widely and without pre-coordination to meet public health and consumer access use cases.
   * These data will be publicly available downstream in consumer-facing apps, so confidentiality is a non-goal.
-  * Public health goals require flexibility in access to non-confidential information.
+  * Healthcare access goals require flexibility in access to non-confidential scheduling information.
   * With the `$bulk-publish` pattern, _Slot Publishers_ host static files, which scale well to open publication
 
 ### API Testing
@@ -75,7 +78,7 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
 | `transactionTime`  | [timestamp](#timestamps) as string | the time when this data set was published. See [“timestamps”](#timestamps) for correct formatting. |
 | `request` | url as string |  the full URL of the manifest |
 | `output` | array of JSON objects | each object contains a `type`, `url`, and `extension` field |
-| &nbsp;&nbsp;&rarr;&nbsp;`type` | string | whether this output item represents a `"Location"`, `"Schedule"`, or `"Slot"` file |
+| &nbsp;&nbsp;&rarr;&nbsp;`type` | string | whether this output item represents a `"PractitionerRole"`,`"Location"`, `"Schedule"`, or `"Slot"` file |
 | &nbsp;&nbsp;&rarr;&nbsp;`url` | url as string | the full URL of an NDJSON file for the specified type of data |
 | &nbsp;&nbsp;&rarr;&nbsp;`extension` | JSON object | contains tags to help a client decide which output files to download |
 | &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`state` | JSON array of strings | state or jurisdiction abbreviations (e.g., `["MA"]` for a file with data pertaining solely to Massachusetts) |
@@ -93,6 +96,10 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
     {
       "type": "Schedule",
       "url": "https://example.com/data/schedule_file_1.ndjson"
+    },
+        {
+      "type": "PractitionerRole",
+      "url": "https://example.com/data/practitionerrole_file_1.ndjson"
     },
     {
       "type": "Location",
@@ -142,20 +149,15 @@ Each Location includes at least:
 | `position` | JSON object | N |  geocoordinates of the location |
 | &nbsp;&nbsp;&rarr;&nbsp;`latitude` | number | N | must be populated if position is included |
 | &nbsp;&nbsp;&rarr;&nbsp;`longitude` | number | N | must be populatd if position is included |
-| `identifier` | array of JSON objects | Y | Identifiers for this location (e.g., Store Number or VTrckS PIN). See below.|
+| `identifier` | array of JSON objects | Y | Identifiers for this location (e.g., facility numbers, site identifiers). See below.|
 
 Each `identifier` object includes a `system` and a `value`. 
 
-* If a Location is associated with one or more "VTRckS PIN"s (see https://cdc.gov/vaccines/programs/vtrcks for VTrckS program details), publishers SHOULD include these:
+* If a Practitioner or Location is associated with organization-specific identifiers (such as facility numbers, site codes, or store numbers), publishers SHOULD include these. The `system` should be a URL that identifies the identifier system, preferably a page on the publisher's web site (e.g. `{"system": "https://healthsystem.example.com/facility-directory", "value": "FAC-123"}`)
 
-	| field name | type  | description |
-	|---|---|---|
-	|`system`| string | fixed value of `"https://cdc.gov/vaccines/programs/vtrcks"`|
-	|`value` | string | VTrckS PIN for this location |
+* If a Location participates in external registry programs that assign location identifiers, publishers MAY include these identifiers using the appropriate system URL for the registry.
 
-* If a Location is associated with a "Store Number" or other organization-specific Identifiers, publishers SHOULD include these. The `system` should be  a page on the publisher's web site (e.g. `{"system": "https://pharmacy.example.com/store-locator", "value": "123"}`)
-
-* Additional identifiers: Any number of additional identifiers MAY be included. Each should populate `system` and `value` as appropriate.
+* Additional identifiers: Any number of additional identifiers MAY be included. Each should populate `system` and `value` as appropriate, following FHIR identifier conventions.
 
 ### Example `Location`
 
@@ -164,17 +166,17 @@ Each `identifier` object includes a `system` and a `value`.
   "resourceType": "Location",
   "id": "123",
   "identifier": [{
-    "system": "https://cdc.gov/vaccines/programs/vtrcks",
-    "value": "CV1654321"
+    "system": "https://healthsystem.example.com/facility-directory",
+    "value": "FAC-PITT-001"
   }],
-  "name": "Flynn's Pharmacy in Pittsfield, MA",
-  "description": "Located behind old Berkshire Bank building",
+  "name": "Berkshire Family Medicine - Pittsfield",
+  "description": "Primary care clinic located in downtown Pittsfield",
   "telecom": [{
     "system": "phone",
-    "value": "413-000-0000"
+    "value": "413-555-0123"
   }, {
     "system": "url",
-    "value": "https://pharmacy.example.com"
+    "value": "https://berkshirefamilymedicine.example.com"
   }],
   "address": {
     "line": ["173 Elm St"],
@@ -188,9 +190,93 @@ Each `identifier` object includes a `system` and a `value`.
 ### Example Location File
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) 
 
+## PractitionerRole File
+
+Each line of the PractitionerRole File is a minified JSON object that conveys information about a practitioner's role at a specific organization and location. The PractitionerRole resource represents the roles/locations/specialties/services that a practitioner may perform at an organization for a period of time.
+
+Each PractitionerRole includes at least:
+
+| field name | type | required | description |
+| --- | --- | :---: | --- |
+| `resourceType` | string | Y | fixed value of `"PractitionerRole"` |
+| `id` | string | Y | unique identifier for this practitioner role (up to 64 alphanumeric characters and may include `-` and `.`) |
+| `practitioner` | JSON object | N | Reference to the practitioner who is able to provide the defined services for the organization |
+| &nbsp;&nbsp;&rarr;&nbsp;`reference` | string | N | the practitioner for this role formed as `Practitioner` + `/` + the practitioner's `id` (e.g., `"Practitioner/123"`) |
+| `organization` | JSON object | N | Reference to the organization where the roles are available |
+| &nbsp;&nbsp;&rarr;&nbsp;`reference` | string | N | the organization for this role formed as `Organization` + `/` + the organization's `id` (e.g., `"Organization/456"`) |
+| `location` | array of JSON objects | N | The location(s) at which this practitioner provides care |
+| &nbsp;&nbsp;&rarr;&nbsp;`reference` | string | N | the location where this practitioner provides care formed as `Location` + `/` + the `id` value of an entry in a Location File (e.g., `"Location/789"`) |
+| `code` | array of JSON objects | N | Roles which this practitioner may perform |
+| &nbsp;&nbsp;&rarr;&nbsp;`coding` | array of JSON objects | N | Coded representation of the role |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | The code system (e.g., `"http://snomed.info/sct"`) |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`code` | string | N | The role code |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`display` | string | N | Human-readable description of the role |
+| `specialty` | array of JSON objects | N | Specific specialty of the practitioner |
+| &nbsp;&nbsp;&rarr;&nbsp;`coding` | array of JSON objects | N | Coded representation of the specialty |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | The code system (e.g., `"http://snomed.info/sct"`) |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`code` | string | N | The specialty code |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`display` | string | N | Human-readable description of the specialty |
+| `telecom` | array of JSON objects | N | Contact details that are specific to the role/location/service |
+| &nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | `"phone"`, `"email"`, or `"url"` |
+| &nbsp;&nbsp;&rarr;&nbsp;`value` | string | N | phone number, email address, or URL for this practitioner role |
+| `availableTime` | array of JSON objects | N | Times the practitioner is available |
+| &nbsp;&nbsp;&rarr;&nbsp;`daysOfWeek` | array of strings | N | Days of the week available (e.g., `["mon", "tue", "wed"]`) |
+| &nbsp;&nbsp;&rarr;&nbsp;`allDay` | boolean | N | Always available (e.g., 24 hour service) |
+| &nbsp;&nbsp;&rarr;&nbsp;`availableStartTime` | string | N | Opening time of day (ignored if allDay = true) |
+| &nbsp;&nbsp;&rarr;&nbsp;`availableEndTime` | string | N | Closing time of day (ignored if allDay = true) |
+| `notAvailable` | array of JSON objects | N | Not available during this time due to provided reason |
+| &nbsp;&nbsp;&rarr;&nbsp;`description` | string | Y | Reason presented to the user explaining why time not available |
+| &nbsp;&nbsp;&rarr;&nbsp;`during` | JSON object | N | Service not available from this date |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`start` | [timestamp](#timestamps) as string | N | Start of unavailable period |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`end` | [timestamp](#timestamps) as string | N | End of unavailable period |
+
+### Example `PractitionerRole`
+
+```json
+{
+  "resourceType": "PractitionerRole",
+  "id": "pr-123",
+  "practitioner": {
+    "reference": "Practitioner/doc-smith"
+  },
+  "organization": {
+    "reference": "Organization/acme-health"
+  },
+  "location": [{
+    "reference": "Location/main-clinic"
+  }],
+  "code": [{
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "309343006",
+      "display": "Physician"
+    }]
+  }],
+  "specialty": [{
+    "coding": [{
+      "system": "http://snomed.info/sct", 
+      "code": "394814009",
+      "display": "General practice"
+    }]
+  }],
+  "telecom": [{
+    "system": "phone",
+    "value": "555-123-4567"
+  }],
+  "availableTime": [{
+    "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
+    "availableStartTime": "09:00:00",
+    "availableEndTime": "17:00:00"
+  }]
+}
+```
+
+### Example PractitionerRole File
+  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson) 
+
 ## Schedule File
 
-Each line of the Schedule File is a minified JSON object that conveys a information about a Schedule to which slots are attached. The Schedule represents a particular service (e.g., COVID-19 immunizations) offered at a specific location.
+Each line of the Schedule File is a minified JSON object that conveys information about a Schedule to which slots are attached. The Schedule represents a particular healthcare service (e.g., primary care appointments, specialist consultations, or procedures) offered at a specific location.
 
 Each Schedule includes at least:
 
@@ -198,41 +284,34 @@ Each Schedule includes at least:
 	<tr><th>field name</th><th>type</th><th>description</th></tr>
 	<tr><td><code>resourceType</code></td><td>string</td><td>fixed value of <code>"Schedule"</code></td></tr>
 	<tr><td><code>id</code></td><td>string</td><td>a unique identifier for this schedule (up to 64 alphanumeric characters and may include <code>-</code> and <code>.</code>)</td></tr>
-	<tr><td><code>actor</code></td><td>array with one JSON object</td><td></td></tr>
-	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>the location where appointments are available formed as <code>Location</code> + <code>/</code> + the <code>id</code> value of an entry in a Location File (e.g., <code>"Location/123"</code>) </td></tr>
-	<tr><td><code>serviceType</code></td><td>array of JSON objects</td><td>Each object is a standardized concept indicating what services are offered. For COVID-19 immunization Schedules, two standardized codings must be included:
+	<tr><td><code>actor</code></td><td>array of JSON objects</td><td>References to the primary resource(s) that the schedule is providing availability for</td></tr>
+	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, PractitionerRole, or other resource. For location-based scheduling, use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>). For practitioner-based scheduling, use <code>PractitionerRole</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"PractitionerRole/dr-smith-cardiology"</code>)</td></tr>
+	<tr><td><code>serviceType</code></td><td>array of JSON objects</td><td>Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include:
+		<pre>[{
+  "system": "http://terminology.hl7.org/CodeSystem/service-type",
+  "code": "124",
+  "display": "General Practice"
+}]
+</pre>
+		For immunization services, you might use:
 		<pre>[{
   "system": "http://terminology.hl7.org/CodeSystem/service-type",
   "code": "57",
   "display": "Immunization"
-}, {
-  "system": "http://fhir-registry.smarthealthit.org/CodeSystem/service-type",
-  "code": "covid19-immunization"
-  "display": "COVID-19 Immunization Appointment"
 }]
 </pre>
-		Additional <code>serviceType</code>s may be included if this schedule offers services beyond COVID-19 immunizations; or additional <code>coding</code>s may be included to convey more nuanced information about the COVID-19 immunizations offered. The example resource below shows a <code>serviceType</code> that can be used verbatim to advertise a COVID-19 immunization schedule. (Why two Codings? One expresses the fact that the slot is for an immunization service, and the other is specific to COVID-19. This structure follows a convention in FHIR for expressing "codeable concepts" -- see <a href="http://hl7.org/fhir/datatypes.html#codeableconcept">here</a> for details.)</td></tr>
+		Additional <code>serviceType</code>s may be included if this schedule offers multiple services; or additional <code>coding</code>s may be included to convey more nuanced information about the services offered. Multiple codings can express different levels of specificity following the FHIR convention for "codeable concepts" -- see <a href="http://hl7.org/fhir/datatypes.html#codeableconcept">here</a> for details.</td></tr>
 	<tr><td><code>extension</code></td><td>array of JSON objects</td><td>see details below</td></tr>
 </table>
 	
-Each Schedule object may optionally include the following extension JSON objects in the Schedule's `extension` array.
+Each Schedule object may optionally include extension JSON objects in the Schedule's `extension` array to provide additional context about the healthcare services offered. Common extensions might include:
 
-* "Vaccine Product" extension: used to convey a product code for a vaccine available at appointments on this Schedule. This extension SHOULD NOT repeat; providers SHOULD represent each available vaccine product on a separate schedule to facilitate directed booking.
+* **Service Category extensions**: Used to provide additional categorization of healthcare services beyond the standard serviceType codes. These can help clients filter and display services more effectively.
 
-	| field name | type | description |
-	|---|---|---|
-	|`url`| string | fixed value of `"http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-product"`|
-	|`valueCoding` | JSON object| Coded representation of a vaccine product (CVX code)|
-	| &nbsp;&nbsp;&rarr;&nbsp;`system` | string | Fixed value of `"http://hl7.org/fhir/sid/cvx"`|
-	| &nbsp;&nbsp;&rarr;&nbsp;`code` | string | Any valid CVX code (e.g., `"207"`, `"208"`, `"210"`, `"212"`) |
-	| &nbsp;&nbsp;&rarr;&nbsp;`display` | string | Display name for the code |
+* **Practitioner Role extensions**: Used to indicate specific practitioner roles or qualifications required for appointments on this schedule (e.g., board certifications, special training).
 
-* "Dose Number" extension: used to convey a dose sequence number (e.g., "first dose" or "second dose') offered at appointments on this Schdule. This extension MAY repeat, if this Schedule offers both "first dose" and "second dose" appointments.
 
-	| field name | type  | description |
-	|---|---|---|
-	|`url`| string | fixed value of `"http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-dose"`|
-	|`valueInteger` | number | indicates sequence number (should be be `1` or `2` for current vaccines)|
+Extensions should follow FHIR extension conventions and use appropriate extension URLs. Implementers may define custom extensions as needed for their specific use cases, following FHIR extension guidelines.
 
 ### Example `Schedule`
 
@@ -245,13 +324,8 @@ Each Schedule object may optionally include the following extension JSON objects
       "coding": [
         {
           "system": "http://terminology.hl7.org/CodeSystem/service-type",
-          "code": "57",
-          "display": "Immunization"
-        },
-        {
-          "system": "http://fhir-registry.smarthealthit.org/CodeSystem/service-type",
-          "code": "covid19-immunization",
-          "display": "COVID-19 Immunization Appointment"
+          "code": "124",
+          "display": "General Practice"
         }
       ]
     }
@@ -275,7 +349,7 @@ Each Schedule object may optionally include the following extension JSON objects
 
 Each line of the Slot File is a minified JSON object that conveys information about an appointment slot. Publishers are encouraged to represent slots with fine-grained timing details (e.g.  representing appointments at specific times of the day), but MAY represent slots with coarse grained timing (e.g., "between 9 a.m. and 5 p.m." or "between noon and five p.m.").
 
-*Note: When publishing a Slot with `"status": "free"`, Publishers should ensure that the Slot is in fact available for booking, given current business rules. For example, if a pharmacy won't allow a first-dose vaccine slot to be booked because no follow-up second-dose appointments are available, then the pharmacy SHOULD NOT advertise the first-dose slot as available.*
+*Note: When publishing a Slot with `"status": "free"`, Publishers should ensure that the Slot is in fact available for booking, given current business rules. For example, if a provider requires certain prerequisites to be met before an appointment can be booked (such as referrals, prior authorization, or specific patient eligibility criteria), then the provider SHOULD NOT advertise the slot as available unless those requirements are satisfied.*
 
 Each `Slot` has:
 
@@ -305,13 +379,6 @@ Each Slot object may optionally include one or both of the following extension J
 	|---|---|---|
 	|`url`| string | fixed value of `"http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone"`|
 	|`valueString` | string | Phone number the user can call to book this slot.
-
-
- * "Capacity" extension: used to enable aggregated discovery at mass vaccination sites. Slot Publishers SHOULD advertise discrete slots, but MAY for performance or scalability reasons choose to aggregate otherwise identical slots (same schedule, status, start, and end times) with this extension. Slot Publishers MAY provide estimated capacity if precise capacity cannot be determined.
-	| field name | type  | description |
-	|---|---|---|
-	|`url`| string | fixed value of `"http://fhir-registry.smarthealthit.org/StructureDefinition/slot-capacity"`|
-	|`valueInteger` | number | indicates capacity (e.g., `"valueInteger": 300` to advertise a capacity of 300)
 
 
 ### Example `Slot`
@@ -376,11 +443,11 @@ For example, given this Location resource from an underlying source:
   "id": "123",
   "identifier": [
     {
-      "system": "https://cdc.gov/vaccines/programs/vtrcks",
-      "value": "CV1654321"
+      "system": "https://healthsystem.example.com/facility-directory",
+      "value": "FAC-PITT-001"
     }
   ],
-  "name": "Flynn's Pharmacy in Pittsfield, MA",
+  "name": "Berkshire Family Medicine - Pittsfield",
   // additional Location fields here...
 }
 ```
@@ -393,20 +460,20 @@ A _Slot Aggregator_ might publish a Location like:
   "id": "456",
   "identifier": [
     {
-      "system": "https://cdc.gov/vaccines/programs/vtrcks",
-      "value": "CV1654321"
+      "system": "https://healthsystem.example.com/facility-directory",
+      "value": "FAC-PITT-001"
     },
     {
-      "system": "https://flynnspharmacy.example.org/",
+      "system": "https://berkshirefamilymedicine.example.org/",
       "value": "123"
     }
   ],
-  "name": "Flynn's Pharmacy in Pittsfield, MA",
+  "name": "Berkshire Family Medicine - Pittsfield",
   // additional Location fields here...
 }
 ```
 
-In this example, `https://flynnspharmacy.example.org/` is an arbitrary string that defines “Flynn’s Pharmacy” as the identifier system. _Slot Aggregators_ should only use a URL that is not under their control in cases where the URL is predictable and might reasonably be chosen by other _Slot Aggregators_. When this is not the case, _Slot Aggregators_ SHOULD choose a URL under their control. For example, an aggregator at `usdr.example.org` might choose a URL like `https://usdr.example.org/fhir/identifiers/flynns`.
+In this example, `https://berkshirefamilymedicine.example.org/` is an arbitrary string that defines “Flynn’s Pharmacy” as the identifier system. _Slot Aggregators_ should only use a URL that is not under their control in cases where the URL is predictable and might reasonably be chosen by other _Slot Aggregators_. When this is not the case, _Slot Aggregators_ SHOULD choose a URL under their control. For example, an aggregator at `usdr.example.org` might choose a URL like `https://usdr.example.org/fhir/identifiers/flynns`.
 
 When the source system is a SMART Scheduling Links implementation, a _Slot Aggregator_ SHOULD use [FHIR’s `Resource.meta.source` field][resource_meta] to describe it. The value is a URI that SHOULD include the URL of the source system, and MAY add the resource `id`.
 
@@ -480,13 +547,8 @@ Example usage on a Schedule:
       "coding": [
         {
           "system": "http://terminology.hl7.org/CodeSystem/service-type",
-          "code": "57",
-          "display": "Immunization"
-        },
-        {
-          "system": "http://fhir-registry.smarthealthit.org/CodeSystem/service-type",
-          "code": "covid19-immunization",
-          "display": "COVID-19 Immunization Appointment"
+          "code": "124",
+          "display": "General Practice"
         }
       ]
     }
