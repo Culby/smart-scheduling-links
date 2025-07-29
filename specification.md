@@ -211,6 +211,11 @@ Each `identifier` object includes a `system` and a `value`.
 | availableTime | BackboneElement | No | Times the service is available |
 | notAvailable | BackboneElement | No | Periods when the service is not available |
 | availabilityExceptions | string | No | Description of availability exceptions |
+
+### Example Practioner Role File
+	* Example [file] (https://..... see avov
+
+
 ## Schedule File
 
 Each line of the Schedule File is a minified JSON object that conveys a information about a Schedule to which slots are attached. The Schedule represents a particular service (e.g., COVID-19 immunizations) offered at a specific location.
