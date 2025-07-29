@@ -11,7 +11,7 @@ const VISIT_MINUTES = 20;
 
 const OPENING_TIME = 'T14:00:00.000Z';
 const CLOSING_TIME = 'T23:00:00.000Z';
-const SLOT_CAPACITY = 100;
+
 
 let _resourceId = 0;
 const resourceId = () => '' + _resourceId++;
@@ -54,14 +54,6 @@ const slot = (start: string, end: string, schedule: Resource) => ({
       url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone',
       valueString: `000-000-0000`,
     },
-    ...(COARSE_GRAINED_SLOTS
-      ? [
-          {
-            url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/slot-capacity',
-            valueInteger: SLOT_CAPACITY,
-          },
-        ]
-      : []),
   ],
 });
 
