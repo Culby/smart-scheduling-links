@@ -319,8 +319,8 @@ Each Schedule includes at least:
 	<tr><th>field name</th><th>type</th><th>description</th></tr>
 	<tr><td><code>resourceType</code></td><td>string</td><td>fixed value of <code>"Schedule"</code></td></tr>
 	<tr><td><code>id</code></td><td>string</td><td>a unique identifier for this schedule (up to 64 alphanumeric characters and may include <code>-</code> and <code>.</code>)</td></tr>
-	<tr><td><code>actor</code></td><td>array of JSON objects</td><td>References to the primary resource(s) that the schedule is providing availability for</td></tr>
-	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, Practitioner, or other resource. For location-based scheduling, use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>). For practitioner-based scheduling, use <code>Practitioner</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Practitioner/doc-smith"</code>)</td></tr>
+	<tr><td><code>actor</code></td><td>array of JSON objects</td><td>References to the primary resource(s) that the schedule is providing availability for. This array can contain multiple actors, commonly including both Location and Practitioner references to indicate appointments for a specific practitioner at a specific location.</td></tr>
+	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, Practitioner, or other resource. Use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>) for location references and <code>Practitioner</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Practitioner/doc-smith"</code>) for practitioner references. Multiple references can be included to represent schedules that are associated with both a specific practitioner and a specific location.</td></tr>
 	<tr><td><code>serviceType</code></td><td>array of JSON objects</td><td>Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include:
 		<pre>[{
   "system": "http://terminology.hl7.org/CodeSystem/service-type",
@@ -338,13 +338,37 @@ Each Schedule includes at least:
 		Additional <code>serviceType</code>s may be included if this schedule offers multiple services; or additional <code>coding</code>s may be included to convey more nuanced information about the services offered. Multiple codings can express different levels of specificity following the FHIR convention for "codeable concepts" -- see <a href="http://hl7.org/fhir/datatypes.html#codeableconcept">here</a> for details.</td></tr>
 	<tr><td><code>extension</code></td><td>array of JSON objects</td><td>see details below</td></tr>
 </table>
+
+### Multiple Actors in Schedules
+
+Schedules can reference multiple actors in the `actor` array to provide more specific context about the healthcare service. Common patterns include:
+
+* **Location-only schedules**: Reference only a Location resource, indicating that appointments are available at that location but not tied to a specific practitioner.
+* **Practitioner-only schedules**: Reference only a Practitioner resource, indicating appointments with that specific practitioner regardless of location.
+* **Location and Practitioner schedules**: Reference both Location and Practitioner resources, indicating appointments for a specific practitioner at a specific location. This is useful for:
+  - Multi-location practices where practitioners work at different sites
+  - Specialty clinics where specific practitioners provide services at designated locations
+  - Healthcare systems where practitioner schedules vary by location
+
+When multiple actors are specified, all referenced resources apply to the schedule and its associated slots.
+
+### Schedule Extensions
 	
 Each Schedule object may optionally include extension JSON objects in the Schedule's `extension` array to provide additional context about the healthcare services offered. Common extensions might include:
+
+* **Specialty extension**: Used to indicate the medical specialty associated with this schedule. This helps clients categorize and filter schedules by practitioner specialty or service area.
+
+	| field name | type  | description |
+	|---|---|---|
+	|`url`| string | fixed value of `"http://fhir-registry.smarthealthit.org/StructureDefinition/specialty"`|
+	|`valueCoding` | JSON object | A coded value representing the medical specialty |
+	| &nbsp;&nbsp;&rarr;&nbsp;`system` | string | The code system (e.g., `"http://snomed.info/sct"` for SNOMED CT) |
+	| &nbsp;&nbsp;&rarr;&nbsp;`code` | string | The specialty code |
+	| &nbsp;&nbsp;&rarr;&nbsp;`display` | string | Human-readable description of the specialty |
 
 * **Service Category extensions**: Used to provide additional categorization of healthcare services beyond the standard serviceType codes. These can help clients filter and display services more effectively.
 
 * **Practitioner extensions**: Used to indicate specific practitioner qualifications or specializations required for appointments on this schedule (e.g., board certifications, special training).
-
 
 Extensions should follow FHIR extension conventions and use appropriate extension URLs. Implementers may define custom extensions as needed for their specific use cases, following FHIR extension guidelines.
 
@@ -368,12 +392,25 @@ Extensions should follow FHIR extension conventions and use appropriate extensio
   "actor": [
     {
       "reference": "Location/123"
+    },
+    {
+      "reference": "Practitioner/doc-smith"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/specialty",
+      "valueCoding": {
+        "system": "http://snomed.info/sct",
+        "code": "394802001",
+        "display": "General medicine"
+      }
     }
   ]
 }
 ```
 
-
+This example demonstrates a Schedule with multiple actors, indicating that general practice appointments are available for practitioner "doc-smith" at location "123". This pattern is commonly used when a specific practitioner provides services at a specific location.
 
 ### Example Schedule File
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson) 
