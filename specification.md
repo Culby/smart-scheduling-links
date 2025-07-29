@@ -26,6 +26,8 @@ Concretely, a _Slot Publisher_ hosts four kinds of files:
   * [Details on JSON structure](#location-file)
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) showing ten locations for the fictional "SMART Vaccine Clinic". Each line provides details about a single physical location in the MA area.
 * **Practioner Role**.  The manifest is a JSON file serving as the entry pointy for practioner role.  PractitionerRole is a resource that comprehensively documents a healthcare practitioner's professional capabilities, recording their roles, specialties, locations, and services across different organizational contexts. It provides a flexible mechanism to represent a practitioner's professional engagement, allowing multiple instances to capture variations in availability, telecom, and service details. The resource enables precise tracking and discovery of healthcare professionals' service capabilities.
+* [Details on JSON Structure] (#practionerrole-file)
+* [Example file (https://..
 * **Schedule Files**.  Each line contains a minified JSON object representing the calendar for a healthcare service offered at a specific location.
   * [Details on JSON structure](#schedule-file)
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson) showing ten locations for the fictional "SMART Vaccine Clinic". Since SMART Vaccine Clinics are offer only COVID-19 services, there is a single Schedule (the COVID-19 vaccination schedule) for each location. Each line provides details about a single schedule.
