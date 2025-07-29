@@ -1,3 +1,7 @@
+# 2025 Proposed Update
+
+This is currently a work-in-progress initiative to update the SMART Scheduling Links to be more generally applicable to FHIR scheduling, benefitting from the learnings from the COVID-19 vaccine era, and generalizing beyond mass vaccine scheduling.
+
 # SMART Scheduling Links
 *What if booking clinical appointments looked more like booking airline tickets?*
 
@@ -35,7 +39,7 @@ This specification defines four functional roles:
 
 * **Provider Booking Portal**: the UI service offered by a healthcare provider, enabling a user to book a selected slot. This is the place where provider-specific rules can be implemented, e.g. to ensure that patients booking a specialty appointment are appropriate candidates for that specialist's care. (In many implementations, this UI will be housed within a general-purpose provider-hosted patient portal.)
 
-*  **Slot Aggregator**: an API service offered by public health authorities or other third parties, aggregating data from multiple _Slot Publishers_ or from other healthcare provider APIs. _Slot Aggregators_ otherwise act in a similar capacity to _Slot Publishers_.
+*  **Slot Aggregator**: an API service offered by third parties, aggregating data from multiple _Slot Publishers_ or from other healthcare provider APIs. _Slot Aggregators_ otherwise act in a similar capacity to _Slot Publishers_.
 
 ## Is the UX good enough?
 
