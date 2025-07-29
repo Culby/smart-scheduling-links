@@ -5,34 +5,34 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 ## Goals for Slot Discovery
 
 * **Low implementation effort** -- publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
-* **Scales up and down** -- publishers can expose information about a few vaccination sites and a few slots, or large-scale programs such as nationwide pharmacies or mass vaccination sites
-* **Progressive enhancement** -- publishers can expose coarse-grained data like "we have 20 slots available today" or fine-grained data with specific timing for each slot
+* **Scales up and down** -- publishers can expose information about a individual providers with a few slots, or large-scale programs such as nationwide pharmacies or mass vaccination sites
+* **Progressive enhancement** -- publishers can expose coarse-grained data like "we have 20 slots available today" or fine-grained data with specific timing for each slot, and can expose slots for any relevant actor for Schedule
 * **Builds on standards** -- publishers expose data according to the FHIR standard, but don't need specific experience with FHIR to follow this guide
 
 ## Quick Start Guide
 
-A _Slot Publisher_ hosts not only appointment slots, but also Locations and Schedules associated with these slots:
+A _Slot Publisher_ hosts not only appointment slots, but also Locations, Practitioners, and Schedules associated with these slots:
 <img src="scheduling-er-diagram.png" alt="Scheduling ER Diagram"/>
 
-Concretely, a _Slot Publisher_ hosts four kinds of files:
+Concretely, a _Slot Publisher_ hosts five kinds of files:
 
 * **Bulk Publication Manifest**. The manifest is a JSON file serving as the entry point for slot discovery. It provides links that clients can follow to retrieve all the other files. The manifest is always hosted at a URL that ends with `$bulk-publish` (a convention used when publishing data sets using FHIR; this convention applies any time a potentially large data set needs to be statically published).
   * [Details on JSON structure](#manifest-file)
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish) showing a manifest for the fictional "SMART Medicine", a regional chain with twenty locations in Massachusetts, a mix of urgent care and primary care practices. 
-* **PractitionerRole Files**.  Each line contains a minified JSON object representing a specific practitioner's participation in a practice where appointments are available.
-  * [Details on JSON structure](#practitionerrole-file)
-  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerrole.ndjson) showing ten practitioners for the fictional "SMART Primary Care". Each line provides details about a single PracitionerRole (practitioner + practice + location union) in the MA area.
+* **Practitioner Files**.  Each line contains a minified JSON object representing a specific practitioner who provides healthcare services where appointments are available.
+  * [Details on JSON structure](#practitioner-file)
+  * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitioners.ndjson) showing ten practitioners for the fictional "SMART Primary Care". Each line provides details about a single Practitioner in the MA area.
 * **Location Files**.  Each line contains a minified JSON object representing a physical location where appointments are available.
   * [Details on JSON structure](#location-file)
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) showing ten locations for the fictional "SMART Urgent Care". Each line provides details about a single physical location in the MA area.
-* **Schedule Files**.  Each line contains a minified JSON object representing the calendar for a healthcare service offered at a specific location.
+* **Schedule Files**.  Each line contains a minified JSON object representing the calendar for a healthcare service offered at a specific location or by a specific practitioner.
   * [Details on JSON structure](#schedule-file)
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson) showing ten schedules schedules for "SMART Primary Care" and ten schedules for "SMART Urgent Care." Each line provides details about a single schedule.
 * **Slot Files**.  Each line contains a minified JSON object representing an appointment slot (busy or free) for a healthcare service at a specific location.
   * [Details on JSON structure](#slot-file)
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson) showing coarse-grained slots for a single week, across all twenty "SMART Medicine" sites. (_Note: The choice to break down slots into weekly files is arbitrary; the fictional Clinic could instead choose to host a single slot file, or produce location-specific files, or even group slots randomly._) Slots MAY include only coarse-grained timing (indicating they fall sometime beetween 9a and 6p ET, the clinic's fictional hours of operation). Ideally, Slot Publishers SHOULD provide finer-grained slot information with specific timing.
 
-A client queries the manifest on a regular basis, e.g. once every 1-5 minutes. The client iterates through the links in the manifest file to retrieve any PractitionerRole, Location, Schedule, or Slot files it is interested in. (Clients SHOULD ignore any output items with types other than PractitionerRole, Location, Schedule, or Slot.)
+A client queries the manifest on a regular basis, e.g. once every 1-5 minutes. The client iterates through the links in the manifest file to retrieve any Practitioner, Location, Schedule, or Slot files it is interested in. (Clients SHOULD ignore any output items with types other than Practitioner, Location, Schedule, or Slot.)
 
 ### Timestamps
 
@@ -75,10 +75,10 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
 
 | field name | type | description |
 |---|---|---|
-| `transactionTime`  | [timestamp](#timestamps) as string | the time when this data set was published. See [“timestamps”](#timestamps) for correct formatting. |
+| `transactionTime`  | [timestamp](#timestamps) as string | the time when this data set was published. See ["timestamps"](#timestamps) for correct formatting. |
 | `request` | url as string |  the full URL of the manifest |
 | `output` | array of JSON objects | each object contains a `type`, `url`, and `extension` field |
-| &nbsp;&nbsp;&rarr;&nbsp;`type` | string | whether this output item represents a `"PractitionerRole"`,`"Location"`, `"Schedule"`, or `"Slot"` file |
+| &nbsp;&nbsp;&rarr;&nbsp;`type` | string | whether this output item represents a `"Practitioner"`,`"Location"`, `"Schedule"`, or `"Slot"` file |
 | &nbsp;&nbsp;&rarr;&nbsp;`url` | url as string | the full URL of an NDJSON file for the specified type of data |
 | &nbsp;&nbsp;&rarr;&nbsp;`extension` | JSON object | contains tags to help a client decide which output files to download |
 | &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`state` | JSON array of strings | state or jurisdiction abbreviations (e.g., `["MA"]` for a file with data pertaining solely to Massachusetts) |
@@ -98,8 +98,8 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
       "url": "https://example.com/data/schedule_file_1.ndjson"
     },
         {
-      "type": "PractitionerRole",
-      "url": "https://example.com/data/practitionerrole_file_1.ndjson"
+      "type": "Practitioner",
+      "url": "https://example.com/data/practitioner_file_1.ndjson"
     },
     {
       "type": "Location",
@@ -190,93 +190,128 @@ Each `identifier` object includes a `system` and a `value`.
 ### Example Location File
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) 
 
-## PractitionerRole File
+## Practitioner File
 
-Each line of the PractitionerRole File is a minified JSON object that conveys information about a practitioner's role at a specific organization and location. The PractitionerRole resource represents the roles/locations/specialties/services that a practitioner may perform at an organization for a period of time.
+Each line of the Practitioner File is a minified JSON object that conveys information about a person who is directly or indirectly involved in the provisioning of healthcare. The Practitioner resource represents individuals who are engaged in the healthcare process and healthcare-related services as part of their formal responsibilities. According to the [FHIR R4 Practitioner definition](https://hl7.org/fhir/R4/practitioner.html), practitioners include (but are not limited to):
 
-Each PractitionerRole includes at least:
+* physicians, dentists, pharmacists
+* physician assistants, nurses, scribes
+* midwives, dietitians, therapists, optometrists, paramedics
+* medical technicians, laboratory scientists, prosthetic technicians, radiographers
+* social workers, professional homecare providers, official volunteers
+* receptionists handling patient registration
+* IT personnel merging or unmerging patient records
+* Service animal (e.g., ward assigned dog capable of detecting cancer in patients)
+
+Each Practitioner includes at least:
 
 | field name | type | required | description |
 | --- | --- | :---: | --- |
-| `resourceType` | string | Y | fixed value of `"PractitionerRole"` |
-| `id` | string | Y | unique identifier for this practitioner role (up to 64 alphanumeric characters and may include `-` and `.`) |
-| `practitioner` | JSON object | N | Reference to the practitioner who is able to provide the defined services for the organization |
-| &nbsp;&nbsp;&rarr;&nbsp;`reference` | string | N | the practitioner for this role formed as `Practitioner` + `/` + the practitioner's `id` (e.g., `"Practitioner/123"`) |
-| `organization` | JSON object | N | Reference to the organization where the roles are available |
-| &nbsp;&nbsp;&rarr;&nbsp;`reference` | string | N | the organization for this role formed as `Organization` + `/` + the organization's `id` (e.g., `"Organization/456"`) |
-| `location` | array of JSON objects | N | The location(s) at which this practitioner provides care |
-| &nbsp;&nbsp;&rarr;&nbsp;`reference` | string | N | the location where this practitioner provides care formed as `Location` + `/` + the `id` value of an entry in a Location File (e.g., `"Location/789"`) |
-| `code` | array of JSON objects | N | Roles which this practitioner may perform |
-| &nbsp;&nbsp;&rarr;&nbsp;`coding` | array of JSON objects | N | Coded representation of the role |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | The code system (e.g., `"http://snomed.info/sct"`) |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`code` | string | N | The role code |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`display` | string | N | Human-readable description of the role |
-| `specialty` | array of JSON objects | N | Specific specialty of the practitioner |
-| &nbsp;&nbsp;&rarr;&nbsp;`coding` | array of JSON objects | N | Coded representation of the specialty |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | The code system (e.g., `"http://snomed.info/sct"`) |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`code` | string | N | The specialty code |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`display` | string | N | Human-readable description of the specialty |
-| `telecom` | array of JSON objects | N | Contact details that are specific to the role/location/service |
+| `resourceType` | string | Y | fixed value of `"Practitioner"` |
+| `id` | string | Y | unique identifier for this practitioner (up to 64 alphanumeric characters and may include `-` and `.`) |
+| `identifier` | array of JSON objects | N | An identifier for the person as this agent |
+| `active` | boolean | N | Whether this practitioner's record is in active use |
+| `name` | array of JSON objects | N | The name(s) associated with the practitioner |
+| &nbsp;&nbsp;&rarr;&nbsp;`family` | string | N | Family name (often called 'Surname') |
+| &nbsp;&nbsp;&rarr;&nbsp;`given` | array of strings | N | Given names (not always 'first'). Includes middle names |
+| &nbsp;&nbsp;&rarr;&nbsp;`prefix` | array of strings | N | Parts that come before the name |
+| &nbsp;&nbsp;&rarr;&nbsp;`suffix` | array of strings | N | Parts that come after the name |
+| `telecom` | array of JSON objects | N | A contact detail for the practitioner (that apply to all roles) |
 | &nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | `"phone"`, `"email"`, or `"url"` |
-| &nbsp;&nbsp;&rarr;&nbsp;`value` | string | N | phone number, email address, or URL for this practitioner role |
-| `availableTime` | array of JSON objects | N | Times the practitioner is available |
-| &nbsp;&nbsp;&rarr;&nbsp;`daysOfWeek` | array of strings | N | Days of the week available (e.g., `["mon", "tue", "wed"]`) |
-| &nbsp;&nbsp;&rarr;&nbsp;`allDay` | boolean | N | Always available (e.g., 24 hour service) |
-| &nbsp;&nbsp;&rarr;&nbsp;`availableStartTime` | string | N | Opening time of day (ignored if allDay = true) |
-| &nbsp;&nbsp;&rarr;&nbsp;`availableEndTime` | string | N | Closing time of day (ignored if allDay = true) |
-| `notAvailable` | array of JSON objects | N | Not available during this time due to provided reason |
-| &nbsp;&nbsp;&rarr;&nbsp;`description` | string | Y | Reason presented to the user explaining why time not available |
-| &nbsp;&nbsp;&rarr;&nbsp;`during` | JSON object | N | Service not available from this date |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`start` | [timestamp](#timestamps) as string | N | Start of unavailable period |
-| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`end` | [timestamp](#timestamps) as string | N | End of unavailable period |
+| &nbsp;&nbsp;&rarr;&nbsp;`value` | string | N | phone number, email address, or URL for this practitioner |
+| `address` | array of JSON objects | N | Address(es) of the practitioner that are not role specific (typically home address) |
+| &nbsp;&nbsp;&rarr;&nbsp;`line` | array of strings | N | each string is line in the address |
+| &nbsp;&nbsp;&rarr;&nbsp;`city` | string | N | |
+| &nbsp;&nbsp;&rarr;&nbsp;`state` | string | N | |
+| &nbsp;&nbsp;&rarr;&nbsp;`postalCode` | string | N | |
+| &nbsp;&nbsp;&rarr;&nbsp;`district` | string | N | optional county |
+| `gender` | string | N | Administrative gender - the gender that the person is considered to have for administration and record keeping purposes. Values: `"male"`, `"female"`, `"other"`, or `"unknown"` |
+| `birthDate` | string | N | The date on which the practitioner was born (YYYY-MM-DD format) |
+| `photo` | array of JSON objects | N | Image of the person |
+| `qualification` | array of JSON objects | N | Certification, licenses, or training pertaining to the provision of care |
+| &nbsp;&nbsp;&rarr;&nbsp;`identifier` | array of JSON objects | N | An identifier for this qualification for the practitioner |
+| &nbsp;&nbsp;&rarr;&nbsp;`code` | JSON object | Y | Coded representation of the qualification |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`coding` | array of JSON objects | N | Coded representation of the qualification |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | The code system (e.g., `"http://snomed.info/sct"`) |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`code` | string | N | The qualification code |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`display` | string | N | Human-readable description of the qualification |
+| &nbsp;&nbsp;&rarr;&nbsp;`period` | JSON object | N | Period during which the qualification is valid |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`start` | [timestamp](#timestamps) as string | N | Start of qualification period |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`end` | [timestamp](#timestamps) as string | N | End of qualification period |
+| &nbsp;&nbsp;&rarr;&nbsp;`issuer` | JSON object | N | Organization that regulates and issues the qualification |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`reference` | string | N | Reference to the organization formed as `Organization` + `/` + the organization's `id` |
+| `communication` | array of JSON objects | N | A language the practitioner can use in patient communication |
+| &nbsp;&nbsp;&rarr;&nbsp;`coding` | array of JSON objects | N | Coded representation of the language |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`system` | string | N | The code system (e.g., `"urn:ietf:bcp:47"` for language codes) |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`code` | string | N | The language code |
+| &nbsp;&nbsp;&rarr;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;`display` | string | N | Human-readable description of the language |
 
-### Example `PractitionerRole`
+Each `identifier` object includes a `system` and a `value`. 
+
+* If a Practitioner is associated with organization-specific identifiers (such as employee numbers, license numbers, or NPI), publishers SHOULD include these. The `system` should be a URL that identifies the identifier system, preferably a page on the publisher's web site (e.g. `{"system": "https://healthsystem.example.com/practitioner-directory", "value": "EMP-123"}`)
+
+* If a Practitioner participates in external registry programs that assign practitioner identifiers (such as NPI numbers), publishers MAY include these identifiers using the appropriate system URL for the registry.
+
+* Additional identifiers: Any number of additional identifiers MAY be included. Each should populate `system` and `value` as appropriate, following FHIR identifier conventions.
+
+### Example `Practitioner`
 
 ```json
 {
-  "resourceType": "PractitionerRole",
-  "id": "pr-123",
-  "practitioner": {
-    "reference": "Practitioner/doc-smith"
-  },
-  "organization": {
-    "reference": "Organization/acme-health"
-  },
-  "location": [{
-    "reference": "Location/main-clinic"
+  "resourceType": "Practitioner",
+  "id": "doc-smith",
+  "identifier": [{
+    "system": "https://healthsystem.example.com/practitioner-directory",
+    "value": "EMP-12345"
+  }, {
+    "system": "http://hl7.org/fhir/sid/us-npi",
+    "value": "1234567890"
   }],
-  "code": [{
-    "coding": [{
-      "system": "http://snomed.info/sct",
-      "code": "309343006",
-      "display": "Physician"
-    }]
-  }],
-  "specialty": [{
-    "coding": [{
-      "system": "http://snomed.info/sct", 
-      "code": "394814009",
-      "display": "General practice"
-    }]
+  "active": true,
+  "name": [{
+    "family": "Smith",
+    "given": ["John", "Robert"],
+    "prefix": ["Dr."]
   }],
   "telecom": [{
     "system": "phone",
     "value": "555-123-4567"
+  }, {
+    "system": "email",
+    "value": "dr.smith@example.com"
   }],
-  "availableTime": [{
-    "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-    "availableStartTime": "09:00:00",
-    "availableEndTime": "17:00:00"
+  "gender": "male",
+  "qualification": [{
+    "code": {
+      "coding": [{
+        "system": "http://snomed.info/sct",
+        "code": "309343006",
+        "display": "Physician"
+      }]
+    },
+    "period": {
+      "start": "2010-01-01"
+    },
+    "issuer": {
+      "reference": "Organization/state-medical-board"
+    }
+  }],
+  "communication": [{
+    "coding": [{
+      "system": "urn:ietf:bcp:47",
+      "code": "en",
+      "display": "English"
+    }]
   }]
 }
 ```
 
-### Example PractitionerRole File
-  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson) 
+### Example Practitioner File
+  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitioners.ndjson) 
 
 ## Schedule File
 
-Each line of the Schedule File is a minified JSON object that conveys information about a Schedule to which slots are attached. The Schedule represents a particular healthcare service (e.g., primary care appointments, specialist consultations, or procedures) offered at a specific location.
+Each line of the Schedule File is a minified JSON object that conveys information about a Schedule to which slots are attached. The Schedule represents a particular healthcare service (e.g., primary care appointments, specialist consultations, or procedures) offered at a specific location or by a specific practitioner.
 
 Each Schedule includes at least:
 
@@ -285,7 +320,7 @@ Each Schedule includes at least:
 	<tr><td><code>resourceType</code></td><td>string</td><td>fixed value of <code>"Schedule"</code></td></tr>
 	<tr><td><code>id</code></td><td>string</td><td>a unique identifier for this schedule (up to 64 alphanumeric characters and may include <code>-</code> and <code>.</code>)</td></tr>
 	<tr><td><code>actor</code></td><td>array of JSON objects</td><td>References to the primary resource(s) that the schedule is providing availability for</td></tr>
-	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, PractitionerRole, or other resource. For location-based scheduling, use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>). For practitioner-based scheduling, use <code>PractitionerRole</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"PractitionerRole/dr-smith-cardiology"</code>)</td></tr>
+	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, Practitioner, or other resource. For location-based scheduling, use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>). For practitioner-based scheduling, use <code>Practitioner</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Practitioner/doc-smith"</code>)</td></tr>
 	<tr><td><code>serviceType</code></td><td>array of JSON objects</td><td>Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include:
 		<pre>[{
   "system": "http://terminology.hl7.org/CodeSystem/service-type",
@@ -308,7 +343,7 @@ Each Schedule object may optionally include extension JSON objects in the Schedu
 
 * **Service Category extensions**: Used to provide additional categorization of healthcare services beyond the standard serviceType codes. These can help clients filter and display services more effectively.
 
-* **Practitioner Role extensions**: Used to indicate specific practitioner roles or qualifications required for appointments on this schedule (e.g., board certifications, special training).
+* **Practitioner extensions**: Used to indicate specific practitioner qualifications or specializations required for appointments on this schedule (e.g., board certifications, special training).
 
 
 Extensions should follow FHIR extension conventions and use appropriate extension URLs. Implementers may define custom extensions as needed for their specific use cases, following FHIR extension guidelines.
