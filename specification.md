@@ -4,7 +4,7 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 
 ## Goals for Slot Discovery
 
-<img src="SchedulingArchitecture.draw.io.png" alt="Scheduling Arch"/>
+<img src="SchedulingArchitecture.draw.io.png" alt="Scheduling Architecture"/>
 
 
 * **Low implementation effort** -- publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
