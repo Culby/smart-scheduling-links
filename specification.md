@@ -195,6 +195,22 @@ Each `identifier` object includes a `system` and a `value`.
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) 
 
 
+## Practioner Role File
+| Field Name | Type | Required | Description |
+|-----------|------|----------|-------------|
+| identifier | Identifier | No | Business Identifiers specific to the role |
+| active | boolean | No | Whether this role is currently active |
+| period | Period | No | Time period during which the practitioner is performing this role |
+| practitioner | Reference(Practitioner) | No | Practitioner able to provide the defined services |
+| organization | Reference(Organization) | No | Organization where the role is available |
+| code | CodeableConcept | No | Roles which this practitioner may perform |
+| specialty | CodeableConcept | No | Specific specialty of the practitioner |
+| location | Reference(Location) | No | Location(s) where this role is available |
+| healthcareService | Reference(HealthcareService) | No | List of healthcare services the worker provides |
+| telecom | ContactPoint | No | Contact details specific to the role |
+| availableTime | BackboneElement | No | Times the service is available |
+| notAvailable | BackboneElement | No | Periods when the service is not available |
+| availabilityExceptions | string | No | Description of availability exceptions |
 ## Schedule File
 
 Each line of the Schedule File is a minified JSON object that conveys a information about a Schedule to which slots are attached. The Schedule represents a particular service (e.g., COVID-19 immunizations) offered at a specific location.
