@@ -196,21 +196,20 @@ Each `identifier` object includes a `system` and a `value`.
 
 
 ## Practioner Role File
-| Field Name | Type | Required | Description |
-|-----------|------|----------|-------------|
-| identifier | Identifier | No | Business Identifiers specific to the role |
-| active | boolean | No | Whether this role is currently active |
-| period | Period | No | Time period during which the practitioner is performing this role |
-| practitioner | Reference(Practitioner) | No | Practitioner able to provide the defined services |
-| organization | Reference(Organization) | No | Organization where the role is available |
-| code | CodeableConcept | No | Roles which this practitioner may perform |
-| specialty | CodeableConcept | No | Specific specialty of the practitioner |
-| location | Reference(Location) | No | Location(s) where this role is available |
-| healthcareService | Reference(HealthcareService) | No | List of healthcare services the worker provides |
-| telecom | ContactPoint | No | Contact details specific to the role |
-| availableTime | BackboneElement | No | Times the service is available |
-| notAvailable | BackboneElement | No | Periods when the service is not available |
-| availabilityExceptions | string | No | Description of availability exceptions |
+|-----------|------|-------------|
+| identifier | Identifier | Business Identifiers specific to the practitioner's role |
+| active | boolean | Indicates whether this practitioner role is currently active |
+| period | Period | Time period during which the practitioner is performing this specific role |
+| practitioner | Reference(Practitioner) | Reference to the specific practitioner who can provide the defined services |
+| organization | Reference(Organization) | Reference to the organization where the role is available |
+| code | CodeableConcept | Specific roles which the practitioner may perform |
+| specialty | CodeableConcept | Specialized area of practice or medical expertise |
+| location | Reference(Location) | Physical location(s) where the practitioner provides services |
+| healthcareService | Reference(HealthcareService) | List of healthcare services the practitioner offers |
+| telecom | ContactPoint | Contact details specific to this professional role |
+| availableTime | BackboneElement | Scheduled times when the practitioner's services are available |
+| notAvailable | BackboneElement | Periods when the practitioner is not available for service |
+| availabilityExceptions | string | Explanatory notes about any exceptions to standard availability |
 
 ### Example Practioner Role File
 	* Example [file] (https://..... see avov
