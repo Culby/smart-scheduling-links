@@ -57,8 +57,8 @@ const slot = (start: string, end: string, schedule: Resource) => ({
   ],
 });
 
-const schedule = (location: Resource, practitioner?: Resource) => {
-  const isPrimaryCare = parseInt(location.id) >= 10;
+const schedule = (location: Resource, locationIndex: number, practitionerRole?: Resource) => {
+  const isPrimaryCare = locationIndex >= 10;  // First 10 locations (0-9) are urgent care, next 10 (10-19) are primary care
   
   const baseSchedule: any = {
     resourceType: 'Schedule',
@@ -74,17 +74,22 @@ const schedule = (location: Resource, practitioner?: Resource) => {
         ],
       },
     ],
-    actor: [
-      {
-        reference: `Location/${location.id}`,
-      },
-    ],
+    actor: [],
   };
 
-  if (isPrimaryCare && practitioner) {
+  if (isPrimaryCare && practitionerRole) {
+    // When using PractitionerRole, only reference the role (location is within the role)
     baseSchedule.actor.push({
-      reference: `Practitioner/${practitioner.id}`,
+      reference: `PractitionerRole/${practitionerRole.id}`,
     });
+  } else {
+    // For urgent care (no practitioner role), reference the location directly
+    baseSchedule.actor.push({
+      reference: `Location/${location.id}`,
+    });
+  }
+
+  if (isPrimaryCare && practitionerRole) {
 
     const specialties = [
       { code: '419772000', display: 'General medicine' },
@@ -92,7 +97,7 @@ const schedule = (location: Resource, practitioner?: Resource) => {
       { code: '394586005', display: 'Gynecology' },
     ];
     
-    const specialtyIndex = parseInt(location.id) % 3;
+    const specialtyIndex = locationIndex % 3;
     
     baseSchedule.extension = [
       {
@@ -115,20 +120,16 @@ interface Resource {
   [key: string]: any;
 }
 
+// Base Practitioner resources (referenced by PractitionerRoles)
 const practitioners: Resource[] = [
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'dr-smith',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-001' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567890' }
     ],
     active: true,
     name: [{ family: 'Smith', given: ['John', 'Robert'], prefix: ['Dr.'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4567' },
-      { system: 'email', value: 'dr.smith@smartmedicine.example.com' }
-    ],
     gender: 'male',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '309343006', display: 'Physician' }] },
@@ -139,17 +140,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'dr-johnson',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-002' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567891' }
     ],
     active: true,
     name: [{ family: 'Johnson', given: ['Sarah', 'Marie'], prefix: ['Dr.'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4568' },
-      { system: 'email', value: 'dr.johnson@smartmedicine.example.com' }
-    ],
     gender: 'female',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '309343006', display: 'Physician' }] },
@@ -163,17 +159,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'dr-williams',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-003' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567892' }
     ],
     active: true,
     name: [{ family: 'Williams', given: ['Michael', 'David'], prefix: ['Dr.'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4569' },
-      { system: 'email', value: 'dr.williams@smartmedicine.example.com' }
-    ],
     gender: 'male',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '309343006', display: 'Physician' }] },
@@ -184,17 +175,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'nurse-brown',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-004' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567893' }
     ],
     active: true,
     name: [{ family: 'Brown', given: ['Jennifer', 'Lynn'], prefix: ['RN'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4570' },
-      { system: 'email', value: 'nurse.brown@smartmedicine.example.com' }
-    ],
     gender: 'female',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '224571006', display: 'Registered nurse' }] },
@@ -205,17 +191,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'dr-davis',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-005' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567894' }
     ],
     active: true,
     name: [{ family: 'Davis', given: ['Emily', 'Grace'], prefix: ['Dr.'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4571' },
-      { system: 'email', value: 'dr.davis@smartmedicine.example.com' }
-    ],
     gender: 'female',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '309343006', display: 'Physician' }] },
@@ -229,17 +210,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'pa-miller',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-006' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567895' }
     ],
     active: true,
     name: [{ family: 'Miller', given: ['Christopher', 'James'], prefix: ['PA'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4572' },
-      { system: 'email', value: 'pa.miller@smartmedicine.example.com' }
-    ],
     gender: 'male',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '223366009', display: 'Physician assistant' }] },
@@ -250,17 +226,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'dr-wilson',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-007' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567896' }
     ],
     active: true,
     name: [{ family: 'Wilson', given: ['Amanda', 'Rose'], prefix: ['Dr.'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4573' },
-      { system: 'email', value: 'dr.wilson@smartmedicine.example.com' }
-    ],
     gender: 'female',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '309343006', display: 'Physician' }] },
@@ -274,17 +245,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'nurse-moore',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-008' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567897' }
     ],
     active: true,
     name: [{ family: 'Moore', given: ['Robert', 'Thomas'], prefix: ['RN'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4574' },
-      { system: 'email', value: 'nurse.moore@smartmedicine.example.com' }
-    ],
     gender: 'male',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '224571006', display: 'Registered nurse' }] },
@@ -295,17 +261,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'dr-taylor',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-009' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567898' }
     ],
     active: true,
     name: [{ family: 'Taylor', given: ['Jessica', 'Ann'], prefix: ['Dr.'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4575' },
-      { system: 'email', value: 'dr.taylor@smartmedicine.example.com' }
-    ],
     gender: 'female',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '309343006', display: 'Physician' }] },
@@ -319,17 +280,12 @@ const practitioners: Resource[] = [
   },
   {
     resourceType: 'Practitioner',
-    id: resourceId(),
+    id: 'pa-anderson',
     identifier: [
-      { system: 'https://smartmedicine.example.com/practitioner-directory', value: 'EMP-010' },
       { system: 'http://hl7.org/fhir/sid/us-npi', value: '1234567899' }
     ],
     active: true,
     name: [{ family: 'Anderson', given: ['Lisa', 'Marie'], prefix: ['PA'] }],
-    telecom: [
-      { system: 'phone', value: '555-123-4576' },
-      { system: 'email', value: 'pa.anderson@smartmedicine.example.com' }
-    ],
     gender: 'female',
     qualification: [{
       code: { coding: [{ system: 'http://snomed.info/sct', code: '223366009', display: 'Physician assistant' }] },
@@ -337,6 +293,370 @@ const practitioners: Resource[] = [
       issuer: { reference: 'Organization/state-medical-board' }
     }],
     communication: [{ coding: [{ system: 'urn:ietf:bcp:47', code: 'en', display: 'English' }] }]
+  }
+];
+
+// PractitionerRole resources that reference the base practitioners
+const practitionerRoles: Resource[] = [
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-001' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/dr-smith',
+      display: 'Dr. John Robert Smith'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '158965000', display: 'Medical practitioner' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '419772000', display: 'Family practice' }]
+    }],
+    location: [{
+      reference: 'Location/10',
+      display: 'SMART Primary Care Boston'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4567' },
+      { system: 'email', value: 'dr.smith@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '09:00:00',
+      availableEndTime: '17:00:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-002' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/dr-johnson',
+      display: 'Dr. Sarah Marie Johnson'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '158965000', display: 'Medical practitioner' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '394582007', display: 'Dermatology' }]
+    }],
+    location: [{
+      reference: 'Location/11',
+      display: 'SMART Primary Care Worcester'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4568' },
+      { system: 'email', value: 'dr.johnson@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '08:00:00',
+      availableEndTime: '16:00:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-003' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/dr-williams',
+      display: 'Dr. Michael David Williams'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '158965000', display: 'Medical practitioner' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '394586005', display: 'Gynecology' }]
+    }],
+    location: [{
+      reference: 'Location/12',
+      display: 'SMART Primary Care Cambridge'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4569' },
+      { system: 'email', value: 'dr.williams@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '10:00:00',
+      availableEndTime: '18:00:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-004' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/nurse-brown',
+      display: 'RN Jennifer Lynn Brown'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '224535009', display: 'Registered nurse' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '408443003', display: 'General medical practice' }]
+    }],
+    location: [{
+      reference: 'Location/13',
+      display: 'SMART Primary Care Brockton'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4570' },
+      { system: 'email', value: 'nurse.brown@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '07:00:00',
+      availableEndTime: '15:00:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-005' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/dr-davis',
+      display: 'Dr. Emily Grace Davis'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '158965000', display: 'Medical practitioner' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '419772000', display: 'Family practice' }]
+    }],
+    location: [{
+      reference: 'Location/14',
+      display: 'SMART Primary Care Lynn'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4571' },
+      { system: 'email', value: 'dr.davis@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '09:00:00',
+      availableEndTime: '17:00:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-006' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/pa-miller',
+      display: 'PA Christopher James Miller'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '449161006', display: 'Physician assistant' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '408443003', display: 'General medical practice' }]
+    }],
+    location: [{
+      reference: 'Location/15',
+      display: 'SMART Primary Care Pittsfield'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4572' },
+      { system: 'email', value: 'pa.miller@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '08:30:00',
+      availableEndTime: '16:30:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-007' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/dr-wilson',
+      display: 'Dr. Amanda Rose Wilson'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '158965000', display: 'Medical practitioner' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '394582007', display: 'Dermatology' }]
+    }],
+    location: [{
+      reference: 'Location/16',
+      display: 'SMART Primary Care Newton'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4573' },
+      { system: 'email', value: 'dr.wilson@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '09:30:00',
+      availableEndTime: '17:30:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-008' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/nurse-moore',
+      display: 'RN Robert Thomas Moore'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '224535009', display: 'Registered nurse' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '408443003', display: 'General medical practice' }]
+    }],
+    location: [{
+      reference: 'Location/17',
+      display: 'SMART Primary Care Somerville'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4574' },
+      { system: 'email', value: 'nurse.moore@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '06:00:00',
+      availableEndTime: '14:00:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-009' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/dr-taylor',
+      display: 'Dr. Jessica Ann Taylor'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '158965000', display: 'Medical practitioner' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '394586005', display: 'Gynecology' }]
+    }],
+    location: [{
+      reference: 'Location/18',
+      display: 'SMART Primary Care Medford'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4575' },
+      { system: 'email', value: 'dr.taylor@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '08:00:00',
+      availableEndTime: '16:00:00'
+    }]
+  },
+  {
+    resourceType: 'PractitionerRole',
+    id: resourceId(),
+    identifier: [
+      { system: 'https://smartmedicine.example.com/practitioner-role-directory', value: 'ROLE-010' }
+    ],
+    active: true,
+    period: { start: '2020-01-01' },
+    practitioner: {
+      reference: 'Practitioner/pa-anderson',
+      display: 'PA Lisa Marie Anderson'
+    },
+    organization: {
+      reference: 'Organization/smart-medicine',
+      display: 'SMART Medicine'
+    },
+    code: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '449161006', display: 'Physician assistant' }]
+    }],
+    specialty: [{
+      coding: [{ system: 'http://snomed.info/sct', code: '408443003', display: 'General medical practice' }]
+    }],
+    location: [{
+      reference: 'Location/19',
+      display: 'SMART Primary Care Waltham'
+    }],
+    telecom: [
+      { system: 'phone', value: '555-123-4576' },
+      { system: 'email', value: 'pa.anderson@smartmedicine.example.com' }
+    ],
+    availableTime: [{
+      daysOfWeek: ['mon', 'tue', 'wed', 'thu', 'fri'],
+      availableStartTime: '07:30:00',
+      availableEndTime: '15:30:00'
+    }]
   }
 ];
 
@@ -736,8 +1056,8 @@ const createResources = () => {
   const currentDate = new Date(startDate);
 
   const schedules = locations.map((location, index) => {
-    const practitioner = index >= 10 ? practitioners[index - 10] : undefined;
-    return schedule(location, practitioner);
+    const practitionerRole = index >= 10 ? practitionerRoles[index - 10] : undefined;
+    return schedule(location, index, practitionerRole);
   });
   
   let slots: Resource[] = [];
@@ -771,8 +1091,8 @@ const createResources = () => {
         url: `${BASE_URL}schedules.ndjson`,
       },
       {
-        type: 'Practitioner',
-        url: `${BASE_URL}practitioners.ndjson`,
+        type: 'PractitionerRole',
+        url: `${BASE_URL}practitionerroles.ndjson`,
       },
     ],
     error: [],
@@ -782,6 +1102,7 @@ const createResources = () => {
     manifest,
     locations,
     practitioners,
+    practitionerRoles,
     slots,
     schedules,
   };
@@ -791,13 +1112,13 @@ async function generate(options: { outdir: string }) {
   const resources = createResources();
   const fileLocation = `locations.ndjson`;
   const fileSchedule = `schedules.ndjson`;
-  const filePractitioners = `practitioners.ndjson`;
+  const filePractitionerRoles = `practitionerroles.ndjson`;
   const fileSlot = (i: string) => `slots-${i}.ndjson`;
   const fileManifest = `$bulk-publish`;
 
   fs.writeFileSync(`${options.outdir}/${fileLocation}`, resources.locations.map((s) => JSON.stringify(s)).join('\n'));
   fs.writeFileSync(`${options.outdir}/${fileSchedule}`, resources.schedules.map((s) => JSON.stringify(s)).join('\n'));
-  fs.writeFileSync(`${options.outdir}/${filePractitioners}`, resources.practitioners.map((s) => JSON.stringify(s)).join('\n'));
+  fs.writeFileSync(`${options.outdir}/${filePractitionerRoles}`, resources.practitionerRoles.map((s) => JSON.stringify(s)).join('\n'));
 
   const slotsSplitMap = _.chain((resources.slots as unknown) as { start: string }[])
     .groupBy((s) => s.start.slice(0, 4) + '-W' + String(getWeek(new Date(s.start))).padStart(2, '0'))
