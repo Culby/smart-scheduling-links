@@ -35,15 +35,15 @@ const getWeek = function (d: Date) {
   return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7);
 };
 
-const slot = (start: string, end: string, schedule: Resource) => ({
+const slot = (start: string, end: string, schedule: Resource, useCoarseGrained = COARSE_GRAINED_SLOTS) => ({
   resourceType: 'Slot',
   id: resourceId(),
   schedule: {
     reference: `Schedule/${schedule.id}`,
   },
   status: 'free',
-  start: COARSE_GRAINED_SLOTS ? openingTime(start) : start,
-  end: COARSE_GRAINED_SLOTS ? closingTime(end) : end,
+  start: useCoarseGrained ? openingTime(start) : start,
+  end: useCoarseGrained ? closingTime(end) : end,
 
   extension: [
     {
@@ -1064,14 +1064,46 @@ const createResources = () => {
 
   while (currentDate <= endDate) {
     const clinicOpenTime = addMinutes(currentDate, 8 * 60);
-    const slotsForSchedules = schedules.flatMap((schedule) => {
+    const slotsForSchedules = schedules.flatMap((schedule, scheduleIndex) => {
       const ret: Resource[] = [];
-      for (let i = 0; i < 30; i++) {
-        const startTime = addMinutes(clinicOpenTime, i * VISIT_MINUTES);
-        const endTime = addMinutes(startTime, VISIT_MINUTES);
-        ret.push(slot(startTime.toISOString(), endTime.toISOString(), schedule));
-        if (COARSE_GRAINED_SLOTS) break;
+      const isPrimaryCare = scheduleIndex >= 10; // Primary care schedules have PractitionerRole actors
+      
+      if (isPrimaryCare) {
+        // For primary care: create individual appointment slots with 15 and 30 minute durations
+        // Start at a clean time (8:00 AM) for the current date
+        const cleanStartDate = new Date(currentDate);
+        cleanStartDate.setHours(8, 0, 0, 0); // Set to 8:00:00.000 AM
+        
+        const appointmentDurations = [15, 30]; // Mix of 15 and 30 minute appointments
+        const workingHours = 9; // 9 hours of operation (8 AM to 5 PM)
+        const totalMinutes = workingHours * 60;
+        
+        let currentMinute = 0;
+        let appointmentIndex = 0;
+        
+        while (currentMinute < totalMinutes) {
+          // Alternate between 15 and 30 minute appointments, with some variation
+          const durationIndex = appointmentIndex % 3 === 0 ? 1 : 0; // Every 3rd appointment is 30 min, others are 15 min
+          const duration = appointmentDurations[durationIndex];
+          
+          const startTime = addMinutes(cleanStartDate, currentMinute);
+          const endTime = addMinutes(startTime, duration);
+          
+          ret.push(slot(startTime.toISOString(), endTime.toISOString(), schedule, false)); // Use fine-grained slots for primary care
+          
+          currentMinute += duration;
+          appointmentIndex++;
+        }
+      } else {
+        // For urgent care: keep the existing coarse-grained approach
+        for (let i = 0; i < 30; i++) {
+          const startTime = addMinutes(clinicOpenTime, i * VISIT_MINUTES);
+          const endTime = addMinutes(startTime, VISIT_MINUTES);
+          ret.push(slot(startTime.toISOString(), endTime.toISOString(), schedule, true)); // Use coarse-grained slots for urgent care
+          if (COARSE_GRAINED_SLOTS) break;
+        }
       }
+      
       return ret;
     });
     slots = [...slots, ...slotsForSchedules];
