@@ -4,6 +4,9 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 
 ## Goals for Slot Discovery
 
+<img src="images/SchedulingArchitecture.draw.io.png" alt="Scheduling Architecture"/>
+
+
 * **Low implementation effort** -- publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
 * **Scales up and down** -- publishers can expose information about a individual providers with a few slots, or large-scale programs such as nationwide pharmacies or mass vaccination sites
 * **Progressive enhancement** -- publishers can expose coarse-grained data like "we have 20 slots available today" or fine-grained data with specific timing for each slot, and can expose slots for any relevant actor for Schedule
@@ -24,8 +27,10 @@ Concretely, a _Slot Publisher_ hosts five kinds of files:
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson) showing ten practitioner roles for the fictional "SMART Primary Care". Each line provides details about a single PractitionerRole in the MA area.
 * **Location Files**.  Each line contains a minified JSON object representing a physical location where appointments are available.
   * [Details on JSON structure](#location-file)
+
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) showing ten locations for the fictional "SMART Urgent Care". Each line provides details about a single physical location in the MA area.
 * **Schedule Files**.  Each line contains a minified JSON object representing the calendar for a healthcare service offered at a specific location or by a specific practitioner role.
+
   * [Details on JSON structure](#schedule-file)
   * [Example file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson) showing ten schedules schedules for "SMART Primary Care" and ten schedules for "SMART Urgent Care." Each line provides details about a single schedule.
 * **Slot Files**.  Each line contains a minified JSON object representing an appointment slot (busy or free) for a healthcare service at a specific location.
@@ -189,6 +194,7 @@ Each `identifier` object includes a `system` and a `value`.
 
 ### Example Location File
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) 
+
 
 ## PractitionerRole File
 
