@@ -27,7 +27,6 @@ interface ConversionResult {
 const URLs = {
   bookingLink: 'http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link',
   bookingPhone: 'http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone',
-  slotCapacity: 'http://fhir-registry.smarthealthit.org/StructureDefinition/slot-capacity',
   serviceTypeDetailed: 'http://fhir-registry.smarthealthit.org/CodeSystem/service-type',
   serviceType: 'http://terminology.hl7.org/CodeSystem/service-type',
   vtrcks: 'https://cdc.gov/vaccines/programs/vtrcks',
@@ -96,14 +95,12 @@ const convertLocation = (inputLocation: typeof example[number], context: Convers
         extension: [
           { url: URLs.bookingLink, valueUrl: inputLocation.contact.booking_url },
           { url: URLs.bookingPhone, valueString: inputLocation.contact.booking_phone },
-          { url: URLs.slotCapacity, valueInteger: availDay.available_slots },
         ],
       },
       {
         ...slotShape,
         id: `${slotShape.id}b`,
         status: 'busy',
-        extension: [{ url: URLs.slotCapacity, valueInteger: availDay.total_slots - availDay.available_slots }],
       },
     ];
   });
