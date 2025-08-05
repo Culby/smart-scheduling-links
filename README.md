@@ -41,23 +41,26 @@ This specification defines four functional roles:
 
 *  **Slot Aggregator**: an API service offered by third parties, aggregating data from multiple _Slot Publishers_ or from other healthcare provider APIs. _Slot Aggregators_ otherwise act in a similar capacity to _Slot Publishers_ but are not themselves authoritative sources.
 
-## Is the UX good enough?
+## UX Limitations
 
 Examining the SMART Scheduling Links workflow described above, there are some potential user-experience challenges:
 
 * After the hand-off from a Slot Discovery Client into a healthcare provider's system, the user might have to sign
 into the healthcare provider's system, or create a new account; and might have to answer all sorts of
-provider-specific questions in order to complete a booking.
+provider-specific questions in order to complete a booking.  
 
 * Appointment slot data might become stale, so that by the time a patient signs into the provider's system, the slot is already taken.
    
 * Once an appointment booking is completed, the Slot Discovery Client might not have an easy way to learn about
 the details of the booking (e.g., was it successful; what is the specific location and timing).
 
-In other words, compared with a deeply-integrated scheduling paradigm where a booking tool could guide the user through every step of the process, SMART Scheduling Links provides a more loosely-coupled user experience. But we have strong evidence that this is a viable UX trade-off, because it works just like a very familiar and highly successful booking system...
+To gain traction and allign with existing efforts we seek to start with SMART scheduling tooling.  This will allow for a methodology for patients to view available appoitnments across EHRs.  Future versions of this IG will seek to build a end-to-end experience where booking is done via API and will maintain client APP experiences.  SMART Scheduling Links provides a more loosely-coupled user experience. But we have strong evidence that this is a viable UX trade-off, because it works just like a very familiar and highly successful booking system.  
 
 ## Analogy: airline booking
 
 Cross-industry standards analogies can sometimes be misleading -- but to build up an intuition, it's worth comparing the SMART Scheduling Links workflow with the consumer airline booking experience. Briefly: the Slot Discovery Client plays the same role as a travel booking tool like KAYAK or Hipmunk. These systems help their users search for relevant options across multiple service providers, and help users evaluate trade-offs among these options. Once the user makes a selection, a deep link takes them to a service provider to complete the workflow. The Provider Booking Portal plays the same role as an airline like United or Delta. These systems manage user accounts and enable a booking-completion workflow. They also serve as gatekeepers, e.g. to collect data about a user's background as well as identifiers such as a Known Traveler Number or redress number. They can "call off" the workflow at any point (e.g., if a user is unable to provide the required information, or if a previously-available slot has been booked by another user).
+
+## Calendy Like control
+Another useful exemplar is calendy or a similar booking service.  These tools allow users to remove the friction of the back and forth emailing to book an appoitment.  The end user exposes their calendary when and how they want while controling their calander they are able to publish their different types of appointments to a user via a simple scheduling tool that uses a simple url and booking expereince.  This tools saves the calender owner and end user the task of endless emails back and worth to make an appoitment.  
 
 This pattern works well in airline booking, and could dramatically reduce the difficulty of healthcare appointment booking.
