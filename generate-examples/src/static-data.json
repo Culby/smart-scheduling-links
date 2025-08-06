@@ -178,7 +178,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-001",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-001" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-001" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567890" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -214,7 +215,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-002",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-002" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-002" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567891" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -250,7 +252,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-003",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-003" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-003" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567892" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -286,7 +289,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-004",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-004" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-004" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567893" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -322,7 +326,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-005",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-005" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-005" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567894" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -358,7 +363,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-006",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-006" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-006" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567895" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -394,7 +400,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-007",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-007" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-007" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567896" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -430,7 +437,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-008",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-008" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-008" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567897" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -466,7 +474,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-009",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-009" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-009" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567898" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
@@ -502,7 +511,8 @@
       "resourceType": "PractitionerRole",
       "id": "role-010",
       "identifier": [
-        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-010" }
+        { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-010" },
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567899" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
