@@ -1,6 +1,6 @@
 # 2025 Proposed Update
 
-This is currently a work-in-progress initiative to update the SMART Scheduling Links to be more generally applicable to FHIR scheduling, benefitting from the learnings from the COVID-19 vaccine era, and generalizing beyond mass vaccine scheduling.
+This is currently a work-in-progress initiative to update the SMART Scheduling Links to be more generally applicable to patient scheduling using a FHIR standards based approach to scheduling, benefitting from the learnings from the COVID-19 vaccine era, and generalizing beyond mass vaccine scheduling.
 
 # SMART Scheduling Links
 *What if booking clinical appointments looked more like booking airline tickets?*
