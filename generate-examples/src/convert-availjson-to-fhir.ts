@@ -73,7 +73,7 @@ const convertLocation = (inputLocation: typeof example[number], context: Convers
         ],
       },
     ],
-    actor: [{ reference: `Location/${location.id}` }],
+    actor: [{ reference: `Location/${location.id}`, display: location.name }],
   };
 
   const slots = inputLocation.availability.flatMap((availDay) => {

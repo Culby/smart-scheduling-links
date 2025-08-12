@@ -82,11 +82,13 @@ const schedule = (location: Resource, locationIndex: number, practitionerRole?: 
     // When using PractitionerRole, only reference the role (location is within the role)
     baseSchedule.actor.push({
       reference: `PractitionerRole/${practitionerRole.id}`,
+      display: practitionerRole.practitioner?.display ?? undefined,
     });
   } else {
     // For urgent care (no practitioner role), reference the location directly
     baseSchedule.actor.push({
       reference: `Location/${location.id}`,
+      display: location.name,
     });
   }
 
