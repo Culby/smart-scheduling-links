@@ -1,12 +1,12 @@
 # 2025 Proposed Update
 
-This is currently a work-in-progress initiative to update the SMART Scheduling Links to be more generally applicable to patient scheduling using a FHIR standards based approach to scheduling, benefitting from the learnings from the COVID-19 vaccine era, and generalizing beyond mass vaccine scheduling.
+This is currently a work-in-progress initiative to update the SMART Scheduling Links to be more generally applicable to patient scheduling using a FHIR standards-based approach to scheduling, benefiting from the learnings from the COVID-19 vaccine era, and generalizing beyond mass vaccine scheduling.
 
 # SMART Scheduling Links
 *What if booking clinical appointments looked more like booking airline tickets?*
 
 * See [specification.md](specification.md) for API requirements and details
-* See [publisher-advertising.md](publisher-advertising.md) for information on publicising bulk publisher endpoints.
+* See [publisher-advertising.md](publisher-advertising.md) for information on publicizing bulk publisher endpoints.
 * Chat with us at [#smart/scheduling-links on chat.fhir.org](https://chat.fhir.org/#narrow/stream/281612-smart.2Fscheduling-links)
 
 |Status|
@@ -54,13 +54,17 @@ provider-specific questions in order to complete a booking.
 * Once an appointment booking is completed, the Slot Discovery Client might not have an easy way to learn about
 the details of the booking (e.g., was it successful; what is the specific location and timing).
 
-To gain traction and allign with existing efforts we seek to start with SMART scheduling tooling.  This will allow for a methodology for patients to view available appoitnments across EHRs.  Future versions of this IG will seek to build a end-to-end experience where booking is done via API and will maintain client APP experiences.  SMART Scheduling Links provides a more loosely-coupled user experience. But we have strong evidence that this is a viable UX trade-off, because it works just like a very familiar and highly successful booking system.  
+To gain traction and align with existing efforts, we seek to start with SMART scheduling tooling. This will allow for a methodology for patients to view available appointments across EHRs. Future versions of this IG will build an end-to-end experience where booking is done via API while maintaining client app experiences. SMART Scheduling Links provides a more loosely coupled user experience. But we have strong evidence that this is a viable UX trade-off, because it works just like a very familiar and highly successful booking system.
 
-## Analogy: airline booking
+## Discovery Analogy: airline booking
 
 Cross-industry standards analogies can sometimes be misleading -- but to build up an intuition, it's worth comparing the SMART Scheduling Links workflow with the consumer airline booking experience. Briefly: the Slot Discovery Client plays the same role as a travel booking tool like KAYAK or Hipmunk. These systems help their users search for relevant options across multiple service providers, and help users evaluate trade-offs among these options. Once the user makes a selection, a deep link takes them to a service provider to complete the workflow. The Provider Booking Portal plays the same role as an airline like United or Delta. These systems manage user accounts and enable a booking-completion workflow. They also serve as gatekeepers, e.g. to collect data about a user's background as well as identifiers such as a Known Traveler Number or redress number. They can "call off" the workflow at any point (e.g., if a user is unable to provide the required information, or if a previously-available slot has been booked by another user).  This pattern works well in airline booking, and could dramatically reduce the difficulty of healthcare appointment booking.
 
-## Calendy Like control
-Another useful exemplar is Calendy, Microsoft Bookings or a similar booking service.  These tools allow users to remove the friction of the back and forth emailing to book an appoitment.  The end user exposes their calendar when and how they want while controling what slots are exposed via a user via a simple scheduling tool that uses a simple url and booking expereince.  These tools saves the calender owner and end user the task of endless emails back and worth to make an appoitment while allowing the calander owner to preserve the when, where and what types of appoitments they want to expose.
+## Publisher Analogy: Calendly-like control
 
+Another useful exemplar is Calendly, Microsoft Bookings, or a similar booking service. These tools remove the friction of back-and-forth emails to book an appointment. The end user exposes their calendar when and how they want while controlling what slots are exposed via a simple URL and booking experience. These tools save the calendar owner and end user the task of endless back-and-forth emails to make an appointment, while allowing the calendar owner to preserve the when, where, and what types of appointments they want to expose.
+
+## Distribution Analogy: Reserve with Google
+
+A directory of published, bookable slots might find itself in a situation where multiple publishers are advertising slots for the same provider or group of providers. Rather than advocating for tiebreaking or proposing a prioritization scheme, there's another analogy we lean on: [Reserve with Google](https://www.google.com/maps/reserve/partners). Similar to how a restaurant may participate in multiple food delivery apps, all of which are legitimate pathways to ordering food, a medical practice may participate in online booking via their EHR, their patient engagement software, or online marketplaces. This gives patients seeking care options to not only select the provider with the best fit, but to choose among options for the booking and patient engagement experience.
 
