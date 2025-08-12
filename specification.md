@@ -366,7 +366,6 @@ Schedules can reference multiple actors in the `actor` array to provide more spe
   - Multi-location practices where practitioner roles work at different sites
   - Specialty clinics where specific practitioner roles provide services at designated locations
   - Healthcare systems where practitioner role schedules vary by location
-TODO: add clarity and consistency around prac/role/loc
 
 When multiple actors are specified, all referenced resources apply to the schedule and its associated slots.
 
