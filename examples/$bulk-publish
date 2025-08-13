@@ -1,5 +1,5 @@
 {
-  "transactionTime": "2025-08-12T20:25:29.027Z",
+  "transactionTime": "2025-08-13T18:43:44.904Z",
   "request": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish",
   "output": [
     {
@@ -16,7 +16,7 @@
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2025-W41.ndjson",
+      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2025-W42.ndjson",
       "extension": {
         "state": [
           "MA"
@@ -25,7 +25,7 @@
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2025-W42.ndjson",
+      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2025-W41.ndjson",
       "extension": {
         "state": [
           "MA"
