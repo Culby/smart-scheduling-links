@@ -101,25 +101,33 @@ const schedule = (location: Resource, locationIndex: number, practitionerRole?: 
   }
 
   if (isPrimaryCare && practitionerRole) {
-
-    const specialties = [
-      { code: '419772000', display: 'General medicine' },
-      { code: '394582007', display: 'Dermatology' },
-      { code: '394586005', display: 'Gynecology' },
-    ];
-    
-    const specialtyIndex = locationIndex % 3;
-    
-    baseSchedule.extension = [
-      {
-        url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/specialty',
-        valueCoding: {
-          system: 'http://snomed.info/sct',
-          code: specialties[specialtyIndex].code,
-          display: specialties[specialtyIndex].display,
-        }
-      }
-    ];
+    // Prefer specialty from PractitionerRole if available; fall back to legacy rotation
+    const roleSpecialty = practitionerRole.specialty?.[0]?.coding?.[0];
+    if (roleSpecialty) {
+      baseSchedule.extension = [
+        {
+          url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/specialty',
+          valueCoding: roleSpecialty,
+        },
+      ];
+    } else {
+      const specialties = [
+        { code: '419772000', display: 'Family practice' },
+        { code: '394582007', display: 'Dermatology' },
+        { code: '394586005', display: 'Gynecology' },
+      ];
+      const specialtyIndex = locationIndex % 3;
+      baseSchedule.extension = [
+        {
+          url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/specialty',
+          valueCoding: {
+            system: 'http://snomed.info/sct',
+            code: specialties[specialtyIndex].code,
+            display: specialties[specialtyIndex].display,
+          },
+        },
+      ];
+    }
   }
 
   return baseSchedule;
