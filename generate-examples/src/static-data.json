@@ -2,175 +2,143 @@
   "practitioners": [
     {
       "resourceType": "Practitioner",
-      "id": "dr-smith",
+      "id": "daniel-michael-peraza",
       "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567890" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1073635355" }
       ],
       "active": true,
-      "name": [{ "family": "Smith", "given": ["John", "Robert"], "prefix": ["Dr."] }],
-      "gender": "male",
+      "name": [{ "family": "Peraza", "given": ["Daniel", "Michael"], "prefix": ["Dr."] }],
+      "gender": "unknown",
       "qualification": [{
         "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
-        "period": { "start": "2010-01-01" },
         "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [{ "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] }]
+      }]
     },
     {
       "resourceType": "Practitioner",
-      "id": "dr-johnson",
+      "id": "anjan-k-chaudhury",
       "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567891" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1477500262" }
       ],
       "active": true,
-      "name": [{ "family": "Johnson", "given": ["Sarah", "Marie"], "prefix": ["Dr."] }],
-      "gender": "female",
+      "name": [{ "family": "Chaudhury", "given": ["Anjan", "K"], "prefix": ["Dr."] }],
+      "gender": "unknown",
       "qualification": [{
         "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
-        "period": { "start": "2012-03-15" },
         "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] },
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "es", "display": "Spanish" }] }
-      ]
+      }]
     },
     {
       "resourceType": "Practitioner",
-      "id": "dr-williams",
+      "id": "maria-dalomba",
       "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567892" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1548704828" }
       ],
       "active": true,
-      "name": [{ "family": "Williams", "given": ["Michael", "David"], "prefix": ["Dr."] }],
-      "gender": "male",
-      "qualification": [{
-        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
-        "period": { "start": "2008-07-01" },
-        "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [{ "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] }]
-    },
-    {
-      "resourceType": "Practitioner",
-      "id": "nurse-brown",
-      "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567893" }
-      ],
-      "active": true,
-      "name": [{ "family": "Brown", "given": ["Jennifer", "Lynn"], "prefix": ["RN"] }],
-      "gender": "female",
+      "name": [{ "family": "Dalomba", "given": ["Maria"], "prefix": ["NP"] }],
+      "gender": "unknown",
       "qualification": [{
         "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "224571006", "display": "Registered nurse" }] },
-        "period": { "start": "2015-09-01" },
         "issuer": { "reference": "Organization/state-nursing-board" }
-      }],
-      "communication": [{ "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] }]
+      }]
     },
     {
       "resourceType": "Practitioner",
-      "id": "dr-davis",
+      "id": "olivia-lin-alpert",
       "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567894" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1447733894" }
       ],
       "active": true,
-      "name": [{ "family": "Davis", "given": ["Emily", "Grace"], "prefix": ["Dr."] }],
-      "gender": "female",
-      "qualification": [{
-        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
-        "period": { "start": "2014-11-01" },
-        "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] },
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "fr", "display": "French" }] }
-      ]
-    },
-    {
-      "resourceType": "Practitioner",
-      "id": "pa-miller",
-      "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567895" }
-      ],
-      "active": true,
-      "name": [{ "family": "Miller", "given": ["Christopher", "James"], "prefix": ["PA"] }],
-      "gender": "male",
+      "name": [{ "family": "Alpert", "given": ["Olivia", "Lin"], "prefix": ["PA"] }],
+      "gender": "unknown",
       "qualification": [{
         "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "223366009", "display": "Physician assistant" }] },
-        "period": { "start": "2017-06-01" },
         "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [{ "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] }]
+      }]
     },
     {
       "resourceType": "Practitioner",
-      "id": "dr-wilson",
+      "id": "jezwah-e-harris",
       "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567896" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1609502657" }
       ],
       "active": true,
-      "name": [{ "family": "Wilson", "given": ["Amanda", "Rose"], "prefix": ["Dr."] }],
-      "gender": "female",
-      "qualification": [{
-        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
-        "period": { "start": "2011-08-15" },
-        "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] },
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "pt", "display": "Portuguese" }] }
-      ]
-    },
-    {
-      "resourceType": "Practitioner",
-      "id": "nurse-moore",
-      "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567897" }
-      ],
-      "active": true,
-      "name": [{ "family": "Moore", "given": ["Robert", "Thomas"], "prefix": ["RN"] }],
-      "gender": "male",
+      "name": [{ "family": "Harris", "given": ["Jezwah", "E"], "prefix": ["NP"] }],
+      "gender": "unknown",
       "qualification": [{
         "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "224571006", "display": "Registered nurse" }] },
-        "period": { "start": "2016-03-01" },
         "issuer": { "reference": "Organization/state-nursing-board" }
-      }],
-      "communication": [{ "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] }]
+      }]
     },
     {
       "resourceType": "Practitioner",
-      "id": "dr-taylor",
+      "id": "mohammed-a-jaleel",
       "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567898" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1568425346" }
       ],
       "active": true,
-      "name": [{ "family": "Taylor", "given": ["Jessica", "Ann"], "prefix": ["Dr."] }],
-      "gender": "female",
+      "name": [{ "family": "Jaleel", "given": ["Mohammed", "A"], "prefix": ["Dr."] }],
+      "gender": "unknown",
       "qualification": [{
         "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
-        "period": { "start": "2013-12-01" },
         "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] },
-        { "coding": [{ "system": "urn:ietf:bcp:47", "code": "zh", "display": "Chinese" }] }
-      ]
+      }]
     },
     {
       "resourceType": "Practitioner",
-      "id": "pa-anderson",
+      "id": "manjunath-govindaiah",
       "identifier": [
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567899" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1104298918" }
       ],
       "active": true,
-      "name": [{ "family": "Anderson", "given": ["Lisa", "Marie"], "prefix": ["PA"] }],
-      "gender": "female",
+      "name": [{ "family": "Govindaiah", "given": ["Manjunath"], "prefix": ["Dr."] }],
+      "gender": "unknown",
+      "qualification": [{
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
+        "issuer": { "reference": "Organization/state-medical-board" }
+      }]
+    },
+    {
+      "resourceType": "Practitioner",
+      "id": "pamela-m-schwedler",
+      "identifier": [
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1902991797" }
+      ],
+      "active": true,
+      "name": [{ "family": "Schwedler", "given": ["Pamela", "M"], "prefix": ["NP"] }],
+      "gender": "unknown",
+      "qualification": [{
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "224571006", "display": "Registered nurse" }] },
+        "issuer": { "reference": "Organization/state-nursing-board" }
+      }]
+    },
+    {
+      "resourceType": "Practitioner",
+      "id": "inna-wegner",
+      "identifier": [
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1023533213" }
+      ],
+      "active": true,
+      "name": [{ "family": "Wegner", "given": ["Inna"], "prefix": ["PA"] }],
+      "gender": "unknown",
       "qualification": [{
         "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "223366009", "display": "Physician assistant" }] },
-        "period": { "start": "2018-01-15" },
         "issuer": { "reference": "Organization/state-medical-board" }
-      }],
-      "communication": [{ "coding": [{ "system": "urn:ietf:bcp:47", "code": "en", "display": "English" }] }]
+      }]
+    },
+    {
+      "resourceType": "Practitioner",
+      "id": "laurel-a-bauer",
+      "identifier": [
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1174555155" }
+      ],
+      "active": true,
+      "name": [{ "family": "Bauer", "given": ["Laurel", "A"], "prefix": ["Dr."] }],
+      "gender": "unknown",
+      "qualification": [{
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "309343006", "display": "Physician" }] },
+        "issuer": { "reference": "Organization/state-medical-board" }
+      }]
     }
   ],
   "practitionerRoles": [
@@ -179,370 +147,190 @@
       "id": "role-001",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-001" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567890" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1073635355" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/dr-smith",
-        "display": "Dr. John Robert Smith"
+        "reference": "Practitioner/daniel-michael-peraza",
+        "display": "Dr. Daniel Michael Peraza"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "419772000", "display": "Family practice" }]
-      }],
-      "location": [{
-        "reference": "Location/10",
-        "display": "SMART Primary Care Boston"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4567" },
-        { "system": "email", "value": "dr.smith@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "09:00:00",
-        "availableEndTime": "17:00:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "394582007", "display": "Dermatology" }] }],
+      "location": [{ "reference": "Location/10", "display": "SMART Primary Care Boston" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4567" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-002",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-002" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567891" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1477500262" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/dr-johnson",
-        "display": "Dr. Sarah Marie Johnson"
+        "reference": "Practitioner/anjan-k-chaudhury",
+        "display": "Dr. Anjan K Chaudhury"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "394582007", "display": "Dermatology" }]
-      }],
-      "location": [{
-        "reference": "Location/11",
-        "display": "SMART Primary Care Worcester"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4568" },
-        { "system": "email", "value": "dr.johnson@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "08:00:00",
-        "availableEndTime": "16:00:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "394586005", "display": "Gynecology" }] }],
+      "location": [{ "reference": "Location/11", "display": "SMART Primary Care Worcester" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4568" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-003",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-003" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567892" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1548704828" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/dr-williams",
-        "display": "Dr. Michael David Williams"
+        "reference": "Practitioner/maria-dalomba",
+        "display": "NP Maria Dalomba"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "394586005", "display": "Gynecology" }]
-      }],
-      "location": [{
-        "reference": "Location/12",
-        "display": "SMART Primary Care Cambridge"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4569" },
-        { "system": "email", "value": "dr.williams@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "10:00:00",
-        "availableEndTime": "18:00:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "224535009", "display": "Registered nurse" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "419772000", "display": "Family practice" }] }],
+      "location": [{ "reference": "Location/12", "display": "SMART Primary Care Cambridge" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4569" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-004",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-004" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567893" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1447733894" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/nurse-brown",
-        "display": "RN Jennifer Lynn Brown"
+        "reference": "Practitioner/olivia-lin-alpert",
+        "display": "PA Olivia Lin Alpert"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "224535009", "display": "Registered nurse" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }]
-      }],
-      "location": [{
-        "reference": "Location/13",
-        "display": "SMART Primary Care Brockton"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4570" },
-        { "system": "email", "value": "nurse.brown@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "07:00:00",
-        "availableEndTime": "15:00:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "449161006", "display": "Physician assistant" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }] }],
+      "location": [{ "reference": "Location/13", "display": "SMART Primary Care Brockton" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4570" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-005",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-005" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567894" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1609502657" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/dr-davis",
-        "display": "Dr. Emily Grace Davis"
+        "reference": "Practitioner/jezwah-e-harris",
+        "display": "NP Jezwah E Harris"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "419772000", "display": "Family practice" }]
-      }],
-      "location": [{
-        "reference": "Location/14",
-        "display": "SMART Primary Care Lynn"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4571" },
-        { "system": "email", "value": "dr.davis@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "09:00:00",
-        "availableEndTime": "17:00:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "224535009", "display": "Registered nurse" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }] }],
+      "location": [{ "reference": "Location/14", "display": "SMART Primary Care Lynn" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4571" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-006",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-006" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567895" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1568425346" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/pa-miller",
-        "display": "PA Christopher James Miller"
+        "reference": "Practitioner/mohammed-a-jaleel",
+        "display": "Dr. Mohammed A Jaleel"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "449161006", "display": "Physician assistant" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }]
-      }],
-      "location": [{
-        "reference": "Location/15",
-        "display": "SMART Primary Care Pittsfield"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4572" },
-        { "system": "email", "value": "pa.miller@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "08:30:00",
-        "availableEndTime": "16:30:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "419192003", "display": "Internal medicine" }] }],
+      "location": [{ "reference": "Location/15", "display": "SMART Primary Care Pittsfield" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4572" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-007",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-007" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567896" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1104298918" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/dr-wilson",
-        "display": "Dr. Amanda Rose Wilson"
+        "reference": "Practitioner/manjunath-govindaiah",
+        "display": "Dr. Manjunath Govindaiah"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "394582007", "display": "Dermatology" }]
-      }],
-      "location": [{
-        "reference": "Location/16",
-        "display": "SMART Primary Care Newton"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4573" },
-        { "system": "email", "value": "dr.wilson@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "09:30:00",
-        "availableEndTime": "17:30:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "419192003", "display": "Internal medicine" }] }],
+      "location": [{ "reference": "Location/16", "display": "SMART Primary Care Newton" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4573" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-008",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-008" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567897" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1902991797" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/nurse-moore",
-        "display": "RN Robert Thomas Moore"
+        "reference": "Practitioner/pamela-m-schwedler",
+        "display": "NP Pamela M Schwedler"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "224535009", "display": "Registered nurse" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }]
-      }],
-      "location": [{
-        "reference": "Location/17",
-        "display": "SMART Primary Care Somerville"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4574" },
-        { "system": "email", "value": "nurse.moore@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "06:00:00",
-        "availableEndTime": "14:00:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "224535009", "display": "Registered nurse" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }] }],
+      "location": [{ "reference": "Location/17", "display": "SMART Primary Care Somerville" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4574" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-009",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-009" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567898" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1023533213" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/dr-taylor",
-        "display": "Dr. Jessica Ann Taylor"
+        "reference": "Practitioner/inna-wegner",
+        "display": "PA Inna Wegner"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "394586005", "display": "Gynecology" }]
-      }],
-      "location": [{
-        "reference": "Location/18",
-        "display": "SMART Primary Care Medford"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4575" },
-        { "system": "email", "value": "dr.taylor@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "08:00:00",
-        "availableEndTime": "16:00:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "449161006", "display": "Physician assistant" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }] }],
+      "location": [{ "reference": "Location/18", "display": "SMART Primary Care Medford" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4575" } ]
     },
     {
       "resourceType": "PractitionerRole",
       "id": "role-010",
       "identifier": [
         { "system": "https://smartmedicine.example.com/practitioner-role-directory", "value": "ROLE-010" },
-        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567899" }
+        { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1174555155" }
       ],
       "active": true,
       "period": { "start": "2020-01-01" },
       "practitioner": {
-        "reference": "Practitioner/pa-anderson",
-        "display": "PA Lisa Marie Anderson"
+        "reference": "Practitioner/laurel-a-bauer",
+        "display": "Dr. Laurel A Bauer"
       },
-      "organization": {
-        "reference": "Organization/smart-medicine",
-        "display": "SMART Medicine"
-      },
-      "code": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "449161006", "display": "Physician assistant" }]
-      }],
-      "specialty": [{
-        "coding": [{ "system": "http://snomed.info/sct", "code": "408443003", "display": "General medical practice" }]
-      }],
-      "location": [{
-        "reference": "Location/19",
-        "display": "SMART Primary Care Waltham"
-      }],
-      "telecom": [
-        { "system": "phone", "value": "555-123-4576" },
-        { "system": "email", "value": "pa.anderson@smartmedicine.example.com" }
-      ],
-      "availableTime": [{
-        "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-        "availableStartTime": "07:30:00",
-        "availableEndTime": "15:30:00"
-      }]
+      "organization": { "reference": "Organization/smart-medicine", "display": "SMART Medicine" },
+      "code": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "158965000", "display": "Medical practitioner" }] }],
+      "specialty": [{ "coding": [{ "system": "http://snomed.info/sct", "code": "394586005", "display": "Gynecology" }] }],
+      "location": [{ "reference": "Location/19", "display": "SMART Primary Care Waltham" }],
+      "telecom": [ { "system": "phone", "value": "555-123-4576" } ]
     }
   ],
   "locationTemplates": [
