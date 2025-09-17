@@ -4,8 +4,7 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 
 
 ## Goals for Slot Discovery
-![Scheduling Arhitecture] https://github.com/Culby/smart-scheduling-links/blob/ac_edits/SchedulingArchitecture.drawio.png
-<img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
+![Scheduling Arhitecture] <img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
 
 * **Low implementation effort** -- publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
 * **Scales up and down** -- publishers can expose information about a individual providers with a few slots, or large-scale programs such as nationwide pharmacies or mass vaccination sites
