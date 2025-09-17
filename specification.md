@@ -2,8 +2,7 @@
 
 This guide explains how a _Slot Publisher_ makes vaccination or other appointment information available to a _Slot Discovery Client_.  **For background and role definitions, see [README.md](./README.md)**.
 
-## Goals for Slot Discovery
-(https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/images/SchedulingArchitecture.draw.io.png)
+
 ## Goals for Slot Discovery
 ![Scheduling Architecture](https://raw.githubusercontent.com/Culby/smart-scheduling-links/ac_edits/images/SchedulingArchitecture.draw.io.png)
 
