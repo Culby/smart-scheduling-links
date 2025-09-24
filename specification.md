@@ -2,10 +2,9 @@
 
 This guide explains how a _Slot Publisher_ makes vaccination or other appointment information available to a _Slot Discovery Client_.  **For background and role definitions, see [README.md](./README.md)**.
 
+
 ## Goals for Slot Discovery
-
-<img src="images/SchedulingArchitecture.draw.io.png" alt="Scheduling Architecture"/>
-
+**Scheduling Architecture**   <img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
 
 * **Low implementation effort** -- publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
 * **Scales up and down** -- publishers can expose information about a individual providers with a few slots, or large-scale programs such as nationwide pharmacies or mass vaccination sites
