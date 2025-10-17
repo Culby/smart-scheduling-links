@@ -10,7 +10,7 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 * **Progressive enhancement** -- publishers can expose coarse-grained data like "we have 20 slots available today" or fine-grained data with specific timing for each slot, and can expose slots for any relevant actor for Schedule
 * **Builds on standards** -- publishers expose data according to the FHIR standard, but don't need specific experience with FHIR to follow this guide
 
-## Scheduling Architecture**
+## Scheduling Architecture
  <img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
 
 ## Quick Start Guide
