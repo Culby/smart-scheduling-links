@@ -17,6 +17,10 @@ A _Slot Publisher_ hosts not only appointment slots, but also Locations, Practit
 <img src="scheduling-er-diagram.png" alt="Scheduling ER Diagram"/>
 
 Concretely, a _Slot Publisher_ hosts five kinds of files:
+* **Practitioner**
+* **Practitinoer Role**
+* **Organzation**
+* **Health Service**
 
 * **Bulk Publication Manifest**. The manifest is a JSON file serving as the entry point for slot discovery. It provides links that clients can follow to retrieve all the other files. The manifest is always hosted at a URL that ends with `$bulk-publish` (a convention used when publishing data sets using FHIR; this convention applies any time a potentially large data set needs to be statically published).
   * [Details on JSON structure](#manifest-file)
