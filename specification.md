@@ -502,26 +502,28 @@ Each Slot object may optionally include one or both of the following extension J
 
 The Health Service resource is used to describe a single healthcare service or category of services that are provided by an organization at a location. The location of the services could be virtual, as with telemedicine services. This profile provides a scheduling-optimized view of healthcare service offerings, enabling discovery and booking of appointments when no specific practitioner is required or specified.
 
-| Element | Cardinality | Type | Must Support | Description |
-|---------|-------------|------|--------------|-------------|
-| id | 1..1 | id | ✓ | Logical identifier |
-| active | 1..1 | boolean | ✓ | Service is active and schedulable |
-| providedBy | 0..1 | Reference(Organization) | ✓ | Providing organization |
-| category | 0..* | CodeableConcept | ✓ | Broad service category |
-| type | 1..* | CodeableConcept | ✓ | Specific service type |
-| specialty | 1..* | CodeableConcept | ✓ | Required clinical specialty |
-| location | 1..* | Reference(Location) | ✓ | Where service is provided |
-| name | 1..1 | string | ✓ | Human-readable service name |
-| serviceProvisionCode | 0..* | CodeableConcept | ✓ | Service provision conditions |
-| appointmentRequired | 0..1 | boolean | ✓ | Appointment required flag |
-| availableTime | 0..* | BackboneElement | ✓ | When service is available |
-| availableTime.daysOfWeek | 0..* | code | ✓ | Available days |
-| availableTime.allDay | 0..1 | boolean | ✓ | Available all day flag |
-| availableTime.availableStartTime | 0..1 | time | ✓ | Opening time |
-| availableTime.availableEndTime | 0..1 | time | ✓ | Closing time |
-| notAvailable | 0..* | BackboneElement | ✓ | Exception periods |
-| notAvailable.description | 1..1 | string | ✓ | Reason for unavailability |
-| notAvailable.during | 0..1 | Period | ✓ | Unavailable time period |
+| Field Name | Type | Required | Description |
+|------------|------|----------|-------------|
+| `id` | id | Yes | Logical identifier for the health service |
+| `active` | boolean | Yes | Whether the service is currently active and available for scheduling |
+| `providedBy` | Reference(Organization) | No | Organization that provides this service |
+| `category` | CodeableConcept | No | Broad categorization of the service (e.g., Primary Care, Allied Health, Mental Health) |
+| `type` | CodeableConcept | Yes | Specific type of service offered (e.g., Physical Therapy, Vaccination, Emergency Services) |
+| `specialty` | CodeableConcept | Yes | Clinical specialty required to perform the service (e.g., Cardiology, General Practice) |
+| `location` | Reference(Location) | Yes | Physical or virtual location(s) where service is provided |
+| `name` | string | Yes | Human-readable name of the service for display purposes |
+| `comment` | string | No | Additional description or instructions relevant to scheduling (e.g., "Walk-in available", "Referral required") |
+| `telecom` | ContactPoint | No | Contact information for the service (phone, email, website) |
+| `serviceProvisionCode` | CodeableConcept | No | Conditions under which service is available (e.g., free, fees apply, by referral only) |
+| `appointmentRequired` | boolean | No | Whether an appointment is required for this service (false indicates walk-in accepted) |
+| `availableTime` | BackboneElement | No | General times the service is available at the location |
+| `availableTime.daysOfWeek` | code | No | Days of week service is available (mon, tue, wed, thu, fri, sat, sun) |
+| `availableTime.allDay` | boolean | No | Service available all day during specified days |
+| `availableTime.availableStartTime` | time | No | Opening time of day (ignored if allDay = true) |
+| `availableTime.availableEndTime` | time | No | Closing time of day (ignored if allDay = true) |
+| `notAvailable` | BackboneElement | No | Exception periods when the service is not available |
+| `notAvailable.description` | string | Yes* | Reason service is not available (*required if notAvailable is present) |
+| `notAvailable.during` | Period | No | Specific time period when service is unavailable |
 
 ## Deep Links hosted by _Provider Booking Portal_
 
