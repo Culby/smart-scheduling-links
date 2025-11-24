@@ -527,6 +527,7 @@ The Health Service resource is used to describe a single healthcare service or c
 
 ### Example Health Service
 
+
 ```json
 {
   "resourceType": "HealthcareService",
