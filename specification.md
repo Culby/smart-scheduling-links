@@ -496,7 +496,32 @@ Each Slot object may optionally include one or both of the following extension J
 ```
 
 ### Example Slot File
-  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson) 
+  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson)
+
+## Health Service Resource
+
+The Health Service resource is used to describe a single healthcare service or category of services that are provided by an organization at a location. The location of the services could be virtual, as with telemedicine services. This profile provides a scheduling-optimized view of healthcare service offerings, enabling discovery and booking of appointments when no specific practitioner is required or specified.
+
+  * | Element | Cardinality | Type | Must Support | Description |
+|---------|-------------|------|--------------|-------------|
+| id | 1..1 | id | ✓ | Logical identifier |
+| active | 1..1 | boolean | ✓ | Service is active and schedulable |
+| providedBy | 0..1 | Reference(Organization) | ✓ | Providing organization |
+| category | 0..* | CodeableConcept | ✓ | Broad service category |
+| type | 1..* | CodeableConcept | ✓ | Specific service type |
+| specialty | 1..* | CodeableConcept | ✓ | Required clinical specialty |
+| location | 1..* | Reference(Location) | ✓ | Where service is provided |
+| name | 1..1 | string | ✓ | Human-readable service name |
+| serviceProvisionCode | 0..* | CodeableConcept | ✓ | Service provision conditions |
+| appointmentRequired | 0..1 | boolean | ✓ | Appointment required flag |
+| availableTime | 0..* | BackboneElement | ✓ | When service is available |
+| availableTime.daysOfWeek | 0..* | code | ✓ | Available days |
+| availableTime.allDay | 0..1 | boolean | ✓ | Available all day flag |
+| availableTime.availableStartTime | 0..1 | time | ✓ | Opening time |
+| availableTime.availableEndTime | 0..1 | time | ✓ | Closing time |
+| notAvailable | 0..* | BackboneElement | ✓ | Exception periods |
+| notAvailable.description | 1..1 | string | ✓ | Reason for unavailability |
+| notAvailable.during | 0..1 | Period | ✓ | Unavailable time period |
 
 ## Deep Links hosted by _Provider Booking Portal_
 
