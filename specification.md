@@ -525,6 +525,75 @@ The Health Service resource is used to describe a single healthcare service or c
 | `notAvailable.description` | string | Yes* | Reason service is not available (*required if notAvailable is present) |
 | `notAvailable.during` | Period | No | Specific time period when service is unavailable |
 
+### Example Health Service
+
+```json
+{
+  "resourceType": "HealthcareService",
+  "id": "online-primary-care",
+  "active": true,
+  "providedBy": {
+    "reference": "Organization/acme-health",
+    "display": "ACME Health System"
+  },
+  "category": [{
+    "coding": [{
+      "system": "http://terminology.hl7.org/CodeSystem/service-category",
+      "code": "17",
+      "display": "General Practice"
+    }]
+  }],
+  "type": [{
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "308335008",
+      "display": "Patient encounter procedure"
+    }],
+    "text": "Primary Care Visit"
+  }],
+  "specialty": [{
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "394814009",
+      "display": "General practice"
+    }]
+  }],
+  "location": [{
+    "reference": "Location/main-clinic",
+    "display": "Main Street Clinic"
+  }],
+  "name": "Primary Care Appointments - Online Booking",
+  "comment": "Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care.",
+  "telecom": [{
+    "system": "phone",
+    "value": "(555) 123-4567",
+    "use": "work"
+  }, {
+    "system": "email",
+    "value": "appointments@acmehealth.org",
+    "use": "work"
+  }, {
+    "system": "url",
+    "value": "https://appointments.acmehealth.org",
+    "use": "work"
+  }],
+  "serviceProvisionCode": [{
+    "coding": [{
+      "system": "http://terminology.hl7.org/CodeSystem/service-provision-conditions",
+      "code": "cost",
+      "display": "Fees apply"
+    }]
+  }],
+  "appointmentRequired": true,
+  "availableTime": [{
+    "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
+    "availableStartTime": "08:00:00",
+    "availableEndTime": "17:00:00"
+  }],
+  "availabilityExceptions": "Closed on major holidays. Online booking available 24/7 for future appointments."
+}
+  
+
 ## Deep Links hosted by _Provider Booking Portal_
 
 The Booking Portal is responsible for handling incoming deep links.
