@@ -502,7 +502,7 @@ Each Slot object may optionally include one or both of the following extension J
 
 The Health Service resource is used to describe a single healthcare service or category of services that are provided by an organization at a location. The location of the services could be virtual, as with telemedicine services. This profile provides a scheduling-optimized view of healthcare service offerings, enabling discovery and booking of appointments when no specific practitioner is required or specified.
 
-  * | Element | Cardinality | Type | Must Support | Description |
+| Element | Cardinality | Type | Must Support | Description |
 |---------|-------------|------|--------------|-------------|
 | id | 1..1 | id | ✓ | Logical identifier |
 | active | 1..1 | boolean | ✓ | Service is active and schedulable |
