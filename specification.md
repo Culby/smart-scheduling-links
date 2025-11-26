@@ -498,7 +498,7 @@ Each Slot object may optionally include one or both of the following extension J
 ### Example Slot File
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson)
 
-## Health Service Resource
+## Healthcare Service Resource
 
 The Health Service resource is used to describe a single healthcare service or category of services that are provided by an organization at a location. The location of the services could be virtual, as with telemedicine services. This profile provides a scheduling-optimized view of healthcare service offerings, enabling discovery and booking of appointments when no specific practitioner is required or specified.
 
