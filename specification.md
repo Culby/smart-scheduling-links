@@ -4,12 +4,20 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 
 
 ## Goals for Slot Discovery
-**Scheduling Architecture**   <img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
 
 * **Low implementation effort** -- publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
 * **Scales up and down** -- publishers can expose information about a individual providers with a few slots, or large-scale programs such as nationwide pharmacies or mass vaccination sites
 * **Progressive enhancement** -- publishers can expose coarse-grained data like "we have 20 slots available today" or fine-grained data with specific timing for each slot, and can expose slots for any relevant actor for Schedule
 * **Builds on standards** -- publishers expose data according to the FHIR standard, but don't need specific experience with FHIR to follow this guide
+
+## Scheduling Architecture
+
+ <img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
+
+ * **Slot Publisher** -- EHRs or booking portals provide a list of the available providers and slots that are available via provider organizations.  This will include all the available FHIR resources including practitioner, practitioner role, health service, location, and organization  
+
+ * **Directories** -- which can include complete provider directories will serve as both a client and servier will consume the slots via the bulk publish API. Publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
+ * **Client Scheduling Applications** --Apps can then connect to the directory and find available appointments that best suite their needs eliminating the back and forth need to call providers to book appointments.  For the patients or the consumer of appointments can easily and simple find the best appointment they need based on provider, location, time or plan to find the appointment that best fits their need without having to pick-up the phone.
 
 ## Quick Start Guide
 
@@ -17,6 +25,10 @@ A _Slot Publisher_ hosts not only appointment slots, but also Locations, Practit
 <img src="scheduling-er-diagram.png" alt="Scheduling ER Diagram"/>
 
 Concretely, a _Slot Publisher_ hosts five kinds of files:
+* **Practitioner**
+* **Practitinoer Role**
+* **Organzation**
+* **Healthcare Service**
 
 * **Bulk Publication Manifest**. The manifest is a JSON file serving as the entry point for slot discovery. It provides links that clients can follow to retrieve all the other files. The manifest is always hosted at a URL that ends with `$bulk-publish` (a convention used when publishing data sets using FHIR; this convention applies any time a potentially large data set needs to be statically published).
   * [Details on JSON structure](#manifest-file)
@@ -491,7 +503,104 @@ Each Slot object may optionally include one or both of the following extension J
 ```
 
 ### Example Slot File
-  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson) 
+  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson)
+
+## Healthcare Service Resource
+
+The Health Service resource is used to describe a single healthcare service or category of services that are provided by an organization at a location. The location of the services could be virtual, as with telemedicine services. This profile provides a scheduling-optimized view of healthcare service offerings, enabling discovery and booking of appointments when no specific practitioner is required or specified.
+
+| Field Name | Type | Required | Description |
+|------------|------|----------|-------------|
+| `id` | id | Yes | Logical identifier for the health service |
+| `active` | boolean | Yes | Whether the service is currently active and available for scheduling |
+| `providedBy` | Reference(Organization) | No | Organization that provides this service |
+| `category` | CodeableConcept | No | Broad categorization of the service (e.g., Primary Care, Allied Health, Mental Health) |
+| `type` | CodeableConcept | Yes | Specific type of service offered (e.g., Physical Therapy, Vaccination, Emergency Services) |
+| `specialty` | CodeableConcept | Yes | Clinical specialty required to perform the service (e.g., Cardiology, General Practice) |
+| `location` | Reference(Location) | Yes | Physical or virtual location(s) where service is provided |
+| `name` | string | Yes | Human-readable name of the service for display purposes |
+| `comment` | string | No | Additional description or instructions relevant to scheduling (e.g., "Walk-in available", "Referral required") |
+| `telecom` | ContactPoint | No | Contact information for the service (phone, email, website) |
+| `serviceProvisionCode` | CodeableConcept | No | Conditions under which service is available (e.g., free, fees apply, by referral only) |
+| `appointmentRequired` | boolean | No | Whether an appointment is required for this service (false indicates walk-in accepted) |
+| `availableTime` | BackboneElement | No | General times the service is available at the location |
+| `availableTime.daysOfWeek` | code | No | Days of week service is available (mon, tue, wed, thu, fri, sat, sun) |
+| `availableTime.allDay` | boolean | No | Service available all day during specified days |
+| `availableTime.availableStartTime` | time | No | Opening time of day (ignored if allDay = true) |
+| `availableTime.availableEndTime` | time | No | Closing time of day (ignored if allDay = true) |
+| `notAvailable` | BackboneElement | No | Exception periods when the service is not available |
+| `notAvailable.description` | string | Yes* | Reason service is not available (*required if notAvailable is present) |
+| `notAvailable.during` | Period | No | Specific time period when service is unavailable |
+
+### Example Health Service
+
+
+```json
+{
+  "resourceType": "HealthcareService",
+  "id": "online-primary-care",
+  "active": true,
+  "providedBy": {
+    "reference": "Organization/acme-health",
+    "display": "ACME Health System"
+  },
+  "category": [{
+    "coding": [{
+      "system": "http://terminology.hl7.org/CodeSystem/service-category",
+      "code": "17",
+      "display": "General Practice"
+    }]
+  }],
+  "type": [{
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "308335008",
+      "display": "Patient encounter procedure"
+    }],
+    "text": "Primary Care Visit"
+  }],
+  "specialty": [{
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "394814009",
+      "display": "General practice"
+    }]
+  }],
+  "location": [{
+    "reference": "Location/main-clinic",
+    "display": "Main Street Clinic"
+  }],
+  "name": "Primary Care Appointments - Online Booking",
+  "comment": "Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care.",
+  "telecom": [{
+    "system": "phone",
+    "value": "(555) 123-4567",
+    "use": "work"
+  }, {
+    "system": "email",
+    "value": "appointments@acmehealth.org",
+    "use": "work"
+  }, {
+    "system": "url",
+    "value": "https://appointments.acmehealth.org",
+    "use": "work"
+  }],
+  "serviceProvisionCode": [{
+    "coding": [{
+      "system": "http://terminology.hl7.org/CodeSystem/service-provision-conditions",
+      "code": "cost",
+      "display": "Fees apply"
+    }]
+  }],
+  "appointmentRequired": true,
+  "availableTime": [{
+    "daysOfWeek": ["mon", "tue", "wed", "thu", "fri"],
+    "availableStartTime": "08:00:00",
+    "availableEndTime": "17:00:00"
+  }],
+  "availabilityExceptions": "Closed on major holidays. Online booking available 24/7 for future appointments."
+}
+  
 
 ## Deep Links hosted by _Provider Booking Portal_
 
