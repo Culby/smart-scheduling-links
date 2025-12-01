@@ -270,6 +270,8 @@ Each `identifier` object includes a `system` and a `value`.
 
 * If a PractitionerRole is associated with organization-specific identifiers (such as role-specific employee numbers, provider numbers, or location-specific identifiers), publishers SHOULD include these. The `system` should be a URL that identifies the identifier system, preferably a page on the publisher's web site (e.g. `{"system": "https://healthsystem.example.com/practitioner-role-directory", "value": "ROLE-123"}`)
 
+* **National Provider Identifier (NPI)**: Publishers SHALL include the practitioner's NPI when available, using the system `"http://hl7.org/fhir/sid/us-npi"` and the 10-digit NPI number as the value (e.g. `{"system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567890"}`)
+
 * If a PractitionerRole participates in external registry programs that assign role-specific identifiers, publishers MAY include these identifiers using the appropriate system URL for the registry.
 
 * Additional identifiers: Any number of additional identifiers MAY be included. Each should populate `system` and `value` as appropriate, following FHIR identifier conventions.
@@ -283,6 +285,9 @@ Each `identifier` object includes a `system` and a `value`.
   "identifier": [{
     "system": "https://healthsystem.example.com/practitioner-role-directory",
     "value": "ROLE-12345"
+  }, {
+    "system": "http://hl7.org/fhir/sid/us-npi",
+    "value": "1234567890"
   }],
   "active": true,
   "period": {
@@ -344,6 +349,7 @@ Each Schedule includes at least:
 	<tr><td><code>id</code></td><td>string</td><td>a unique identifier for this schedule (up to 64 alphanumeric characters and may include <code>-</code> and <code>.</code>)</td></tr>
 	<tr><td><code>actor</code></td><td>array of JSON objects</td><td>References to the primary resource(s) that the schedule is providing availability for. This array can contain multiple actors, commonly including both Location and PractitionerRole references to indicate appointments for a specific practitioner role at a specific location.</td></tr>
 	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, PractitionerRole, or other resource. Use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>) for location references and <code>PractitionerRole</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"PractitionerRole/doc-smith-role"</code>) for practitioner role references. Multiple references can be included to represent schedules that are associated with both a specific practitioner role and a specific location.</td></tr>
+	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>display</code></td><td>string</td><td>Human-readable label for the referenced actor. For a <code>Location</code>, populate with <code>Location.name</code>. For a <code>PractitionerRole</code>, populate with <code>PractitionerRole.practitioner.display</code>. Including <code>display</code> helps clients render schedules without dereferencing actors.</td></tr>
 	<tr><td><code>serviceType</code></td><td>array of JSON objects</td><td>Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include:
 		<pre>[{
   "system": "http://terminology.hl7.org/CodeSystem/service-type",
@@ -372,7 +378,6 @@ Schedules can reference multiple actors in the `actor` array to provide more spe
   - Multi-location practices where practitioner roles work at different sites
   - Specialty clinics where specific practitioner roles provide services at designated locations
   - Healthcare systems where practitioner role schedules vary by location
-TODO: add clarity and consistency around prac/role/loc
 
 When multiple actors are specified, all referenced resources apply to the schedule and its associated slots.
 
@@ -415,10 +420,12 @@ Extensions should follow FHIR extension conventions and use appropriate extensio
   ],
   "actor": [
     {
-      "reference": "Location/123"
+      "reference": "Location/123",
+      "display": "Berkshire Family Medicine - Pittsfield"
     },
     {
-      "reference": "PractitionerRole/doc-smith-role"
+      "reference": "PractitionerRole/doc-smith-role",
+      "display": "Dr. John Robert Smith"
     }
   ],
   "extension": [

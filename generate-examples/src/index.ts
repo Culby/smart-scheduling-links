@@ -79,37 +79,55 @@ const schedule = (location: Resource, locationIndex: number, practitionerRole?: 
   };
 
   if (isPrimaryCare && practitionerRole) {
-    // When using PractitionerRole, only reference the role (location is within the role)
+    // For primary care, reference both the PractitionerRole and the Location referenced by the role
     baseSchedule.actor.push({
       reference: `PractitionerRole/${practitionerRole.id}`,
+      display: practitionerRole.practitioner?.display ?? undefined,
+    });
+
+    const practitionerRoleLocationRef: string | undefined = practitionerRole.location?.[0]?.reference;
+    const practitionerRoleLocationDisplay: string | undefined = practitionerRole.location?.[0]?.display ?? undefined;
+
+    baseSchedule.actor.push({
+      reference: practitionerRoleLocationRef ?? `Location/${location.id}`,
+      display: practitionerRoleLocationDisplay ?? location.name,
     });
   } else {
     // For urgent care (no practitioner role), reference the location directly
     baseSchedule.actor.push({
       reference: `Location/${location.id}`,
+      display: location.name,
     });
   }
 
   if (isPrimaryCare && practitionerRole) {
-
-    const specialties = [
-      { code: '419772000', display: 'General medicine' },
-      { code: '394582007', display: 'Dermatology' },
-      { code: '394586005', display: 'Gynecology' },
-    ];
-    
-    const specialtyIndex = locationIndex % 3;
-    
-    baseSchedule.extension = [
-      {
-        url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/specialty',
-        valueCoding: {
-          system: 'http://snomed.info/sct',
-          code: specialties[specialtyIndex].code,
-          display: specialties[specialtyIndex].display,
-        }
-      }
-    ];
+    // Prefer specialty from PractitionerRole if available; fall back to legacy rotation
+    const roleSpecialty = practitionerRole.specialty?.[0]?.coding?.[0];
+    if (roleSpecialty) {
+      baseSchedule.extension = [
+        {
+          url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/specialty',
+          valueCoding: roleSpecialty,
+        },
+      ];
+    } else {
+      const specialties = [
+        { code: '419772000', display: 'Family practice' },
+        { code: '394582007', display: 'Dermatology' },
+        { code: '394586005', display: 'Gynecology' },
+      ];
+      const specialtyIndex = locationIndex % 3;
+      baseSchedule.extension = [
+        {
+          url: 'http://fhir-registry.smarthealthit.org/StructureDefinition/specialty',
+          valueCoding: {
+            system: 'http://snomed.info/sct',
+            code: specialties[specialtyIndex].code,
+            display: specialties[specialtyIndex].display,
+          },
+        },
+      ];
+    }
   }
 
   return baseSchedule;
@@ -130,9 +148,10 @@ const practitionerRoles: Resource[] = staticData.practitionerRoles.map((role, in
   id: resourceId(), // Generate dynamic ID
 }));
 
-const locations: Resource[] = staticData.locationTemplates.map((location) => ({
+const locations: Resource[] = staticData.locationTemplates.map((location, index) => ({
   ...location,
-  id: resourceId(), // Generate dynamic ID
+  // Align Location IDs with template index so PractitionerRole.location references (e.g., Location/10..19) resolve correctly
+  id: String(index),
 }));
 
 const addMinutes = (date: Date, minutes: number): Date => {
