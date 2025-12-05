@@ -19,6 +19,9 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
  * **Directories** -- which can include complete provider directories will serve as both a client and servier will consume the slots via the bulk publish API. Publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)
  * **Client Scheduling Applications** --Apps can then connect to the directory and find available appointments that best suite their needs eliminating the back and forth need to call providers to book appointments.  For the patients or the consumer of appointments can easily and simple find the best appointment they need based on provider, location, time or plan to find the appointment that best fits their need without having to pick-up the phone.
 
+## Sequence Diagram 
+https://github.com/Culby/smart-scheduling-links/blob/ac_edits/SchedulingDirectorySequenceLinks.drawio.png
+
 ## Quick Start Guide
 
 A _Slot Publisher_ hosts not only appointment slots, but also Locations, PractitionerRoles, and Schedules associated with these slots:
