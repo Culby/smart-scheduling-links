@@ -2,7 +2,7 @@
 
 This repo is currently a work-in-progress initiative to update the SMART Scheduling Links developed to book a vaccine appointment to be more generally applicable to patient scheduling and availability, leveraging a FHIR standards-based approach to finding and searching for appointments. The idea is simple: you can easily book a flight or hotel using a common portal. Leveraging the bulk publish specification for the creation of a directory of slots, there is the ability to search and book via a deep link a doctor's appointment without the complex friction of calling back and forth to your doctor's office to book an appointment. This is akin to a "Kayak" booking experience for consumers and Calendly-like control for providers. This leverages the previously tested approach of SMART Scheduling Links that previously allowed for a simple and easy way for patients to book vaccine appointments. The current aim is to support vaccination appointments, scheduling with specific providers, arranging visits to walk-in clinics, finding and booking with the nearest available provider, and setting up online or virtual appointments. Future developments aim to integrate insurance networks, allowing for in-network appointment scheduling. In addition, this initiative does not cover more complex scheduling needs, such as surgical procedures or diagnostic imaging appointments like MRIs.
 
-# SMART Scheduling Links
+
 *What if booking clinical appointments looked more like booking airline tickets?*
 
 * See [specification.md](specification.md) for API requirements and details
