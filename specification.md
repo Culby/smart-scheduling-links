@@ -12,7 +12,8 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 
 ## Scheduling Architecture
 
-* **Key Actors**
+**Key Actors**
+
  <img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
 
  * **Slot Publisher** -- EHRs or booking portals provide a list of the available providers and slots that are available via provider organizations.  This will include all the available FHIR resources including practitioner, practitioner role, health service, location, and organization  
