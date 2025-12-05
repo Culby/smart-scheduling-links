@@ -20,7 +20,7 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
  * **Client Scheduling Applications** --Apps can then connect to the directory and find available appointments that best suite their needs eliminating the back and forth need to call providers to book appointments.  For the patients or the consumer of appointments can easily and simple find the best appointment they need based on provider, location, time or plan to find the appointment that best fits their need without having to pick-up the phone.
 
 ## Sequence Diagram 
-https://github.com/Culby/smart-scheduling-links/blob/ac_edits/SchedulingDirectorySequenceLinks.drawio.png
+<img src="https://raw.githubusercontent.com/Culby/smart-scheduling-links/ac_edits/SchedulingDirectorySequenceLinks.drawio.png" alt="Scheduling Directory Sequence Links" width="600">
 
 ## Quick Start Guide
 
