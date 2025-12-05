@@ -21,7 +21,8 @@ This guide explains how a _Slot Publisher_ makes vaccination or other appointmen
 
 ## Sequence Diagram 
 <img src="https://raw.githubusercontent.com/Culby/smart-scheduling-links/ac_edits/SchedulingDirectorySequenceLinks.drawio.png" alt="Scheduling Directory Sequence Links" width="600">
-
+ -- The EHR or booking portal will provide the data via the bulk publish to allow for NDJSON files for consumption for the directory of slots.  The directory of slots will then consume the NDJSON to make available to the client application. The directory will presnt slots to client discovery app to allow for the selection of available slots from multiple booking portals.  The slots will then available for presenation to client scheduling applications.  The patient will leverage the deep link to book directly back into the EHR or booking portal.  This light and easily approach allows for simple rendering of availabilty of many appointment types.  
+ 
 ## Quick Start Guide
 
 A _Slot Publisher_ hosts not only appointment slots, but also Locations, PractitionerRoles, and Schedules associated with these slots:
