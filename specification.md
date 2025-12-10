@@ -23,7 +23,7 @@ This guide explains how a _Slot Publisher_ makes an appointment slots available 
 ## Quick Start Guide
 
 A _Slot Publisher_ hosts not only appointment slots, but also Locations, PractitionerRoles, and Schedules associated with these slots:
-<img src="scheduling-er-diagram.png" alt="Scheduling ER Diagram"/>
+<img src="ERDiagramSlotScheduleLocationPRHS.svg" alt="Scheduling ER Diagram"/>
 
 Concretely, a _Slot Publisher_ hosts five kinds of files:
 * **Practitioner**
