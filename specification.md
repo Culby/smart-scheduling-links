@@ -23,7 +23,22 @@ This guide explains how a _Slot Publisher_ makes an appointment slots available 
  * **Client Scheduling Applications** --Apps can then connect to the directory and find available appointments that best suite their needs eliminating the back and forth need to call providers to book appointments.  Patients or the consumer  can more easily find the best slot availale to suite their need rather a docters appointment, booking a vaccine or a vaerity of other healthcare services based on provider, location, time, find the appointment slot that best fits their need without having to pick-up the phone.
 
 ## Sequence Diagram 
-<img src="https://raw.githubusercontent.com/Culby/smart-scheduling-links/ac_edits/SchedulingDirectorySequenceLinks.drawio.png" alt="Scheduling Directory Sequence Links" width="600">
+
+```mermaid
+sequenceDiagram
+    participant EHR
+    participant Directory as Directory of Slots
+    participant Client as Client Scheduling App
+
+    EHR->>Directory: Publish Slots
+    
+    Client->>Directory: Find Open Slots
+    activate Directory
+    Directory-->>Client: Return Open Slot
+    deactivate Directory
+    
+    Client->>EHR: Book Open Slot via SMART Scheduling Link
+```
  
  The EHR or booking portal will provide the data via the bulk publish to allow for NDJSON files for consumption for the directory of slots.  The directory of slots will then consume the NDJSON to make available to the client application. The directory will presnt slots to client discovery app to allow for the selection of available slots from multiple booking portals.  The slots will then available for presenation to client scheduling applications.  The patient will leverage the deep link to book directly back into the EHR or booking portal.  This light and easily approach allows for simple rendering of availabilty of many appointment types.  
  
