@@ -1,8 +1,8 @@
-# Extending SMART Scheduling Links 
+# SMART Scheduling Links 
 
-This repo is currently a work-in-progress initiative to update the SMART Scheduling Links developed to book an vaccine appointment to be more generally applicable to patient scheduling and availability leveraging a FHIR standards based approach to finding and search appointment.  The idea is simple you can easily book a flight or hotel using a common portal.  Leveraging the bulk publish speficiation for the creation of a directory of slots.  There is the ability to search and book via a deep link a doctors appoinatment without the complex friction of calling back and forth to your docters office to book an appoinment.  This is akin to a "Kayak" booking experience for consumers and calendly like contorl for providers.  This leverages the previosly test approach of SMART scheduling links that previoyulsy allowed for a simple and easy way for patient to book vaccine appointments.  The current aim is to support vaccination appointments, scheduling with specific providers, arranging visits to walk-in clinics, finding and booking with the nearest available provider, and setting up online or virtual appointments. Future developments aim to integrate insurance networks, allowing for in-network appointment scheduling.  In addition this intiative does not cover more complex scheduling needs, such as surgical procedures or diagnostic imaging appointments like MRIs.
+This repo is currently a work-in-progress initiative to update the SMART Scheduling Links developed to book a vaccine appointment to be more generally applicable to patient scheduling and availability, leveraging a FHIR standards-based approach to finding and searching for appointments. The idea is simple: you can easily book a flight or hotel using a common portal. Leveraging the bulk publish specification for the creation of a directory of slots, there is the ability to search and book via a deep link a doctor's appointment without the complex friction of calling back and forth to your doctor's office to book an appointment. This is akin to a "Kayak" booking experience for consumers and Calendly-like control for providers. This leverages the previously tested approach of SMART Scheduling Links that previously allowed for a simple and easy way for patients to book vaccine appointments. The current aim is to support vaccination appointments, scheduling with specific providers, arranging visits to walk-in clinics, finding and booking with the nearest available provider, and setting up online or virtual appointments. Future developments aim to integrate insurance networks, allowing for in-network appointment scheduling. In addition, this initiative does not cover more complex scheduling needs, such as surgical procedures or diagnostic imaging appointments like MRIs.
 
-# SMART Scheduling Links
+
 *What if booking clinical appointments looked more like booking airline tickets?*
 
 * See [specification.md](specification.md) for API requirements and details
@@ -33,13 +33,14 @@ We are parsimonious in our use of standards, so that:
 
 This specification defines four functional roles:
 
-* **Slot Discovery Client**: the booking tool of a patient's choice. This system discovers appointment slots on a patient's behalf, and helps the patient choose the best slots to book (e.g., by evaluating trade-offs of travel distance or wait time).
 
-* **Slot Publisher**: the API service offered by a healthcare provider, advertising available slots. A publisher should have an authoritative perspective on slot availability via direct access to the source of truth. Critically, advertising a slot should be low-risk, since the mere fact that a slot is advertised does *not* guarantee that any given patient will be allowed to book the slot; instead, sophisticated rules can be implemented by the...
-
+* **Slot Publisher**: the API service offered by a healthcare provider, advertising available slots. A publisher should have an authoritative perspective on slot availability via direct access to the source of truth. Critically, advertising a slot should be low-risk, since the mere fact that a slot is advertised does *not* guarantee that any given patient will be allowed to book the slot; instead, sophisticated rules can be implemented by the slot publisher to determine which times of slots a provider, practice, or clinic would want to advertise for booking. 
 * **Provider Booking Portal**: the UI service offered by a healthcare provider, enabling a user to book a selected slot. A booking portal should have the authority to directly book into the source of truth. This is the place where provider-specific rules can be implemented, e.g. to ensure that patients booking a specialty appointment are appropriate candidates for that specialist's care. (In many implementations, this UI will be housed within a general-purpose provider-hosted patient portal.)
 
 *  **Slot Aggregator**: an API service offered by third parties, aggregating data from multiple _Slot Publishers_ or from other healthcare provider APIs. _Slot Aggregators_ otherwise act in a similar capacity to _Slot Publishers_ but are not themselves authoritative sources.
+
+* **Slot Discovery Client**: the booking tool of a patient's choice. This system discovers appointment slots on a patient's behalf, and helps the patient choose the best slots to book (e.g., by evaluating trade-offs of travel distance or wait time).
+
 
 ## UX Limitations
 
