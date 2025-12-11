@@ -220,7 +220,10 @@ const createResources = () => {
   }
   
   const manifest = {
+    operationDefinition: 'http://hl7.org/fhir/uv/bulkdata/OperationDefinition/bulk-publish|1.0.0',
     transactionTime: new Date().toISOString(),
+    requiresAccessToken: false,
+    outputFormat: 'application/fhir+ndjson',
     request: `${BASE_URL}$bulk-publish`,
     output: [
       {

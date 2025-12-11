@@ -1,5 +1,8 @@
 {
+  "operationDefinition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/bulk-publish|1.0.0",
   "transactionTime": "2025-08-18T14:49:10.892Z",
+  "requiresAccessToken": false,
+  "outputFormat": "application/fhir+ndjson",
   "request": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish",
   "output": [
     {
