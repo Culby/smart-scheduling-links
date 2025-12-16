@@ -158,10 +158,9 @@ const addMinutes = (date: Date, minutes: number): Date => {
   return new Date(new Date(date).setMinutes(date.getMinutes() + minutes));
 };
 
-const createResources = () => {
-  // Start 60 days from now
-  const startDate = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000);
-  const endDate = new Date(startDate.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days after start
+const createResources = (startDays: number, durationDays: number) => {
+  const startDate = new Date(Date.now() + startDays * 24 * 60 * 60 * 1000);
+  const endDate = new Date(startDate.getTime() + durationDays * 24 * 60 * 60 * 1000);
   const currentDate = new Date(startDate);
 
   const schedules = locations.map((location, index) => {
@@ -220,7 +219,10 @@ const createResources = () => {
   }
   
   const manifest = {
+    operationDefinition: 'http://hl7.org/fhir/uv/bulkdata/OperationDefinition/bulk-publish|1.0.0',
     transactionTime: new Date().toISOString(),
+    requiresAccessToken: false,
+    outputFormat: 'application/fhir+ndjson',
     request: `${BASE_URL}$bulk-publish`,
     output: [
       {
@@ -249,8 +251,8 @@ const createResources = () => {
   };
 };
 
-async function generate(options: { outdir: string }) {
-  const resources = createResources();
+async function generate(options: { outdir: string; startDays: number; durationDays: number }) {
+  const resources = createResources(options.startDays, options.durationDays);
   const fileLocation = `locations.ndjson`;
   const fileSchedule = `schedules.ndjson`;
   const filePractitionerRoles = `practitionerroles.ndjson`;
@@ -285,13 +287,22 @@ async function generate(options: { outdir: string }) {
 
 const program = new Command();
 program.option('-o, --outdir <outdir>', 'output directory');
+program.option('-s, --start-days <days>', 'number of days from now to start generating slots', '60');
+program.option('-d, --duration-days <days>', 'number of days of slots to generate', '30');
 program.parse(process.argv);
 
 interface Options {
   outdir: string;
+  startDays: number;
+  durationDays: number;
 }
 
-const options = program.opts() as Options;
+const opts = program.opts();
+const options: Options = {
+  outdir: opts.outdir,
+  startDays: parseInt(opts.startDays, 10),
+  durationDays: parseInt(opts.durationDays, 10),
+};
 console.log('Opts', options);
 
 if (options.outdir) {
