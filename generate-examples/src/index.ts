@@ -154,6 +154,61 @@ const locations: Resource[] = staticData.locationTemplates.map((location, index)
   id: String(index),
 }));
 
+// Device resources from static data
+const devices: Resource[] = staticData.devices.map((device) => ({
+  ...device,
+}));
+
+// Create a schedule for a Device + Location pair
+const deviceSchedule = (device: Resource, location: Resource): Resource => {
+  // Map device type to appropriate service type
+  const deviceTypeCode = device.type?.coding?.[0]?.code;
+  let serviceType = { code: '363', display: 'Diagnostic Radiology/Imaging' };
+  
+  // Customize service type based on device
+  if (deviceTypeCode === '77477000') { // CT Scanner
+    serviceType = { code: '363', display: 'CT Scan' };
+  } else if (deviceTypeCode === '113091000') { // MRI
+    serviceType = { code: '363', display: 'MRI Scan' };
+  } else if (deviceTypeCode === '44056008') { // X-Ray
+    serviceType = { code: '363', display: 'X-Ray' };
+  } else if (deviceTypeCode === '45172009') { // Ultrasound
+    serviceType = { code: '363', display: 'Ultrasound' };
+  } else if (deviceTypeCode === '71651007') { // Mammography
+    serviceType = { code: '363', display: 'Mammography' };
+  }
+
+  const deviceName = device.deviceName?.find((n: any) => n.type === 'user-friendly-name')?.name 
+    ?? device.deviceName?.[0]?.name 
+    ?? 'Medical Device';
+
+  return {
+    resourceType: 'Schedule',
+    id: resourceId(),
+    serviceType: [
+      {
+        coding: [
+          {
+            system: 'http://terminology.hl7.org/CodeSystem/service-type',
+            code: serviceType.code,
+            display: serviceType.display,
+          },
+        ],
+      },
+    ],
+    actor: [
+      {
+        reference: `Device/${device.id}`,
+        display: deviceName,
+      },
+      {
+        reference: `Location/${location.id}`,
+        display: location.name,
+      },
+    ],
+  };
+};
+
 const addMinutes = (date: Date, minutes: number): Date => {
   return new Date(new Date(date).setMinutes(date.getMinutes() + minutes));
 };
@@ -163,16 +218,31 @@ const createResources = (startDays: number, durationDays: number) => {
   const endDate = new Date(startDate.getTime() + durationDays * 24 * 60 * 60 * 1000);
   const currentDate = new Date(startDate);
 
-  const schedules = locations.map((location, index) => {
+  // Location-based schedules (urgent care and primary care with practitioners)
+  const locationSchedules = locations.map((location, index) => {
     const practitionerRole = index >= 10 ? practitionerRoles[index - 10] : undefined;
     return schedule(location, index, practitionerRole);
   });
+
+  // Device-based schedules (each device paired with its location)
+  const deviceSchedules = devices.map((device) => {
+    // Extract location ID from device.location reference (e.g., "Location/10" -> "10")
+    const locationRef = device.location?.reference as string | undefined;
+    const locationId = locationRef?.replace('Location/', '');
+    const deviceLocation = locations.find((l) => l.id === locationId) ?? locations[10]; // fallback to first primary care
+    return deviceSchedule(device, deviceLocation);
+  });
+
+  // Combined schedules
+  const schedules = [...locationSchedules, ...deviceSchedules];
   
   let slots: Resource[] = [];
 
   while (currentDate <= endDate) {
     const clinicOpenTime = addMinutes(currentDate, 8 * 60);
-    const slotsForSchedules = schedules.flatMap((schedule, scheduleIndex) => {
+    
+    // Generate slots for location-based schedules
+    const slotsForLocationSchedules = locationSchedules.flatMap((schedule, scheduleIndex) => {
       const ret: Resource[] = [];
       const isPrimaryCare = scheduleIndex >= 10; // Primary care schedules have PractitionerRole actors
       
@@ -214,7 +284,43 @@ const createResources = (startDays: number, durationDays: number) => {
       
       return ret;
     });
-    slots = [...slots, ...slotsForSchedules];
+
+    // Generate slots for device-based schedules
+    // Devices have fixed appointment durations based on procedure type
+    const slotsForDeviceSchedules = deviceSchedules.flatMap((schedule, deviceIndex) => {
+      const ret: Resource[] = [];
+      const device = devices[deviceIndex];
+      const deviceTypeCode = device.type?.coding?.[0]?.code;
+      
+      // Set appointment duration based on device type
+      let appointmentDuration = 30; // default
+      if (deviceTypeCode === '77477000') appointmentDuration = 45; // CT Scanner - 45 min
+      else if (deviceTypeCode === '113091000') appointmentDuration = 60; // MRI - 60 min
+      else if (deviceTypeCode === '44056008') appointmentDuration = 15; // X-Ray - 15 min
+      else if (deviceTypeCode === '45172009') appointmentDuration = 30; // Ultrasound - 30 min
+      else if (deviceTypeCode === '71651007') appointmentDuration = 30; // Mammography - 30 min
+      
+      // Device schedules: 8 AM to 5 PM with fixed-duration slots
+      const cleanStartDate = new Date(currentDate);
+      cleanStartDate.setHours(8, 0, 0, 0);
+      
+      const workingHours = 9;
+      const totalMinutes = workingHours * 60;
+      
+      let currentMinute = 0;
+      while (currentMinute + appointmentDuration <= totalMinutes) {
+        const startTime = addMinutes(cleanStartDate, currentMinute);
+        const endTime = addMinutes(startTime, appointmentDuration);
+        
+        ret.push(slot(startTime.toISOString(), endTime.toISOString(), schedule, false));
+        
+        currentMinute += appointmentDuration;
+      }
+      
+      return ret;
+    });
+
+    slots = [...slots, ...slotsForLocationSchedules, ...slotsForDeviceSchedules];
     currentDate.setDate(currentDate.getDate() + 1);
   }
   
@@ -228,6 +334,10 @@ const createResources = (startDays: number, durationDays: number) => {
       {
         type: 'Location',
         url: `${BASE_URL}locations.ndjson`,
+      },
+      {
+        type: 'Device',
+        url: `${BASE_URL}devices.ndjson`,
       },
       {
         type: 'Schedule',
@@ -244,6 +354,7 @@ const createResources = (startDays: number, durationDays: number) => {
   return {
     manifest,
     locations,
+    devices,
     practitioners,
     practitionerRoles,
     slots,
@@ -254,12 +365,14 @@ const createResources = (startDays: number, durationDays: number) => {
 async function generate(options: { outdir: string; startDays: number; durationDays: number }) {
   const resources = createResources(options.startDays, options.durationDays);
   const fileLocation = `locations.ndjson`;
+  const fileDevice = `devices.ndjson`;
   const fileSchedule = `schedules.ndjson`;
   const filePractitionerRoles = `practitionerroles.ndjson`;
   const fileSlot = (i: string) => `slots-${i}.ndjson`;
   const fileManifest = `$bulk-publish`;
 
   fs.writeFileSync(`${options.outdir}/${fileLocation}`, resources.locations.map((s) => JSON.stringify(s)).join('\n'));
+  fs.writeFileSync(`${options.outdir}/${fileDevice}`, resources.devices.map((s) => JSON.stringify(s)).join('\n'));
   fs.writeFileSync(`${options.outdir}/${fileSchedule}`, resources.schedules.map((s) => JSON.stringify(s)).join('\n'));
   fs.writeFileSync(`${options.outdir}/${filePractitionerRoles}`, resources.practitionerRoles.map((s) => JSON.stringify(s)).join('\n'));
 
