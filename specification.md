@@ -697,7 +697,7 @@ This specification adheres to general guidance in FHIR scheduling to implement a
 The recommended appointment booking workflow follows these stages:
 
 1. **Find**: Slot Discovery Clients discover available slots through the bulk publication manifest and static slot files
-2. **Hold**: When a user initiates booking, the _Provider Booking Portal places a temporary hold on the selected slot within the scheduling system's source of truth
+2. **Hold**: When a user initiates booking, the Provider Booking Portal places a temporary hold on the selected slot within the scheduling system's source of truth
 3. **Book**: The user completes the booking process, converting the held slot to a confirmed appointment
 
 ### Hold Implementation Strategy
