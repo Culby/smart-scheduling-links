@@ -357,7 +357,7 @@ Each `identifier` object includes a `system` and a `value`.
 ### Example PractitionerRole File
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson)
 
-# FHIR R4 Practitioner Resource Table
+# Practitioner File  
 
 | **Field Name** | **Type** | **Required** | **Description** |
 | --- | --- | --- | --- |
