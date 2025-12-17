@@ -667,7 +667,7 @@ The Health Service resource is used to describe a single healthcare service or c
 
 The Booking Portal is responsible for handling incoming deep links.
 
-Each Slot exposed by the _Slot Publisher_ can include an extension indicating the Booking Deep Link, a URL that the Slot Discovery Client can redirect a user to. The Slot Discovery Client can attach the following URL parameters to a Booking Deep Link:
+Each Slot exposed by the Slot Publisher can include an extension indicating the Booking Deep Link, a URL that the Slot Discovery Client can redirect a user to. The Slot Discovery Client can attach the following URL parameters to a Booking Deep Link:
 
 * `source`: a correlation handle indicating the identity of the Slot Discovery Client, for use by the Provider Booking Portal in tracking the source of incoming referrals.
 * `booking-referral`: a correlation handle for this specific booking referral. This parameter can optionally be retained by the Provider Booking Portal throughout the booking process, which can subsequently help the Slot Discovery Client to identify booked slots. (Details for this lookup are out of scope for this specification.)
@@ -696,13 +696,13 @@ This specification adheres to general guidance in FHIR scheduling to implement a
 
 The recommended appointment booking workflow follows these stages:
 
-1. **Find**: _Slot Discovery Clients_ discover available slots through the bulk publication manifest and static slot files
-2. **Hold**: When a user initiates booking, the _Provider Booking Portal_ places a temporary hold on the selected slot within the scheduling system's source of truth
+1. **Find**: Slot Discovery Clients discover available slots through the bulk publication manifest and static slot files
+2. **Hold**: When a user initiates booking, the _Provider Booking Portal places a temporary hold on the selected slot within the scheduling system's source of truth
 3. **Book**: The user completes the booking process, converting the held slot to a confirmed appointment
 
 ### Hold Implementation Strategy
 
-This specification recognizes that _Slot Publishers_ and _Provider Booking Portals_ are typically **the same organizational entity** serving different functional roles from a **unified scheduling system**, or at least both have direct access to the underlying source of truth. This unified model resolves potential consistency challenges:
+This specification recognizes that Slot Publishers and Provider Booking Portals are typically **the same organizational entity** serving different functional roles from a **unified scheduling system**, or at least both have direct access to the underlying source of truth. This unified model resolves potential consistency challenges:
 
 - **Immediate hold creation**: When a hold is placed via the Provider Booking Portal, it updates the underlying scheduling database
 - **Publication at publisher's discretion**: The next publication cycle reflects hold status changes (slots with `"status": "busy-tentative"`) in the static files
@@ -710,7 +710,7 @@ This specification recognizes that _Slot Publishers_ and _Provider Booking Porta
 
 ### Hold Initiation
 
-_Provider Booking Portals_ SHOULD initiate slot holds automatically when:
+Provider Booking Portals SHOULD initiate slot holds automatically when:
 
 - A user lands on a booking deep link and begins the appointment booking flow
 - The booking process requires multiple steps or user input that may take significant time
