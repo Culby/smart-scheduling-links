@@ -663,7 +663,7 @@ The Health Service resource is used to describe a single healthcare service or c
 }
   
 
-## Deep Links hosted by _Provider Booking Portal_
+### Deep Links hosted by _Provider Booking Portal
 
 The Booking Portal is responsible for handling incoming deep links.
 
