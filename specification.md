@@ -662,7 +662,7 @@ The Health Service resource is used to describe a single healthcare service or c
   "availabilityExceptions": "Closed on major holidays. Online booking available 24/7 for future appointments."
 }
   
-```js 
+```
 ### Deep Links hosted by Provider Booking Portal
 
 The Booking Portal is responsible for handling incoming deep links.
