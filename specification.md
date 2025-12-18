@@ -801,7 +801,7 @@ For example, given the above example resource at `https://api.flynnspharmacy.exa
   "name": "Flynn's Pharmacy in Pittsfield, MA",
   // additional Location fields here...
 }
-```
+
 
 
 ### Indicate Data “Freshness”
