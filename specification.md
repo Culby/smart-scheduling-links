@@ -739,7 +739,7 @@ _Slot Aggregators_ usually need to assign new `id` values to resources in order 
 
 For example, given this Location resource from an underlying source:
 
-```js
+```js 
 {
   "resourceType": "Location",
   "id": "123",
@@ -752,7 +752,7 @@ For example, given this Location resource from an underlying source:
   "name": "Berkshire Family Medicine - Pittsfield",
   // additional Location fields here...
 }
-```
+```js
 
 A _Slot Aggregator_ might publish a Location like:
 
