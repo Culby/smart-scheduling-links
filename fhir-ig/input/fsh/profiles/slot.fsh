@@ -15,6 +15,3 @@ Description: "This profile sets minimum expectations for a Slot Resource."
 
 // spec has an extension, but I don't think it needs one because we can use serviceType
 // extension
-
-// Per 1/13/25 discussions, seems like we are suggesting to constrain on serviceType
-* serviceType 1..* MS
