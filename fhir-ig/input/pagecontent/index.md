@@ -1,3 +1,6 @@
-# fhir-ig
+## Introduction
 
-Feel free to modify this index page with your own awesome content!
+This is an unofficial FHIR Implementation Guide (IG) that will be used to capture design decisions and discussions from the January 2026 HL7 Connecatathon. 
+
+## Scope and Purpose
+Implement the specification as outlined in https://github.com/Culby/smart-scheduling-links/blob/master/specification.md
