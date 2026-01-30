@@ -151,26 +151,50 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
 Each line of the Location File is a minified JSON object that conveys a physical location where appointments are available.
 
 Each Location includes at least:
-
-| field name | type | required | description |
-| --- | --- | :---: | --- |
-| `resourceType` | string | Y | fixed value of `"Location"` |
-| `id` | string | Y | unique identifier for this location (up to 64 alphanumeric characters and may include `-` and `.`) |
-| `name` | string | Y | the human-readable name of the location. Name SHOULD include consumer-relevant branding (e.g., the brand name of a pharmacy chain that a consumer would be familiar with)|
-| `telecom` | array of JSON objects | Y | each object conveys a contact point for this location. The array SHALL include at least one contact point, and SHOULD include both a phone number and a URL. (*Note: this field conveys "general information" contact points such as a front desk for the location, not necessarily for booking appointments; see Slot details for booking URLs and booking phone numbers*)|
-| &nbsp;&nbsp;&rarr;&nbsp;`system` | string | Y | `"phone"` or `"url"`|
-| &nbsp;&nbsp;&rarr;&nbsp;`value` | string | Y | phone number or URL for this location|
-| `address` | JSON object | Y | each object conveys a USPS [complete address](https://pe.usps.com/text/pub28/28c2_001.htm) |
-| &nbsp;&nbsp;&rarr;&nbsp;`line` | array of strings | Y | each string is line in the address |
-| &nbsp;&nbsp;&rarr;&nbsp;`city` | string | Y | |  
-| &nbsp;&nbsp;&rarr;&nbsp;`state` |string | Y | |
-| &nbsp;&nbsp;&rarr;&nbsp;`postalCode` | string | Y | |
-| &nbsp;&nbsp;&rarr;&nbsp;`district` | string | N | optional county |
-| `description` | string | N | additional information about this location (e.g., where to find it) |
-| `position` | JSON object | N |  geocoordinates of the location |
-| &nbsp;&nbsp;&rarr;&nbsp;`latitude` | number | N | must be populated if position is included |
-| &nbsp;&nbsp;&rarr;&nbsp;`longitude` | number | N | must be populatd if position is included |
-| `identifier` | array of JSON objects | Y | Identifiers for this location (e.g., facility numbers, site identifiers). See below.|
+| **Field Name** | **Type** | **Description** |
+|---|---|---|
+| `resourceType` | string | fixed value of `"Location"` |
+| `id` | string | Logical id of this artifact (from Resource) |
+| `meta` | Meta | Metadata about the resource (from Resource) |
+| `implicitRules` | uri | A set of rules under which this content was created (from Resource) |
+| `language` | code | Language of the resource content (from Resource) |
+| `text` | Narrative | Text summary of the resource, for human interpretation (from DomainResource) |
+| `contained` | array of Resources | Contained, inline Resources (from DomainResource) |
+| `extension` | array of Extension | Additional content defined by implementations (from DomainResource) |
+| `modifierExtension` | array of Extension | Extensions that cannot be ignored (from DomainResource) |
+| `identifier` | array of Identifier | Unique code or number identifying the location to its users |
+| `status` | code | `active` \| `suspended` \| `inactive` |
+| `operationalStatus` | Coding | The operational status of the location (typically only for a bed/room) |
+| `name` | string | Name of the location as used by humans |
+| `alias` | array of strings | A list of alternate names that the location is known as, or was known as, in the past |
+| `description` | string | Additional details about the location that could be displayed as further information to identify the location beyond its name |
+| `mode` | code | `instance` \| `kind` |
+| `type` | array of CodeableConcept | Type of function performed |
+| `telecom` | array of ContactPoint | Contact details of the location |
+| `address` | Address | Physical location |
+| `physicalType` | CodeableConcept | Physical form of the location |
+| `position` | object | The absolute geographic location |
+| &nbsp;&nbsp;→&nbsp;`longitude` | decimal | Longitude with WGS84 datum (Required) |
+| &nbsp;&nbsp;→&nbsp;`latitude` | decimal | Latitude with WGS84 datum (Required) |
+| &nbsp;&nbsp;→&nbsp;`altitude` | decimal | Altitude with WGS84 datum |
+| `managingOrganization` | Reference(Organization) | Organization responsible for provisioning and upkeep |
+| `partOf` | Reference(Location) | Another Location this one is physically a part of |
+| `hoursOfOperation` | array of objects | What days/times during a week is this location usually open |
+| &nbsp;&nbsp;→&nbsp;`daysOfWeek` | array of codes | `mon` \| `tue` \| `wed` \| `thu` \| `fri` \| `sat` \| `sun` |
+| &nbsp;&nbsp;→&nbsp;`allDay` | boolean | The Location is open all day |
+| &nbsp;&nbsp;→&nbsp;`openingTime` | time | Time that the Location opens |
+| &nbsp;&nbsp;→&nbsp;`closingTime` | time | Time that the Location closes |
+| `availabilityExceptions` | string | Description of availability exceptions |
+| `endpoint` | array of Reference(Endpoint) | Technical endpoints providing access to services operated for the location |
+| `virtualService` | array of objects | Connection details of a virtual service (e.g. conference call) for telehealth appointments |
+| &nbsp;&nbsp;→&nbsp;`channelType` | Coding | The type of virtual service to connect to (e.g. Teams, Zoom, WhatsApp). Use codes from http://hl7.org/fhir/ValueSet/virtual-service-type |
+| &nbsp;&nbsp;→&nbsp;`addressUrl` | url | URL to the virtual service connection (e.g., meeting link) |
+| &nbsp;&nbsp;→&nbsp;`addressString` | string | Address to reach the virtual service as a string (e.g., phone number) |
+| &nbsp;&nbsp;→&nbsp;`addressContactPoint` | ContactPoint | Address to reach the virtual service as a ContactPoint |
+| &nbsp;&nbsp;→&nbsp;`addressExtendedContactDetail` | ExtendedContactDetail | Extended contact details for the virtual service |
+| &nbsp;&nbsp;→&nbsp;`additionalInfo` | array of urls | Additional information about the virtual service connection (e.g., instructions, alternate URLs) |
+| &nbsp;&nbsp;→&nbsp;`maxParticipants` | positiveInt | Maximum number of participants supported by the virtual service |
+| &nbsp;&nbsp;→&nbsp;`sessionKey` | string | Session key required to access the virtual service |
 
 Each `identifier` object includes a `system` and a `value`. 
 
