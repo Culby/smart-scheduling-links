@@ -404,30 +404,15 @@ Each line of the Schedule File is a minified JSON object that conveys informatio
 
 Each Schedule includes at least:
 
-<table>
-	<tr><th>field name</th><th>type</th><th>description</th></tr>
-	<tr><td><code>resourceType</code></td><td>string</td><td>fixed value of <code>"Schedule"</code></td></tr>
-	<tr><td><code>id</code></td><td>string</td><td>a unique identifier for this schedule (up to 64 alphanumeric characters and may include <code>-</code> and <code>.</code>)</td></tr>
-	<tr><td><code>actor</code></td><td>array of JSON objects</td><td>References to the primary resource(s) that the schedule is providing availability for. This array can contain multiple actors, commonly including both Location and PractitionerRole references to indicate appointments for a specific practitioner role at a specific location.</td></tr>
-	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, PractitionerRole, or other resource. Use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>) for location references and <code>PractitionerRole</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"PractitionerRole/doc-smith-role"</code>) for practitioner role references. Multiple references can be included to represent schedules that are associated with both a specific practitioner role and a specific location.</td></tr>
-	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>display</code></td><td>string</td><td>Human-readable label for the referenced actor. For a <code>Location</code>, populate with <code>Location.name</code>. For a <code>PractitionerRole</code>, populate with <code>PractitionerRole.practitioner.display</code>. Including <code>display</code> helps clients render schedules without dereferencing actors.</td></tr>
-	<tr><td><code>serviceType</code></td><td>array of JSON objects</td><td>Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include:
-		<pre>[{
-  "system": "http://terminology.hl7.org/CodeSystem/service-type",
-  "code": "124",
-  "display": "General Practice"
-}]
-</pre>
-		For immunization services, you might use:
-		<pre>[{
-  "system": "http://terminology.hl7.org/CodeSystem/service-type",
-  "code": "57",
-  "display": "Immunization"
-}]
-</pre>
-		Additional <code>serviceType</code>s may be included if this schedule offers multiple services; or additional <code>coding</code>s may be included to convey more nuanced information about the services offered. Multiple codings can express different levels of specificity following the FHIR convention for "codeable concepts" -- see <a href="http://hl7.org/fhir/datatypes.html#codeableconcept">here</a> for details.</td></tr>
-	<tr><td><code>extension</code></td><td>array of JSON objects</td><td>see details below</td></tr>
-</table>
+| **Field Name** | **Type** | **Required** | **Description** |
+|---|---|---|---|
+| `resourceType` | string | Yes | fixed value of `"Schedule"` |
+| `id` | string | Yes | a unique identifier for this schedule (up to 64 alphanumeric characters and may include `-` and `.`) |
+| `actor` | array of JSON objects | Yes | References to the primary resource(s) that the schedule is providing availability for. This array can contain multiple actors, commonly including both Location and PractitionerRole references to indicate appointments for a specific practitioner role at a specific location. |
+| &nbsp;&nbsp;→&nbsp;`reference` | string | Yes | Reference to a Location, PractitionerRole, or other resource. Use `Location` + `/` + the `id` value (e.g., `"Location/123"`) for location references and `PractitionerRole` + `/` + the `id` value (e.g., `"PractitionerRole/doc-smith-role"`) for practitioner role references. Multiple references can be included to represent schedules that are associated with both a specific practitioner role and a specific location. |
+| &nbsp;&nbsp;→&nbsp;`display` | string | No | Human-readable label for the referenced actor. For a `Location`, populate with `Location.name`. For a `PractitionerRole`, populate with `PractitionerRole.practitioner.display`. Including `display` helps clients render schedules without dereferencing actors. |
+| `serviceType` | array of JSON objects | No | Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include: <pre>[{<br>  "system": "http://terminology.hl7.org/CodeSystem/service-type",<br>  "code": "124",<br>  "display": "General Practice"<br>}]</pre> For immunization services, you might use: <pre>[{<br>  "system": "http://terminology.hl7.org/CodeSystem/service-type",<br>  "code": "57",<br>  "display": "Immunization"<br>}]</pre> Additional `serviceType`s may be included if this schedule offers multiple services; or additional `coding`s may be included to convey more nuanced information about the services offered. Multiple codings can express different levels of specificity following the FHIR convention for "codeable concepts" -- see [here](http://hl7.org/fhir/datatypes.html#codeableconcept) for details. |
+| `extension` | array of JSON objects | No | see details below |
 
 ### Multiple Actors in Schedules
 
