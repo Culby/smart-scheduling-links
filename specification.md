@@ -155,14 +155,6 @@ Each Location includes at least:
 |---|---|---|
 | `resourceType` | string | fixed value of `"Location"` |
 | `id` | string | Logical id of this artifact (from Resource) |
-| `meta` | Meta | Metadata about the resource (from Resource) |
-| `implicitRules` | uri | A set of rules under which this content was created (from Resource) |
-| `language` | code | Language of the resource content (from Resource) |
-| `text` | Narrative | Text summary of the resource, for human interpretation (from DomainResource) |
-| `contained` | array of Resources | Contained, inline Resources (from DomainResource) |
-| `extension` | array of Extension | Additional content defined by implementations (from DomainResource) |
-| `modifierExtension` | array of Extension | Extensions that cannot be ignored (from DomainResource) |
-| `identifier` | array of Identifier | Unique code or number identifying the location to its users |
 | `status` | code | `active` \| `suspended` \| `inactive` |
 | `operationalStatus` | Coding | The operational status of the location (typically only for a bed/room) |
 | `name` | string | Name of the location as used by humans |
