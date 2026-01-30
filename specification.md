@@ -151,42 +151,42 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
 Each line of the Location File is a minified JSON object that conveys a physical location where appointments are available.
 
 Each Location includes at least:
-| **Field Name** | **Type** | **Description** |
-|---|---|---|
-| `resourceType` | string | fixed value of `"Location"` |
-| `id` | string | Logical id of this artifact (from Resource) |
-| `status` | code | `active` \| `suspended` \| `inactive` |
-| `operationalStatus` | Coding | The operational status of the location (typically only for a bed/room) |
-| `name` | string | Name of the location as used by humans |
-| `alias` | array of strings | A list of alternate names that the location is known as, or was known as, in the past |
-| `description` | string | Additional details about the location that could be displayed as further information to identify the location beyond its name |
-| `mode` | code | `instance` \| `kind` |
-| `type` | array of CodeableConcept | Type of function performed |
-| `telecom` | array of ContactPoint | Contact details of the location |
-| `address` | Address | Physical location |
-| `physicalType` | CodeableConcept | Physical form of the location |
-| `position` | object | The absolute geographic location |
-| &nbsp;&nbsp;→&nbsp;`longitude` | decimal | Longitude with WGS84 datum (Required) |
-| &nbsp;&nbsp;→&nbsp;`latitude` | decimal | Latitude with WGS84 datum (Required) |
-| &nbsp;&nbsp;→&nbsp;`altitude` | decimal | Altitude with WGS84 datum |
-| `managingOrganization` | Reference(Organization) | Organization responsible for provisioning and upkeep |
-| `partOf` | Reference(Location) | Another Location this one is physically a part of |
-| `hoursOfOperation` | array of objects | What days/times during a week is this location usually open |
-| &nbsp;&nbsp;→&nbsp;`daysOfWeek` | array of codes | `mon` \| `tue` \| `wed` \| `thu` \| `fri` \| `sat` \| `sun` |
-| &nbsp;&nbsp;→&nbsp;`allDay` | boolean | The Location is open all day |
-| &nbsp;&nbsp;→&nbsp;`openingTime` | time | Time that the Location opens |
-| &nbsp;&nbsp;→&nbsp;`closingTime` | time | Time that the Location closes |
-| `availabilityExceptions` | string | Description of availability exceptions |
-| `endpoint` | array of Reference(Endpoint) | Technical endpoints providing access to services operated for the location |
-| `virtualService` | array of objects | Connection details of a virtual service (e.g. conference call) for telehealth appointments |
-| &nbsp;&nbsp;→&nbsp;`channelType` | Coding | The type of virtual service to connect to (e.g. Teams, Zoom, WhatsApp). Use codes from http://hl7.org/fhir/ValueSet/virtual-service-type |
-| &nbsp;&nbsp;→&nbsp;`addressUrl` | url | URL to the virtual service connection (e.g., meeting link) |
-| &nbsp;&nbsp;→&nbsp;`addressString` | string | Address to reach the virtual service as a string (e.g., phone number) |
-| &nbsp;&nbsp;→&nbsp;`addressContactPoint` | ContactPoint | Address to reach the virtual service as a ContactPoint |
-| &nbsp;&nbsp;→&nbsp;`addressExtendedContactDetail` | ExtendedContactDetail | Extended contact details for the virtual service |
-| &nbsp;&nbsp;→&nbsp;`additionalInfo` | array of urls | Additional information about the virtual service connection (e.g., instructions, alternate URLs) |
-| &nbsp;&nbsp;→&nbsp;`maxParticipants` | positiveInt | Maximum number of participants supported by the virtual service |
-| &nbsp;&nbsp;→&nbsp;`sessionKey` | string | Session key required to access the virtual service |
+| **Field Name** | **Type** | **Required** | **Description** |
+|---|---|---|---|
+| `resourceType` | string | Yes | fixed value of `"Location"` |
+| `id` | string | No | Logical id of this artifact (from Resource) |
+| `status` | code | No | `active` \| `suspended` \| `inactive` |
+| `operationalStatus` | Coding | No | The operational status of the location (typically only for a bed/room) |
+| `name` | string | No | Name of the location as used by humans |
+| `alias` | array of strings | No | A list of alternate names that the location is known as, or was known as, in the past |
+| `description` | string | No | Additional details about the location that could be displayed as further information to identify the location beyond its name |
+| `mode` | code | No | `instance` \| `kind` |
+| `type` | array of CodeableConcept | No | Type of function performed |
+| `telecom` | array of ContactPoint | No | Contact details of the location |
+| `address` | Address | No | Physical location |
+| `physicalType` | CodeableConcept | No | Physical form of the location |
+| `position` | object | No | The absolute geographic location |
+| &nbsp;&nbsp;→&nbsp;`longitude` | decimal | Yes* | Longitude with WGS84 datum (Required if position is provided) |
+| &nbsp;&nbsp;→&nbsp;`latitude` | decimal | Yes* | Latitude with WGS84 datum (Required if position is provided) |
+| &nbsp;&nbsp;→&nbsp;`altitude` | decimal | No | Altitude with WGS84 datum |
+| `managingOrganization` | Reference(Organization) | No | Organization responsible for provisioning and upkeep |
+| `partOf` | Reference(Location) | No | Another Location this one is physically a part of |
+| `hoursOfOperation` | array of objects | No | What days/times during a week is this location usually open |
+| &nbsp;&nbsp;→&nbsp;`daysOfWeek` | array of codes | No | `mon` \| `tue` \| `wed` \| `thu` \| `fri` \| `sat` \| `sun` |
+| &nbsp;&nbsp;→&nbsp;`allDay` | boolean | No | The Location is open all day |
+| &nbsp;&nbsp;→&nbsp;`openingTime` | time | No | Time that the Location opens |
+| &nbsp;&nbsp;→&nbsp;`closingTime` | time | No | Time that the Location closes |
+| `availabilityExceptions` | string | No | Description of availability exceptions |
+| `endpoint` | array of Reference(Endpoint) | No | Technical endpoints providing access to services operated for the location |
+| `virtualService` | array of objects | No | Connection details of a virtual service (e.g. conference call) for telehealth appointments |
+| &nbsp;&nbsp;→&nbsp;`channelType` | Coding | No | The type of virtual service to connect to (e.g. Teams, Zoom, WhatsApp). Use codes from http://hl7.org/fhir/ValueSet/virtual-service-type |
+| &nbsp;&nbsp;→&nbsp;`addressUrl` | url | No** | URL to the virtual service connection (e.g., meeting link) |
+| &nbsp;&nbsp;→&nbsp;`addressString` | string | No** | Address to reach the virtual service as a string (e.g., phone number) |
+| &nbsp;&nbsp;→&nbsp;`addressContactPoint` | ContactPoint | No** | Address to reach the virtual service as a ContactPoint |
+| &nbsp;&nbsp;→&nbsp;`addressExtendedContactDetail` | ExtendedContactDetail | No** | Extended contact details for the virtual service |
+| &nbsp;&nbsp;→&nbsp;`additionalInfo` | array of urls | No | Additional information about the virtual service connection (e.g., instructions, alternate URLs) |
+| &nbsp;&nbsp;→&nbsp;`maxParticipants` | positiveInt | No | Maximum number of participants supported by the virtual service |
+| &nbsp;&nbsp;→&nbsp;`sessionKey` | string | No | Session key required to access the virtual service |
 
 Each `identifier` object includes a `system` and a `value`. 
 
