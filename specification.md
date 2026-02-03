@@ -154,7 +154,7 @@ Each Location includes at least:
 | **Field Name** | **Type** | **Required** | **Description** |
 |---|---|---|---|
 | `resourceType` | string | Yes | fixed value of `"Location"` |
-| `id` | string | No | Logical id of this artifact (from Resource) |
+| `id` | string | Yes | Logical id of this artifact (from Resource) |
 | `status` | code | No | `active` \| `suspended` \| `inactive` |
 | `operationalStatus` | Coding | No | The operational status of the location (typically only for a bed/room) |
 | `name` | string | No | Name of the location as used by humans |
