@@ -163,7 +163,7 @@ Each Location includes at least:
 | `mode` | code | No | `instance` \| `kind` |
 | `type` | array of CodeableConcept | No | Type of function performed |
 | `telecom` | array of ContactPoint | No | Contact details of the location |
-| `address` | Address | No | Physical location |
+| `address` | Address | Yes | Physical location |
 | `physicalType` | CodeableConcept | No | Physical form of the location |
 | `position` | object | No | The absolute geographic location |
 | &nbsp;&nbsp;→&nbsp;`longitude` | decimal | Yes* | Longitude with WGS84 datum (Required if position is provided) |
