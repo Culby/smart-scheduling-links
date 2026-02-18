@@ -43,6 +43,11 @@ This profile sets minimum expectations for the Location resource to enable SMART
 // model the virtual locations with physical type & r5 virtual service
 * physicalType MS // it may be ideal to add a slice here to make it easy for folks to visually see it
 * extension contains $xver-loc-virtualService named virtualService 0..*
+
+* extension[virtualService].value[x] only url
+* extension[virtualService].valueUrl 1..1 MS
+* extension[virtualService].valueUrl ^short = "Virtual visit URL (maps to R5 VirtualServiceDetail.addressUrl)"
+* extension[virtualService].valueUrl ^definition = "Carries the R5 Location.virtualService.addressUrl value via a single URL for R4 round-tripping."
 * extension[virtualService] ^short = "Virtual service connection details (R5 element carried via xver extension)"
 * extension[virtualService] ^definition = "Carries the R5 Location.virtualService element (VirtualServiceDetail) for round-tripping from/to R5."
 
