@@ -15,9 +15,9 @@ Description: "This profile sets the minimum expectations for a Schedule Resource
 // https://github.com/Culby/smart-scheduling-links/blob/master/specification.md#schedule-file
 // actor references location (like the original), but also the PractitionerRole
 * actor MS
-  * reference MS // original
+  * reference 1..1 MS // original
   * display MS // from proposed
 * serviceType 1..* MS // from both
 
-// TODO: Chat with team about some simple value set binding
-//* serviceType from CommonServiceTypesVS (preferred) 
+// TODO - add the schedule extension - note that it likely is semantically duplicative with serviceType and can likely
+// be deprecrated
