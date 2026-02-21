@@ -166,26 +166,42 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
 Each line of the Location File is a minified JSON object that conveys a physical location where appointments are available.
 
 Each Location includes at least:
-
-| field name | type | required | description |
-| --- | --- | :---: | --- |
-| `resourceType` | string | Y | fixed value of `"Location"` |
-| `id` | string | Y | unique identifier for this location (up to 64 alphanumeric characters and may include `-` and `.`) |
-| `name` | string | Y | the human-readable name of the location. Name SHOULD include consumer-relevant branding (e.g., the brand name of a pharmacy chain that a consumer would be familiar with)|
-| `telecom` | array of JSON objects | Y | each object conveys a contact point for this location. The array SHALL include at least one contact point, and SHOULD include both a phone number and a URL. (*Note: this field conveys "general information" contact points such as a front desk for the location, not necessarily for booking appointments; see Slot details for booking URLs and booking phone numbers*)|
-| &nbsp;&nbsp;&rarr;&nbsp;`system` | string | Y | `"phone"` or `"url"`|
-| &nbsp;&nbsp;&rarr;&nbsp;`value` | string | Y | phone number or URL for this location|
-| `address` | JSON object | Y | each object conveys a USPS [complete address](https://pe.usps.com/text/pub28/28c2_001.htm) |
-| &nbsp;&nbsp;&rarr;&nbsp;`line` | array of strings | Y | each string is line in the address |
-| &nbsp;&nbsp;&rarr;&nbsp;`city` | string | Y | |  
-| &nbsp;&nbsp;&rarr;&nbsp;`state` |string | Y | |
-| &nbsp;&nbsp;&rarr;&nbsp;`postalCode` | string | Y | |
-| &nbsp;&nbsp;&rarr;&nbsp;`district` | string | N | optional county |
-| `description` | string | N | additional information about this location (e.g., where to find it) |
-| `position` | JSON object | N |  geocoordinates of the location |
-| &nbsp;&nbsp;&rarr;&nbsp;`latitude` | number | N | must be populated if position is included |
-| &nbsp;&nbsp;&rarr;&nbsp;`longitude` | number | N | must be populatd if position is included |
-| `identifier` | array of JSON objects | Y | Identifiers for this location (e.g., facility numbers, site identifiers). See below.|
+| **Field Name** | **Type** | **Required** | **Description** |
+|---|---|---|---|
+| `resourceType` | string | Yes | fixed value of `"Location"` |
+| `id` | string | Yes | Logical id of this artifact (from Resource) |
+| `status` | code | No | `active` \| `suspended` \| `inactive` |
+| `operationalStatus` | Coding | No | The operational status of the location (typically only for a bed/room) |
+| `name` | string | No | Name of the location as used by humans |
+| `alias` | array of strings | No | A list of alternate names that the location is known as, or was known as, in the past |
+| `description` | string | No | Additional details about the location that could be displayed as further information to identify the location beyond its name |
+| `mode` | code | No | `instance` \| `kind` |
+| `type` | array of CodeableConcept | No | Type of function performed |
+| `telecom` | array of ContactPoint | No | Contact details of the location |
+| `address` | Address | Yes | Physical location |
+| `physicalType` | CodeableConcept | No | Physical form of the location |
+| `position` | object | No | The absolute geographic location |
+| &nbsp;&nbsp;→&nbsp;`longitude` | decimal | Yes* | Longitude with WGS84 datum (Required if position is provided) |
+| &nbsp;&nbsp;→&nbsp;`latitude` | decimal | Yes* | Latitude with WGS84 datum (Required if position is provided) |
+| &nbsp;&nbsp;→&nbsp;`altitude` | decimal | No | Altitude with WGS84 datum |
+| `managingOrganization` | Reference(Organization) | No | Organization responsible for provisioning and upkeep |
+| `partOf` | Reference(Location) | No | Another Location this one is physically a part of |
+| `hoursOfOperation` | array of objects | No | What days/times during a week is this location usually open |
+| &nbsp;&nbsp;→&nbsp;`daysOfWeek` | array of codes | No | `mon` \| `tue` \| `wed` \| `thu` \| `fri` \| `sat` \| `sun` |
+| &nbsp;&nbsp;→&nbsp;`allDay` | boolean | No | The Location is open all day |
+| &nbsp;&nbsp;→&nbsp;`openingTime` | time | No | Time that the Location opens |
+| &nbsp;&nbsp;→&nbsp;`closingTime` | time | No | Time that the Location closes |
+| `availabilityExceptions` | string | No | Description of availability exceptions |
+| `endpoint` | array of Reference(Endpoint) | No | Technical endpoints providing access to services operated for the location |
+| `virtualService` | array of objects | No | Connection details of a virtual service (e.g. conference call) for telehealth appointments |
+| &nbsp;&nbsp;→&nbsp;`channelType` | Coding | No | The type of virtual service to connect to (e.g. Teams, Zoom, WhatsApp). Use codes from http://hl7.org/fhir/ValueSet/virtual-service-type |
+| &nbsp;&nbsp;→&nbsp;`addressUrl` | url | No** | URL to the virtual service connection (e.g., meeting link) |
+| &nbsp;&nbsp;→&nbsp;`addressString` | string | No** | Address to reach the virtual service as a string (e.g., phone number) |
+| &nbsp;&nbsp;→&nbsp;`addressContactPoint` | ContactPoint | No** | Address to reach the virtual service as a ContactPoint |
+| &nbsp;&nbsp;→&nbsp;`addressExtendedContactDetail` | ExtendedContactDetail | No** | Extended contact details for the virtual service |
+| &nbsp;&nbsp;→&nbsp;`additionalInfo` | array of urls | No | Additional information about the virtual service connection (e.g., instructions, alternate URLs) |
+| &nbsp;&nbsp;→&nbsp;`maxParticipants` | positiveInt | No | Maximum number of participants supported by the virtual service |
+| &nbsp;&nbsp;→&nbsp;`sessionKey` | string | No | Session key required to access the virtual service |
 
 Each `identifier` object includes a `system` and a `value`. 
 
@@ -226,6 +242,46 @@ Each `identifier` object includes a `system` and a `value`.
 ### Example Location File
   * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson) 
 
+# FHIR R4 Practitioner Resource Table
+
+| **Field Name** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `resourceType` | string | Y | Fixed value of `"Practitioner"` |
+| `id` | string | Y | Unique identifier for this practitioner (up to 64 alphanumeric characters and may include `-` and `.`) |
+| `identifier` | array of JSON objects | N | An identifier for the person as this agent |
+| → `use` | string | N | `"usual"`, `"official"`, `"temp"`, `"secondary"`, `"old"` |
+| → `system` | string | N | The namespace for the identifier value (e.g., `"http://hl7.org/fhir/sid/us-npi"`) |
+| → `value` | string | N | The value that is unique within the system |
+| `active` | boolean | N | Whether this practitioner's record is in active use |
+| `name` | array of JSON objects | N | The name(s) associated with the practitioner |
+| → `use` | string | N | `"usual"`, `"official"`, `"temp"`, `"nickname"`, `"anonymous"`, `"old"`, `"maiden"` |
+| → `text` | string | N | Full text representation of the name |
+| → `family` | string | N | Family name (surname) |
+| → `given` | array of strings | N | Given names (not always 'first'). Includes middle names |
+| → `prefix` | array of strings | N | Parts that come before the name (e.g., `"Dr."`, `"Prof."`) |
+| → `suffix` | array of strings | N | Parts that come after the name (e.g., `"Jr."`, `"MD"`) |
+| → `period` | JSON object | N | Time period when name was/is in use |
+| →   → `start` | timestamp as string | N | Start time with inclusive boundary |
+| →   → `end` | timestamp as string | N | End time with inclusive boundary |
+| `telecom` | array of JSON objects | N | Contact details for the practitioner (e.g., phone, email) |
+| → `system` | string | N | `"phone"`, `"fax"`, `"email"`, `"pager"`, `"url"`, `"sms"`, `"other"` |
+| → `value` | string | N | The actual contact point details |
+| → `use` | string | N | `"home"`, `"work"`, `"temp"`, `"old"`, `"mobile"` |
+| → `rank` | integer | N | Specify preferred order of use (1 = highest) |
+| → `period` | JSON object | N | Time period when the contact point was/is in use |
+| →   → `start` | timestamp as string | N | Start time with inclusive boundary |
+| →   → `end` | timestamp as string | N | End time with inclusive boundary |
+| `address` | array of JSON objects | N | Address(es) of the practitioner |
+| → `use` | string | N | `"home"`, `"work"`, `"temp"`, `"old"`, `"billing"` |
+| → `type` | string | N | `"postal"`, `"physical"`, `"both"` |
+| → `text` | string | N | Full text representation of the address |
+| → `line` | array of strings | N | Street name, number, direction & P.O. Box etc. |
+| → `city` | string | N | Name of city, town etc. |
+| → `district` | string | N | District name (aka county) |
+| → `state` | string | N | Sub-unit of country (abbreviations ok) |
+| → `postalCode` | string | N | Postal code for area |
+| → `country` | string | N | Country (e.g. can be ISO 3166 2 or 3 letter code) |
+| → `period` | JSON object | N | Time period when
 
 ## PractitionerRole File
 
