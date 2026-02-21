@@ -30,7 +30,10 @@ jobs:
 
       - name: Generate examples
         working-directory: generate-examples
-        run: npm run generate-examples
+        run: |
+          BASE_URL="https://raw.githubusercontent.com/${{ github.repository }}/master/examples/"
+          rm -rf ../examples/*.ndjson
+          npx ts-node src/index.ts --outdir ../examples --base-url "$BASE_URL"
 
       - name: Commit and push if changed
         run: |
