@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Location xmlns="http://hl7.org/fhir">
+  <id value="ExampleSMARTLocation-PrimaryClinic"/>
+  <meta>
+    <profile value="https://smart-scheduling-links.org/StructureDefinition/smart-location"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Location ExampleSMARTLocation-PrimaryClinic</b></p><a name="ExampleSMARTLocation-PrimaryClinic"> </a><a name="hcExampleSMARTLocation-PrimaryClinic"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-smart-location.html">SMART Location</a></p></div><p><b>identifier</b>: <code>https://www.openclintech.com/ids/locations</code>/loc-001</p><p><b>status</b>: Active</p><p><b>name</b>: OpenClinTech Primary Clinic</p><p><b>description</b>: Primary outpatient clinic offering general services.</p><p><b>telecom</b>: <a href="tel:+1-813-555-0100">+1-813-555-0100</a>, <a href="mailto:contact@openclintech.com">contact@openclintech.com</a></p><p><b>address</b>: 123 Main St Tampa FL 33602 </p><h3>Positions</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Longitude</b></td><td><b>Latitude</b></td></tr><tr><td style="display: none">*</td><td>-82.4572</td><td>27.9506</td></tr></table></div>
+  </text>
+  <identifier>
+    <system value="https://www.openclintech.com/ids/locations"/>
+    <value value="loc-001"/>
+  </identifier>
+  <status value="active"/>
+  <name value="OpenClinTech Primary Clinic"/>
+  <description value="Primary outpatient clinic offering general services."/>
+  <telecom>
+    <system value="phone"/>
+    <value value="+1-813-555-0100"/>
+    <use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="contact@openclintech.com"/>
+    <use value="work"/>
+  </telecom>
+  <address>
+    <line value="123 Main St"/>
+    <city value="Tampa"/>
+    <district value="Hillsborough"/>
+    <state value="FL"/>
+    <postalCode value="33602"/>
+  </address>
+  <position>
+    <longitude value="-82.4572"/>
+    <latitude value="27.9506"/>
+  </position>
+</Location>

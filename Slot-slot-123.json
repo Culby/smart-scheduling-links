@@ -1,0 +1,22 @@
+{
+  "resourceType" : "Slot",
+  "id" : "slot-123",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Slot slot-123</b></p><a name=\"slot-123\"> </a><a name=\"hcslot-123\"> </a><p><b>Booking Deep Link</b>: <a href=\"https://booking.healthsystem.org/slot/123\">https://booking.healthsystem.org/slot/123</a></p><p><b>Booking Phone</b>: +1-555-123-4567</p><p><b>schedule</b>: <a href=\"Schedule/123\">Schedule/123</a></p><p><b>status</b>: Free</p><p><b>start</b>: 2026-03-21 10:45:00-0400</p><p><b>end</b>: 2026-03-21 11:15:00-0400</p></div>"
+  },
+  "extension" : [{
+    "url" : "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link",
+    "valueUrl" : "https://booking.healthsystem.org/slot/123"
+  },
+  {
+    "url" : "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone",
+    "valueString" : "+1-555-123-4567"
+  }],
+  "schedule" : {
+    "reference" : "Schedule/123"
+  },
+  "status" : "free",
+  "start" : "2026-03-21T10:45:00-04:00",
+  "end" : "2026-03-21T11:15:00-04:00"
+}

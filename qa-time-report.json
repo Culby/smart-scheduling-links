@@ -1,0 +1,410 @@
+{
+  "date" : "Sat, 21 Feb, 2026 08:56:44 +0000",
+  "doco" : "For each file: start is seconds after start activity occurred. Length = milliseconds activity took",
+  "files" : [{
+    "name" : "/fsh-generated/resources/ImplementationGuide-fhir.ig.json",
+    "size" : 3220,
+    "processes" : [{
+      "activity" : "load",
+      "start" : 53,
+      "length" : 16
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 53,
+      "length" : 11
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 53,
+      "length" : 113
+    },
+    {
+      "activity" : "validate",
+      "start" : 57,
+      "length" : 2405
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 76
+    },
+    {
+      "activity" : "generate2",
+      "start" : 62,
+      "length" : 87
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 71,
+      "length" : 2
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 75,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic.json",
+    "size" : 898,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 52,
+      "length" : 53
+    },
+    {
+      "activity" : "load-configure",
+      "start" : 53,
+      "length" : 1
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 53,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 53,
+      "length" : 579
+    },
+    {
+      "activity" : "validate",
+      "start" : 60,
+      "length" : 12
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 24
+    },
+    {
+      "activity" : "generate2",
+      "start" : 62,
+      "length" : 43
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Slot-slot-123.json",
+    "size" : 530,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 52,
+      "length" : 28
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 54,
+      "length" : 20
+    },
+    {
+      "activity" : "validate",
+      "start" : 60,
+      "length" : 9
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 18
+    },
+    {
+      "activity" : "generate2",
+      "start" : 62,
+      "length" : 30
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-booking-deep-link.json",
+    "size" : 1387,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 53,
+      "length" : 4
+    },
+    {
+      "activity" : "load",
+      "start" : 53,
+      "length" : 12
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 53,
+      "length" : 17
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 54,
+      "length" : 72
+    },
+    {
+      "activity" : "validate",
+      "start" : 54,
+      "length" : 2327
+    },
+    {
+      "activity" : "checkConformanceResources",
+      "start" : 60,
+      "length" : 1
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 44
+    },
+    {
+      "activity" : "generate2",
+      "start" : 62,
+      "length" : 659
+    },
+    {
+      "activity" : "generate2",
+      "start" : 64,
+      "length" : 1173
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 71,
+      "length" : 4
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-booking-phone.json",
+    "size" : 1293,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 53,
+      "length" : 4
+    },
+    {
+      "activity" : "load",
+      "start" : 53,
+      "length" : 5
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 53,
+      "length" : 31
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 54,
+      "length" : 13
+    },
+    {
+      "activity" : "validate",
+      "start" : 56,
+      "length" : 166
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 46
+    },
+    {
+      "activity" : "generate2",
+      "start" : 63,
+      "length" : 341
+    },
+    {
+      "activity" : "generate2",
+      "start" : 65,
+      "length" : 176
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 71,
+      "length" : 2
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-smart-location.json",
+    "size" : 2650,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 53,
+      "length" : 5
+    },
+    {
+      "activity" : "load",
+      "start" : 53,
+      "length" : 6
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 53,
+      "length" : 97
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 54,
+      "length" : 57
+    },
+    {
+      "activity" : "validate",
+      "start" : 56,
+      "length" : 538
+    },
+    {
+      "activity" : "scanForUsageStats",
+      "start" : 60,
+      "length" : 2
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 168
+    },
+    {
+      "activity" : "generate2",
+      "start" : 63,
+      "length" : 465
+    },
+    {
+      "activity" : "generate2",
+      "start" : 65,
+      "length" : 553
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 71,
+      "length" : 16
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 75,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-smart-schedule.json",
+    "size" : 1085,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 53,
+      "length" : 5
+    },
+    {
+      "activity" : "load",
+      "start" : 53,
+      "length" : 7
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 53,
+      "length" : 63
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 54,
+      "length" : 30
+    },
+    {
+      "activity" : "validate",
+      "start" : 57,
+      "length" : 199
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 88
+    },
+    {
+      "activity" : "generate2",
+      "start" : 63,
+      "length" : 212
+    },
+    {
+      "activity" : "generate2",
+      "start" : 66,
+      "length" : 177
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 71,
+      "length" : 7
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 75,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-smart-slot.json",
+    "size" : 1600,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 53,
+      "length" : 8
+    },
+    {
+      "activity" : "load",
+      "start" : 53,
+      "length" : 7
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 53,
+      "length" : 56
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 54,
+      "length" : 31
+    },
+    {
+      "activity" : "validate",
+      "start" : 57,
+      "length" : 196
+    },
+    {
+      "activity" : "generate1",
+      "start" : 60,
+      "length" : 70
+    },
+    {
+      "activity" : "generate2",
+      "start" : 64,
+      "length" : 168
+    },
+    {
+      "activity" : "generate2",
+      "start" : 66,
+      "length" : 153
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 71,
+      "length" : 7
+    }]
+  },
+  {
+    "name" : "/fsh-generated/includes/fsh-link-references.md",
+    "size" : 397
+  },
+  {
+    "name" : "/fsh-generated/includes/menu.xml",
+    "size" : 1043
+  },
+  {
+    "name" : "/input/pagecontent/index.md",
+    "size" : 315
+  },
+  {
+    "name" : "/template/config",
+    "size" : 0,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 64,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/template/config/_config.yml",
+    "size" : 140
+  },
+  {
+    "name" : "/temp/pages/_includes/artifacts.xml",
+    "size" : 4534
+  }]
+}

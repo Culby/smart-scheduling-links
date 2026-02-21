@@ -1,0 +1,42 @@
+[{
+  "id" : "booking-deep-link",
+  "type" : "StructureDefinition",
+  "url" : "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link",
+  "version" : "0.1.0",
+  "name" : "BookingDeepLink"
+},
+{
+  "id" : "booking-phone",
+  "type" : "StructureDefinition",
+  "url" : "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone",
+  "version" : "0.1.0",
+  "name" : "BookingPhone"
+},
+{
+  "id" : "fhir.ig",
+  "type" : "ImplementationGuide",
+  "url" : "https://smart-scheduling-links.org/ImplementationGuide/fhir.ig",
+  "version" : "0.1.0",
+  "name" : "fhirig"
+},
+{
+  "id" : "smart-location",
+  "type" : "StructureDefinition",
+  "url" : "https://smart-scheduling-links.org/StructureDefinition/smart-location",
+  "version" : "0.1.0",
+  "name" : "SMARTLocation"
+},
+{
+  "id" : "smart-schedule",
+  "type" : "StructureDefinition",
+  "url" : "https://smart-scheduling-links.org/StructureDefinition/smart-schedule",
+  "version" : "0.1.0",
+  "name" : "SmartSchedule"
+},
+{
+  "id" : "smart-slot",
+  "type" : "StructureDefinition",
+  "url" : "https://smart-scheduling-links.org/StructureDefinition/smart-slot",
+  "version" : "0.1.0",
+  "name" : "SmartSlot"
+}]

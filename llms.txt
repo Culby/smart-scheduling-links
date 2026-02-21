@@ -1,0 +1,28 @@
+# fhir.ig#0.1.0: null
+
+## Pages
+
+* [Home](index.md)
+* [Artifacts Summary](artifacts.md)
+
+## Resources
+
+### Resource Profiles
+
+* [SMART Location](StructureDefinition-smart-location.md)
+* [SMART Schedule](StructureDefinition-smart-schedule.md)
+* [SMART Slot](StructureDefinition-smart-slot.md)
+
+### Extensions
+
+* [Booking Deep Link](StructureDefinition-booking-deep-link.md)
+* [Booking Phone](StructureDefinition-booking-phone.md)
+
+### ImplementationGuides
+
+* [fhirig](index.md)
+
+### Examples
+
+* [OpenClinTech Primary Clinic (Location)](Location-ExampleSMARTLocation-PrimaryClinic.md)
+* [slot-123 (Slot)](Slot-slot-123.md)
