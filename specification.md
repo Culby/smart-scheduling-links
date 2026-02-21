@@ -23,16 +23,31 @@ This guide explains how a _Slot Publisher_ makes an appointment slots available 
  * **Client Scheduling Applications** --Apps can then connect to the directory and find available appointments that best suite their needs eliminating the back and forth need to call providers to book appointments.  Patients or the consumer  can more easily find the best slot availale to suite their need rather a docters appointment, booking a vaccine or a vaerity of other healthcare services based on provider, location, time, find the appointment slot that best fits their need without having to pick-up the phone.
 
 ## Sequence Diagram 
-<img src="https://raw.githubusercontent.com/Culby/smart-scheduling-links/ac_edits/SchedulingDirectorySequenceLinks.drawio.png" alt="Scheduling Directory Sequence Links" width="600">
+
+```mermaid
+sequenceDiagram
+    participant EHR
+    participant Directory as Directory of Slots
+    participant Client as Client Scheduling App
+
+    EHR->>Directory: Publish Slots
+    
+    Client->>Directory: Find Open Slots
+    activate Directory
+    Directory-->>Client: Return Open Slot
+    deactivate Directory
+    
+    Client->>EHR: Book Open Slot via SMART Scheduling Link
+```
  
  The EHR or booking portal will provide the data via the bulk publish to allow for NDJSON files for consumption for the directory of slots.  The directory of slots will then consume the NDJSON to make available to the client application. The directory will presnt slots to client discovery app to allow for the selection of available slots from multiple booking portals.  The slots will then available for presenation to client scheduling applications.  The patient will leverage the deep link to book directly back into the EHR or booking portal.  This light and easily approach allows for simple rendering of availabilty of many appointment types.  
  
 ## Quick Start Guide
 
 A _Slot Publisher_ hosts not only appointment slots, but also Locations, PractitionerRoles, and Schedules associated with these slots:
-<img src="ERDiagramSlotScheduleLocationPRHS.svg" alt="Scheduling ER Diagram"/>
+<img src="ERDiagram.png" alt="Scheduling ER Diagram"/>
 
-Concretely, a _Slot Publisher_ hosts five kinds of files:
+Concretely, a _Slot Publisher_ hosts six kinds of files:
 * **Practitioner,Practitinoer Role, Healthcare Service, location, scheduled, slot**
 
 * **Bulk Publication Manifest**. The manifest is a JSON file serving as the entry point for slot discovery. It provides links that clients can follow to retrieve all the other files. The manifest is always hosted at a URL that ends with `$bulk-publish` (a convention used when publishing data sets using FHIR; this convention applies any time a potentially large data set needs to be statically published).
@@ -396,7 +411,48 @@ Each `identifier` object includes a `system` and a `value`.
 ```
 
 ### Example PractitionerRole File
-  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson) 
+  * Example [file](https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson)
+
+# Practitioner File  
+
+| **Field Name** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `resourceType` | string | Y | Fixed value of `"Practitioner"` |
+| `id` | string | Y | Unique identifier for this practitioner (up to 64 alphanumeric characters and may include `-` and `.`) |
+| `identifier` | array of JSON objects | N | An identifier for the person as this agent |
+| → `use` | string | N | `"usual"`, `"official"`, `"temp"`, `"secondary"`, `"old"` |
+| → `system` | string | N | The namespace for the identifier value (e.g., `"http://hl7.org/fhir/sid/us-npi"`) |
+| → `value` | string | N | The value that is unique within the system |
+| `active` | boolean | N | Whether this practitioner's record is in active use |
+| `name` | array of JSON objects | N | The name(s) associated with the practitioner |
+| → `use` | string | N | `"usual"`, `"official"`, `"temp"`, `"nickname"`, `"anonymous"`, `"old"`, `"maiden"` |
+| → `text` | string | N | Full text representation of the name |
+| → `family` | string | N | Family name (surname) |
+| → `given` | array of strings | N | Given names (not always 'first'). Includes middle names |
+| → `prefix` | array of strings | N | Parts that come before the name (e.g., `"Dr."`, `"Prof."`) |
+| → `suffix` | array of strings | N | Parts that come after the name (e.g., `"Jr."`, `"MD"`) |
+| → `period` | JSON object | N | Time period when name was/is in use |
+| →   → `start` | timestamp as string | N | Start time with inclusive boundary |
+| →   → `end` | timestamp as string | N | End time with inclusive boundary |
+| `telecom` | array of JSON objects | N | Contact details for the practitioner (e.g., phone, email) |
+| → `system` | string | N | `"phone"`, `"fax"`, `"email"`, `"pager"`, `"url"`, `"sms"`, `"other"` |
+| → `value` | string | N | The actual contact point details |
+| → `use` | string | N | `"home"`, `"work"`, `"temp"`, `"old"`, `"mobile"` |
+| → `rank` | integer | N | Specify preferred order of use (1 = highest) |
+| → `period` | JSON object | N | Time period when the contact point was/is in use |
+| →   → `start` | timestamp as string | N | Start time with inclusive boundary |
+| →   → `end` | timestamp as string | N | End time with inclusive boundary |
+| `address` | array of JSON objects | N | Address(es) of the practitioner |
+| → `use` | string | N | `"home"`, `"work"`, `"temp"`, `"old"`, `"billing"` |
+| → `type` | string | N | `"postal"`, `"physical"`, `"both"` |
+| → `text` | string | N | Full text representation of the address |
+| → `line` | array of strings | N | Street name, number, direction & P.O. Box etc. |
+| → `city` | string | N | Name of city, town etc. |
+| → `district` | string | N | District name (aka county) |
+| → `state` | string | N | Sub-unit of country (abbreviations ok) |
+| → `postalCode` | string | N | Postal code for area |
+| → `country` | string | N | Country (e.g. can be ISO 3166 2 or 3 letter code) |
+| → `period` | JSON object | N | Time period when
 
 ## Schedule File
 
@@ -404,30 +460,15 @@ Each line of the Schedule File is a minified JSON object that conveys informatio
 
 Each Schedule includes at least:
 
-<table>
-	<tr><th>field name</th><th>type</th><th>description</th></tr>
-	<tr><td><code>resourceType</code></td><td>string</td><td>fixed value of <code>"Schedule"</code></td></tr>
-	<tr><td><code>id</code></td><td>string</td><td>a unique identifier for this schedule (up to 64 alphanumeric characters and may include <code>-</code> and <code>.</code>)</td></tr>
-	<tr><td><code>actor</code></td><td>array of JSON objects</td><td>References to the primary resource(s) that the schedule is providing availability for. This array can contain multiple actors, commonly including both Location and PractitionerRole references to indicate appointments for a specific practitioner role at a specific location.</td></tr>
-	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>reference</code></td><td>string</td><td>Reference to a Location, PractitionerRole, or other resource. Use <code>Location</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"Location/123"</code>) for location references and <code>PractitionerRole</code> + <code>/</code> + the <code>id</code> value (e.g., <code>"PractitionerRole/doc-smith-role"</code>) for practitioner role references. Multiple references can be included to represent schedules that are associated with both a specific practitioner role and a specific location.</td></tr>
-	<tr><td>&nbsp;&nbsp;&rarr;&nbsp;<code>display</code></td><td>string</td><td>Human-readable label for the referenced actor. For a <code>Location</code>, populate with <code>Location.name</code>. For a <code>PractitionerRole</code>, populate with <code>PractitionerRole.practitioner.display</code>. Including <code>display</code> helps clients render schedules without dereferencing actors.</td></tr>
-	<tr><td><code>serviceType</code></td><td>array of JSON objects</td><td>Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include:
-		<pre>[{
-  "system": "http://terminology.hl7.org/CodeSystem/service-type",
-  "code": "124",
-  "display": "General Practice"
-}]
-</pre>
-		For immunization services, you might use:
-		<pre>[{
-  "system": "http://terminology.hl7.org/CodeSystem/service-type",
-  "code": "57",
-  "display": "Immunization"
-}]
-</pre>
-		Additional <code>serviceType</code>s may be included if this schedule offers multiple services; or additional <code>coding</code>s may be included to convey more nuanced information about the services offered. Multiple codings can express different levels of specificity following the FHIR convention for "codeable concepts" -- see <a href="http://hl7.org/fhir/datatypes.html#codeableconcept">here</a> for details.</td></tr>
-	<tr><td><code>extension</code></td><td>array of JSON objects</td><td>see details below</td></tr>
-</table>
+| **Field Name** | **Type** | **Required** | **Description** |
+|---|---|---|---|
+| `resourceType` | string | Yes | fixed value of `"Schedule"` |
+| `id` | string | Yes | a unique identifier for this schedule (up to 64 alphanumeric characters and may include `-` and `.`) |
+| `actor` | array of JSON objects | Yes | References to the primary resource(s) that the schedule is providing availability for. This array can contain multiple actors, commonly including both Location and PractitionerRole references to indicate appointments for a specific practitioner role at a specific location. |
+| &nbsp;&nbsp;→&nbsp;`reference` | string | Yes | Reference to a Location, PractitionerRole, or other resource. Use `Location` + `/` + the `id` value (e.g., `"Location/123"`) for location references and `PractitionerRole` + `/` + the `id` value (e.g., `"PractitionerRole/doc-smith-role"`) for practitioner role references. Multiple references can be included to represent schedules that are associated with both a specific practitioner role and a specific location. |
+| &nbsp;&nbsp;→&nbsp;`display` | string | No | Human-readable label for the referenced actor. For a `Location`, populate with `Location.name`. For a `PractitionerRole`, populate with `PractitionerRole.practitioner.display`. Including `display` helps clients render schedules without dereferencing actors. |
+| `serviceType` | array of JSON objects | No | Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include: <pre>[{<br>  "system": "http://terminology.hl7.org/CodeSystem/service-type",<br>  "code": "124",<br>  "display": "General Practice"<br>}]</pre> For immunization services, you might use: <pre>[{<br>  "system": "http://terminology.hl7.org/CodeSystem/service-type",<br>  "code": "57",<br>  "display": "Immunization"<br>}]</pre> Additional `serviceType`s may be included if this schedule offers multiple services; or additional `coding`s may be included to convey more nuanced information about the services offered. Multiple codings can express different levels of specificity following the FHIR convention for "codeable concepts" -- see [here](http://hl7.org/fhir/datatypes.html#codeableconcept) for details. |
+| `extension` | array of JSON objects | No | see details below |
 
 ### Multiple Actors in Schedules
 
@@ -662,12 +703,12 @@ The Health Service resource is used to describe a single healthcare service or c
   "availabilityExceptions": "Closed on major holidays. Online booking available 24/7 for future appointments."
 }
   
-
-## Deep Links hosted by _Provider Booking Portal_
+```
+### Deep Links hosted by Provider Booking Portal
 
 The Booking Portal is responsible for handling incoming deep links.
 
-Each Slot exposed by the _Slot Publisher_ can include an extension indicating the Booking Deep Link, a URL that the Slot Discovery Client can redirect a user to. The Slot Discovery Client can attach the following URL parameters to a Booking Deep Link:
+Each Slot exposed by the Slot Publisher can include an extension indicating the Booking Deep Link, a URL that the Slot Discovery Client can redirect a user to. The Slot Discovery Client can attach the following URL parameters to a Booking Deep Link:
 
 * `source`: a correlation handle indicating the identity of the Slot Discovery Client, for use by the Provider Booking Portal in tracking the source of incoming referrals.
 * `booking-referral`: a correlation handle for this specific booking referral. This parameter can optionally be retained by the Provider Booking Portal throughout the booking process, which can subsequently help the Slot Discovery Client to identify booked slots. (Details for this lookup are out of scope for this specification.)
@@ -696,13 +737,13 @@ This specification adheres to general guidance in FHIR scheduling to implement a
 
 The recommended appointment booking workflow follows these stages:
 
-1. **Find**: _Slot Discovery Clients_ discover available slots through the bulk publication manifest and static slot files
-2. **Hold**: When a user initiates booking, the _Provider Booking Portal_ places a temporary hold on the selected slot within the scheduling system's source of truth
+1. **Find**: Slot Discovery Clients discover available slots through the bulk publication manifest and static slot files
+2. **Hold**: When a user initiates booking, the Provider Booking Portal places a temporary hold on the selected slot within the scheduling system's source of truth
 3. **Book**: The user completes the booking process, converting the held slot to a confirmed appointment
 
 ### Hold Implementation Strategy
 
-This specification recognizes that _Slot Publishers_ and _Provider Booking Portals_ are typically **the same organizational entity** serving different functional roles from a **unified scheduling system**, or at least both have direct access to the underlying source of truth. This unified model resolves potential consistency challenges:
+This specification recognizes that Slot Publishers and Provider Booking Portals are typically **the same organizational entity** serving different functional roles from a **unified scheduling system**, or at least both have direct access to the underlying source of truth. This unified model resolves potential consistency challenges:
 
 - **Immediate hold creation**: When a hold is placed via the Provider Booking Portal, it updates the underlying scheduling database
 - **Publication at publisher's discretion**: The next publication cycle reflects hold status changes (slots with `"status": "busy-tentative"`) in the static files
@@ -710,7 +751,7 @@ This specification recognizes that _Slot Publishers_ and _Provider Booking Porta
 
 ### Hold Initiation
 
-_Provider Booking Portals_ SHOULD initiate slot holds automatically when:
+Provider Booking Portals SHOULD initiate slot holds automatically when:
 
 - A user lands on a booking deep link and begins the appointment booking flow
 - The booking process requires multiple steps or user input that may take significant time
@@ -739,7 +780,7 @@ _Slot Aggregators_ usually need to assign new `id` values to resources in order 
 
 For example, given this Location resource from an underlying source:
 
-```js
+```js 
 {
   "resourceType": "Location",
   "id": "123",
@@ -752,7 +793,7 @@ For example, given this Location resource from an underlying source:
   "name": "Berkshire Family Medicine - Pittsfield",
   // additional Location fields here...
 }
-```
+```js
 
 A _Slot Aggregator_ might publish a Location like:
 
@@ -801,7 +842,7 @@ For example, given the above example resource at `https://api.flynnspharmacy.exa
   "name": "Flynn's Pharmacy in Pittsfield, MA",
   // additional Location fields here...
 }
-```
+
 
 
 ### Indicate Data “Freshness”
