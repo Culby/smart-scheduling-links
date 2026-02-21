@@ -21,7 +21,6 @@ SMART Scheduling Links is a FHIR-based specification for healthcare appointment 
 cd generate-examples
 npm install
 npm run generate-examples          # Regenerates all NDJSON files in ../examples/
-npm run generate-conversion-example # Converts legacy availability format to FHIR
 ```
 
 The generator runs via `ts-node` — no separate compile step needed. CLI flags: `--outdir`, `--start-days`, `--duration-days`.
