@@ -1,20 +1,24 @@
 fhirig : Validation Results
 =========================================
 
-err = 6, warn = 9, info = 1
+err = 9, warn = 10, info = 1
 IG Publisher Version: 2.1.1
-Generated Mon Feb 23 16:43:01 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
- Build Errors : 1 / 4 / 0
+Generated Mon Feb 23 18:22:55 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
+ Build Errors : 2 / 4 / 0
  /github/workspace/fhir-ig/fsh-generated/resources/ImplementationGuide-fhir.ig : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic : 0 / 1 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6 : 2 / 0 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/Slot-slot-123 : 2 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-deep-link : 2 / 0 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-phone : 2 / 0 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-location : 0 / 0 / 2
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-practitioner : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-practitionerRole : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-schedule : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-slot : 0 / 1 / 1
 </table>
 == n/a ==
+ERROR: package.tgz: Error converting pacakge to R4B: Error processing example/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json: Unknown IdentifierUse code 'Usual'
 ERROR: Slot-slot-123.html#/html/body/div/div/div/div/div/div/p/a at Line 170, column 290: The link 'Schedule/123' for "Schedule/123" cannot be resolved
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
@@ -24,6 +28,9 @@ WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in 
 WARNING: ImplementationGuide/fhir.ig: ImplementationGuide: Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
 == fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic.json ==
 WARNING: Location/ExampleSMARTLocation-PrimaryClinic: Location.identifier[0].system: No definition could be found for URL value 'https://www.openclintech.com/ids/locations'
+== fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json ==
+ERROR: Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6: Practitioner.identifier[0].use: The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'
+ERROR: Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6: Practitioner.identifier[0].use: The value provided ('Usual') was not found in the value set 'IdentifierUse' (http://hl7.org/fhir/ValueSet/identifier-use|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'; The provided code '#Usual' was not found in the value set 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1')
 == fsh-generated/resources/Slot-slot-123.json ==
 WARNING: Slot/slot-123: Slot.extension[0].value.ofType(url): No definition could be found for URL value 'https://booking.healthsystem.org/slot/123'
 ERROR: Slot/slot-123: Slot.schedule: Unable to resolve resource with reference 'Schedule/123'
@@ -36,6 +43,9 @@ ERROR: StructureDefinition.where(url = 'http://fhir-registry.smarthealthit.org/S
 ERROR: /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-phone: URL Mismatch https://smart-scheduling-links.org/StructureDefinition/booking-phone vs http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone
 == fsh-generated/resources/StructureDefinition-smart-location.json ==
 INFORMATION: StructureDefinition/smart-location: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
+== fsh-generated/resources/StructureDefinition-smart-practitioner.json ==
+== fsh-generated/resources/StructureDefinition-smart-practitionerRole.json ==
+WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/StructureDefinition/smart-practitionerRole'): The Implementation Guide contains no examples for this profile
 == fsh-generated/resources/StructureDefinition-smart-schedule.json ==
 WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/StructureDefinition/smart-schedule'): The Implementation Guide contains no examples for this profile
 == fsh-generated/resources/StructureDefinition-smart-slot.json ==

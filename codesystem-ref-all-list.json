@@ -22,6 +22,17 @@
     "http://hl7.org/fhir/R4/valueset-address-use.html" : "AddressUse"
   },
   {
+    "url" : "http://hl7.org/fhir/administrative-gender",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "AdministrativeGender",
+    "title" : "AdministrativeGender",
+    "description" : "The gender of a person used for administrative purposes.",
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-administrative-gender.html" : "AdministrativeGender"
+  },
+  {
     "url" : "http://hl7.org/fhir/contact-point-system",
     "version" : "5.0.0",
     "status" : "active",
@@ -55,6 +66,17 @@
     "http://hl7.org/fhir/R4/valueset-days-of-week.html" : "DaysOfWeek"
   },
   {
+    "url" : "http://hl7.org/fhir/identifier-use",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "IdentifierUse",
+    "title" : "IdentifierUse",
+    "description" : "Identifies the purpose for this identifier, if known .",
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-identifier-use.html" : "IdentifierUse"
+  },
+  {
     "url" : "http://hl7.org/fhir/location-mode",
     "version" : "5.0.0",
     "status" : "active",
@@ -75,6 +97,17 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R4/valueset-location-status.html" : "LocationStatus"
+  },
+  {
+    "url" : "http://hl7.org/fhir/name-use",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "NameUse",
+    "title" : "NameUse",
+    "description" : "The use of a human name.",
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-name-use.html" : "NameUse"
   },
   {
     "url" : "http://hl7.org/fhir/resource-types",
@@ -108,6 +141,7 @@
     "oids" : ["2.16.840.1.113883.6.96"],
     "uses" : {
     },
+    "http://hl7.org/fhir/R4/valueset-practitioner-role.html" : "Practitioner role",
     "http://hl7.org/fhir/R4/valueset-c80-practice-codes.html" : "Practice Setting Code Value Set"
   },
   {
@@ -121,6 +155,18 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R4/valueset-location-physical-type.html" : "Location type"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/practitioner-role",
+    "version" : "1.0.1",
+    "status" : "active",
+    "name" : "PractitionerRole",
+    "title" : "Practitioner role",
+    "description" : "This example value set defines a set of codes that can be used to indicate the role of a Practitioner.",
+    "oids" : ["2.16.840.1.113883.4.642.1.1132"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-practitioner-role.html" : "Practitioner role"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/service-category",
@@ -157,6 +203,18 @@
     "uses" : {
     },
     "http://terminology.hl7.org/7.0.1/ValueSet-v2-0116.html" : "hl7VS-bedStatus"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "IdentifierType",
+    "title" : "identifierType",
+    "description" : "HL7-defined code system of concepts specifying type of identifier. Used in HL7 Version 2.x messaging data types CX, PLN, PPN, XCN and XON.",
+    "oids" : ["2.16.840.1.113883.18.108"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-identifier-type.html" : "IdentifierType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v2-0276",

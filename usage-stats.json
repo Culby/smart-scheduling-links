@@ -25,6 +25,18 @@
         "title": "SMART Location"
       }
     ],
+    "Practitioner": [
+      {
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-practitioner",
+        "title": "SMART Practitioner"
+      }
+    ],
+    "PractitionerRole": [
+      {
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-practitionerRole",
+        "title": "SmartPractitionerRole"
+      }
+    ],
     "Schedule": [
       {
         "url": "https://smart-scheduling-links.org/StructureDefinition/smart-schedule",

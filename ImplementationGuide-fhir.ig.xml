@@ -9,7 +9,7 @@
   <version value="0.1.0"/>
   <name value="fhirig"/>
   <status value="draft"/>
-  <date value="2026-02-23T16:41:40+00:00"/>
+  <date value="2026-02-23T18:21:29+00:00"/>
   <publisher value="SMART Scheduling Links"/>
   <contact>
     <name value="SMART Scheduling Links"/>
@@ -481,6 +481,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"/>
+      </reference>
+      <name value="Fhir SmartPractitioner resource example"/>
+      <description value="Example Location instance conforming to the SMARTLocation profile."/>
+      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="Slot"/>
       </extension>
       <reference>
@@ -506,6 +517,17 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
+        <reference value="StructureDefinition/smart-practitioner"/>
+      </reference>
+      <name value="SMART Practitioner"/>
+      <description value="This profile sets minimum expections for a Practitioner resource"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
         <reference value="StructureDefinition/smart-schedule"/>
       </reference>
       <name value="SMART Schedule"/>
@@ -521,6 +543,17 @@
       </reference>
       <name value="SMART Slot"/>
       <description value="This profile sets minimum expectations for a Slot Resource."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/smart-practitionerRole"/>
+      </reference>
+      <name value="SmartPractitionerRole"/>
+      <description value="The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available"/>
       <exampleBoolean value="false"/>
     </resource>
     <page>

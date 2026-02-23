@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<!-- broken links = 1, errors = 6, warn = 9, info = 1-->
+<!-- broken links = 1, errors = 9, warn = 10, info = 1-->
 <head>
   <title>fhirig : Validation Results</title>
   <link href="fhir.css" rel="stylesheet"/>
@@ -47,7 +47,7 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Validation Results for fhirig</h1>
- <p>Generated Mon Feb 23 16:43:01 UTC 2026, FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = <a href="https://smart-scheduling-links.org">https://smart-scheduling-links.org</a> (<a href="https://smart-scheduling-links.org/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
+ <p>Generated Mon Feb 23 18:22:55 UTC 2026, FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = <a href="https://smart-scheduling-links.org">https://smart-scheduling-links.org</a> (<a href="https://smart-scheduling-links.org/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
 <table class="grid"> <tr><td colspan=2><b>Quality Checks</b></td></tr>
  <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.1.1</span></td></tr>
  <tr><td>Publication Code:</td><td>n/a<span style="color: maroon; font-weight: bold"> </span>. PackageId = fhir.ig, Canonical = https://smart-scheduling-links.org</td></tr>
@@ -79,19 +79,20 @@
   <li>
 hl7.fhir.r4.core#4.0.1:     <a href="http://hl7.org/fhir/R4/location.html">Location</a>
  (3 uses),     <a href="http://hl7.org/fhir/R4/valueset-languages.html">CommonLanguages</a>
- (3 uses),     <a href="http://hl7.org/fhir/R4/valueset-location-status.html">LocationStatus</a>
+ (6 uses),     <a href="http://hl7.org/fhir/R4/valueset-location-status.html">LocationStatus</a>
  (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-location-mode.html">LocationMode</a>
  (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-location-physical-type.html">LocationType</a>
  (1 uses),     <a href="http://hl7.org/fhir/R4/organization.html">Organization</a>
- (1 uses),     <a href="http://hl7.org/fhir/R4/endpoint.html">Endpoint</a>
- (1 uses),     <a href="http://hl7.org/fhir/R4/schedule.html">Schedule</a>
+ (4 uses),     <a href="http://hl7.org/fhir/R4/endpoint.html">Endpoint</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/practitioner.html">Practitioner</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/practitionerrole.html">PractitionerRole</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/valueset-practitioner-role.html">PractitionerRole</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/healthcareservice.html">HealthcareService</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/schedule.html">Schedule</a>
  (2 uses),     <a href="http://hl7.org/fhir/R4/valueset-service-category.html">ServiceCategory</a>
  (2 uses),     <a href="http://hl7.org/fhir/R4/valueset-service-type.html">ServiceType</a>
- (2 uses),     <a href="http://hl7.org/fhir/R4/practitioner.html">Practitioner</a>
- (1 uses),     <a href="http://hl7.org/fhir/R4/practitionerrole.html">PractitionerRole</a>
- (1 uses),     <a href="http://hl7.org/fhir/R4/relatedperson.html">RelatedPerson</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/relatedperson.html">RelatedPerson</a>
  (1 uses),     <a href="http://hl7.org/fhir/R4/device.html">Device</a>
- (1 uses),     <a href="http://hl7.org/fhir/R4/healthcareservice.html">HealthcareService</a>
  (1 uses),     <a href="http://hl7.org/fhir/R4/slot.html">Slot</a>
  (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-slotstatus.html">SlotStatus</a>
  (1 uses)
@@ -107,20 +108,23 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
  <tr><td>IPA Comparison:</td><td> n/a</td></tr>
  <tr><td>IPS Comparison:</td><td> n/a</td></tr>
  <tr><td>Validation Flags:</td><td> On: autoLoad; Off: hintAboutNonMustSupport, anyExtensionsAllowed, checkAggregation, showReferenceMessages, noExperimentalContent, displayWarnings</td></tr>
- <tr><td>Summary:</td><td> errors = 6, warn = 9, info = 1, broken links = 1, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
+ <tr><td>Summary:</td><td> errors = 9, warn = 10, info = 1, broken links = 1, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
 </table>
  <table class="grid">
    <tr>
      <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Warnings</b></td><td><b>Hints</b></td>
    </tr>
    <tr style="background-color: #ffcccc">
-     <td><a href="#internal"><b>Build Errors</b></a></td><td><b>1</b></td><td><b>4</b></td><td><b>0</b></td>
+     <td><a href="#internal"><b>Build Errors</b></a></td><td><b>2</b></td><td><b>4</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
      <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_ImplementationGuide-fhir.ig"><b>/github/workspace/fhir-ig/fsh-generated/resources/ImplementationGuide-fhir.ig</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
      <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_Location-ExampleSMARTLocation-PrimaryClinic"><b>/github/workspace/fhir-ig/fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"><b>/github/workspace/fhir-ig/fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6</b></a></td><td><b>2</b></td><td><b>0</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #ffcccc">
      <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_Slot-slot-123"><b>/github/workspace/fhir-ig/fsh-generated/resources/Slot-slot-123</b></a></td><td><b>2</b></td><td><b>1</b></td><td><b>0</b></td>
@@ -130,6 +134,9 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
    <tr style="background-color: #ffcccc">
      <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-booking-phone"><b>/github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-phone</b></a></td><td><b>2</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-smart-practitionerRole"><b>/github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-practitionerRole</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
      <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-smart-schedule"><b>/github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-schedule</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
@@ -143,6 +150,9 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
 <h2><a href="">n/a</a> <span id="sv" class="toggle" onclick="toggle('v')">Show Validation Information</span> <span class="vcount" onclick="toggle('v')"></span></h2>
  <div style="border: 1px grey solid; display: none" id="v"></div>
  <table class="grid">
+   <tr style="background-color: #ffcccc">
+     <td><b>package.tgz</b></td><td><b>error</b></td><td><b>Error converting pacakge to R4B: Error processing example/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json: Unknown IdentifierUse code 'Usual'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
    <tr style="background-color: #ffcccc">
      <td><b><a href="Slot-slot-123.html#l271">Slot-slot-123&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/p&#8203;/a at Line 170, column 290</a></b></td><td><b>error</b></td><td><b>The link 'Schedule/123' for &quot;Schedule/123&quot; cannot be resolved</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_CHECK_FAILED</span></td>
    </tr>
@@ -169,7 +179,7 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ImplementationGuide (l1/c13942)</b></td><td><b>warning</b></td><td><b>Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ImplementationGuide#ig-0</span></td>
+     <td><b>ImplementationGuide (l1/c15122)</b></td><td><b>warning</b></td><td><b>Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ImplementationGuide#ig-0</span></td>
    </tr>
 </table>
 <hr/>
@@ -186,9 +196,25 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
 </table>
 <hr/>
+<a name="_github_workspace_fhir-ig_fsh-generated_resources_Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"> </a>
+<h2><a href="Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.html">fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json</a> <span id="svi3" class="toggle" onclick="toggle('vi3')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi3')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi3"><ul style="font-size: 7px"><li>Practitioner: Validated against <i>this.</i><a href="StructureDefinition-smart-practitioner.html">SMART Practitioner</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>Practitioner&#8203;.identifier[0]&#8203;.use (l11&#8203;/c21)</b></td><td><b>error</b></td><td><b>The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">UNABLE_TO_INFER_CODESYSTEM</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>Practitioner&#8203;.identifier[0]&#8203;.use (l11&#8203;/c21)</b></td><td><b>error</b></td><td><b>The value provided ('Usual') was not found in the value set 'IdentifierUse' (http://hl7.org/fhir/ValueSet/identifier-use|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'; The provided code '#Usual' was not found in the value set 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1')</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Terminology_TX_NoValid_16</span></td>
+   </tr>
+</table>
+<hr/>
 <a name="_github_workspace_fhir-ig_fsh-generated_resources_Slot-slot-123"> </a>
-<h2><a href="Slot-slot-123.html">fsh-generated/resources/Slot-slot-123.json</a> <span id="svi3" class="toggle" onclick="toggle('vi3')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi3')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi3"><ul style="font-size: 7px"><li>Slot: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/slot.html">Slot</a></li></ul>
+<h2><a href="Slot-slot-123.html">fsh-generated/resources/Slot-slot-123.json</a> <span id="svi4" class="toggle" onclick="toggle('vi4')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi4')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi4"><ul style="font-size: 7px"><li>Slot: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/slot.html">Slot</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -206,8 +232,8 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
 </table>
 <hr/>
 <a name="_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-booking-deep-link"> </a>
-<h2><a href="StructureDefinition-booking-deep-link.html">fsh-generated/resources/StructureDefinition-booking-deep-link.json</a> <span id="svi4" class="toggle" onclick="toggle('vi4')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi4')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi4"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+<h2><a href="StructureDefinition-booking-deep-link.html">fsh-generated/resources/StructureDefinition-booking-deep-link.json</a> <span id="svi5" class="toggle" onclick="toggle('vi5')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi5')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi5"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -222,8 +248,8 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
 </table>
 <hr/>
 <a name="_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-booking-phone"> </a>
-<h2><a href="StructureDefinition-booking-phone.html">fsh-generated/resources/StructureDefinition-booking-phone.json</a> <span id="svi5" class="toggle" onclick="toggle('vi5')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi5')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi5"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+<h2><a href="StructureDefinition-booking-phone.html">fsh-generated/resources/StructureDefinition-booking-phone.json</a> <span id="svi6" class="toggle" onclick="toggle('vi6')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi6')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi6"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -237,9 +263,22 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
 </table>
 <hr/>
+<a name="_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-smart-practitionerRole"> </a>
+<h2><a href="StructureDefinition-smart-practitionerRole.html">fsh-generated/resources/StructureDefinition-smart-practitionerRole.json</a> <span id="svi7" class="toggle" onclick="toggle('vi7')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi7')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi7"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'https:&#8203;/&#8203;/smart-scheduling-links&#8203;.org&#8203;/StructureDefinition&#8203;/smart-practitionerRole')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
 <a name="_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-smart-schedule"> </a>
-<h2><a href="StructureDefinition-smart-schedule.html">fsh-generated/resources/StructureDefinition-smart-schedule.json</a> <span id="svi6" class="toggle" onclick="toggle('vi6')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi6')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi6"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+<h2><a href="StructureDefinition-smart-schedule.html">fsh-generated/resources/StructureDefinition-smart-schedule.json</a> <span id="svi8" class="toggle" onclick="toggle('vi8')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi8')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi8"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -251,8 +290,8 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
 </table>
 <hr/>
 <a name="_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-smart-slot"> </a>
-<h2><a href="StructureDefinition-smart-slot.html">fsh-generated/resources/StructureDefinition-smart-slot.json</a> <span id="svi7" class="toggle" onclick="toggle('vi7')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi7')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi7"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+<h2><a href="StructureDefinition-smart-slot.html">fsh-generated/resources/StructureDefinition-smart-slot.json</a> <span id="svi9" class="toggle" onclick="toggle('vi9')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi9')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi9"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -294,6 +333,14 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
 </table>
 <hr/>
+<a name="Terminology_TX_NoValid_16"> </a>
+<h2>Terminology_TX_NoValid_16</h2>
+ <table class="grid">
+   <tr style="background-color: #ffeeee">
+     <td><a href="Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.html">fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json</a></td><td><b>The value provided ('Usual') was not found in the value set 'IdentifierUse' (http://hl7.org/fhir/ValueSet/identifier-use|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'; The provided code '#Usual' was not found in the value set 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1')</b></td>
+   </tr>
+</table>
+<hr/>
 <a name="Type_Specific_Checks_DT_URL_Resolve"> </a>
 <h2>Type_Specific_Checks_DT_URL_Resolve</h2>
  <table class="grid">
@@ -302,6 +349,14 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
    <tr style="background-color: #fff4ee">
      <td><a href="Slot-slot-123.html">fsh-generated/resources/Slot-slot-123.json</a></td><td><b>No definition could be found for URL value 'https://booking.healthsystem.org/slot/123'</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="UNABLE_TO_INFER_CODESYSTEM"> </a>
+<h2>UNABLE_TO_INFER_CODESYSTEM</h2>
+ <table class="grid">
+   <tr style="background-color: #ffeeee">
+     <td><a href="Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.html">fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json</a></td><td><b>The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'</b></td>
    </tr>
 </table>
 </body>

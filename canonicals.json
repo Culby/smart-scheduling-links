@@ -27,6 +27,20 @@
   "name" : "SMARTLocation"
 },
 {
+  "id" : "smart-practitioner",
+  "type" : "StructureDefinition",
+  "url" : "https://smart-scheduling-links.org/StructureDefinition/smart-practitioner",
+  "version" : "0.1.0",
+  "name" : "SmartPractitioner"
+},
+{
+  "id" : "smart-practitionerRole",
+  "type" : "StructureDefinition",
+  "url" : "https://smart-scheduling-links.org/StructureDefinition/smart-practitionerRole",
+  "version" : "0.1.0",
+  "name" : "SmartPractitionerRole"
+},
+{
   "id" : "smart-schedule",
   "type" : "StructureDefinition",
   "url" : "https://smart-scheduling-links.org/StructureDefinition/smart-schedule",

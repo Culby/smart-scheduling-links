@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-smart-schedule.csv),
   "name" : "SmartSchedule",
   "title" : "SMART Schedule",
   "status" : "draft",
-  "date" : "2026-02-23T16:41:40+00:00",
+  "date" : "2026-02-23T18:21:29+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

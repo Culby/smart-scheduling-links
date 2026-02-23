@@ -47,7 +47,7 @@ Other representations of profile: [CSV](StructureDefinition-booking-phone.csv), 
   "name" : "BookingPhone",
   "title" : "Booking Phone",
   "status" : "active",
-  "date" : "2026-02-23T16:41:40+00:00",
+  "date" : "2026-02-23T18:21:29+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

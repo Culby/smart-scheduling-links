@@ -10,6 +10,8 @@
 ### Resource Profiles
 
 * [SMART Location](StructureDefinition-smart-location.md)
+* [SMART Practitioner](StructureDefinition-smart-practitioner.md)
+* [SmartPractitionerRole](StructureDefinition-smart-practitionerRole.md)
 * [SMART Schedule](StructureDefinition-smart-schedule.md)
 * [SMART Slot](StructureDefinition-smart-slot.md)
 
@@ -25,4 +27,5 @@
 ### Examples
 
 * [OpenClinTech Primary Clinic (Location)](Location-ExampleSMARTLocation-PrimaryClinic.md)
+* [fd3c7a99-bb59-4fef-9f79-88d1f7275ca6 (Practitioner)](Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.md)
 * [slot-123 (Slot)](Slot-slot-123.md)

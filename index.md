@@ -30,7 +30,7 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
   "version" : "0.1.0",
   "name" : "fhirig",
   "status" : "draft",
-  "date" : "2026-02-23T16:41:40+00:00",
+  "date" : "2026-02-23T18:21:29+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",
@@ -662,6 +662,18 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"
+      },
+      "name" : "Fhir SmartPractitioner resource example",
+      "description" : "Example Location instance conforming to the SMARTLocation profile.",
+      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Slot"
       }],
       "reference" : {
@@ -689,6 +701,18 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
+        "reference" : "StructureDefinition/smart-practitioner"
+      },
+      "name" : "SMART Practitioner",
+      "description" : "This profile sets minimum expections for a Practitioner resource",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
         "reference" : "StructureDefinition/smart-schedule"
       },
       "name" : "SMART Schedule",
@@ -705,6 +729,18 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
       },
       "name" : "SMART Slot",
       "description" : "This profile sets minimum expectations for a Slot Resource.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/smart-practitionerRole"
+      },
+      "name" : "SmartPractitionerRole",
+      "description" : "The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available",
       "exampleBoolean" : false
     }],
     "page" : {

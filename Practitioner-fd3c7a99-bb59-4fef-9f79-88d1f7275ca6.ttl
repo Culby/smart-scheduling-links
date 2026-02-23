@@ -1,0 +1,57 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://smart-scheduling-links.org/Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6> a fhir:Practitioner ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"^^xsd:anyURI ;
+       fhir:l <https://smart-scheduling-links.org/StructureDefinition/smart-practitioner>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Practitioner fd3c7a99-bb59-4fef-9f79-88d1f7275ca6</b></p><a name=\"fd3c7a99-bb59-4fef-9f79-88d1f7275ca6\"> </a><a name=\"hcfd3c7a99-bb59-4fef-9f79-88d1f7275ca6\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-smart-practitioner.html\">SMART Practitioner</a></p></div><p><b>identifier</b>: <a href=\"http://terminology.hl7.org/6.5.0/NamingSystem-npi.html\" title=\"National Provider Identifier\">United States National Provider Identifier</a>/npi-8373s (use: Usual, )</p><p><b>active</b>: true</p><p><b>name</b>: John Mark(Nickname), Mark </p><p><b>telecom</b>: <a href=\"tel:+1-93-736-544\">+1-93-736-544</a>, <a href=\"mailto:johnmark@user.com\">johnmark@user.com</a></p><p><b>address</b>: Seattle Washington 98106 (work)</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "Usual" ] ;
+     fhir:system [
+       fhir:v "http://hl7.org/fhir/sid/us-npi"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/sid/us-npi>
+     ] ;
+     fhir:value [ fhir:v "npi-8373s" ]
+  ] ) ; # 
+  fhir:active [ fhir:v true] ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "nickname" ] ;
+     fhir:text [ fhir:v "John Mark" ] ;
+     fhir:family [ fhir:v "John" ]
+  ] [
+     fhir:given ( [ fhir:v "Mark" ] ) ;
+     fhir:prefix ( [ fhir:v "Dr." ] )
+  ] ) ; # 
+  fhir:telecom ( [
+     fhir:system [ fhir:v "phone" ] ;
+     fhir:value [ fhir:v "+1-93-736-544" ] ;
+     fhir:use [ fhir:v "mobile" ]
+  ] [
+     fhir:system [ fhir:v "email" ] ;
+     fhir:value [ fhir:v "johnmark@user.com" ] ;
+     fhir:use [ fhir:v "work" ]
+  ] ) ; # 
+  fhir:address ( [
+     fhir:use [ fhir:v "work" ] ;
+     fhir:type [ fhir:v "physical" ] ;
+     fhir:city [ fhir:v "Seattle" ] ;
+     fhir:state [ fhir:v "Washington" ] ;
+     fhir:postalCode [ fhir:v "98106" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -11,7 +11,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.69"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location"
+    "StructureDefinition-smart-location.html" : "SMART Location",
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/address-use",
@@ -25,7 +26,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.67"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location"
+    "StructureDefinition-smart-location.html" : "SMART Location",
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/administrative-gender",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "AdministrativeGender",
+    "title" : "AdministrativeGender",
+    "description" : "The gender of a person used for administrative purposes.",
+    "systems" : ["http://hl7.org/fhir/administrative-gender"],
+    "oids" : ["2.16.840.1.113883.4.642.3.1"],
+    "sources" : ["2.16.840.1.113883.4.642.3.1"],
+    "uses" : {
+    },
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/c80-practice-codes",
@@ -40,6 +56,7 @@
     "uses" : {
     },
     "StructureDefinition-smart-slot.html" : "SMART Slot",
+    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole",
     "StructureDefinition-smart-schedule.html" : "SMART Schedule"
   },
   {
@@ -54,7 +71,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.71"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location"
+    "StructureDefinition-smart-location.html" : "SMART Location",
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/contact-point-use",
@@ -68,7 +86,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.73"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location"
+    "StructureDefinition-smart-location.html" : "SMART Location",
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/days-of-week",
@@ -82,7 +101,36 @@
     "sources" : ["2.16.840.1.113883.4.642.3.512"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location"
+    "StructureDefinition-smart-location.html" : "SMART Location",
+    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/identifier-type",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "Identifier Type Codes",
+    "title" : "IdentifierType",
+    "description" : "A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0203"],
+    "oids" : ["2.16.840.1.113883.4.642.3.45"],
+    "sources" : ["2.16.840.1.113883.4.642.3.45"],
+    "uses" : {
+    },
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/identifier-use",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "IdentifierUse",
+    "title" : "IdentifierUse",
+    "description" : "Identifies the purpose for this identifier, if known .",
+    "systems" : ["http://hl7.org/fhir/identifier-use"],
+    "oids" : ["2.16.840.1.113883.4.642.3.57"],
+    "sources" : ["2.16.840.1.113883.4.642.3.57"],
+    "uses" : {
+    },
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/languages",
@@ -98,7 +146,9 @@
     },
     "StructureDefinition-smart-location.html" : "SMART Location",
     "StructureDefinition-smart-slot.html" : "SMART Slot",
-    "StructureDefinition-smart-schedule.html" : "SMART Schedule"
+    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole",
+    "StructureDefinition-smart-schedule.html" : "SMART Schedule",
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/location-mode",
@@ -141,6 +191,35 @@
     "uses" : {
     },
     "StructureDefinition-smart-location.html" : "SMART Location"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/name-use",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "NameUse",
+    "title" : "NameUse",
+    "description" : "The use of a human name.",
+    "systems" : ["http://hl7.org/fhir/name-use"],
+    "oids" : ["2.16.840.1.113883.4.642.3.65"],
+    "sources" : ["2.16.840.1.113883.4.642.3.65"],
+    "uses" : {
+    },
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/practitioner-role",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "PractitionerRole",
+    "title" : "Practitioner role",
+    "description" : "This example value set defines a set of codes that can be used to indicate the role of a Practitioner.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/practitioner-role",
+    "http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.439"],
+    "sources" : ["2.16.840.1.113883.4.642.3.439"],
+    "uses" : {
+    },
+    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/resource-types",
@@ -227,6 +306,18 @@
     "uses" : {
     },
     "StructureDefinition-smart-slot.html" : "SMART Slot"
+  },
+  {
+    "url" : "http://terminology.hl7.org/ValueSet/v2-2.7-0360",
+    "version" : "0360",
+    "status" : "active",
+    "name" : "v2.0360.2.7",
+    "title" : "v2 table 0360, Version 2.7",
+    "description" : "FHIR Value set/code system definition for HL7 v2 table 0360 ver 2.9 ( Degree/License/Certificate)",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0360|2.7"],
+    "uses" : {
+    },
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
   },
   {
     "url" : "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType",

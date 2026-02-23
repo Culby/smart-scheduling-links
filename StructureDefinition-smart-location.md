@@ -16,6 +16,7 @@ This profile sets minimum expectations for the Location resource to enable SMART
 
 **Usages:**
 
+* Refer to this Profile: [SmartPractitionerRole](StructureDefinition-smart-practitionerRole.md)
 * Examples for this Profile: [OpenClinTech Primary Clinic](Location-ExampleSMARTLocation-PrimaryClinic.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/fhir.ig|current/StructureDefinition/smart-location)
@@ -41,7 +42,7 @@ Other representations of profile: [CSV](StructureDefinition-smart-location.csv),
   "name" : "SMARTLocation",
   "title" : "SMART Location",
   "status" : "draft",
-  "date" : "2026-02-23T16:41:40+00:00",
+  "date" : "2026-02-23T18:21:29+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

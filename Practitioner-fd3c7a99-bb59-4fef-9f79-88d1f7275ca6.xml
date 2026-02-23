@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Practitioner xmlns="http://hl7.org/fhir">
+  <id value="fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"/>
+  <meta>
+    <profile value="https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Practitioner fd3c7a99-bb59-4fef-9f79-88d1f7275ca6</b></p><a name="fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"> </a><a name="hcfd3c7a99-bb59-4fef-9f79-88d1f7275ca6"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-smart-practitioner.html">SMART Practitioner</a></p></div><p><b>identifier</b>: <a href="http://terminology.hl7.org/6.5.0/NamingSystem-npi.html" title="National Provider Identifier">United States National Provider Identifier</a>/npi-8373s (use: Usual, )</p><p><b>active</b>: true</p><p><b>name</b>: John Mark(Nickname), Mark </p><p><b>telecom</b>: <a href="tel:+1-93-736-544">+1-93-736-544</a>, <a href="mailto:johnmark@user.com">johnmark@user.com</a></p><p><b>address</b>: Seattle Washington 98106 (work)</p></div>
+  </text>
+  <identifier>
+    <use value="Usual"/>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
+    <value value="npi-8373s"/>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <use value="nickname"/>
+    <text value="John Mark"/>
+    <family value="John"/>
+  </name>
+  <name>
+    <given value="Mark"/>
+    <prefix value="Dr."/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="+1-93-736-544"/>
+    <use value="mobile"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="johnmark@user.com"/>
+    <use value="work"/>
+  </telecom>
+  <address>
+    <use value="work"/>
+    <type value="physical"/>
+    <city value="Seattle"/>
+    <state value="Washington"/>
+    <postalCode value="98106"/>
+  </address>
+</Practitioner>

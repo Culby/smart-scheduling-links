@@ -20,7 +20,7 @@
   fhir:version [ fhir:v "0.1.0"] ; # 
   fhir:name [ fhir:v "fhirig"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-02-23T16:41:40+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-02-23T18:21:29+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "SMART Scheduling Links"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "SMART Scheduling Links" ] ;
@@ -1360,6 +1360,28 @@
          ] ;
          fhir:value [
            a fhir:String ;
+           fhir:v "Practitioner"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://smart-scheduling-links.org/Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6> ;
+         fhir:reference [ fhir:v "Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6" ]
+       ] ;
+       fhir:name [ fhir:v "Fhir SmartPractitioner resource example" ] ;
+       fhir:description [ fhir:v "Example Location instance conforming to the SMARTLocation profile." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"^^xsd:anyURI ;
+         fhir:l <https://smart-scheduling-links.org/StructureDefinition/smart-practitioner>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
            fhir:v "Slot"
          ]
        ] ) ;
@@ -1406,6 +1428,27 @@
          ]
        ] ) ;
        fhir:reference [
+         fhir:l <https://smart-scheduling-links.org/StructureDefinition/smart-practitioner> ;
+         fhir:reference [ fhir:v "StructureDefinition/smart-practitioner" ]
+       ] ;
+       fhir:name [ fhir:v "SMART Practitioner" ] ;
+       fhir:description [ fhir:v "This profile sets minimum expections for a Practitioner resource" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
          fhir:l <https://smart-scheduling-links.org/StructureDefinition/smart-schedule> ;
          fhir:reference [ fhir:v "StructureDefinition/smart-schedule" ]
        ] ;
@@ -1432,6 +1475,27 @@
        ] ;
        fhir:name [ fhir:v "SMART Slot" ] ;
        fhir:description [ fhir:v "This profile sets minimum expectations for a Slot Resource." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://smart-scheduling-links.org/StructureDefinition/smart-practitionerRole> ;
+         fhir:reference [ fhir:v "StructureDefinition/smart-practitionerRole" ]
+       ] ;
+       fhir:name [ fhir:v "SmartPractitionerRole" ] ;
+       fhir:description [ fhir:v "The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available" ] ;
        fhir:example [
          a fhir:Boolean ;
          fhir:v false
