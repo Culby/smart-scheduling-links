@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://smart-scheduling-links.org/StructureDefinition/smart-location | *Version*:0.1.0 |
-| Draft as of 2026-02-21 | *Computable Name*:SMARTLocation |
+| Draft as of 2026-02-23 | *Computable Name*:SMARTLocation |
 
  
 This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-smart-location.csv),
   "name" : "SMARTLocation",
   "title" : "SMART Location",
   "status" : "draft",
-  "date" : "2026-02-21T08:56:44+00:00",
+  "date" : "2026-02-23T16:41:40+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

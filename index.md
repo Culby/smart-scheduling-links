@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://smart-scheduling-links.org/ImplementationGuide/fhir.ig | *Version*:0.1.0 |
-| Draft as of 2026-02-21 | *Computable Name*:fhirig |
+| Draft as of 2026-02-23 | *Computable Name*:fhirig |
 
 ## Introduction
 
@@ -30,7 +30,7 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
   "version" : "0.1.0",
   "name" : "fhirig",
   "status" : "draft",
-  "date" : "2026-02-21T08:56:44+00:00",
+  "date" : "2026-02-23T16:41:40+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

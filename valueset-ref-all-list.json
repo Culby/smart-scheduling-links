@@ -39,8 +39,8 @@
     "sources" : ["2.16.840.1.113883.3.88.12.80.72"],
     "uses" : {
     },
-    "StructureDefinition-smart-schedule.html" : "SMART Schedule",
-    "StructureDefinition-smart-slot.html" : "SMART Slot"
+    "StructureDefinition-smart-slot.html" : "SMART Slot",
+    "StructureDefinition-smart-schedule.html" : "SMART Schedule"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/contact-point-system",
@@ -97,8 +97,8 @@
     "uses" : {
     },
     "StructureDefinition-smart-location.html" : "SMART Location",
-    "StructureDefinition-smart-schedule.html" : "SMART Schedule",
-    "StructureDefinition-smart-slot.html" : "SMART Slot"
+    "StructureDefinition-smart-slot.html" : "SMART Slot",
+    "StructureDefinition-smart-schedule.html" : "SMART Schedule"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/location-mode",
@@ -168,8 +168,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.516"],
     "uses" : {
     },
-    "StructureDefinition-smart-schedule.html" : "SMART Schedule",
-    "StructureDefinition-smart-slot.html" : "SMART Slot"
+    "StructureDefinition-smart-slot.html" : "SMART Slot",
+    "StructureDefinition-smart-schedule.html" : "SMART Schedule"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/service-type",
@@ -183,8 +183,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.518"],
     "uses" : {
     },
-    "StructureDefinition-smart-schedule.html" : "SMART Schedule",
-    "StructureDefinition-smart-slot.html" : "SMART Slot"
+    "StructureDefinition-smart-slot.html" : "SMART Slot",
+    "StructureDefinition-smart-schedule.html" : "SMART Schedule"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/slotstatus",

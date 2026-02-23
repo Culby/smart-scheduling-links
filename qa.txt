@@ -3,7 +3,7 @@ fhirig : Validation Results
 
 err = 6, warn = 9, info = 1
 IG Publisher Version: 2.1.1
-Generated Sat Feb 21 08:58:00 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
+Generated Mon Feb 23 16:43:01 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
  Build Errors : 1 / 4 / 0
  /github/workspace/fhir-ig/fsh-generated/resources/ImplementationGuide-fhir.ig : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic : 0 / 1 / 1
