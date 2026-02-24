@@ -1,29 +1,29 @@
 {
   "operationDefinition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/bulk-publish|1.0.0",
-  "transactionTime": "2026-02-21T21:20:42.509Z",
+  "transactionTime": "2026-02-24T20:52:59.922Z",
   "requiresAccessToken": false,
   "outputFormat": "application/fhir+ndjson",
-  "request": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish",
+  "request": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/$bulk-publish",
   "output": [
     {
       "type": "Location",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson"
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/locations.ndjson"
     },
     {
       "type": "Device",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/devices.ndjson"
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/devices.ndjson"
     },
     {
       "type": "Schedule",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson"
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/schedules.ndjson"
     },
     {
       "type": "PractitionerRole",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson"
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/practitionerroles.ndjson"
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2026-W17.ndjson",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W17.ndjson",
       "extension": {
         "state": [
           "MA"
@@ -32,7 +32,7 @@
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2026-W18.ndjson",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W18.ndjson",
       "extension": {
         "state": [
           "MA"
@@ -41,7 +41,7 @@
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2026-W19.ndjson",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W19.ndjson",
       "extension": {
         "state": [
           "MA"
@@ -50,7 +50,7 @@
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2026-W20.ndjson",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W20.ndjson",
       "extension": {
         "state": [
           "MA"
@@ -59,7 +59,16 @@
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2026-W21.ndjson",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W21.ndjson",
+      "extension": {
+        "state": [
+          "MA"
+        ]
+      }
+    },
+    {
+      "type": "Slot",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W22.ndjson",
       "extension": {
         "state": [
           "MA"
