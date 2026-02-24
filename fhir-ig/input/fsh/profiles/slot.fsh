@@ -1,7 +1,7 @@
-Profile: SmartSlot
+Profile: SmartSchedulingSlot
 Parent: Slot
-Id: smart-slot 
-Title: "SMART Slot"
+Id: smart-scheduling-slot 
+Title: "Slot"
 Description: "This profile sets minimum expectations for a Slot Resource."
 
 // Note that there is no US Core 6.1.0 Slot profile
@@ -19,11 +19,12 @@ Description: "This profile sets minimum expectations for a Slot Resource."
     BookingDeepLink named bookingDeepLink 0..1 and
     BookingPhone named bookingPhone 0..1
 
-Instance: slot-123
-InstanceOf: Slot
+Instance: ExampleSlot
+InstanceOf: SmartSchedulingSlot
+Title: "Example Slot"
 Description: "Example slot that has the booking extensions"
 Usage: #example
-* schedule = Reference(Schedule/123)
+* schedule = Reference(ExampleSchedule)
 * status = #free
 * start = "2026-03-21T10:45:00-04:00"
 * end = "2026-03-21T11:15:00-04:00"
