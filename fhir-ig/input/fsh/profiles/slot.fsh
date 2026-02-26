@@ -12,7 +12,8 @@ Description: "This profile sets minimum expectations for a Slot Resource."
 // status 1..1
 // start 1..1
 // end 1..1
-
+* appointmentType MS
+* appointmentType from AppointmentTypeAndReasonsVS (preferred)
 
 // 
 * extension contains
