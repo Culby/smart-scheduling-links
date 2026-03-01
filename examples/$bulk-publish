@@ -1,6 +1,6 @@
 {
   "operationDefinition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/bulk-publish|1.0.0",
-  "transactionTime": "2026-02-24T20:52:59.922Z",
+  "transactionTime": "2026-03-01T01:06:04.740Z",
   "requiresAccessToken": false,
   "outputFormat": "application/fhir+ndjson",
   "request": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/$bulk-publish",
@@ -20,15 +20,6 @@
     {
       "type": "PractitionerRole",
       "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/practitionerroles.ndjson"
-    },
-    {
-      "type": "Slot",
-      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W17.ndjson",
-      "extension": {
-        "state": [
-          "MA"
-        ]
-      }
     },
     {
       "type": "Slot",
