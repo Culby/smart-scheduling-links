@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<!-- broken links = 1, errors = 9, warn = 12, info = 1-->
+<!-- broken links = 3, errors = 9, warn = 12, info = 1-->
 <head>
   <title>fhirig : Validation Results</title>
   <link href="fhir.css" rel="stylesheet"/>
@@ -47,7 +47,7 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Validation Results for fhirig</h1>
- <p>Generated Mon Mar 02 13:47:52 UTC 2026, FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = <a href="https://smart-scheduling-links.org">https://smart-scheduling-links.org</a> (<a href="https://smart-scheduling-links.org/history.html">history</a>)). See <a href="qa.min.html">Errors Only</a> &amp; <a href="qa-ipreview.html">IP</a></p>
+ <p>Generated Mon Mar 02 18:30:11 UTC 2026, FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = <a href="https://smart-scheduling-links.org">https://smart-scheduling-links.org</a> (<a href="https://smart-scheduling-links.org/history.html">history</a>)). See <a href="qa.min.html">Errors Only</a> &amp; <a href="qa-ipreview.html">IP</a></p>
 <table class="grid"> <tr><td colspan=2><b>Quality Checks</b></td></tr>
  <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.1.2</span></td></tr>
  <tr><td>Publication Code:</td><td>n/a<span style="color: maroon; font-weight: bold"> </span>. PackageId = fhir.ig, Canonical = https://smart-scheduling-links.org</td></tr>
@@ -108,14 +108,14 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
  <tr><td>IPA Comparison:</td><td> n/a</td></tr>
  <tr><td>IPS Comparison:</td><td> n/a</td></tr>
  <tr><td>Validation Flags:</td><td> On: autoLoad; Off: hintAboutNonMustSupport, anyExtensionsAllowed, checkAggregation, showReferenceMessages, noExperimentalContent, displayWarnings</td></tr>
- <tr><td>Summary:</td><td> errors = 9, warn = 12, info = 1, broken links = 1, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
+ <tr><td>Summary:</td><td> errors = 9, warn = 12, info = 1, broken links = 3, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
 </table>
  <table class="grid">
    <tr>
      <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Warnings</b></td><td><b>Hints</b></td>
    </tr>
    <tr style="background-color: #ffcccc">
-     <td><a href="#internal"><b>Build Errors</b></a></td><td><b>2</b></td><td><b>4</b></td><td><b>0</b></td>
+     <td><a href="#internal"><b>Build Errors</b></a></td><td><b>4</b></td><td><b>4</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
      <td><a href="#_github_workspace_fhir-ig_fsh-generated_includes_fsh-link-references"><b>/github/workspace/fhir-ig/fsh-generated/includes/fsh-link-references</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
@@ -166,6 +166,9 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
      <td><a href="#_github_workspace_fhir-ig_input_pagecontent_index"><b>/github/workspace/fhir-ig/input/pagecontent/index</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
+     <td><a href="#_github_workspace_fhir-ig_input_pagecontent_specification"><b>/github/workspace/fhir-ig/input/pagecontent/specification</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
      <td><a href="#_github_workspace_fhir-ig_temp_pages__includes_artifacts"><b>/github/workspace/fhir-ig/temp/pages/_includes/artifacts</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
@@ -184,7 +187,13 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
      <td><b>package.tgz</b></td><td><b>error</b></td><td><b>Error converting pacakge to R4B: Error processing example/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json: Unknown IdentifierUse code 'Usual'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
    </tr>
    <tr style="background-color: #ffcccc">
-     <td><b><a href="Slot-slot-123.html#l277">Slot-slot-123&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/p&#8203;/a at Line 173, column 290</a></b></td><td><b>error</b></td><td><b>The link 'Schedule/123' for &quot;Schedule/123&quot; cannot be resolved</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_CHECK_FAILED</span></td>
+     <td><b><a href="Slot-slot-123.html#l283">Slot-slot-123&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/p&#8203;/a at Line 176, column 290</a></b></td><td><b>error</b></td><td><b>The link 'Schedule/123' for &quot;Schedule/123&quot; cannot be resolved</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_CHECK_FAILED</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b><a href="specification.html#l516">specification&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/p&#8203;/img at Line 229, column 5</a></b></td><td><b>error</b></td><td><b>The image source '/SchedulingArchitecture.drawio.png' cannot be resolved</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_IMG_SRC_CHECK_FAILED</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b><a href="specification.html#l559">specification&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/p&#8203;/img at Line 265, column 2</a></b></td><td><b>error</b></td><td><b>The image source 'ERDiagram.png' cannot be resolved</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_IMG_SRC_CHECK_FAILED</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>1</b></td><td><b>warning</b></td><td><b>The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
@@ -227,7 +236,7 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ImplementationGuide (l1/c15702)</b></td><td><b>warning</b></td><td><b>Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ImplementationGuide#ig-0</span></td>
+     <td><b>ImplementationGuide (l1/c15898)</b></td><td><b>warning</b></td><td><b>Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ImplementationGuide#ig-0</span></td>
    </tr>
 </table>
 <hr/>
@@ -407,8 +416,8 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
 </table>
 <hr/>
-<a name="_github_workspace_fhir-ig_temp_pages__includes_artifacts"> </a>
-<h2><a href="">temp/pages/_includes/artifacts.xml</a> <span id="svi17" class="toggle" onclick="toggle('vi17')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi17')">(0)</span></h2>
+<a name="_github_workspace_fhir-ig_input_pagecontent_specification"> </a>
+<h2><a href="">input/pagecontent/specification.md</a> <span id="svi17" class="toggle" onclick="toggle('vi17')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi17')">(0)</span></h2>
  <div style="border: 1px grey solid; display: none" id="vi17"></div>
  <table class="grid">
    <tr>
@@ -416,8 +425,8 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
 </table>
 <hr/>
-<a name="_github_workspace_fhir-ig_template_config"> </a>
-<h2><a href="">template/config</a> <span id="svi18" class="toggle" onclick="toggle('vi18')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi18')">(0)</span></h2>
+<a name="_github_workspace_fhir-ig_temp_pages__includes_artifacts"> </a>
+<h2><a href="">temp/pages/_includes/artifacts.xml</a> <span id="svi18" class="toggle" onclick="toggle('vi18')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi18')">(0)</span></h2>
  <div style="border: 1px grey solid; display: none" id="vi18"></div>
  <table class="grid">
    <tr>
@@ -425,9 +434,18 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
 </table>
 <hr/>
-<a name="_github_workspace_fhir-ig_template_config__config"> </a>
-<h2><a href="">template/config/_config.yml</a> <span id="svi19" class="toggle" onclick="toggle('vi19')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi19')">(0)</span></h2>
+<a name="_github_workspace_fhir-ig_template_config"> </a>
+<h2><a href="">template/config</a> <span id="svi19" class="toggle" onclick="toggle('vi19')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi19')">(0)</span></h2>
  <div style="border: 1px grey solid; display: none" id="vi19"></div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_github_workspace_fhir-ig_template_config__config"> </a>
+<h2><a href="">template/config/_config.yml</a> <span id="svi20" class="toggle" onclick="toggle('vi20')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi20')">(0)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi20"></div>
  <table class="grid">
    <tr>
      <td>&check;</td>

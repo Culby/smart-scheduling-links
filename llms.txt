@@ -3,6 +3,7 @@
 ## Pages
 
 * [Home](index.md)
+* [Specification](specification.md)
 * [Artifacts Summary](artifacts.md)
 * [Change Log](change-log.md)
 

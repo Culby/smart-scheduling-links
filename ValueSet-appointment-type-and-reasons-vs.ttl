@@ -21,7 +21,7 @@
   fhir:name [ fhir:v "AppointmentTypeAndReasonsVS"] ; # 
   fhir:title [ fhir:v "Appointment Type and Reasons"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-03-02T13:46:35+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-03-02T18:28:46+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "SMART Scheduling Links"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "SMART Scheduling Links" ] ;

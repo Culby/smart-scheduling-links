@@ -1,0 +1,2351 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Specification -  v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold"></span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- menu.xml -->
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="specification.html">Specification</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+  <li>
+    <a href="change-log.html">Change Log</a>
+  </li>
+</ul>
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Specification</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">fhirig - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://smart-scheduling-links.org/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>Specification</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#slot-publisher-api" id="markdown-toc-slot-publisher-api">Slot Publisher API</a>    <ul>
+      <li><a href="#goals-for-slot-discovery" id="markdown-toc-goals-for-slot-discovery">Goals for Slot Discovery</a></li>
+      <li><a href="#scheduling-architecture-at-a-high-level" id="markdown-toc-scheduling-architecture-at-a-high-level">Scheduling Architecture at a High Level</a></li>
+      <li><a href="#sequence-diagram" id="markdown-toc-sequence-diagram">Sequence Diagram</a></li>
+      <li><a href="#quick-start-guide" id="markdown-toc-quick-start-guide">Quick Start Guide</a>        <ul>
+          <li><a href="#timestamps" id="markdown-toc-timestamps">Timestamps</a></li>
+          <li><a href="#accept-headers" id="markdown-toc-accept-headers"><code class="language-plaintext highlighter-rouge">Accept</code> Headers</a></li>
+          <li><a href="#performance-considerations" id="markdown-toc-performance-considerations">Performance Considerations</a></li>
+          <li><a href="#access-control-considerations" id="markdown-toc-access-control-considerations">Access Control Considerations</a></li>
+          <li><a href="#api-testing" id="markdown-toc-api-testing">API Testing</a></li>
+        </ul>
+      </li>
+      <li><a href="#manifest-file" id="markdown-toc-manifest-file">Manifest File</a>        <ul>
+          <li><a href="#example-manifest-file" id="markdown-toc-example-manifest-file">Example Manifest File</a></li>
+        </ul>
+      </li>
+      <li><a href="#location-file" id="markdown-toc-location-file">Location File</a>        <ul>
+          <li><a href="#example-location" id="markdown-toc-example-location">Example <code class="language-plaintext highlighter-rouge">Location</code></a></li>
+          <li><a href="#example-location-file" id="markdown-toc-example-location-file">Example Location File</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#fhir-r4-practitioner-resource-table" id="markdown-toc-fhir-r4-practitioner-resource-table">FHIR R4 Practitioner Resource Table</a>    <ul>
+      <li><a href="#practitionerrole-file" id="markdown-toc-practitionerrole-file">PractitionerRole File</a>        <ul>
+          <li><a href="#example-practitionerrole" id="markdown-toc-example-practitionerrole">Example <code class="language-plaintext highlighter-rouge">PractitionerRole</code></a></li>
+          <li><a href="#example-practitionerrole-file" id="markdown-toc-example-practitionerrole-file">Example PractitionerRole File</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#practitioner-file" id="markdown-toc-practitioner-file">Practitioner File</a>    <ul>
+      <li><a href="#schedule-file" id="markdown-toc-schedule-file">Schedule File</a>        <ul>
+          <li><a href="#multiple-actors-in-schedules" id="markdown-toc-multiple-actors-in-schedules">Multiple Actors in Schedules</a></li>
+          <li><a href="#schedule-extensions" id="markdown-toc-schedule-extensions">Schedule Extensions</a></li>
+          <li><a href="#example-schedule" id="markdown-toc-example-schedule">Example <code class="language-plaintext highlighter-rouge">Schedule</code></a></li>
+          <li><a href="#example-schedule-file" id="markdown-toc-example-schedule-file">Example Schedule File</a></li>
+        </ul>
+      </li>
+      <li><a href="#slot-file" id="markdown-toc-slot-file">Slot File</a>        <ul>
+          <li><a href="#example-slot" id="markdown-toc-example-slot">Example <code class="language-plaintext highlighter-rouge">Slot</code></a></li>
+          <li><a href="#example-slot-file" id="markdown-toc-example-slot-file">Example Slot File</a></li>
+        </ul>
+      </li>
+      <li><a href="#healthcare-service-resource" id="markdown-toc-healthcare-service-resource">Healthcare Service Resource</a>        <ul>
+          <li><a href="#example-health-service" id="markdown-toc-example-health-service">Example Health Service</a></li>
+          <li><a href="#deep-links-hosted-by-provider-booking-portal" id="markdown-toc-deep-links-hosted-by-provider-booking-portal">Deep Links hosted by Provider Booking Portal</a></li>
+          <li><a href="#example-of-deep-linking-into-a-booking-portal" id="markdown-toc-example-of-deep-linking-into-a-booking-portal">Example of deep linking into a booking portal</a></li>
+        </ul>
+      </li>
+      <li><a href="#find--hold--book-pattern" id="markdown-toc-find--hold--book-pattern">Find → Hold → Book Pattern</a>        <ul>
+          <li><a href="#principle" id="markdown-toc-principle">Principle</a></li>
+          <li><a href="#workflow-overview" id="markdown-toc-workflow-overview">Workflow Overview</a></li>
+          <li><a href="#hold-implementation-strategy" id="markdown-toc-hold-implementation-strategy">Hold Implementation Strategy</a></li>
+          <li><a href="#hold-initiation" id="markdown-toc-hold-initiation">Hold Initiation</a></li>
+          <li><a href="#architectural-separation" id="markdown-toc-architectural-separation">Architectural Separation</a></li>
+        </ul>
+      </li>
+      <li><a href="#slot-aggregators" id="markdown-toc-slot-aggregators">Slot Aggregators</a>        <ul>
+          <li><a href="#preserve-source-identifiers" id="markdown-toc-preserve-source-identifiers">Preserve Source Identifiers</a></li>
+          <li><a href="#describe-unknown-availability-capacity-or-slot-times" id="markdown-toc-describe-unknown-availability-capacity-or-slot-times">Describe Unknown Availability, Capacity, or Slot Times</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="slot-publisher-api">Slot Publisher API</h1>
+
+<p>This guide explains how a <em>Slot Publisher</em> makes an appointment slots available across multiple EHRS or bookings portals to a <em>Slot Discovery Client</em>.  <strong>For background and role definitions, see <a href="./index.html">README.md</a></strong>.</p>
+
+<h2 id="goals-for-slot-discovery">Goals for Slot Discovery</h2>
+
+<ul>
+  <li><strong>Low implementation effort</strong> – publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server)</li>
+  <li><strong>Scales up and down</strong> – publishers can expose information about a individual providers with a few slots, or large-scale programs such as nationwide pharmacies or mass vaccination sites</li>
+  <li><strong>Progressive enhancement</strong> – publishers can expose coarse-grained data like "we have 20 slots available today" or fine-grained data with specific timing for each slot, and can expose slots for any relevant actor for Schedule</li>
+  <li><strong>Builds on standards</strong> – publishers expose data according to the FHIR standard, but don't need specific experience with FHIR to follow this guide</li>
+</ul>
+
+<h2 id="scheduling-architecture-at-a-high-level">Scheduling Architecture at a High Level</h2>
+
+<p><strong>Key Actors</strong></p>
+
+<p><a name="l516">​</a><img src="/SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/></p>
+
+<ul>
+  <li>
+    <p><strong>Slot Publisher</strong> – EHRs or booking portals provide a list of the available providers and slots that are available via provider organizations.  This will include all the available FHIR resources including practitioner, practitioner role, health service, location, and organizations.  Slot publishers will make vias avaiable via bulk publish speficiation.</p>
+  </li>
+  <li>
+    <p><strong>Directories</strong> – Could be a directory of slots or can include complete provider directories.  This actor will serve as both a client and servier will consume the slots via the bulk publish API. Publishers can expose available slots with nothing more than static web hosting (e.g., from a cloud storage bucket or off-the-shelf web server).  This low effort approach does not require a full FHIR server.</p>
+  </li>
+  <li>
+    <p><strong>Client Scheduling Applications</strong> –Apps can then connect to the directory and find available appointments that best suite their needs eliminating the back and forth need to call providers to book appointments.  Patients or the consumer  can more easily find the best slot availale to suite their need rather a docters appointment, booking a vaccine or a vaerity of other healthcare services based on provider, location, time, find the appointment slot that best fits their need without having to pick-up the phone.</p>
+  </li>
+</ul>
+
+<h2 id="sequence-diagram">Sequence Diagram</h2>
+
+<pre><code class="language-mermaid">sequenceDiagram
+    participant EHR
+    participant Directory as Directory of Slots
+    participant Client as Client Scheduling App
+
+    EHR-&gt;&gt;Directory: Publish Slots
+    
+    Client-&gt;&gt;Directory: Find Open Slots
+    activate Directory
+    Directory--&gt;&gt;Client: Return Open Slot
+    deactivate Directory
+    
+    Client-&gt;&gt;EHR: Book Open Slot via SMART Scheduling Link
+</code></pre>
+
+<p>The EHR or booking portal will provide the data via the bulk publish to allow for NDJSON files for consumption for the directory of slots.  The directory of slots will then consume the NDJSON to make available to the client application. The directory will presnt slots to client discovery app to allow for the selection of available slots from multiple booking portals.  The slots will then available for presenation to client scheduling applications.  The patient will leverage the deep link to book directly back into the EHR or booking portal.  This light and easily approach allows for simple rendering of availabilty of many appointment types.</p>
+
+<h2 id="quick-start-guide">Quick Start Guide</h2>
+
+<p><a name="l559">​</a>A <em>Slot Publisher</em> hosts not only appointment slots, but also Locations, PractitionerRoles, and Schedules associated with these slots:
+<img src="ERDiagram.png" alt="Scheduling ER Diagram"/></p>
+
+<p>Concretely, a <em>Slot Publisher</em> hosts six kinds of files:</p>
+<ul>
+  <li>
+    <p><strong>Practitioner,Practitinoer Role, Healthcare Service, location, scheduled, slot</strong></p>
+  </li>
+  <li><strong>Bulk Publication Manifest</strong>. The manifest is a JSON file serving as the entry point for slot discovery. It provides links that clients can follow to retrieve all the other files. The manifest is always hosted at a URL that ends with <code class="language-plaintext highlighter-rouge">$bulk-publish</code> (a convention used when publishing data sets using FHIR; this convention applies any time a potentially large data set needs to be statically published).
+    <ul>
+      <li><a href="#manifest-file">Details on JSON structure</a></li>
+      <li><a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish">Example file</a> showing a manifest for the fictional "SMART Medicine", a regional chain with twenty locations in Massachusetts, a mix of urgent care and primary care practices.</li>
+    </ul>
+  </li>
+  <li><strong>PractitionerRole Files</strong>.  Each line contains a minified JSON object representing a specific practitioner role that provides healthcare services where appointments are available.
+    <ul>
+      <li><a href="#practitionerrole-file">Details on JSON structure</a></li>
+      <li><a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson">Example file</a> showing ten practitioner roles for the fictional "SMART Primary Care". Each line provides details about a single PractitionerRole in the MA area.</li>
+    </ul>
+  </li>
+  <li><strong>Location Files</strong>.  Each line contains a minified JSON object representing a physical location where appointments are available.
+    <ul>
+      <li>
+        <p><a href="#location-file">Details on JSON structure</a></p>
+      </li>
+      <li>
+        <p><a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson">Example file</a> showing ten locations for the fictional "SMART Urgent Care". Each line provides details about a single physical location in the MA area.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Schedule Files</strong>.  Each line contains a minified JSON object representing the calendar for a healthcare service offered at a specific location or by a specific practitioner role.</p>
+
+    <ul>
+      <li><a href="#schedule-file">Details on JSON structure</a></li>
+      <li><a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson">Example file</a> showing ten schedules schedules for "SMART Primary Care" and ten schedules for "SMART Urgent Care." Each line provides details about a single schedule.</li>
+    </ul>
+  </li>
+  <li><strong>Slot Files</strong>.  Each line contains a minified JSON object representing an appointment slot (busy or free) for a healthcare service at a specific location.
+    <ul>
+      <li><a href="#slot-file">Details on JSON structure</a></li>
+      <li><a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson">Example file</a> showing coarse-grained slots for a single week, across all twenty "SMART Medicine" sites. (<em>Note: The choice to break down slots into weekly files is arbitrary; the fictional Clinic could instead choose to host a single slot file, or produce location-specific files, or even group slots randomly.</em>) Slots MAY include only coarse-grained timing (indicating they fall sometime beetween 9a and 6p ET, the clinic's fictional hours of operation). Ideally, Slot Publishers SHOULD provide finer-grained slot information with specific timing.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>A client queries the manifest on a regular basis, e.g. once every 1-5 minutes. The client iterates through the links in the manifest file to retrieve any PractitionerRole, Location, Schedule, or Slot files it is interested in. (Clients SHOULD ignore any output items with types other than PractitionerRole, Location, Schedule, or Slot.)</p>
+
+<h3 id="timestamps">Timestamps</h3>
+
+<p>Wherever “timestamps” are used in this specification, they SHALL be in the format <code class="language-plaintext highlighter-rouge">YYYY-MM-DDThh:mm:ss.sss+zz:zz</code> (e.g. <code class="language-plaintext highlighter-rouge">2015-02-07T13:28:17.239+02:00</code> or <code class="language-plaintext highlighter-rouge">2017-01-01T00:00:00Z</code>). The time SHALL specified at least to the second and SHALL include a time zone offset (for UTC, the offset MAY be <code class="language-plaintext highlighter-rouge">Z</code>). These timestamps match <a href="http://hl7.org/fhir/datatypes.html#instant">FHIR’s “instant” format</a>, and are also valid ISO 8601 timestamps.</p>
+
+<h3 id="accept-headers"><code class="language-plaintext highlighter-rouge">Accept</code> Headers</h3>
+<p>For Bulk Publication Manifest requests, servers SHALL support at least the following <code class="language-plaintext highlighter-rouge">Accept</code> headers from a client, returning the same FHIR JSON payload in all cases:</p>
+
+<ol>
+  <li>No <code class="language-plaintext highlighter-rouge">Accept</code> header present</li>
+  <li><code class="language-plaintext highlighter-rouge">Accept: application/json</code></li>
+</ol>
+
+<p>For Bulk Output File requests, servers SHALL support at least the following <code class="language-plaintext highlighter-rouge">Accept</code> headers from a client, returning the same FHIR NDJSON payload in all cases:</p>
+
+<ol>
+  <li>No <code class="language-plaintext highlighter-rouge">Accept</code> header present</li>
+  <li><code class="language-plaintext highlighter-rouge">Accept: application/fhir+ndjson</code></li>
+</ol>
+
+<h3 id="performance-considerations">Performance Considerations</h3>
+
+<ul>
+  <li><em>Slot Publishers</em> SHOULD annotate each output with a list of states or jurisdictions as a hint to clients, allowing clients to focus on fetching data for the specific states or geographical regions where they operate; this is helpful for clients with limited regions of interest.</li>
+  <li><em>Slot Publishers</em> SHOULD include a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching"><code class="language-plaintext highlighter-rouge">Cache-Control: max-age=&lt;seconds&gt;</code> header</a> as a hint to clients about how long (in seconds) to wait before polling next. For example, <code class="language-plaintext highlighter-rouge">Cache-Control: max-age=300</code> indicates a preferred polling interval of five minutes.</li>
+  <li>Clients SHOULD NOT request a manifest or any individual data file more than once per minute</li>
+  <li>Clients MAY include standard HTTP headers such as <code class="language-plaintext highlighter-rouge">If-None-Match</code> or <code class="language-plaintext highlighter-rouge">If-Modified-Since</code> with each query to prevent retrieving data when nothing has changed since the last query.</li>
+  <li>Clients MAY include a <code class="language-plaintext highlighter-rouge">?_since={}</code> query parameter with a <a href="#timestamps">timestamp</a> when retrieving a manifest file to request only changes since a particular point in time. Servers are free to ignore this parameter, meaning that clients should be prepared to retrieve a full data set.</li>
+</ul>
+
+<h3 id="access-control-considerations">Access Control Considerations</h3>
+
+<ul>
+  <li><em>Slot Publishers</em> SHOULD host <code class="language-plaintext highlighter-rouge">$bulk-publish</code> content at open, publicly accessible endpoints when sharing general healthcare appointment availability (no required access keys or client credentials). This pattern ensures that data can be used widely and without pre-coordination to meet public health and consumer access use cases.
+    <ul>
+      <li>These data will be publicly available downstream in consumer-facing apps, so confidentiality is a non-goal.</li>
+      <li>Healthcare access goals require flexibility in access to non-confidential scheduling information.</li>
+      <li>With the <code class="language-plaintext highlighter-rouge">$bulk-publish</code> pattern, <em>Slot Publishers</em> host static files, which scale well to open publication</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="api-testing">API Testing</h3>
+
+<p>You can test your implementation with https://inferno.healthit.gov/suites/smart_scheduling_links</p>
+
+<h2 id="manifest-file">Manifest File</h2>
+
+<p>The manifest file is the entry point for a client to retrieve scheduling data. The manifest JSON file includes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>field name</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">transactionTime</code></td>
+      <td><a href="#timestamps">timestamp</a> as string</td>
+      <td>the time when this data set was published. See <a href="#timestamps">"timestamps"</a> for correct formatting.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">request</code></td>
+      <td>url as string</td>
+      <td>the full URL of the manifest</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">output</code></td>
+      <td>array of JSON objects</td>
+      <td>each object contains a <code class="language-plaintext highlighter-rouge">type</code>, <code class="language-plaintext highlighter-rouge">url</code>, and <code class="language-plaintext highlighter-rouge">extension</code> field</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>string</td>
+      <td>whether this output item represents a <code class="language-plaintext highlighter-rouge">"PractitionerRole"</code>,<code class="language-plaintext highlighter-rouge">"Location"</code>, <code class="language-plaintext highlighter-rouge">"Schedule"</code>, or <code class="language-plaintext highlighter-rouge">"Slot"</code> file</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">url</code></td>
+      <td>url as string</td>
+      <td>the full URL of an NDJSON file for the specified type of data</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">extension</code></td>
+      <td>JSON object</td>
+      <td>contains tags to help a client decide which output files to download</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">state</code></td>
+      <td>JSON array of strings</td>
+      <td>state or jurisdiction abbreviations (e.g., <code class="language-plaintext highlighter-rouge">["MA"]</code> for a file with data pertaining solely to Massachusetts)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(For more information about this manifest file, see the <a href="http://build.fhir.org/ig/HL7/bulk-data/branches/bulk-publish/bulk-publish.html">FHIR bulk data spec</a>.)</p>
+
+<h3 id="example-manifest-file">Example Manifest File</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+
+  <span class="dl">"</span><span class="s2">transactionTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-01-01T00:00:00Z</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/covid-vaccines/$bulk-publish</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">output</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Schedule</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/data/schedule_file_1.ndjson</span><span class="dl">"</span>
+    <span class="p">},</span>
+        <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PractitionerRole</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/data/practitionerrole_file_1.ndjson</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Location</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/data/location_file_1.ndjson</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Slot</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/data/slot_file_MA.ndjson</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">extension</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">MA</span><span class="dl">"</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Slot</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/data/slot_file_NEARBY.ndjson</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">extension</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">CT</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">RI</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">NH</span><span class="dl">"</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="location-file">Location File</h2>
+
+<p>Each line of the Location File is a minified JSON object that conveys a physical location where appointments are available.</p>
+
+<p>Each Location includes at least:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Field Name</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Required</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resourceType</code></td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>fixed value of <code class="language-plaintext highlighter-rouge">"Location"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Logical id of this artifact (from Resource)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>code</td>
+      <td>No</td>
+      <td><code class="language-plaintext highlighter-rouge">active</code> | <code class="language-plaintext highlighter-rouge">suspended</code> | <code class="language-plaintext highlighter-rouge">inactive</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">operationalStatus</code></td>
+      <td>Coding</td>
+      <td>No</td>
+      <td>The operational status of the location (typically only for a bed/room)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>string</td>
+      <td>No</td>
+      <td>Name of the location as used by humans</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">alias</code></td>
+      <td>array of strings</td>
+      <td>No</td>
+      <td>A list of alternate names that the location is known as, or was known as, in the past</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td>string</td>
+      <td>No</td>
+      <td>Additional details about the location that could be displayed as further information to identify the location beyond its name</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mode</code></td>
+      <td>code</td>
+      <td>No</td>
+      <td><code class="language-plaintext highlighter-rouge">instance</code> | <code class="language-plaintext highlighter-rouge">kind</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>array of CodeableConcept</td>
+      <td>No</td>
+      <td>Type of function performed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">telecom</code></td>
+      <td>array of ContactPoint</td>
+      <td>No</td>
+      <td>Contact details of the location</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">address</code></td>
+      <td>Address</td>
+      <td>Yes</td>
+      <td>Physical location</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">physicalType</code></td>
+      <td>CodeableConcept</td>
+      <td>No</td>
+      <td>Physical form of the location</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">position</code></td>
+      <td>object</td>
+      <td>No</td>
+      <td>The absolute geographic location</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">longitude</code></td>
+      <td>decimal</td>
+      <td>Yes*</td>
+      <td>Longitude with WGS84 datum (Required if position is provided)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">latitude</code></td>
+      <td>decimal</td>
+      <td>Yes*</td>
+      <td>Latitude with WGS84 datum (Required if position is provided)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">altitude</code></td>
+      <td>decimal</td>
+      <td>No</td>
+      <td>Altitude with WGS84 datum</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">managingOrganization</code></td>
+      <td>Reference(Organization)</td>
+      <td>No</td>
+      <td>Organization responsible for provisioning and upkeep</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">partOf</code></td>
+      <td>Reference(Location)</td>
+      <td>No</td>
+      <td>Another Location this one is physically a part of</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hoursOfOperation</code></td>
+      <td>array of objects</td>
+      <td>No</td>
+      <td>What days/times during a week is this location usually open</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">daysOfWeek</code></td>
+      <td>array of codes</td>
+      <td>No</td>
+      <td><code class="language-plaintext highlighter-rouge">mon</code> | <code class="language-plaintext highlighter-rouge">tue</code> | <code class="language-plaintext highlighter-rouge">wed</code> | <code class="language-plaintext highlighter-rouge">thu</code> | <code class="language-plaintext highlighter-rouge">fri</code> | <code class="language-plaintext highlighter-rouge">sat</code> | <code class="language-plaintext highlighter-rouge">sun</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">allDay</code></td>
+      <td>boolean</td>
+      <td>No</td>
+      <td>The Location is open all day</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">openingTime</code></td>
+      <td>time</td>
+      <td>No</td>
+      <td>Time that the Location opens</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">closingTime</code></td>
+      <td>time</td>
+      <td>No</td>
+      <td>Time that the Location closes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">availabilityExceptions</code></td>
+      <td>string</td>
+      <td>No</td>
+      <td>Description of availability exceptions</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">endpoint</code></td>
+      <td>array of Reference(Endpoint)</td>
+      <td>No</td>
+      <td>Technical endpoints providing access to services operated for the location</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">virtualService</code></td>
+      <td>array of objects</td>
+      <td>No</td>
+      <td>Connection details of a virtual service (e.g. conference call) for telehealth appointments</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">channelType</code></td>
+      <td>Coding</td>
+      <td>No</td>
+      <td>The type of virtual service to connect to (e.g. Teams, Zoom, WhatsApp). Use codes from http://hl7.org/fhir/ValueSet/virtual-service-type</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">addressUrl</code></td>
+      <td>url</td>
+      <td>No**</td>
+      <td>URL to the virtual service connection (e.g., meeting link)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">addressString</code></td>
+      <td>string</td>
+      <td>No**</td>
+      <td>Address to reach the virtual service as a string (e.g., phone number)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">addressContactPoint</code></td>
+      <td>ContactPoint</td>
+      <td>No**</td>
+      <td>Address to reach the virtual service as a ContactPoint</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">addressExtendedContactDetail</code></td>
+      <td>ExtendedContactDetail</td>
+      <td>No**</td>
+      <td>Extended contact details for the virtual service</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">additionalInfo</code></td>
+      <td>array of urls</td>
+      <td>No</td>
+      <td>Additional information about the virtual service connection (e.g., instructions, alternate URLs)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">maxParticipants</code></td>
+      <td>positiveInt</td>
+      <td>No</td>
+      <td>Maximum number of participants supported by the virtual service</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">sessionKey</code></td>
+      <td>string</td>
+      <td>No</td>
+      <td>Session key required to access the virtual service</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each <code class="language-plaintext highlighter-rouge">identifier</code> object includes a <code class="language-plaintext highlighter-rouge">system</code> and a <code class="language-plaintext highlighter-rouge">value</code>.</p>
+
+<ul>
+  <li>
+    <p>If a PractitionerRole or Location is associated with organization-specific identifiers (such as facility numbers, site codes, or store numbers), publishers SHOULD include these. The <code class="language-plaintext highlighter-rouge">system</code> should be a URL that identifies the identifier system, preferably a page on the publisher's web site (e.g. <code class="language-plaintext highlighter-rouge">{"system": "https://healthsystem.example.com/facility-directory", "value": "FAC-123"}</code>)</p>
+  </li>
+  <li>
+    <p>If a Location participates in external registry programs that assign location identifiers, publishers MAY include these identifiers using the appropriate system URL for the registry.</p>
+  </li>
+  <li>
+    <p>Additional identifiers: Any number of additional identifiers MAY be included. Each should populate <code class="language-plaintext highlighter-rouge">system</code> and <code class="language-plaintext highlighter-rouge">value</code> as appropriate, following FHIR identifier conventions.</p>
+  </li>
+</ul>
+
+<h3 id="example-location">Example <code class="language-plaintext highlighter-rouge">Location</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://healthsystem.example.com/facility-directory"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FAC-PITT-001"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berkshire Family Medicine - Pittsfield"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Primary care clinic located in downtown Pittsfield"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"telecom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"413-555-0123"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://berkshirefamilymedicine.example.com"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"line"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"173 Elm St"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pittsfield"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01201-7223"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="example-location-file">Example Location File</h3>
+<ul>
+  <li>Example <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson">file</a></li>
+</ul>
+
+<h1 id="fhir-r4-practitioner-resource-table">FHIR R4 Practitioner Resource Table</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Field Name</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Required</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resourceType</code></td>
+      <td>string</td>
+      <td>Y</td>
+      <td>Fixed value of <code class="language-plaintext highlighter-rouge">"Practitioner"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>string</td>
+      <td>Y</td>
+      <td>Unique identifier for this practitioner (up to 64 alphanumeric characters and may include <code class="language-plaintext highlighter-rouge">-</code> and <code class="language-plaintext highlighter-rouge">.</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>An identifier for the person as this agent</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"usual"</code>, <code class="language-plaintext highlighter-rouge">"official"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"secondary"</code>, <code class="language-plaintext highlighter-rouge">"old"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>The namespace for the identifier value (e.g., <code class="language-plaintext highlighter-rouge">"http://hl7.org/fhir/sid/us-npi"</code>)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">value</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>The value that is unique within the system</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+      <td>boolean</td>
+      <td>N</td>
+      <td>Whether this practitioner's record is in active use</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>The name(s) associated with the practitioner</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"usual"</code>, <code class="language-plaintext highlighter-rouge">"official"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"nickname"</code>, <code class="language-plaintext highlighter-rouge">"anonymous"</code>, <code class="language-plaintext highlighter-rouge">"old"</code>, <code class="language-plaintext highlighter-rouge">"maiden"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">text</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Full text representation of the name</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">family</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Family name (surname)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">given</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Given names (not always 'first'). Includes middle names</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">prefix</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Parts that come before the name (e.g., <code class="language-plaintext highlighter-rouge">"Dr."</code>, <code class="language-plaintext highlighter-rouge">"Prof."</code>)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">suffix</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Parts that come after the name (e.g., <code class="language-plaintext highlighter-rouge">"Jr."</code>, <code class="language-plaintext highlighter-rouge">"MD"</code>)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>JSON object</td>
+      <td>N</td>
+      <td>Time period when name was/is in use</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">start</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>Start time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">end</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>End time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">telecom</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>Contact details for the practitioner (e.g., phone, email)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"phone"</code>, <code class="language-plaintext highlighter-rouge">"fax"</code>, <code class="language-plaintext highlighter-rouge">"email"</code>, <code class="language-plaintext highlighter-rouge">"pager"</code>, <code class="language-plaintext highlighter-rouge">"url"</code>, <code class="language-plaintext highlighter-rouge">"sms"</code>, <code class="language-plaintext highlighter-rouge">"other"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">value</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>The actual contact point details</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"home"</code>, <code class="language-plaintext highlighter-rouge">"work"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"old"</code>, <code class="language-plaintext highlighter-rouge">"mobile"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">rank</code></td>
+      <td>integer</td>
+      <td>N</td>
+      <td>Specify preferred order of use (1 = highest)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>JSON object</td>
+      <td>N</td>
+      <td>Time period when the contact point was/is in use</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">start</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>Start time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">end</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>End time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">address</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>Address(es) of the practitioner</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"home"</code>, <code class="language-plaintext highlighter-rouge">"work"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"old"</code>, <code class="language-plaintext highlighter-rouge">"billing"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"postal"</code>, <code class="language-plaintext highlighter-rouge">"physical"</code>, <code class="language-plaintext highlighter-rouge">"both"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">text</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Full text representation of the address</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">line</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Street name, number, direction &amp; P.O. Box etc.</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">city</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Name of city, town etc.</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">district</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>District name (aka county)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">state</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Sub-unit of country (abbreviations ok)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">postalCode</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Postal code for area</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">country</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Country (e.g. can be ISO 3166 2 or 3 letter code)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>JSON object</td>
+      <td>N</td>
+      <td>Time period when</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="practitionerrole-file">PractitionerRole File</h2>
+
+<p>Each line of the PractitionerRole File is a minified JSON object that represents a set of roles/locations/specialties/services that a practitioner may perform at an organization for a period of time. The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available. According to the <a href="https://hl7.org/fhir/R4/practitionerrole.html">FHIR R4 PractitionerRole definition</a>, practitioner roles define the specific context in which practitioners provide services, including:</p>
+
+<ul>
+  <li>Primary care physician roles at specific locations</li>
+  <li>Specialist roles (cardiologist, dermatologist, etc.) with specific availability</li>
+  <li>Nursing roles for various services and locations</li>
+  <li>Pharmacy roles for medication management and immunizations</li>
+  <li>Therapy roles (physical therapy, occupational therapy, etc.)</li>
+  <li>Diagnostic service roles (radiology, laboratory, etc.)</li>
+  <li>Administrative roles that support patient care scheduling</li>
+</ul>
+
+<p>Each PractitionerRole includes at least:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>field name</th>
+      <th>type</th>
+      <th style="text-align: center">required</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resourceType</code></td>
+      <td>string</td>
+      <td style="text-align: center">Y</td>
+      <td>fixed value of <code class="language-plaintext highlighter-rouge">"PractitionerRole"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>string</td>
+      <td style="text-align: center">Y</td>
+      <td>unique identifier for this practitioner role (up to 64 alphanumeric characters and may include <code class="language-plaintext highlighter-rouge">-</code> and <code class="language-plaintext highlighter-rouge">.</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Business identifiers that are specific to a role/location</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+      <td>boolean</td>
+      <td style="text-align: center">N</td>
+      <td>Whether this practitioner role is in active use</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>JSON object</td>
+      <td style="text-align: center">N</td>
+      <td>The period during which the person is authorized to act as a practitioner in these role(s) for the organization</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">start</code></td>
+      <td><a href="#timestamps">timestamp</a> as string</td>
+      <td style="text-align: center">N</td>
+      <td>Start time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">end</code></td>
+      <td><a href="#timestamps">timestamp</a> as string</td>
+      <td style="text-align: center">N</td>
+      <td>End time with inclusive boundary, if not ongoing</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">practitioner</code></td>
+      <td>JSON object</td>
+      <td style="text-align: center">N</td>
+      <td>Practitioner that is able to provide the defined services for the organization</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">reference</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Reference to a Practitioner resource (e.g., <code class="language-plaintext highlighter-rouge">"Practitioner/dr-smith"</code>)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Text alternative for the resource</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">organization</code></td>
+      <td>JSON object</td>
+      <td style="text-align: center">N</td>
+      <td>Organization where the roles are available</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">reference</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Reference to an Organization resource</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Text alternative for the resource</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">code</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Roles which this practitioner may perform</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">coding</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Coded representation of the role</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>The code system (e.g., <code class="language-plaintext highlighter-rouge">"http://snomed.info/sct"</code>)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">code</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>The role code</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Human-readable description of the role</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">specialty</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Specific specialty of the practitioner</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">coding</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Coded representation of the specialty</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>The code system (e.g., <code class="language-plaintext highlighter-rouge">"http://snomed.info/sct"</code>)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">code</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>The specialty code</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Human-readable description of the specialty</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">location</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>The location(s) at which this practitioner provides care</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">reference</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Reference to a Location resource (e.g., <code class="language-plaintext highlighter-rouge">"Location/clinic-a"</code>)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Text alternative for the resource</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">healthcareService</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>The list of healthcare services that this worker provides for this role's Organization/Location(s)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">reference</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Reference to a HealthcareService resource</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Text alternative for the resource</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">telecom</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Contact details that are specific to the role/location/service</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td><code class="language-plaintext highlighter-rouge">"phone"</code>, <code class="language-plaintext highlighter-rouge">"email"</code>, or <code class="language-plaintext highlighter-rouge">"url"</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">value</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>phone number, email address, or URL for this practitioner role</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">availableTime</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Times the practitioner is available at this location/service (if not specified, then these times are the default for all services)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">daysOfWeek</code></td>
+      <td>array of strings</td>
+      <td style="text-align: center">N</td>
+      <td>Days of the week. Values: <code class="language-plaintext highlighter-rouge">"mon"</code>, <code class="language-plaintext highlighter-rouge">"tue"</code>, <code class="language-plaintext highlighter-rouge">"wed"</code>, <code class="language-plaintext highlighter-rouge">"thu"</code>, <code class="language-plaintext highlighter-rouge">"fri"</code>, <code class="language-plaintext highlighter-rouge">"sat"</code>, <code class="language-plaintext highlighter-rouge">"sun"</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">allDay</code></td>
+      <td>boolean</td>
+      <td style="text-align: center">N</td>
+      <td>Always available? e.g. 24 hour service</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">availableStartTime</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Opening time of day (ignored if allDay = true)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">availableEndTime</code></td>
+      <td>string</td>
+      <td style="text-align: center">N</td>
+      <td>Closing time of day (ignored if allDay = true)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">notAvailable</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>Not available during this period of time due to the provided reason</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">description</code></td>
+      <td>string</td>
+      <td style="text-align: center">Y</td>
+      <td>Reason presented to the user explaining why time not available</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">during</code></td>
+      <td>JSON object</td>
+      <td style="text-align: center">N</td>
+      <td>Service not available from this date/time</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">start</code></td>
+      <td><a href="#timestamps">timestamp</a> as string</td>
+      <td style="text-align: center">N</td>
+      <td>Starting time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">end</code></td>
+      <td><a href="#timestamps">timestamp</a> as string</td>
+      <td style="text-align: center">N</td>
+      <td>End time with inclusive boundary</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each <code class="language-plaintext highlighter-rouge">identifier</code> object includes a <code class="language-plaintext highlighter-rouge">system</code> and a <code class="language-plaintext highlighter-rouge">value</code>.</p>
+
+<ul>
+  <li>
+    <p>If a PractitionerRole is associated with organization-specific identifiers (such as role-specific employee numbers, provider numbers, or location-specific identifiers), publishers SHOULD include these. The <code class="language-plaintext highlighter-rouge">system</code> should be a URL that identifies the identifier system, preferably a page on the publisher's web site (e.g. <code class="language-plaintext highlighter-rouge">{"system": "https://healthsystem.example.com/practitioner-role-directory", "value": "ROLE-123"}</code>)</p>
+  </li>
+  <li>
+    <p><strong>National Provider Identifier (NPI)</strong>: Publishers SHALL include the practitioner's NPI when available, using the system <code class="language-plaintext highlighter-rouge">"http://hl7.org/fhir/sid/us-npi"</code> and the 10-digit NPI number as the value (e.g. <code class="language-plaintext highlighter-rouge">{"system": "http://hl7.org/fhir/sid/us-npi", "value": "1234567890"}</code>)</p>
+  </li>
+  <li>
+    <p>If a PractitionerRole participates in external registry programs that assign role-specific identifiers, publishers MAY include these identifiers using the appropriate system URL for the registry.</p>
+  </li>
+  <li>
+    <p>Additional identifiers: Any number of additional identifiers MAY be included. Each should populate <code class="language-plaintext highlighter-rouge">system</code> and <code class="language-plaintext highlighter-rouge">value</code> as appropriate, following FHIR identifier conventions.</p>
+  </li>
+</ul>
+
+<h3 id="example-practitionerrole">Example <code class="language-plaintext highlighter-rouge">PractitionerRole</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PractitionerRole"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doc-smith-role"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://healthsystem.example.com/practitioner-role-directory"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROLE-12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://hl7.org/fhir/sid/us-npi"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"period"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"practitioner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Practitioner/doc-smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. John Robert Smith"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization/berkshire-family-medicine"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berkshire Family Medicine"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://snomed.info/sct"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"309343006"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Physician"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"specialty"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://snomed.info/sct"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"394802001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General medicine"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location/123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berkshire Family Medicine - Pittsfield"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"telecom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"413-555-0123"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"appointments@berkshirefamilymedicine.example.com"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"availableTime"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"daysOfWeek"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mon"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tue"</span><span class="p">,</span><span class="w"> </span><span class="s2">"wed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"thu"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fri"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"availableStartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"availableEndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:00:00"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="example-practitionerrole-file">Example PractitionerRole File</h3>
+<ul>
+  <li>Example <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson">file</a></li>
+</ul>
+
+<h1 id="practitioner-file">Practitioner File</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Field Name</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Required</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resourceType</code></td>
+      <td>string</td>
+      <td>Y</td>
+      <td>Fixed value of <code class="language-plaintext highlighter-rouge">"Practitioner"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>string</td>
+      <td>Y</td>
+      <td>Unique identifier for this practitioner (up to 64 alphanumeric characters and may include <code class="language-plaintext highlighter-rouge">-</code> and <code class="language-plaintext highlighter-rouge">.</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>An identifier for the person as this agent</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"usual"</code>, <code class="language-plaintext highlighter-rouge">"official"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"secondary"</code>, <code class="language-plaintext highlighter-rouge">"old"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>The namespace for the identifier value (e.g., <code class="language-plaintext highlighter-rouge">"http://hl7.org/fhir/sid/us-npi"</code>)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">value</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>The value that is unique within the system</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+      <td>boolean</td>
+      <td>N</td>
+      <td>Whether this practitioner's record is in active use</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>The name(s) associated with the practitioner</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"usual"</code>, <code class="language-plaintext highlighter-rouge">"official"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"nickname"</code>, <code class="language-plaintext highlighter-rouge">"anonymous"</code>, <code class="language-plaintext highlighter-rouge">"old"</code>, <code class="language-plaintext highlighter-rouge">"maiden"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">text</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Full text representation of the name</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">family</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Family name (surname)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">given</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Given names (not always 'first'). Includes middle names</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">prefix</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Parts that come before the name (e.g., <code class="language-plaintext highlighter-rouge">"Dr."</code>, <code class="language-plaintext highlighter-rouge">"Prof."</code>)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">suffix</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Parts that come after the name (e.g., <code class="language-plaintext highlighter-rouge">"Jr."</code>, <code class="language-plaintext highlighter-rouge">"MD"</code>)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>JSON object</td>
+      <td>N</td>
+      <td>Time period when name was/is in use</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">start</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>Start time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">end</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>End time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">telecom</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>Contact details for the practitioner (e.g., phone, email)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"phone"</code>, <code class="language-plaintext highlighter-rouge">"fax"</code>, <code class="language-plaintext highlighter-rouge">"email"</code>, <code class="language-plaintext highlighter-rouge">"pager"</code>, <code class="language-plaintext highlighter-rouge">"url"</code>, <code class="language-plaintext highlighter-rouge">"sms"</code>, <code class="language-plaintext highlighter-rouge">"other"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">value</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>The actual contact point details</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"home"</code>, <code class="language-plaintext highlighter-rouge">"work"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"old"</code>, <code class="language-plaintext highlighter-rouge">"mobile"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">rank</code></td>
+      <td>integer</td>
+      <td>N</td>
+      <td>Specify preferred order of use (1 = highest)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>JSON object</td>
+      <td>N</td>
+      <td>Time period when the contact point was/is in use</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">start</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>Start time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td>→   → <code class="language-plaintext highlighter-rouge">end</code></td>
+      <td>timestamp as string</td>
+      <td>N</td>
+      <td>End time with inclusive boundary</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">address</code></td>
+      <td>array of JSON objects</td>
+      <td>N</td>
+      <td>Address(es) of the practitioner</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">use</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"home"</code>, <code class="language-plaintext highlighter-rouge">"work"</code>, <code class="language-plaintext highlighter-rouge">"temp"</code>, <code class="language-plaintext highlighter-rouge">"old"</code>, <code class="language-plaintext highlighter-rouge">"billing"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">"postal"</code>, <code class="language-plaintext highlighter-rouge">"physical"</code>, <code class="language-plaintext highlighter-rouge">"both"</code></td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">text</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Full text representation of the address</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">line</code></td>
+      <td>array of strings</td>
+      <td>N</td>
+      <td>Street name, number, direction &amp; P.O. Box etc.</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">city</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Name of city, town etc.</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">district</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>District name (aka county)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">state</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Sub-unit of country (abbreviations ok)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">postalCode</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Postal code for area</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">country</code></td>
+      <td>string</td>
+      <td>N</td>
+      <td>Country (e.g. can be ISO 3166 2 or 3 letter code)</td>
+    </tr>
+    <tr>
+      <td>→ <code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>JSON object</td>
+      <td>N</td>
+      <td>Time period when</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="schedule-file">Schedule File</h2>
+
+<p>Each line of the Schedule File is a minified JSON object that conveys information about a Schedule to which slots are attached. The Schedule represents a particular healthcare service (e.g., primary care appointments, specialist consultations, or procedures) offered at a specific location or by a specific practitioner role.</p>
+
+<p>Each Schedule includes at least:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Field Name</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Required</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resourceType</code></td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>fixed value of <code class="language-plaintext highlighter-rouge">"Schedule"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>a unique identifier for this schedule (up to 64 alphanumeric characters and may include <code class="language-plaintext highlighter-rouge">-</code> and <code class="language-plaintext highlighter-rouge">.</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">actor</code></td>
+      <td>array of JSON objects</td>
+      <td>Yes</td>
+      <td>References to the primary resource(s) that the schedule is providing availability for. This array can contain multiple actors, commonly including both Location and PractitionerRole references to indicate appointments for a specific practitioner role at a specific location.</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">reference</code></td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Reference to a Location, PractitionerRole, or other resource. Use <code class="language-plaintext highlighter-rouge">Location</code> + <code class="language-plaintext highlighter-rouge">/</code> + the <code class="language-plaintext highlighter-rouge">id</code> value (e.g., <code class="language-plaintext highlighter-rouge">"Location/123"</code>) for location references and <code class="language-plaintext highlighter-rouge">PractitionerRole</code> + <code class="language-plaintext highlighter-rouge">/</code> + the <code class="language-plaintext highlighter-rouge">id</code> value (e.g., <code class="language-plaintext highlighter-rouge">"PractitionerRole/doc-smith-role"</code>) for practitioner role references. Multiple references can be included to represent schedules that are associated with both a specific practitioner role and a specific location.</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+      <td>string</td>
+      <td>No</td>
+      <td>Human-readable label for the referenced actor. For a <code class="language-plaintext highlighter-rouge">Location</code>, populate with <code class="language-plaintext highlighter-rouge">Location.name</code>. For a <code class="language-plaintext highlighter-rouge">PractitionerRole</code>, populate with <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner.display</code>. Including <code class="language-plaintext highlighter-rouge">display</code> helps clients render schedules without dereferencing actors.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">serviceType</code></td>
+      <td>array of JSON objects</td>
+      <td>No</td>
+      <td>Each object is a standardized concept indicating what services are offered. The serviceType should use appropriate coding systems such as SNOMED CT or the HL7 service-type code system. For example, a general practice appointment schedule might include: &lt;pre&gt;[{<br/>  "system": "http://terminology.hl7.org/CodeSystem/service-type",<br/>  "code": "124",<br/>  "display": "General Practice"<br/>}]&lt;/pre&gt; For immunization services, you might use: &lt;pre&gt;[{<br/>  "system": "http://terminology.hl7.org/CodeSystem/service-type",<br/>  "code": "57",<br/>  "display": "Immunization"<br/>}]&lt;/pre&gt; Additional <code class="language-plaintext highlighter-rouge">serviceType</code>s may be included if this schedule offers multiple services; or additional <code class="language-plaintext highlighter-rouge">coding</code>s may be included to convey more nuanced information about the services offered. Multiple codings can express different levels of specificity following the FHIR convention for "codeable concepts" – see <a href="http://hl7.org/fhir/datatypes.html#codeableconcept">here</a> for details.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">extension</code></td>
+      <td>array of JSON objects</td>
+      <td>No</td>
+      <td>see details below</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="multiple-actors-in-schedules">Multiple Actors in Schedules</h3>
+
+<p>Schedules can reference multiple actors in the <code class="language-plaintext highlighter-rouge">actor</code> array to provide more specific context about the healthcare service. Common patterns include:</p>
+
+<ul>
+  <li><strong>Location-only schedules</strong>: Reference only a Location resource, indicating that appointments are available at that location but not tied to a specific practitioner role.</li>
+  <li><strong>PractitionerRole-only schedules</strong>: Reference only a PractitionerRole resource, indicating appointments with that specific practitioner role regardless of location.</li>
+  <li><strong>Location and PractitionerRole schedules</strong>: Reference both Location and PractitionerRole resources, indicating appointments for a specific practitioner role at a specific location. This is useful for:
+    <ul>
+      <li>Multi-location practices where practitioner roles work at different sites</li>
+      <li>Specialty clinics where specific practitioner roles provide services at designated locations</li>
+      <li>Healthcare systems where practitioner role schedules vary by location</li>
+    </ul>
+  </li>
+</ul>
+
+<p>When multiple actors are specified, all referenced resources apply to the schedule and its associated slots.</p>
+
+<h3 id="schedule-extensions">Schedule Extensions</h3>
+
+<p>Each Schedule object may optionally include extension JSON objects in the Schedule's <code class="language-plaintext highlighter-rouge">extension</code> array to provide additional context about the healthcare services offered. Common extensions might include:</p>
+
+<ul>
+  <li>
+    <p><strong>Specialty extension</strong>: Used to indicate the medical specialty associated with this schedule. This helps clients categorize and filter schedules by practitioner role specialty or service area.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>field name</th>
+          <th>type</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">url</code></td>
+          <td>string</td>
+          <td>fixed value of <code class="language-plaintext highlighter-rouge">"http://fhir-registry.smarthealthit.org/StructureDefinition/specialty"</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">valueCoding</code></td>
+          <td>JSON object</td>
+          <td>A coded value representing the medical specialty</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">system</code></td>
+          <td>string</td>
+          <td>The code system (e.g., <code class="language-plaintext highlighter-rouge">"http://snomed.info/sct"</code> for SNOMED CT)</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">code</code></td>
+          <td>string</td>
+          <td>The specialty code</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">display</code></td>
+          <td>string</td>
+          <td>Human-readable description of the specialty</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p><strong>Service Category extensions</strong>: Used to provide additional categorization of healthcare services beyond the standard serviceType codes. These can help clients filter and display services more effectively.</p>
+  </li>
+  <li>
+    <p><strong>PractitionerRole extensions</strong>: Used to indicate specific practitioner role qualifications or specializations required for appointments on this schedule (e.g., board certifications, special training, location-specific credentials).</p>
+  </li>
+</ul>
+
+<p>Extensions should follow FHIR extension conventions and use appropriate extension URLs. Implementers may define custom extensions as needed for their specific use cases, following FHIR extension guidelines.</p>
+
+<h3 id="example-schedule">Example <code class="language-plaintext highlighter-rouge">Schedule</code></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schedule"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"serviceType"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://terminology.hl7.org/CodeSystem/service-type"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"124"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General Practice"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location/123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berkshire Family Medicine - Pittsfield"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PractitionerRole/doc-smith-role"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. John Robert Smith"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://fhir-registry.smarthealthit.org/StructureDefinition/specialty"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"valueCoding"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://snomed.info/sct"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"394802001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General medicine"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This example demonstrates a Schedule with multiple actors, indicating that general practice appointments are available for practitioner role "doc-smith-role" at location "123". This pattern is commonly used when a specific practitioner role provides services at a specific location.</p>
+
+<h3 id="example-schedule-file">Example Schedule File</h3>
+<ul>
+  <li>Example <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson">file</a></li>
+</ul>
+
+<h2 id="slot-file">Slot File</h2>
+
+<p>Each line of the Slot File is a minified JSON object that conveys information about an appointment slot. Publishers are encouraged to represent slots with fine-grained timing details (e.g.  representing appointments at specific times of the day), but MAY represent slots with coarse grained timing (e.g., "between 9 a.m. and 5 p.m." or "between noon and five p.m.").</p>
+
+<p><em>Note: When publishing a Slot with <code class="language-plaintext highlighter-rouge">"status": "free"</code>, Publishers should ensure that the Slot is in fact available for booking, given current business rules. For example, if a provider requires certain prerequisites to be met before an appointment can be booked (such as referrals, prior authorization, or specific patient eligibility criteria), then the provider SHOULD NOT advertise the slot as available unless those requirements are satisfied.</em></p>
+
+<p>Each <code class="language-plaintext highlighter-rouge">Slot</code> has:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>field name</th>
+      <th>type</th>
+      <th style="text-align: center">required</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resourceType</code></td>
+      <td>string</td>
+      <td style="text-align: center">Y</td>
+      <td>fixed value of <code class="language-plaintext highlighter-rouge">"Slot"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>string</td>
+      <td style="text-align: center">Y</td>
+      <td>a unique identifier for this slot (up to 64 alphanumeric characters and may include <code class="language-plaintext highlighter-rouge">-</code> and <code class="language-plaintext highlighter-rouge">.</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">schedule</code></td>
+      <td>JSON object</td>
+      <td style="text-align: center">Y</td>
+      <td>has a single field indicating the Schedule this slot belongs to</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;→&nbsp;<code class="language-plaintext highlighter-rouge">reference</code></td>
+      <td>string</td>
+      <td style="text-align: center">Y</td>
+      <td>the schedule for this slot formed as <code class="language-plaintext highlighter-rouge">Schedule</code> + <code class="language-plaintext highlighter-rouge">/</code> + the <code class="language-plaintext highlighter-rouge">id</code> value of an entry in a Schedule File (e.g., <code class="language-plaintext highlighter-rouge">"Schedule/123"</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>string</td>
+      <td style="text-align: center">Y</td>
+      <td><code class="language-plaintext highlighter-rouge">"free"</code>, <code class="language-plaintext highlighter-rouge">"busy"</code>, <code class="language-plaintext highlighter-rouge">"busy-tentative"</code>, or <code class="language-plaintext highlighter-rouge">"busy-unavailable"</code>. The <code class="language-plaintext highlighter-rouge">"busy-tentative"</code> status indicates a slot is temporarily held (see <a href="#find--hold--book-pattern">Find → Hold → Book Pattern</a>).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">start</code></td>
+      <td><a href="#timestamps">timestamp</a> as string</td>
+      <td style="text-align: center">Y</td>
+      <td>the start time of this slot. Together <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">end</code> SHOULD identify a narrow window of time for the appointment, but MAY be as broad as the clinic's operating hours for the day, if the publisher does not support fine-grained scheduling. Timestamp SHALL be expressed with an accurate offset suffix, which SHOULD reflect the local timezone offset of the Location this slot belongs to (e.g., <code class="language-plaintext highlighter-rouge">-05:00</code> suffix for UTC-5) or use UTC (i.e., <code class="language-plaintext highlighter-rouge">Z</code> suffix). For example, to represent a start time of 10:45AM in America/New_York on 2021-04-21, this could be returned as either <code class="language-plaintext highlighter-rouge">2021-04-21T10:45:00.000-04:00</code> or <code class="language-plaintext highlighter-rouge">2021-04-21T14:45:00.000Z</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">end</code></td>
+      <td><a href="#timestamps">timestamp</a> as string</td>
+      <td style="text-align: center">Y</td>
+      <td>the end time of this slot. See notes about offset suffix for <code class="language-plaintext highlighter-rouge">start</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">extension</code></td>
+      <td>array of JSON objects</td>
+      <td style="text-align: center">N</td>
+      <td>see details below</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each Slot object may optionally include one or both of the following extension JSON objects in the Slot's <code class="language-plaintext highlighter-rouge">extension</code> array.</p>
+
+<ul>
+  <li>
+    <p>"Booking link" extension: used to convey a web link into the Provider Booking Portal (see <a href="#deep-links-hosted-by-provider-booking-portal">below</a>) where the user can begin booking this slot.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>field name</th>
+          <th>type</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">url</code></td>
+          <td>string</td>
+          <td>fixed value of <code class="language-plaintext highlighter-rouge">"http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link"</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">valueUrl</code></td>
+          <td>string</td>
+          <td>URL that's a deep link into the Provider Booking Portal</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>"Booking phone" extension: used to convey a phone number the user can call to book this slot.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>field name</th>
+          <th>type</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">url</code></td>
+          <td>string</td>
+          <td>fixed value of <code class="language-plaintext highlighter-rouge">"http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone"</code></td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">valueString</code></td>
+          <td>string</td>
+          <td>Phone number the user can call to book this slot.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="example-slot">Example <code class="language-plaintext highlighter-rouge">Slot</code></h3>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Slot"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schedule/456"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-10T15:00:00-05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-10T15:20:00-05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"valueUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://ehr-portal.example.org/bookings?slot=opaque-slot-handle-89172489"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="example-slot-file">Example Slot File</h3>
+<ul>
+  <li>Example <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson">file</a></li>
+</ul>
+
+<h2 id="healthcare-service-resource">Healthcare Service Resource</h2>
+
+<p>The Health Service resource is used to describe a single healthcare service or category of services that are provided by an organization at a location. The location of the services could be virtual, as with telemedicine services. This profile provides a scheduling-optimized view of healthcare service offerings, enabling discovery and booking of appointments when no specific practitioner is required or specified.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>id</td>
+      <td>Yes</td>
+      <td>Logical identifier for the health service</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+      <td>boolean</td>
+      <td>Yes</td>
+      <td>Whether the service is currently active and available for scheduling</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">providedBy</code></td>
+      <td>Reference(Organization)</td>
+      <td>No</td>
+      <td>Organization that provides this service</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">category</code></td>
+      <td>CodeableConcept</td>
+      <td>No</td>
+      <td>Broad categorization of the service (e.g., Primary Care, Allied Health, Mental Health)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>CodeableConcept</td>
+      <td>Yes</td>
+      <td>Specific type of service offered (e.g., Physical Therapy, Vaccination, Emergency Services)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">specialty</code></td>
+      <td>CodeableConcept</td>
+      <td>Yes</td>
+      <td>Clinical specialty required to perform the service (e.g., Cardiology, General Practice)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">location</code></td>
+      <td>Reference(Location)</td>
+      <td>Yes</td>
+      <td>Physical or virtual location(s) where service is provided</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Human-readable name of the service for display purposes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">comment</code></td>
+      <td>string</td>
+      <td>No</td>
+      <td>Additional description or instructions relevant to scheduling (e.g., "Walk-in available", "Referral required")</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">telecom</code></td>
+      <td>ContactPoint</td>
+      <td>No</td>
+      <td>Contact information for the service (phone, email, website)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">serviceProvisionCode</code></td>
+      <td>CodeableConcept</td>
+      <td>No</td>
+      <td>Conditions under which service is available (e.g., free, fees apply, by referral only)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">appointmentRequired</code></td>
+      <td>boolean</td>
+      <td>No</td>
+      <td>Whether an appointment is required for this service (false indicates walk-in accepted)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">availableTime</code></td>
+      <td>BackboneElement</td>
+      <td>No</td>
+      <td>General times the service is available at the location</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">availableTime.daysOfWeek</code></td>
+      <td>code</td>
+      <td>No</td>
+      <td>Days of week service is available (mon, tue, wed, thu, fri, sat, sun)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">availableTime.allDay</code></td>
+      <td>boolean</td>
+      <td>No</td>
+      <td>Service available all day during specified days</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">availableTime.availableStartTime</code></td>
+      <td>time</td>
+      <td>No</td>
+      <td>Opening time of day (ignored if allDay = true)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">availableTime.availableEndTime</code></td>
+      <td>time</td>
+      <td>No</td>
+      <td>Closing time of day (ignored if allDay = true)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">notAvailable</code></td>
+      <td>BackboneElement</td>
+      <td>No</td>
+      <td>Exception periods when the service is not available</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">notAvailable.description</code></td>
+      <td>string</td>
+      <td>Yes*</td>
+      <td>Reason service is not available (*required if notAvailable is present)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">notAvailable.during</code></td>
+      <td>Period</td>
+      <td>No</td>
+      <td>Specific time period when service is unavailable</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-health-service">Example Health Service</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HealthcareService"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"online-primary-care"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization/acme-health"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Health System"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://terminology.hl7.org/CodeSystem/service-category"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General Practice"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://snomed.info/sct"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"308335008"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient encounter procedure"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Primary Care Visit"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"specialty"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://snomed.info/sct"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"394814009"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General practice"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location/main-clinic"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Street Clinic"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Primary Care Appointments - Online Booking"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"telecom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(555) 123-4567"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"appointments@acmehealth.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://appointments.acmehealth.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"serviceProvisionCode"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://terminology.hl7.org/CodeSystem/service-provision-conditions"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cost"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fees apply"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"appointmentRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"availableTime"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"daysOfWeek"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mon"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tue"</span><span class="p">,</span><span class="w"> </span><span class="s2">"wed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"thu"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fri"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"availableStartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"availableEndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:00:00"</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"availabilityExceptions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed on major holidays. Online booking available 24/7 for future appointments."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+  
+</span></code></pre></div></div>
+<h3 id="deep-links-hosted-by-provider-booking-portal">Deep Links hosted by Provider Booking Portal</h3>
+
+<p>The Booking Portal is responsible for handling incoming deep links.</p>
+
+<p>Each Slot exposed by the Slot Publisher can include an extension indicating the Booking Deep Link, a URL that the Slot Discovery Client can redirect a user to. The Slot Discovery Client can attach the following URL parameters to a Booking Deep Link:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">source</code>: a correlation handle indicating the identity of the Slot Discovery Client, for use by the Provider Booking Portal in tracking the source of incoming referrals.</li>
+  <li><code class="language-plaintext highlighter-rouge">booking-referral</code>: a correlation handle for this specific booking referral. This parameter can optionally be retained by the Provider Booking Portal throughout the booking process, which can subsequently help the Slot Discovery Client to identify booked slots. (Details for this lookup are out of scope for this specification.)</li>
+</ul>
+
+<h3 id="example-of-deep-linking-into-a-booking-portal">Example of deep linking into a booking portal</h3>
+
+<p>For the <code class="language-plaintext highlighter-rouge">Slot</code> example above, a client can construct the following URL to provide a deep link for a user to book a slot:</p>
+
+<ol>
+  <li>Parse the Booking Deep Link URL</li>
+  <li>Optionally append <code class="language-plaintext highlighter-rouge">source</code></li>
+  <li>Optionally append <code class="language-plaintext highlighter-rouge">booking-referral</code></li>
+</ol>
+
+<p>In this case, if the <code class="language-plaintext highlighter-rouge">source</code> value is <code class="language-plaintext highlighter-rouge">source-abc</code> and the <code class="language-plaintext highlighter-rouge">booking-referral</code> is <code class="language-plaintext highlighter-rouge">34d1a803-cd6c-4420-9cf5-c5edcc533538</code>, then the fully constructed deep link URL would be:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://ehr-portal.example.org/bookings?slot=opaque-slot-handle-89172489&amp;source=source-abc&amp;booking-referral=34d1a803-cd6c-4420-9cf5-c5edcc533538
+</code></pre></div></div>
+
+<p>(Note: this construction is <em>not</em> as simple as just appending <code class="language-plaintext highlighter-rouge">&amp;source=...</code> to the booking-deep-link, because the booking-deep-link may or may not already include URL parameters. The Slot Discovery Client must take care to parse the booking-deep-link and append parameters, e.g., including a <code class="language-plaintext highlighter-rouge">?</code> prefix if not already present.)</p>
+
+<h2 id="find--hold--book-pattern">Find → Hold → Book Pattern</h2>
+
+<h3 id="principle">Principle</h3>
+
+<p>This specification adheres to general guidance in FHIR scheduling to implement a <strong>Find, Hold, Book</strong> pattern for appointment booking. This pattern provides a robust workflow that minimizes booking conflicts while maintaining the scalability benefits of static slot publication.</p>
+
+<h3 id="workflow-overview">Workflow Overview</h3>
+
+<p>The recommended appointment booking workflow follows these stages:</p>
+
+<ol>
+  <li><strong>Find</strong>: Slot Discovery Clients discover available slots through the bulk publication manifest and static slot files</li>
+  <li><strong>Hold</strong>: When a user initiates booking, the Provider Booking Portal places a temporary hold on the selected slot within the scheduling system's source of truth</li>
+  <li><strong>Book</strong>: The user completes the booking process, converting the held slot to a confirmed appointment</li>
+</ol>
+
+<h3 id="hold-implementation-strategy">Hold Implementation Strategy</h3>
+
+<p>This specification recognizes that Slot Publishers and Provider Booking Portals are typically <strong>the same organizational entity</strong> serving different functional roles from a <strong>unified scheduling system</strong>, or at least both have direct access to the underlying source of truth. This unified model resolves potential consistency challenges:</p>
+
+<ul>
+  <li><strong>Immediate hold creation</strong>: When a hold is placed via the Provider Booking Portal, it updates the underlying scheduling database</li>
+  <li><strong>Publication at publisher's discretion</strong>: The next publication cycle reflects hold status changes (slots with <code class="language-plaintext highlighter-rouge">"status": "busy-tentative"</code>) in the static files</li>
+  <li><strong>Ecosystem consistency</strong>: All discovery clients eventually see consistent hold state within the established polling intervals</li>
+</ul>
+
+<h3 id="hold-initiation">Hold Initiation</h3>
+
+<p>Provider Booking Portals SHOULD initiate slot holds automatically when:</p>
+
+<ul>
+  <li>A user lands on a booking deep link and begins the appointment booking flow</li>
+  <li>The booking process requires multiple steps or user input that may take significant time</li>
+  <li>The risk of slot conflicts justifies the overhead of hold management</li>
+</ul>
+
+<p>Holds provide a critical user experience improvement by reducing booking failures due to concurrent access while the user is actively engaged in the booking process.</p>
+
+<h3 id="architectural-separation">Architectural Separation</h3>
+
+<p>This approach maintains clean separation of concerns:</p>
+
+<ul>
+  <li><strong>Static file servers</strong> (serving scheduling links) remain focused on high-performance, cacheable content delivery and are <strong>not involved in state management</strong></li>
+  <li><strong>Dynamic booking systems</strong> handle all stateful operations including holds, appointments, and real-time scheduling coordination</li>
+  <li><strong>Single source of truth</strong> ensures that both static publication and dynamic booking operations reflect the same underlying scheduling state</li>
+</ul>
+
+<p>The <em>Provider Booking Portal</em> is responsible for initiating holds within the scheduling system's source of truth, with the <em>Slot Publisher</em> reflecting these state changes in subsequent publications at its discretion based on publication frequency and caching strategies.</p>
+
+<h2 id="slot-aggregators">Slot Aggregators</h2>
+
+<p>Systems that re-publish data from other <em>Slot Publishers</em> are referred to as <em>Slot Aggregators</em>. If you are a <em>Slot Aggregator</em>, you may wish to use some additional extensions and FHIR features to supply useful provenance information or describe ways that your aggregated data may not exactly match the definitions in the <em>SMART Scheduling Links</em> specification. The practices and approaches in this section are <em>recommendations</em>; none are <em>required</em> for a valid implementation.</p>
+
+<h3 id="preserve-source-identifiers">Preserve Source Identifiers</h3>
+
+<p><em>Slot Aggregators</em> usually need to assign new <code class="language-plaintext highlighter-rouge">id</code> values to resources in order to make sure they are unique across the aggregated dataset. The <code class="language-plaintext highlighter-rouge">id</code> of the original resource SHOULD be preserved in the <code class="language-plaintext highlighter-rouge">identifier</code> list, alongside the identifiers from the original resource. The specific <code class="language-plaintext highlighter-rouge">system</code> and <code class="language-plaintext highlighter-rouge">value</code> used for the identifier is left up to the implementer.</p>
+
+<p>For example, given this Location resource from an underlying source:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">resourceType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Location</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">identifier</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">system</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://healthsystem.example.com/facility-directory</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FAC-PITT-001</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Berkshire Family Medicine - Pittsfield</span><span class="dl">"</span><span class="p">,</span>
+  <span class="c1">// additional Location fields here...</span>
+<span class="p">}</span>
+<span class="s2">```js
+
+A _Slot Aggregator_ might publish a Location like:
+
+```</span><span class="nx">js</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">resourceType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Location</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">456</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">identifier</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">system</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://healthsystem.example.com/facility-directory</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FAC-PITT-001</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">system</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://berkshirefamilymedicine.example.org/</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Berkshire Family Medicine - Pittsfield</span><span class="dl">"</span><span class="p">,</span>
+  <span class="c1">// additional Location fields here...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">https://berkshirefamilymedicine.example.org/</code> is an arbitrary string that defines “Flynn’s Pharmacy” as the identifier system. <em>Slot Aggregators</em> should only use a URL that is not under their control in cases where the URL is predictable and might reasonably be chosen by other <em>Slot Aggregators</em>. When this is not the case, <em>Slot Aggregators</em> SHOULD choose a URL under their control. For example, an aggregator at <code class="language-plaintext highlighter-rouge">usdr.example.org</code> might choose a URL like <code class="language-plaintext highlighter-rouge">https://usdr.example.org/fhir/identifiers/flynns</code>.</p>
+
+<p>When the source system is a SMART Scheduling Links implementation, a <em>Slot Aggregator</em> SHOULD use <a href="http://hl7.org/fhir/resource.html#Meta">FHIR’s <code class="language-plaintext highlighter-rouge">Resource.meta.source</code> field</a> to describe it. The value is a URI that SHOULD include the URL of the source system, and MAY add the resource <code class="language-plaintext highlighter-rouge">id</code>.</p>
+
+<p>For example, given the above example resource at <code class="language-plaintext highlighter-rouge">https://api.flynnspharmacy.example.org/fhir/smart-scheduling/$bulk-publish</code>, a <em>Slot Aggregator</em> might publish a location like:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">resourceType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Location</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">456</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">meta</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">source</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.flynnspharmacy.example.org/fhir/smart-scheduling/Location/123</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">identifier</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">system</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://cdc.gov/vaccines/programs/vtrcks</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CV1654321</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">system</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://flynnspharmacy.example.org/</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Flynn's Pharmacy in Pittsfield, MA</span><span class="dl">"</span><span class="p">,</span>
+  <span class="c1">// additional Location fields here...</span>
+<span class="p">}</span>
+
+
+
+<span class="err">###</span> <span class="nx">Indicate</span> <span class="nx">Data</span> <span class="err">“</span><span class="nx">Freshness</span><span class="err">”</span>
+
+<span class="nx">Aggregators</span> <span class="nx">may</span> <span class="nx">request</span> <span class="nx">or</span> <span class="nx">receive</span> <span class="nx">information</span> <span class="k">from</span> <span class="nx">publishers</span> <span class="nx">at</span> <span class="nx">different</span> <span class="nx">times</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">understanding</span> <span class="nx">how</span> <span class="nx">recently</span> <span class="nx">data</span> <span class="nx">about</span> <span class="nx">a</span> <span class="nx">Location</span><span class="p">,</span> <span class="nx">Schedule</span><span class="p">,</span> <span class="nx">or</span> <span class="nx">Slot</span> <span class="nx">was</span> <span class="nx">retrieved</span> <span class="nx">can</span> <span class="nx">help</span> <span class="nx">end</span> <span class="nx">users</span> <span class="nx">gauge</span> <span class="nx">the</span> <span class="nx">accuracy</span> <span class="k">of</span> <span class="nx">items</span> <span class="k">in</span> <span class="nx">an</span> <span class="nx">aggregated</span> <span class="nx">dataset</span><span class="p">.</span> <span class="nx">_Slot</span> <span class="nx">Aggregators_</span> <span class="nx">SHOULD</span> <span class="nx">use</span> <span class="nx">the</span> <span class="s2">`lastSourceSync`</span> <span class="nx">extension</span> <span class="nx">on</span> <span class="nx">the</span> <span class="s2">`meta`</span> <span class="nx">field</span> <span class="k">of</span> <span class="nx">any</span> <span class="nx">resource</span> <span class="nx">to</span> <span class="nx">indicate</span> <span class="nx">the</span> <span class="nx">last</span> <span class="nx">time</span> <span class="nx">at</span> <span class="nx">which</span> <span class="nx">the</span> <span class="nx">data</span> <span class="nx">was</span> <span class="nx">known</span> <span class="nx">to</span> <span class="nx">be</span> <span class="nx">accurate</span><span class="p">:</span>
+
+<span class="s2">```js
+{
+  "resourceType": "Schedule",
+  "id": "123",
+  "meta": {
+    "extension": [{
+      "url": "http://hl7.org/fhir/StructureDefinition/lastSourceSync",
+      "valueDateTime": "2021-04-19T20:35:05.000Z"
+    }]
+  }
+  // additional Schedule fields here...
+}
+</span></code></pre></div></div>
+
+<h3 id="describe-unknown-availability-capacity-or-slot-times">Describe Unknown Availability, Capacity, or Slot Times</h3>
+
+<p>Because source systems may experience errors or may not conform to the SMART Scheduling Links specification, <em>Slot Aggregators</em> need additional tools to describe unusual situations that are not relevant to first-party <em>Slot Publishers</em>. Specifically, <em>Slot Aggregators</em> may describe Schedules where:</p>
+<ul>
+  <li>Whether any Slots are associated with the Schedule is unknown (e.g. because a source system is unreachable),</li>
+  <li>The capacity or times of Slots are unknown (e.g. slots are known to be free or busy only <em>at some time</em> in the near future).</li>
+</ul>
+
+<p>Use the <strong>optional "Has Availability" extension</strong> to convey that a Schedule has non-zero or unknown future availability, without conveying details about when or how much. When used on a Schedule, that Schedule MAY have no associated Slots. <em>Slot Publishers</em> SHALL NOT use this capacity in place of publishing granular Slots; it is defined to support Slot Aggregators (i.e. systems that re-publish Slot data from other APIs).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>field name</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">url</code></td>
+      <td>string</td>
+      <td>Fixed value of <code class="language-plaintext highlighter-rouge">"http://fhir-registry.smarthealthit.org/StructureDefinition/has-availability"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueCode</code></td>
+      <td>string</td>
+      <td>One of: &lt;ul&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">"some"</code>: The Schedule has non-zero future availability.&lt;/li&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">"none"</code>: The Schedule has no future availability.&lt;/li&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">"unknown"</code>: The schedule has unknown future availability (e.g. because there is no source of data for this schedule or because the source system had errors or was unparseable).&lt;/li&gt;&lt;/ul&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example usage on a Schedule:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schedule"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"serviceType"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://terminology.hl7.org/CodeSystem/service-type"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"124"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General Practice"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://fhir-registry.smarthealthit.org/StructureDefinition/has-availability"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"valueCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location/123"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="http://smart-scheduling-links.org/SMART-Scheduling-Links">SMART Scheduling Links</a>.  Package fhir.ig#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Mar 2, 2026 18:28+0000">2026-03-02</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

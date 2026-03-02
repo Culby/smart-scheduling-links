@@ -47,7 +47,7 @@ Other representations of profile: [CSV](StructureDefinition-booking-deep-link.cs
   "name" : "BookingDeepLink",
   "title" : "Booking Deep Link",
   "status" : "active",
-  "date" : "2026-03-02T13:46:35+00:00",
+  "date" : "2026-03-02T18:28:46+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

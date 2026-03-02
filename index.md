@@ -30,7 +30,7 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
   "version" : "0.1.0",
   "name" : "fhirig",
   "status" : "draft",
-  "date" : "2026-03-02T13:46:35+00:00",
+  "date" : "2026-03-02T18:28:46+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",
@@ -779,6 +779,15 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         }],
         "nameUrl" : "change-log.html",
         "title" : "Change Log",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "specification.html"
+        }],
+        "nameUrl" : "specification.html",
+        "title" : "Specification",
         "generation" : "markdown"
       }]
     },

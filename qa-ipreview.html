@@ -139,7 +139,7 @@ fhirig - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; 
 
           IG &copy; 2026+           <a style="color:var(--footer-hyperlink-text-color)" href="http://smart-scheduling-links.org/SMART-Scheduling-Links">SMART Scheduling Links</a>
 .  Package fhir.ig#0.1.0 based on           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
-. Generated           <span title="Mon, Mar 2, 2026 13:46+0000">2026-03-02</span>
+. Generated           <span title="Mon, Mar 2, 2026 18:28+0000">2026-03-02</span>
 
                     <br/>
 
@@ -177,6 +177,127 @@ fhirig - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; 
         <td>
 Introduced           <a href="https://github.com/smart-on-fhir/smart-scheduling-links/blob/master/specification.md">SMART Scheduling Links</a>
  as a standards-based specification to enable patients to find appointment slots, follow a deep link, and complete a booking for COVID-19 immunizations.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish">raw.githubusercontent.com</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/$bulk-publish">Example file</a>
+ showing a manifest for the fictional "SMART Medicine", a regional chain with twenty locations in Massachusetts, a mix of urgent care and primary care practices.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson">Example file</a>
+ showing ten practitioner roles for the fictional "SMART Primary Care". Each line provides details about a single PractitionerRole in the MA area.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson">Example file</a>
+ showing ten locations for the fictional "SMART Urgent Care". Each line provides details about a single physical location in the MA area.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson">Example file</a>
+ showing ten schedules schedules for "SMART Primary Care" and ten schedules for "SMART Urgent Care." Each line provides details about a single schedule.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson">Example file</a>
+ showing coarse-grained slots for a single week, across all twenty "SMART Medicine" sites. (          <em>Note: The choice to break down slots into weekly files is arbitrary; the fictional Clinic could instead choose to host a single slot file, or produce location-specific files, or even group slots randomly.</em>
+) Slots MAY include only coarse-grained timing (indicating they fall sometime beetween 9a and 6p ET, the clinic's fictional hours of operation). Ideally, Slot Publishers SHOULD provide finer-grained slot information with specific timing.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">developer.mozilla.org</a>
+        </td>
+        <td>
+          <em>Slot Publishers</em>
+ SHOULD include a           <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">
+<code class="language-plaintext highlighter-rouge">Cache-Control: max-age=&lt;seconds&gt;</code> header
+          </a>
+ as a hint to clients about how long (in seconds) to wait before polling next. For example,           <code class="language-plaintext highlighter-rouge">Cache-Control: max-age=300</code>
+ indicates a preferred polling interval of five minutes.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+Example           <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/locations.ndjson">file</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+Example           <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/practitionerroles.ndjson">file</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+Example           <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/schedules.ndjson">file</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson">raw.githubusercontent.com</a>
+        </td>
+        <td>
+Example           <a href="https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/slots-2021-W09.ndjson">file</a>
         </td>
       </tr>
     </table>
