@@ -77,6 +77,7 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  Specification: specification.html
   Artifacts: artifacts.html
   Change Log: change-log.html
 
