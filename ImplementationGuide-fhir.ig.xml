@@ -9,7 +9,7 @@
   <version value="0.1.0"/>
   <name value="fhirig"/>
   <status value="draft"/>
-  <date value="2026-03-02T13:43:11+00:00"/>
+  <date value="2026-03-02T13:46:35+00:00"/>
   <publisher value="SMART Scheduling Links"/>
   <contact>
     <name value="SMART Scheduling Links"/>
@@ -580,6 +580,14 @@
         </extension>
         <nameUrl value="index.html"/>
         <title value="Home"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="change-log.html"/>
+        </extension>
+        <nameUrl value="change-log.html"/>
+        <title value="Change Log"/>
         <generation value="markdown"/>
       </page>
     </page>

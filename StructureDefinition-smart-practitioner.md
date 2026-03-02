@@ -42,7 +42,7 @@ Other representations of profile: [CSV](StructureDefinition-smart-practitioner.c
   "name" : "SmartPractitioner",
   "title" : "SMART Practitioner",
   "status" : "draft",
-  "date" : "2026-03-02T13:43:11+00:00",
+  "date" : "2026-03-02T13:46:35+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

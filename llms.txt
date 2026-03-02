@@ -4,6 +4,7 @@
 
 * [Home](index.md)
 * [Artifacts Summary](artifacts.md)
+* [Change Log](change-log.md)
 
 ## Resources
 

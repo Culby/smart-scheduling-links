@@ -20,7 +20,7 @@ Generated $--. FHIR version $-- for fhir.ig#$-- (canonical = https://smart-sched
 </table>
 == n/a ==
 ERROR: package.tgz: Error converting pacakge to R4B: Error processing example/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json: Unknown IdentifierUse code 'Usual'
-ERROR: Slot-slot-123.html#/html/body/div/div/div/div/div/div/p/a at Line 170, column 290: The link 'Schedule/123' for "Schedule/123" cannot be resolved
+ERROR: Slot-slot-123.html#/html/body/div/div/div/div/div/div/p/a at Line 173, column 290: The link 'Schedule/123' for "Schedule/123" cannot be resolved
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide

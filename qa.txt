@@ -3,7 +3,7 @@ fhirig : Validation Results
 
 err = 9, warn = 12, info = 1
 IG Publisher Version: 2.1.2
-Generated Mon Mar 02 13:44:34 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
+Generated Mon Mar 02 13:47:52 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
  Build Errors : 2 / 4 / 0
  /github/workspace/fhir-ig/fsh-generated/resources/ImplementationGuide-fhir.ig : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic : 0 / 1 / 1
@@ -20,7 +20,7 @@ Generated Mon Mar 02 13:44:34 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (ca
 </table>
 == n/a ==
 ERROR: package.tgz: Error converting pacakge to R4B: Error processing example/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json: Unknown IdentifierUse code 'Usual'
-ERROR: Slot-slot-123.html#/html/body/div/div/div/div/div/div/p/a at Line 170, column 290: The link 'Schedule/123' for "Schedule/123" cannot be resolved
+ERROR: Slot-slot-123.html#/html/body/div/div/div/div/div/div/p/a at Line 173, column 290: The link 'Schedule/123' for "Schedule/123" cannot be resolved
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
