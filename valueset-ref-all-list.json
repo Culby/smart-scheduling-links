@@ -11,8 +11,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.69"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location",
-    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner",
+    "StructureDefinition-smart-location.html" : "SMART Location"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/address-use",
@@ -26,8 +26,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.67"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location",
-    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner",
+    "StructureDefinition-smart-location.html" : "SMART Location"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/administrative-gender",
@@ -56,8 +56,8 @@
     "uses" : {
     },
     "StructureDefinition-smart-slot.html" : "SMART Slot",
-    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole",
-    "StructureDefinition-smart-schedule.html" : "SMART Schedule"
+    "StructureDefinition-smart-schedule.html" : "SMART Schedule",
+    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/contact-point-system",
@@ -71,8 +71,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.71"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location",
-    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner",
+    "StructureDefinition-smart-location.html" : "SMART Location"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/contact-point-use",
@@ -86,8 +86,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.73"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location",
-    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner",
+    "StructureDefinition-smart-location.html" : "SMART Location"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/days-of-week",
@@ -101,8 +101,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.512"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location",
-    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole"
+    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole",
+    "StructureDefinition-smart-location.html" : "SMART Location"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/identifier-type",
@@ -144,11 +144,11 @@
     "sources" : ["2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
-    "StructureDefinition-smart-location.html" : "SMART Location",
     "StructureDefinition-smart-slot.html" : "SMART Slot",
-    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole",
     "StructureDefinition-smart-schedule.html" : "SMART Schedule",
-    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner"
+    "StructureDefinition-smart-practitioner.html" : "SMART Practitioner",
+    "StructureDefinition-smart-practitionerRole.html" : "SmartPractitionerRole",
+    "StructureDefinition-smart-location.html" : "SMART Location"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/location-mode",
@@ -294,20 +294,6 @@
     "StructureDefinition-smart-location.html" : "SMART Location"
   },
   {
-    "url" : "http://terminology.hl7.org/ValueSet/v2-0276",
-    "version" : "2.0.0",
-    "status" : "active",
-    "name" : "Hl7VSAppointmentReasonCodes",
-    "title" : "hl7VS-appointmentReasonCodes",
-    "description" : "Value Set of codes that describe the kind of appointment or the reason why an appointment has been scheduled.",
-    "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0276"],
-    "oids" : ["2.16.840.1.113883.21.181"],
-    "sources" : ["2.16.840.1.113883.21.181"],
-    "uses" : {
-    },
-    "StructureDefinition-smart-slot.html" : "SMART Slot"
-  },
-  {
     "url" : "http://terminology.hl7.org/ValueSet/v2-2.7-0360",
     "version" : "0360",
     "status" : "active",
@@ -332,5 +318,18 @@
     "uses" : {
     },
     "StructureDefinition-smart-location.html" : "SMART Location"
+  },
+  {
+    "url" : "https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "AppointmentTypeAndReasonsVS",
+    "title" : "Appointment Type and Reasons",
+    "description" : "A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/accepting-patients",
+    "http://terminology.hl7.org/CodeSystem/v2-0276"],
+    "uses" : {
+    },
+    "StructureDefinition-smart-slot.html" : "SMART Slot"
   }]
 }

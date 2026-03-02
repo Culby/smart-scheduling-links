@@ -1,3 +1,12 @@
 {
-  "codeSystems" : []
+  "codeSystems" : [{
+    "url" : "https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "AppointmentTypeAndReasonsVS",
+    "title" : "Appointment Type and Reasons",
+    "description" : "A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/accepting-patients",
+    "http://terminology.hl7.org/CodeSystem/v2-0276"]
+  }]
 }

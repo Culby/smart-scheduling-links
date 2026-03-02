@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="appointment-type-and-reasons-vs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet appointment-type-and-reasons-vs</b></p><a name="appointment-type-and-reasons-vs"> </a><a name="hcappointment-type-and-reasons-vs"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include all codes defined in <a href="http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html"><code>http://terminology.hl7.org/CodeSystem/accepting-patients</code></a><span title="Version is not explicitly stated, which means it is fixed to 1.0.0, the version found through the package references"> version &#x1F4E6;1.0.0</span></li><li>Include all codes defined in <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html"><code>http://terminology.hl7.org/CodeSystem/v2-0276</code></a><span title="Version is not explicitly stated, which means it is fixed to 3.0.0, the version found through the package references"> version &#x1F4E6;3.0.0</span></li></ul></div>
+  </text>
+  <url value="https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs"/>
+  <version value="0.1.0"/>
+  <name value="AppointmentTypeAndReasonsVS"/>
+  <title value="Appointment Type and Reasons"/>
+  <status value="draft"/>
+  <date value="2026-03-02T13:43:11+00:00"/>
+  <publisher value="SMART Scheduling Links"/>
+  <contact>
+    <name value="SMART Scheduling Links"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://smart-scheduling-links.org/SMART-Scheduling-Links"/>
+    </telecom>
+  </contact>
+  <description value="A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/accepting-patients"/>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0276"/>
+    </include>
+  </compose>
+</ValueSet>

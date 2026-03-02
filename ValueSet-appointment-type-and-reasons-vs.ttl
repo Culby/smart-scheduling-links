@@ -1,0 +1,49 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "appointment-type-and-reasons-vs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet appointment-type-and-reasons-vs</b></p><a name=\"appointment-type-and-reasons-vs\"> </a><a name=\"hcappointment-type-and-reasons-vs\"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include all codes defined in <a href=\"http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html\"><code>http://terminology.hl7.org/CodeSystem/accepting-patients</code></a><span title=\"Version is not explicitly stated, which means it is fixed to 1.0.0, the version found through the package references\"> version ?1.0.0</span></li><li>Include all codes defined in <a href=\"http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html\"><code>http://terminology.hl7.org/CodeSystem/v2-0276</code></a><span title=\"Version is not explicitly stated, which means it is fixed to 3.0.0, the version found through the package references\"> version ?3.0.0</span></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs"^^xsd:anyURI ;
+     fhir:l <https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "AppointmentTypeAndReasonsVS"] ; # 
+  fhir:title [ fhir:v "Appointment Type and Reasons"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2026-03-02T13:43:11+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "SMART Scheduling Links"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "SMART Scheduling Links" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://smart-scheduling-links.org/SMART-Scheduling-Links" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively"] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/accepting-patients"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/accepting-patients>
+       ]
+     ] [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/v2-0276"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/v2-0276>
+       ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

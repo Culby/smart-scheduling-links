@@ -20,7 +20,7 @@
   fhir:version [ fhir:v "0.1.0"] ; # 
   fhir:name [ fhir:v "fhirig"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-02-23T18:21:29+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-03-02T13:43:11+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "SMART Scheduling Links"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "SMART Scheduling Links" ] ;
@@ -1289,6 +1289,27 @@
        ]
      ] ) ;
      fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs> ;
+         fhir:reference [ fhir:v "ValueSet/appointment-type-and-reasons-vs" ]
+       ] ;
+       fhir:name [ fhir:v "Appointment Type and Reasons" ] ;
+       fhir:description [ fhir:v "A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
        fhir:extension ( [
          fhir:url [
            fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;

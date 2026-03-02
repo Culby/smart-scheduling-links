@@ -145,6 +145,17 @@
     "http://hl7.org/fhir/R4/valueset-c80-practice-codes.html" : "Practice Setting Code Value Set"
   },
   {
+    "url" : "http://terminology.hl7.org/CodeSystem/accepting-patients",
+    "version" : "1.0.0",
+    "status" : "active",
+    "name" : "AcceptingPatients",
+    "title" : "Accepting Patients",
+    "description" : "This code system defines a set of codes that can be used to indicate a practice is accepting new patients.",
+    "uses" : {
+    },
+    "ValueSet-appointment-type-and-reasons-vs.html" : "Appointment Type and Reasons"
+  },
+  {
     "url" : "http://terminology.hl7.org/CodeSystem/location-physical-type",
     "version" : "2.0.1",
     "status" : "active",
@@ -226,7 +237,7 @@
     "oids" : ["2.16.840.1.113883.18.169"],
     "uses" : {
     },
-    "http://terminology.hl7.org/7.0.1/ValueSet-v2-0276.html" : "hl7VS-appointmentReasonCodes"
+    "ValueSet-appointment-type-and-reasons-vs.html" : "Appointment Type and Reasons"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",

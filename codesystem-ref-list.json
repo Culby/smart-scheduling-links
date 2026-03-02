@@ -1,3 +1,25 @@
 {
-  "codeSystems" : []
+  "codeSystems" : [{
+    "url" : "http://terminology.hl7.org/CodeSystem/accepting-patients",
+    "version" : "1.0.0",
+    "status" : "active",
+    "name" : "AcceptingPatients",
+    "title" : "Accepting Patients",
+    "description" : "This code system defines a set of codes that can be used to indicate a practice is accepting new patients.",
+    "uses" : {
+    },
+    "ValueSet-appointment-type-and-reasons-vs.html" : "Appointment Type and Reasons"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/v2-0276",
+    "version" : "3.0.0",
+    "status" : "active",
+    "name" : "AppointmentReason",
+    "title" : "appointmentReason",
+    "description" : "Code system of concepts used to describe the kind of appointment or the reason why an appointment has been scheduled.  Used in HL7 Version 2.x messaging in the ARQ segment.",
+    "oids" : ["2.16.840.1.113883.18.169"],
+    "uses" : {
+    },
+    "ValueSet-appointment-type-and-reasons-vs.html" : "Appointment Type and Reasons"
+  }]
 }

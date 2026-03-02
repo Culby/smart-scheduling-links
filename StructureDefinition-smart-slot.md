@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://smart-scheduling-links.org/StructureDefinition/smart-slot | *Version*:0.1.0 |
-| Draft as of 2026-02-23 | *Computable Name*:SmartSlot |
+| Draft as of 2026-03-02 | *Computable Name*:SmartSlot |
 
  
 This profile sets minimum expectations for a Slot Resource. 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-smart-slot.csv), [Ex
   "name" : "SmartSlot",
   "title" : "SMART Slot",
   "status" : "draft",
-  "date" : "2026-02-23T18:21:29+00:00",
+  "date" : "2026-03-02T13:43:11+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",
@@ -110,6 +110,15 @@ Other representations of profile: [CSV](StructureDefinition-smart-slot.csv), [Ex
         "code" : "Extension",
         "profile" : ["http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone"]
       }]
+    },
+    {
+      "id" : "Slot.appointmentType",
+      "path" : "Slot.appointmentType",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs"
+      }
     }]
   }
 }

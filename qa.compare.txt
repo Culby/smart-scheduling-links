@@ -1,7 +1,7 @@
 fhirig : Validation Results
 =========================================
 
-err = 9, warn = 10, info = 1
+err = 9, warn = 12, info = 1
 $--
 Generated $--. FHIR version $-- for fhir.ig#$-- (canonical = https://smart-scheduling-links.org)
  Build Errors : 2 / 4 / 0
@@ -16,6 +16,7 @@ Generated $--. FHIR version $-- for fhir.ig#$-- (canonical = https://smart-sched
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-practitionerRole : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-schedule : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-slot : 0 / 1 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/ValueSet-appointment-type-and-reasons-vs : 0 / 2 / 1
 </table>
 == n/a ==
 ERROR: package.tgz: Error converting pacakge to R4B: Error processing example/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json: Unknown IdentifierUse code 'Usual'
@@ -50,3 +51,6 @@ WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/Str
 WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/StructureDefinition/smart-schedule'): The Implementation Guide contains no examples for this profile
 == fsh-generated/resources/StructureDefinition-smart-slot.json ==
 WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/StructureDefinition/smart-slot'): The Implementation Guide contains no examples for this profile
+== fsh-generated/resources/ValueSet-appointment-type-and-reasons-vs.json ==
+WARNING: ValueSet/appointment-type-and-reasons-vs: ValueSet.compose.include[1].system: There are multiple different potential matches for the url 'http://terminology.hl7.org/CodeSystem/v2-0276'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.5.0), 2.1.0 (from hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 3.0.0 (from hl7.terminology.r4#7.0.1). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/CodeSystem/v2-0276' to 'http://terminology.hl7.org/CodeSystem/v2-0276|3.0.0'
+WARNING: ValueSet/appointment-type-and-reasons-vs: ValueSet: Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present

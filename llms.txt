@@ -7,6 +7,10 @@
 
 ## Resources
 
+### ValueSets
+
+* [Appointment Type and Reasons](ValueSet-appointment-type-and-reasons-vs.md)
+
 ### Resource Profiles
 
 * [SMART Location](StructureDefinition-smart-location.md)

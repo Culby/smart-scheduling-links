@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://smart-scheduling-links.org/ImplementationGuide/fhir.ig | *Version*:0.1.0 |
-| Draft as of 2026-02-23 | *Computable Name*:fhirig |
+| Draft as of 2026-03-02 | *Computable Name*:fhirig |
 
 ## Introduction
 
@@ -30,7 +30,7 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
   "version" : "0.1.0",
   "name" : "fhirig",
   "status" : "draft",
-  "date" : "2026-02-23T18:21:29+00:00",
+  "date" : "2026-03-02T13:43:11+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",
@@ -624,6 +624,18 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     }],
     "resource" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/appointment-type-and-reasons-vs"
+      },
+      "name" : "Appointment Type and Reasons",
+      "description" : "A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively",
+      "exampleBoolean" : false
+    },
+    {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"

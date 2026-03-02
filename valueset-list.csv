@@ -1,1 +1,2 @@
 URL,Version,Status,OIDs,Name,Title,Description,Uses,Used,Sources
+https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs,0.1.0,draft,,AppointmentTypeAndReasonsVS,Appointment Type and Reasons,"A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively",,"THO (V2),THO"

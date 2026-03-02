@@ -28,6 +28,14 @@ These define constraints on FHIR data types for systems conforming to this imple
 | [Booking Deep Link](StructureDefinition-booking-deep-link.md) | A deep link into the Provider Booking Portal where the user can begin booking this slot. |
 | [Booking Phone](StructureDefinition-booking-phone.md) | A phone number the user can call to book this slot. |
 
+### Terminology: Value Sets 
+
+These define sets of codes used by systems conforming to this implementation guide.
+
+| | |
+| :--- | :--- |
+| [Appointment Type and Reasons](ValueSet-appointment-type-and-reasons-vs.md) | A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively |
+
 ### Example: Example Instances 
 
 These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like.

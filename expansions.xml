@@ -1,9 +1,332 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="5afff7d4-80b1-41a3-a1e8-3a4946a96489"/>
+  <id value="e274892e-d036-4fd0-8430-6e65224a4951"/>
   <meta>
-    <lastUpdated value="2026-02-23T18:21:29.348+00:00"/>
+    <lastUpdated value="2026-03-02T13:43:11.236+00:00"/>
   </meta>
   <type value="collection"/>
+  <entry>
+    <fullUrl value="https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs"/>
+    <resource>
+      <ValueSet>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml" data-fhir="generated">
+            <p class="res-header-id"/>
+            <div style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">
+              <p>Expansion performed internally based on:</p>
+              <ul>
+                <li>
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html">codesystem Accepting Patients v1.0.0 (CodeSystem)</a>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="http://terminology.hl7.org/CodeSystem/accepting-patients|1.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+                  </span>
+                </li>
+                <li>
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html">codesystem appointmentReason v3.0.0 (CodeSystem)</a>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="http://terminology.hl7.org/CodeSystem/v2-0276|3.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <p>This value set contains 9 concepts</p>
+            <table class="codes" data-fhir="generated">
+              <tr>
+                <td>
+                  <b>System</b>
+                </td>
+                <td style="white-space:nowrap">
+                  <b>Code</b>
+                </td>
+                <td>
+                  <b>Display (en)</b>
+                </td>
+                <td>
+                  <b>Definition</b>
+                </td>
+                <td>
+                  <b>JSON</b>
+                </td>
+                <td>
+                  <b>XML</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/accepting-patients-nopt"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/accepting-patients</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html#accepting-patients-nopt">nopt</a>
+                </td>
+                <td>Not Accepting</td>
+                <td>Not accepting patients</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;, &quot;version&quot;: &quot;1.0.0&quot;, &quot;code&quot;: &quot;nopt&quot;, &quot;display&quot;: &quot;Not Accepting&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;&gt;&lt;version value=&quot;1.0.0&quot;&gt;&lt;code value=&quot;nopt&quot;&gt;&lt;display value=&quot;Not Accepting&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/accepting-patients-newpt"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/accepting-patients</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html#accepting-patients-newpt">newpt</a>
+                </td>
+                <td>Accepting new and existing patients</td>
+                <td>Accepting new and existing patients</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;, &quot;version&quot;: &quot;1.0.0&quot;, &quot;code&quot;: &quot;newpt&quot;, &quot;display&quot;: &quot;Accepting new and existing patients&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;&gt;&lt;version value=&quot;1.0.0&quot;&gt;&lt;code value=&quot;newpt&quot;&gt;&lt;display value=&quot;Accepting new and existing patients&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/accepting-patients-existptonly"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/accepting-patients</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html#accepting-patients-existptonly">existptonly</a>
+                </td>
+                <td>Accepting existing patients only</td>
+                <td>Accepting existing patients only</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;, &quot;version&quot;: &quot;1.0.0&quot;, &quot;code&quot;: &quot;existptonly&quot;, &quot;display&quot;: &quot;Accepting existing patients only&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;&gt;&lt;version value=&quot;1.0.0&quot;&gt;&lt;code value=&quot;existptonly&quot;&gt;&lt;display value=&quot;Accepting existing patients only&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/accepting-patients-existptfam"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/accepting-patients</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html#accepting-patients-existptfam">existptfam</a>
+                </td>
+                <td>Accepting existing patients and their families only</td>
+                <td>Accepting existing patients and members of their families only</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;, &quot;version&quot;: &quot;1.0.0&quot;, &quot;code&quot;: &quot;existptfam&quot;, &quot;display&quot;: &quot;Accepting existing patients and their families only&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/accepting-patients&quot;&gt;&lt;version value=&quot;1.0.0&quot;&gt;&lt;code value=&quot;existptfam&quot;&gt;&lt;display value=&quot;Accepting existing patients and their families only&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/v2-0276-ROUTINE"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/v2-0276</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html#v2-0276-ROUTINE">ROUTINE</a>
+                </td>
+                <td>Routine appointment - default if not valued</td>
+                <td>Routine appointment - default if not valued</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;, &quot;version&quot;: &quot;3.0.0&quot;, &quot;code&quot;: &quot;ROUTINE&quot;, &quot;display&quot;: &quot;Routine appointment - default if not valued&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;&gt;&lt;version value=&quot;3.0.0&quot;&gt;&lt;code value=&quot;ROUTINE&quot;&gt;&lt;display value=&quot;Routine appointment - default if not valued&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/v2-0276-WALKIN"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/v2-0276</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html#v2-0276-WALKIN">WALKIN</a>
+                </td>
+                <td>A previously unscheduled walk-in visit</td>
+                <td>A previously unscheduled walk-in visit</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;, &quot;version&quot;: &quot;3.0.0&quot;, &quot;code&quot;: &quot;WALKIN&quot;, &quot;display&quot;: &quot;A previously unscheduled walk-in visit&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;&gt;&lt;version value=&quot;3.0.0&quot;&gt;&lt;code value=&quot;WALKIN&quot;&gt;&lt;display value=&quot;A previously unscheduled walk-in visit&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/v2-0276-CHECKUP"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/v2-0276</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html#v2-0276-CHECKUP">CHECKUP</a>
+                </td>
+                <td>A routine check-up, such as an annual physical</td>
+                <td>A routine check-up, such as an annual physical</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;, &quot;version&quot;: &quot;3.0.0&quot;, &quot;code&quot;: &quot;CHECKUP&quot;, &quot;display&quot;: &quot;A routine check-up, such as an annual physical&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;&gt;&lt;version value=&quot;3.0.0&quot;&gt;&lt;code value=&quot;CHECKUP&quot;&gt;&lt;display value=&quot;A routine check-up, such as an annual physical&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/v2-0276-FOLLOWUP"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/v2-0276</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html#v2-0276-FOLLOWUP">FOLLOWUP</a>
+                </td>
+                <td>A follow up visit from a previous appointment</td>
+                <td>A follow up visit from a previous appointment</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;, &quot;version&quot;: &quot;3.0.0&quot;, &quot;code&quot;: &quot;FOLLOWUP&quot;, &quot;display&quot;: &quot;A follow up visit from a previous appointment&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;&gt;&lt;version value=&quot;3.0.0&quot;&gt;&lt;code value=&quot;FOLLOWUP&quot;&gt;&lt;display value=&quot;A follow up visit from a previous appointment&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://terminology.hl7.org/CodeSystem/v2-0276-EMERGENCY"> </a>
+                  <code>http://terminology.hl7.org/CodeSystem/v2-0276</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html#v2-0276-EMERGENCY">EMERGENCY</a>
+                </td>
+                <td>Emergency appointment</td>
+                <td>Emergency appointment</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;, &quot;version&quot;: &quot;3.0.0&quot;, &quot;code&quot;: &quot;EMERGENCY&quot;, &quot;display&quot;: &quot;Emergency appointment&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0276&quot;&gt;&lt;version value=&quot;3.0.0&quot;&gt;&lt;code value=&quot;EMERGENCY&quot;&gt;&lt;display value=&quot;Emergency appointment&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <url value="https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs"/>
+        <version value="0.1.0"/>
+        <name value="AppointmentTypeAndReasonsVS"/>
+        <title value="Appointment Type and Reasons"/>
+        <status value="draft"/>
+        <date value="2026-03-02T13:43:11+00:00"/>
+        <expansion>
+          <identifier value="urn:uuid:9612e785-5e1a-450e-abd1-cc237c976fec"/>
+          <timestamp value="2026-03-02T13:44:20+00:00"/>
+          <total value="9"/>
+          <offset value="0"/>
+          <parameter>
+            <name value="displayLanguage"/>
+            <valueCode value="en"/>
+          </parameter>
+          <parameter>
+            <name value="count"/>
+            <valueInteger value="1000"/>
+          </parameter>
+          <parameter>
+            <name value="offset"/>
+            <valueInteger value="0"/>
+          </parameter>
+          <parameter>
+            <name value="excludeNested"/>
+            <valueBoolean value="false"/>
+          </parameter>
+          <parameter>
+            <name value="used-codesystem"/>
+            <valueUri value="http://terminology.hl7.org/CodeSystem/accepting-patients|1.0.0"/>
+          </parameter>
+          <parameter>
+            <name value="used-codesystem"/>
+            <valueUri value="http://terminology.hl7.org/CodeSystem/v2-0276|3.0.0"/>
+          </parameter>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/accepting-patients"/>
+            <code value="nopt"/>
+            <display value="Not Accepting"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/accepting-patients"/>
+            <code value="newpt"/>
+            <display value="Accepting new and existing patients"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/accepting-patients"/>
+            <code value="existptonly"/>
+            <display value="Accepting existing patients only"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/accepting-patients"/>
+            <code value="existptfam"/>
+            <display value="Accepting existing patients and their families only"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0276"/>
+            <code value="ROUTINE"/>
+            <display value="Routine appointment - default if not valued"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0276"/>
+            <code value="WALKIN"/>
+            <display value="A previously unscheduled walk-in visit"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0276"/>
+            <code value="CHECKUP"/>
+            <display value="A routine check-up, such as an annual physical"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0276"/>
+            <code value="FOLLOWUP"/>
+            <display value="A follow up visit from a previous appointment"/>
+          </contains>
+          <contains>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0276"/>
+            <code value="EMERGENCY"/>
+            <display value="Emergency appointment"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </entry>
 </Bundle>

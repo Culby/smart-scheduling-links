@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<!-- broken links = 1, errors = 9, warn = 10, info = 1-->
+<!-- broken links = 1, errors = 9, warn = 12, info = 1-->
 <head>
   <title>fhirig : Validation Results</title>
   <link href="fhir.css" rel="stylesheet"/>
@@ -47,9 +47,9 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Validation Results for fhirig</h1>
- <p>Generated Mon Feb 23 18:22:55 UTC 2026, FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = <a href="https://smart-scheduling-links.org">https://smart-scheduling-links.org</a> (<a href="https://smart-scheduling-links.org/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
+ <p>Generated Mon Mar 02 13:44:34 UTC 2026, FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = <a href="https://smart-scheduling-links.org">https://smart-scheduling-links.org</a> (<a href="https://smart-scheduling-links.org/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
 <table class="grid"> <tr><td colspan=2><b>Quality Checks</b></td></tr>
- <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.1.1</span></td></tr>
+ <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.1.2</span></td></tr>
  <tr><td>Publication Code:</td><td>n/a<span style="color: maroon; font-weight: bold"> </span>. PackageId = fhir.ig, Canonical = https://smart-scheduling-links.org</td></tr>
  <tr><td>Realm Check for n/a:</td><td><span style="color: maroon; font-weight: bold"></span><ul><li>n/a</li></ul></td></tr>
  <tr><td>Language Info:</td><td>This IG has no language information</td></tr>
@@ -108,7 +108,7 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
  <tr><td>IPA Comparison:</td><td> n/a</td></tr>
  <tr><td>IPS Comparison:</td><td> n/a</td></tr>
  <tr><td>Validation Flags:</td><td> On: autoLoad; Off: hintAboutNonMustSupport, anyExtensionsAllowed, checkAggregation, showReferenceMessages, noExperimentalContent, displayWarnings</td></tr>
- <tr><td>Summary:</td><td> errors = 9, warn = 10, info = 1, broken links = 1, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
+ <tr><td>Summary:</td><td> errors = 9, warn = 12, info = 1, broken links = 1, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
 </table>
  <table class="grid">
    <tr>
@@ -143,6 +143,9 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
    </tr>
    <tr style="background-color: #EFFFEF">
      <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_StructureDefinition-smart-slot"><b>/github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-slot</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_github_workspace_fhir-ig_fsh-generated_resources_ValueSet-appointment-type-and-reasons-vs"><b>/github/workspace/fhir-ig/fsh-generated/resources/ValueSet-appointment-type-and-reasons-vs</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
    </tr>
 </table>
 <hr/>
@@ -179,7 +182,7 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ImplementationGuide (l1/c15122)</b></td><td><b>warning</b></td><td><b>Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ImplementationGuide#ig-0</span></td>
+     <td><b>ImplementationGuide (l1/c15515)</b></td><td><b>warning</b></td><td><b>Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ImplementationGuide#ig-0</span></td>
    </tr>
 </table>
 <hr/>
@@ -301,6 +304,22 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
      <td><b>StructureDefinition&#8203;.where(url = 'https:&#8203;/&#8203;/smart-scheduling-links&#8203;.org&#8203;/StructureDefinition&#8203;/smart-slot')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
    </tr>
 </table>
+<hr/>
+<a name="_github_workspace_fhir-ig_fsh-generated_resources_ValueSet-appointment-type-and-reasons-vs"> </a>
+<h2><a href="ValueSet-appointment-type-and-reasons-vs.html">fsh-generated/resources/ValueSet-appointment-type-and-reasons-vs.json</a> <span id="svi10" class="toggle" onclick="toggle('vi10')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi10')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi10"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/valueset.html">ValueSet</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>ValueSet.compose.include[1].system</b></td><td><b>warning</b></td><td><b>There are multiple different potential matches for the url 'http://terminology.hl7.org/CodeSystem/v2-0276'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.5.0), 2.1.0 (from hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 3.0.0 (from hl7.terminology.r4#7.0.1). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/CodeSystem/v2-0276' to 'http://terminology.hl7.org/CodeSystem/v2-0276|3.0.0'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_MULTIPLE_POSSIBLE_VERSIONS</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>ValueSet (l1/c1823)</b></td><td><b>warning</b></td><td><b>Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
 <a name="suppressed"> </a>
 <p><b>Suppressed Messages (Warnings, hints, broken links)</b></p>
 <p>No suppressed messsages</p><a name="sorted"> </a>
@@ -330,6 +349,14 @@ hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2:     <a href="http://hl7.org/fhir/uv/xve
  <table class="grid">
    <tr style="background-color: #ffeeee">
      <td><a href="Slot-slot-123.html">fsh-generated/resources/Slot-slot-123.json</a></td><td><b>Unable to resolve resource with reference 'Schedule/123'</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="TYPE_SPECIFIC_CHECKS_DT_CANONICAL_MULTIPLE_POSSIBLE_VERSIONS"> </a>
+<h2>TYPE_SPECIFIC_CHECKS_DT_CANONICAL_MULTIPLE_POSSIBLE_VERSIONS</h2>
+ <table class="grid">
+   <tr style="background-color: #fff4ee">
+     <td><a href="ValueSet-appointment-type-and-reasons-vs.html">fsh-generated/resources/ValueSet-appointment-type-and-reasons-vs.json</a></td><td><b>There are multiple different potential matches for the url 'http://terminology.hl7.org/CodeSystem/v2-0276'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.5.0), 2.1.0 (from hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 3.0.0 (from hl7.terminology.r4#7.0.1). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/CodeSystem/v2-0276' to 'http://terminology.hl7.org/CodeSystem/v2-0276|3.0.0'</b></td>
    </tr>
 </table>
 <hr/>
