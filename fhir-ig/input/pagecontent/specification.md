@@ -1,7 +1,6 @@
 # Slot Publisher API
 
-This guide explains how a _Slot Publisher_ makes an appointment slots available across multiple EHRS or bookings portals to a _Slot Discovery Client_.  **For background and role definitions, see [README.md](./README.md)**.
-
+This guide explains how a _Slot Publisher_ makes an appointment slots available across multiple EHRS or bookings portals to a _Slot Discovery Client_.  **For background and role definitions, see [README.md](./index.html)**.
 
 ## Goals for Slot Discovery
 
@@ -14,7 +13,7 @@ This guide explains how a _Slot Publisher_ makes an appointment slots available 
 
 **Key Actors**
 
- <img src="SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
+ <img src="/SchedulingArchitecture.drawio.png" alt="Scheduling ER Diagram"/>
 
  * **Slot Publisher** -- EHRs or booking portals provide a list of the available providers and slots that are available via provider organizations.  This will include all the available FHIR resources including practitioner, practitioner role, health service, location, and organizations.  Slot publishers will make vias avaiable via bulk publish speficiation. 
 
@@ -166,6 +165,7 @@ The manifest file is the entry point for a client to retrieve scheduling data. T
 Each line of the Location File is a minified JSON object that conveys a physical location where appointments are available.
 
 Each Location includes at least:
+
 | **Field Name** | **Type** | **Required** | **Description** |
 |---|---|---|---|
 | `resourceType` | string | Yes | fixed value of `"Location"` |

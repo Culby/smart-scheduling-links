@@ -1,0 +1,45 @@
+name: Regenerate Examples
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # 1st of each month at midnight UTC
+  push:
+    branches:
+      - master
+    paths:
+      - 'generate-examples/src/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: generate-examples
+        run: npm ci
+
+      - name: Generate examples
+        working-directory: generate-examples
+        run: |
+          BASE_URL="https://raw.githubusercontent.com/${{ github.repository }}/master/examples/"
+          rm -rf ../examples/*.ndjson
+          npx ts-node src/index.ts --outdir ../examples --base-url "$BASE_URL"
+
+      - name: Commit and push if changed
+        run: |
+          git diff --quiet examples/ && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add examples/
+          git commit -m "chore: regenerate example files"
+          git push

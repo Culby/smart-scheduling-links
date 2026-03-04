@@ -4,7 +4,7 @@ import fs from 'fs';
 import _ from 'lodash';
 import staticData from './static-data.json';
 
-const BASE_URL = 'https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/';
+const DEFAULT_BASE_URL = 'https://raw.githubusercontent.com/smart-on-fhir/smart-scheduling-links/master/examples/';
 
 const COARSE_GRAINED_SLOTS = true;
 
@@ -213,7 +213,7 @@ const addMinutes = (date: Date, minutes: number): Date => {
   return new Date(new Date(date).setMinutes(date.getMinutes() + minutes));
 };
 
-const createResources = (startDays: number, durationDays: number) => {
+const createResources = (startDays: number, durationDays: number, baseUrl: string) => {
   const startDate = new Date(Date.now() + startDays * 24 * 60 * 60 * 1000);
   const endDate = new Date(startDate.getTime() + durationDays * 24 * 60 * 60 * 1000);
   const currentDate = new Date(startDate);
@@ -329,23 +329,23 @@ const createResources = (startDays: number, durationDays: number) => {
     transactionTime: new Date().toISOString(),
     requiresAccessToken: false,
     outputFormat: 'application/fhir+ndjson',
-    request: `${BASE_URL}$bulk-publish`,
+    request: `${baseUrl}$bulk-publish`,
     output: [
       {
         type: 'Location',
-        url: `${BASE_URL}locations.ndjson`,
+        url: `${baseUrl}locations.ndjson`,
       },
       {
         type: 'Device',
-        url: `${BASE_URL}devices.ndjson`,
+        url: `${baseUrl}devices.ndjson`,
       },
       {
         type: 'Schedule',
-        url: `${BASE_URL}schedules.ndjson`,
+        url: `${baseUrl}schedules.ndjson`,
       },
       {
         type: 'PractitionerRole',
-        url: `${BASE_URL}practitionerroles.ndjson`,
+        url: `${baseUrl}practitionerroles.ndjson`,
       },
     ],
     error: [],
@@ -362,8 +362,9 @@ const createResources = (startDays: number, durationDays: number) => {
   };
 };
 
-async function generate(options: { outdir: string; startDays: number; durationDays: number }) {
-  const resources = createResources(options.startDays, options.durationDays);
+async function generate(options: { outdir: string; startDays: number; durationDays: number; baseUrl: string }) {
+  const baseUrl = options.baseUrl;
+  const resources = createResources(options.startDays, options.durationDays, baseUrl);
   const fileLocation = `locations.ndjson`;
   const fileDevice = `devices.ndjson`;
   const fileSchedule = `schedules.ndjson`;
@@ -388,7 +389,7 @@ async function generate(options: { outdir: string; startDays: number; durationDa
     ...resources.manifest.output,
     ...Object.entries(slotsSplitMap).map(([week]) => ({
       type: 'Slot',
-      url: `${BASE_URL}${fileSlot(week)}`,
+      url: `${baseUrl}${fileSlot(week)}`,
       extension: {
         state: ['MA'],
       },
@@ -402,12 +403,14 @@ const program = new Command();
 program.option('-o, --outdir <outdir>', 'output directory');
 program.option('-s, --start-days <days>', 'number of days from now to start generating slots', '60');
 program.option('-d, --duration-days <days>', 'number of days of slots to generate', '30');
+program.option('-b, --base-url <url>', 'base URL for manifest resource links', DEFAULT_BASE_URL);
 program.parse(process.argv);
 
 interface Options {
   outdir: string;
   startDays: number;
   durationDays: number;
+  baseUrl: string;
 }
 
 const opts = program.opts();
@@ -415,6 +418,7 @@ const options: Options = {
   outdir: opts.outdir,
   startDays: parseInt(opts.startDays, 10),
   durationDays: parseInt(opts.durationDays, 10),
+  baseUrl: opts.baseUrl,
 };
 console.log('Opts', options);
 
