@@ -19,34 +19,40 @@
     }
   ],
   "profiles": {
+    "HealthcareService": [
+      {
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-healthcare-service",
+        "title": "Healthcare Service"
+      }
+    ],
     "Location": [
       {
-        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-location",
-        "title": "SMART Location"
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-location",
+        "title": "Location"
       }
     ],
     "Practitioner": [
       {
-        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-practitioner",
-        "title": "SMART Practitioner"
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitioner",
+        "title": "Practitioner"
       }
     ],
     "PractitionerRole": [
       {
-        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-practitionerRole",
-        "title": "SmartPractitionerRole"
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitionerRole",
+        "title": "PractitionerRole"
       }
     ],
     "Schedule": [
       {
-        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-schedule",
-        "title": "SMART Schedule"
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-schedule",
+        "title": "Schedule"
       }
     ],
     "Slot": [
       {
-        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-slot",
-        "title": "SMART Slot"
+        "url": "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-slot",
+        "title": "Slot"
       }
     ]
   },
@@ -56,6 +62,9 @@
     ],
     "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone": [
       "Slot"
+    ],
+    "http://fhir-registry.smarthealthit.org/StructureDefinition/specialty": [
+      "Schedule"
     ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
       "StructureDefinition.snapshot.element.constraint"

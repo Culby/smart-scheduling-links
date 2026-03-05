@@ -1,0 +1,77 @@
+{
+  "resourceType" : "HealthcareService",
+  "id" : "ExampleHealhCareService",
+  "meta" : {
+    "profile" : ["https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-healthcare-service"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: HealthcareService ExampleHealhCareService</b></p><a name=\"ExampleHealhCareService\"> </a><a name=\"hcExampleHealhCareService\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-smart-scheduling-healthcare-service.html\">Healthcare Service</a></p></div><p><b>active</b>: true</p><p><b>providedBy</b>: <a href=\"Organization-c3453010-d1ae-4180-937e-86cc11292693.html\">ACME Health System</a></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/service-category 17}\">General Practice</span></p><p><b>type</b>: <span title=\"Codes:{http://snomed.info/sct 308335008}\">Primary Care Visit</span></p><p><b>specialty</b>: <span title=\"Codes:{http://snomed.info/sct 394814009}\">General practice</span></p><p><b>location</b>: <a href=\"Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.html\">OpenClinTech Primary Clinic</a></p><p><b>name</b>: Primary Care Appointments - Online Booking</p><p><b>comment</b>: Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care.</p><p><b>telecom</b>: ph: (555) 123-4567(Work), <a href=\"mailto:appointments@acmehealth.org\">appointments@acmehealth.org</a>, <a href=\"https://appointments.acmehealth.org\">https://appointments.acmehealth.org</a></p><p><b>serviceProvisionCode</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/service-provision-conditions cost}\">Fees apply</span></p><p><b>appointmentRequired</b>: true</p><blockquote><p><b>availableTime</b></p><p><b>daysOfWeek</b>: Monday, Tuesday, Wednesday, Thursday, Friday</p><p><b>availableStartTime</b>: 08:00:00</p><p><b>availableEndTime</b>: 17:00:00</p></blockquote><p><b>availabilityExceptions</b>: Closed on major holidays. Online booking available 24/7 for future appointments.</p></div>"
+  },
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization/c3453010-d1ae-4180-937e-86cc11292693",
+    "display" : "ACME Health System"
+  },
+  "category" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "17",
+      "display" : "General Practice"
+    }]
+  }],
+  "type" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "308335008",
+      "display" : "Patient encounter procedure"
+    }],
+    "text" : "Primary Care Visit"
+  }],
+  "specialty" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "394814009",
+      "display" : "General practice"
+    }]
+  }],
+  "location" : [{
+    "reference" : "Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af",
+    "display" : "OpenClinTech Primary Clinic"
+  }],
+  "name" : "Primary Care Appointments - Online Booking",
+  "comment" : "Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care.",
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "(555) 123-4567",
+    "use" : "work"
+  },
+  {
+    "system" : "email",
+    "value" : "appointments@acmehealth.org",
+    "use" : "work"
+  },
+  {
+    "system" : "url",
+    "value" : "https://appointments.acmehealth.org",
+    "use" : "work"
+  }],
+  "serviceProvisionCode" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/service-provision-conditions",
+      "code" : "cost",
+      "display" : "Fees apply"
+    }]
+  }],
+  "appointmentRequired" : true,
+  "availableTime" : [{
+    "daysOfWeek" : ["mon",
+    "tue",
+    "wed",
+    "thu",
+    "fri"],
+    "availableStartTime" : "08:00:00",
+    "availableEndTime" : "17:00:00"
+  }],
+  "availabilityExceptions" : "Closed on major holidays. Online booking available 24/7 for future appointments."
+}

@@ -9,14 +9,14 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://smart-scheduling-links.org/ValueSet/appointment-type-and-reasons-vs | *Version*:0.1.0 |
-| Draft as of 2026-03-02 | *Computable Name*:AppointmentTypeAndReasonsVS |
+| Draft as of 2026-03-05 | *Computable Name*:AppointmentTypeAndReasonsVS |
 
  
 A value set that combines the preferred and required codes from slot.appointmentType and NDH new patient extension, respectively 
 
  **References** 
 
-* [SMART Slot](StructureDefinition-smart-slot.md)
+* [Slot](StructureDefinition-smart-scheduling-slot.md)
 
 ### Logical Definition (CLD)
 
@@ -50,7 +50,7 @@ A value set that combines the preferred and required codes from slot.appointment
   "name" : "AppointmentTypeAndReasonsVS",
   "title" : "Appointment Type and Reasons",
   "status" : "draft",
-  "date" : "2026-03-02T18:28:46+00:00",
+  "date" : "2026-03-05T20:47:10+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

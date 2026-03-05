@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link | *Version*:0.1.0 |
-| Active as of 2026-03-02 | *Computable Name*:BookingDeepLink |
+| Active as of 2026-03-05 | *Computable Name*:BookingDeepLink |
 
 A deep link into the Provider Booking Portal where the user can begin booking this slot.
 
@@ -19,8 +19,8 @@ A deep link into the Provider Booking Portal where the user can begin booking th
 
 **Usages:**
 
-* Use this Extension: [SMART Slot](StructureDefinition-smart-slot.md)
-* Examples for this Extension: [Slot/slot-123](Slot-slot-123.md)
+* Use this Extension: [Slot](StructureDefinition-smart-scheduling-slot.md)
+* Examples for this Extension: [Slot/ExampleSlot](Slot-ExampleSlot.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/fhir.ig|current/StructureDefinition/booking-deep-link)
 
@@ -47,7 +47,7 @@ Other representations of profile: [CSV](StructureDefinition-booking-deep-link.cs
   "name" : "BookingDeepLink",
   "title" : "Booking Deep Link",
   "status" : "active",
-  "date" : "2026-03-02T18:28:46+00:00",
+  "date" : "2026-03-05T20:47:10+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",

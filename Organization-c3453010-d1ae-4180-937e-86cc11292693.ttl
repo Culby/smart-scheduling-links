@@ -1,0 +1,20 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://smart-scheduling-links.org/Organization/c3453010-d1ae-4180-937e-86cc11292693> a fhir:Organization ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "c3453010-d1ae-4180-937e-86cc11292693"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Organization c3453010-d1ae-4180-937e-86cc11292693</b></p><a name=\"c3453010-d1ae-4180-937e-86cc11292693\"> </a><a name=\"hcc3453010-d1ae-4180-937e-86cc11292693\"> </a><p><b>active</b>: true</p><p><b>name</b>: Berkshire Family Medicine</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:active [ fhir:v true] ; # 
+  fhir:name [ fhir:v "Berkshire Family Medicine"] . # 
+
+# -------------------------------------------------------------------------------------
+

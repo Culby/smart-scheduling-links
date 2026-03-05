@@ -1,0 +1,101 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://smart-scheduling-links.org/HealthcareService/ExampleHealhCareService> a fhir:HealthcareService ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "ExampleHealhCareService"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-healthcare-service"^^xsd:anyURI ;
+       fhir:l <https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-healthcare-service>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: HealthcareService ExampleHealhCareService</b></p><a name=\"ExampleHealhCareService\"> </a><a name=\"hcExampleHealhCareService\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-smart-scheduling-healthcare-service.html\">Healthcare Service</a></p></div><p><b>active</b>: true</p><p><b>providedBy</b>: <a href=\"Organization-c3453010-d1ae-4180-937e-86cc11292693.html\">ACME Health System</a></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/service-category 17}\">General Practice</span></p><p><b>type</b>: <span title=\"Codes:{http://snomed.info/sct 308335008}\">Primary Care Visit</span></p><p><b>specialty</b>: <span title=\"Codes:{http://snomed.info/sct 394814009}\">General practice</span></p><p><b>location</b>: <a href=\"Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.html\">OpenClinTech Primary Clinic</a></p><p><b>name</b>: Primary Care Appointments - Online Booking</p><p><b>comment</b>: Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care.</p><p><b>telecom</b>: ph: (555) 123-4567(Work), <a href=\"mailto:appointments@acmehealth.org\">appointments@acmehealth.org</a>, <a href=\"https://appointments.acmehealth.org\">https://appointments.acmehealth.org</a></p><p><b>serviceProvisionCode</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/service-provision-conditions cost}\">Fees apply</span></p><p><b>appointmentRequired</b>: true</p><blockquote><p><b>availableTime</b></p><p><b>daysOfWeek</b>: Monday, Tuesday, Wednesday, Thursday, Friday</p><p><b>availableStartTime</b>: 08:00:00</p><p><b>availableEndTime</b>: 17:00:00</p></blockquote><p><b>availabilityExceptions</b>: Closed on major holidays. Online booking available 24/7 for future appointments.</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:active [ fhir:v true] ; # 
+  fhir:providedBy [
+     fhir:l <https://smart-scheduling-links.org/Organization/c3453010-d1ae-4180-937e-86cc11292693> ;
+     fhir:reference [ fhir:v "Organization/c3453010-d1ae-4180-937e-86cc11292693" ] ;
+     fhir:display [ fhir:v "ACME Health System" ]
+  ] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/service-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/service-category>
+       ] ;
+       fhir:code [ fhir:v "17" ] ;
+       fhir:display [ fhir:v "General Practice" ]
+     ] )
+  ] ) ; # 
+  fhir:type ( [
+     fhir:coding ( [
+       a sct:308335008 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "308335008" ] ;
+       fhir:display [ fhir:v "Patient encounter procedure" ]
+     ] ) ;
+     fhir:text [ fhir:v "Primary Care Visit" ]
+  ] ) ; # 
+  fhir:specialty ( [
+     fhir:coding ( [
+       a sct:394814009 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "394814009" ] ;
+       fhir:display [ fhir:v "General practice" ]
+     ] )
+  ] ) ; # 
+  fhir:location ( [
+     fhir:l <https://smart-scheduling-links.org/Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af> ;
+     fhir:reference [ fhir:v "Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af" ] ;
+     fhir:display [ fhir:v "OpenClinTech Primary Clinic" ]
+  ] ) ; # 
+  fhir:name [ fhir:v "Primary Care Appointments - Online Booking"] ; # 
+  fhir:comment [ fhir:v "Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care."] ; # 
+  fhir:telecom ( [
+     fhir:system [ fhir:v "phone" ] ;
+     fhir:value [ fhir:v "(555) 123-4567" ] ;
+     fhir:use [ fhir:v "work" ]
+  ] [
+     fhir:system [ fhir:v "email" ] ;
+     fhir:value [ fhir:v "appointments@acmehealth.org" ] ;
+     fhir:use [ fhir:v "work" ]
+  ] [
+     fhir:system [ fhir:v "url" ] ;
+     fhir:value [ fhir:v "https://appointments.acmehealth.org" ] ;
+     fhir:use [ fhir:v "work" ]
+  ] ) ; # 
+  fhir:serviceProvisionCode ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/service-provision-conditions"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/service-provision-conditions>
+       ] ;
+       fhir:code [ fhir:v "cost" ] ;
+       fhir:display [ fhir:v "Fees apply" ]
+     ] )
+  ] ) ; # 
+  fhir:appointmentRequired [ fhir:v true] ; # 
+  fhir:availableTime ( [
+     fhir:daysOfWeek ( [ fhir:v "mon" ] [ fhir:v "tue" ] [ fhir:v "wed" ] [ fhir:v "thu" ] [ fhir:v "fri" ] ) ;
+     fhir:availableStartTime [ fhir:v "08:00:00"^^xsd:time ] ;
+     fhir:availableEndTime [ fhir:v "17:00:00"^^xsd:time ]
+  ] ) ; # 
+  fhir:availabilityExceptions [ fhir:v "Closed on major holidays. Online booking available 24/7 for future appointments."] . # 
+
+# -------------------------------------------------------------------------------------
+

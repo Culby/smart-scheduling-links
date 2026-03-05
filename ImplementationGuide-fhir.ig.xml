@@ -9,7 +9,7 @@
   <version value="0.1.0"/>
   <name value="fhirig"/>
   <status value="draft"/>
-  <date value="2026-03-02T18:28:46+00:00"/>
+  <date value="2026-03-05T20:47:10+00:00"/>
   <publisher value="SMART Scheduling Links"/>
   <contact>
     <name value="SMART Scheduling Links"/>
@@ -484,11 +484,11 @@
         <valueString value="Location"/>
       </extension>
       <reference>
-        <reference value="Location/ExampleSMARTLocation-PrimaryClinic"/>
+        <reference value="Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af"/>
       </reference>
-      <name value="Example SMART Location - Primary Clinic"/>
+      <name value="Example Location"/>
       <description value="Example Location instance conforming to the SMARTLocation profile."/>
-      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-location"/>
+      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-location"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -497,30 +497,60 @@
       <reference>
         <reference value="Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"/>
       </reference>
-      <name value="Fhir SmartPractitioner resource example"/>
+      <name value="Example Practitioner"/>
       <description value="Example Location instance conforming to the SMARTLocation profile."/>
-      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"/>
+      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitioner"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/ad23d8f2-b88e-48af-ae96-e36f5a5fbd43"/>
+      </reference>
+      <name value="Example PractitionerRole"/>
+      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitionerRole"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Schedule"/>
+      </extension>
+      <reference>
+        <reference value="Schedule/ExampleSchedule"/>
+      </reference>
+      <name value="Example Schedule"/>
+      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-schedule"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="Slot"/>
       </extension>
       <reference>
-        <reference value="Slot/slot-123"/>
+        <reference value="Slot/ExampleSlot"/>
       </reference>
-      <name value="slot-123"/>
+      <name value="Example Slot"/>
       <description value="Example slot that has the booking extensions"/>
-      <exampleBoolean value="true"/>
+      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-slot"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="HealthcareService"/>
+      </extension>
+      <reference>
+        <reference value="HealthcareService/ExampleHealhCareService"/>
+      </reference>
+      <name value="ExampleHealhCareService"/>
+      <exampleCanonical value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-healthcare-service"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/smart-location"/>
+        <reference value="StructureDefinition/smart-scheduling-healthcare-service"/>
       </reference>
-      <name value="SMART Location"/>
-      <description value="This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases"/>
+      <name value="Healthcare Service"/>
+      <description value="This profile sets minimum expections for a HealthcareService resource"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -528,9 +558,31 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/smart-practitioner"/>
+        <reference value="StructureDefinition/smart-scheduling-location"/>
       </reference>
-      <name value="SMART Practitioner"/>
+      <name value="Location"/>
+      <description value="This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/c3453010-d1ae-4180-937e-86cc11292693"/>
+      </reference>
+      <name value="Organization example"/>
+      <description value="Example of the Organization resource"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/smart-scheduling-practitioner"/>
+      </reference>
+      <name value="Practitioner"/>
       <description value="This profile sets minimum expections for a Practitioner resource"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -539,9 +591,20 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/smart-schedule"/>
+        <reference value="StructureDefinition/smart-scheduling-practitionerRole"/>
       </reference>
-      <name value="SMART Schedule"/>
+      <name value="PractitionerRole"/>
+      <description value="The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/smart-scheduling-schedule"/>
+      </reference>
+      <name value="Schedule"/>
       <description value="This profile sets the minimum expectations for a Schedule Resource."/>
       <exampleBoolean value="false"/>
     </resource>
@@ -550,21 +613,10 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/smart-slot"/>
+        <reference value="StructureDefinition/smart-scheduling-slot"/>
       </reference>
-      <name value="SMART Slot"/>
+      <name value="Slot"/>
       <description value="This profile sets minimum expectations for a Slot Resource."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/smart-practitionerRole"/>
-      </reference>
-      <name value="SmartPractitionerRole"/>
-      <description value="The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available"/>
       <exampleBoolean value="false"/>
     </resource>
     <page>

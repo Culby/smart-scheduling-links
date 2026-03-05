@@ -1,0 +1,57 @@
+{
+  "resourceType" : "PractitionerRole",
+  "id" : "ad23d8f2-b88e-48af-ae96-e36f5a5fbd43",
+  "meta" : {
+    "profile" : ["https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitionerRole"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole ad23d8f2-b88e-48af-ae96-e36f5a5fbd43</b></p><a name=\"ad23d8f2-b88e-48af-ae96-e36f5a5fbd43\"> </a><a name=\"hcad23d8f2-b88e-48af-ae96-e36f5a5fbd43\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-smart-scheduling-practitionerRole.html\">PractitionerRole</a></p></div><p><b>identifier</b>: <code>https://healthsystem.example.com/practitioner-role-directory</code>/ROLE-12345, <a href=\"http://terminology.hl7.org/6.5.0/NamingSystem-npi.html\" title=\"National Provider Identifier\">United States National Provider Identifier</a>/1234567890</p><p><b>active</b>: true</p><p><b>period</b>: 2020-01-01 --&gt; (ongoing)</p><p><b>practitioner</b>: <a href=\"Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.html\">Dr. John Robert Smith</a></p><p><b>organization</b>: <a href=\"Organization-c3453010-d1ae-4180-937e-86cc11292693.html\">Berkshire Family Medicine</a></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 309343006}\">Physician</span></p><p><b>specialty</b>: <span title=\"Codes:{http://snomed.info/sct 394802001}\">General medicine</span></p><p><b>location</b>: <a href=\"Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.html\">OpenClinTech Primary Clinic</a></p><p><b>telecom</b>: ph: 413-555-0123, <a href=\"mailto:appointments@berkshirefamilymedicine.example.com\">appointments@berkshirefamilymedicine.example.com</a></p></div>"
+  },
+  "identifier" : [{
+    "system" : "https://healthsystem.example.com/practitioner-role-directory",
+    "value" : "ROLE-12345"
+  },
+  {
+    "system" : "http://hl7.org/fhir/sid/us-npi",
+    "value" : "1234567890"
+  }],
+  "active" : true,
+  "period" : {
+    "start" : "2020-01-01"
+  },
+  "practitioner" : {
+    "reference" : "Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6",
+    "display" : "Dr. John Robert Smith"
+  },
+  "organization" : {
+    "reference" : "Organization/c3453010-d1ae-4180-937e-86cc11292693",
+    "display" : "Berkshire Family Medicine"
+  },
+  "code" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "309343006",
+      "display" : "Physician"
+    }]
+  }],
+  "specialty" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "394802001",
+      "display" : "General medicine"
+    }]
+  }],
+  "location" : [{
+    "reference" : "Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af",
+    "display" : "OpenClinTech Primary Clinic"
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "413-555-0123"
+  },
+  {
+    "system" : "email",
+    "value" : "appointments@berkshirefamilymedicine.example.com"
+  }]
+}

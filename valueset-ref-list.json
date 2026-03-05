@@ -10,6 +10,6 @@
     "http://terminology.hl7.org/CodeSystem/v2-0276"],
     "uses" : {
     },
-    "StructureDefinition-smart-slot.html" : "SMART Slot"
+    "StructureDefinition-smart-scheduling-slot.html" : "Slot"
   }]
 }

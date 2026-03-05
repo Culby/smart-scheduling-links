@@ -141,8 +141,8 @@
     "oids" : ["2.16.840.1.113883.6.96"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-practitioner-role.html" : "Practitioner role",
-    "http://hl7.org/fhir/R4/valueset-c80-practice-codes.html" : "Practice Setting Code Value Set"
+    "http://hl7.org/fhir/R4/valueset-c80-practice-codes.html" : "Practice Setting Code Value Set",
+    "http://hl7.org/fhir/R4/valueset-practitioner-role.html" : "Practitioner role"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/accepting-patients",
@@ -180,6 +180,18 @@
     "http://hl7.org/fhir/R4/valueset-practitioner-role.html" : "Practitioner role"
   },
   {
+    "url" : "http://terminology.hl7.org/CodeSystem/program",
+    "version" : "1.0.1",
+    "status" : "active",
+    "name" : "Program",
+    "title" : "Program",
+    "description" : "This value set defines an example set of codes that could be can be used to classify groupings of service-types/specialties.",
+    "oids" : ["2.16.840.1.113883.4.642.1.1384"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-program.html" : "Program"
+  },
+  {
     "url" : "http://terminology.hl7.org/CodeSystem/service-category",
     "version" : "1.1.1",
     "status" : "active",
@@ -190,6 +202,30 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R4/valueset-service-category.html" : "Service category"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/service-provision-conditions",
+    "version" : "1.0.1",
+    "status" : "active",
+    "name" : "ServiceProvisionConditions",
+    "title" : "ServiceProvisionConditions",
+    "description" : "The code(s) that detail the conditions under which the healthcare service is available/offered.",
+    "oids" : ["2.16.840.1.113883.4.642.1.1143"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-service-provision-conditions.html" : "ServiceProvisionConditions"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/service-referral-method",
+    "version" : "1.0.1",
+    "status" : "active",
+    "name" : "ReferralMethod",
+    "title" : "ReferralMethod",
+    "description" : "The methods of referral can be used when referring to a specific HealthCareService resource.",
+    "oids" : ["2.16.840.1.113883.4.642.1.1142"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-service-referral-method.html" : "ReferralMethod"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/service-type",

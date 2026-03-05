@@ -17,8 +17,9 @@
       <ul>
 
         <li>
-This material derives from the HL7 Terminology (THO). THO is copyright &copy;1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see:           <a href="https://terminology.hl7.org/license.html">https://terminology.hl7.org/license.html</a>
-          <div onClick="if (document.getElementById('ipp2_1').innerHTML != '') {document.getElementById('ipp_1').innerHTML = document.getElementById('ipp2_1').innerHTML; document.getElementById('ipp2_1').innerHTML = ''}" id="ipp_1" data-fhir="generated">
+This material contains content that is copyright of SNOMED International. Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact           <a href="https://www.snomed.org/get-snomed">https://www.snomed.org/get-snomed</a>
+ or           <a href="mailto:info@snomed.org">info@snomed.org</a>
+.          <div onClick="if (document.getElementById('ipp2_1').innerHTML != '') {document.getElementById('ipp_1').innerHTML = document.getElementById('ipp2_1').innerHTML; document.getElementById('ipp2_1').innerHTML = ''}" id="ipp_1" data-fhir="generated">
              <span style="cursor: pointer; border: 1px grey solid; background-color: #fcdcb3; padding-left: 3px; padding-right: 3px; color: black">Show Usage</span>
           </div>
           <div style="display: none" id="ipp2_1">
@@ -26,15 +27,53 @@ This material derives from the HL7 Terminology (THO). THO is copyright &copy;198
             <ul>
 
               <li>
+                <a href="http://hl7.org/fhir/R4/codesystem-snomedct.html">SNOMED Clinical Terms&amp;reg; (SNOMED CT&amp;reg;)</a>
+:                 <a href="PractitionerRole-ad23d8f2-b88e-48af-ae96-e36f5a5fbd43.html">PractitionerRole/ad23d8f2-b88e-48af-ae96-e36f5a5fbd43</a>
+,                 <a href="HealthcareService-ExampleHealhCareService.html">Primary Care Appointments - Online Booking</a>
+ and                 <a href="Schedule-ExampleSchedule.html">Schedule/ExampleSchedule</a>
+              </li>
+
+
+            </ul>
+
+
+          </div>
+        </li>
+
+        <li>
+This material derives from the HL7 Terminology (THO). THO is copyright &copy;1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see:           <a href="https://terminology.hl7.org/license.html">https://terminology.hl7.org/license.html</a>
+          <div onClick="if (document.getElementById('ipp2_2').innerHTML != '') {document.getElementById('ipp_2').innerHTML = document.getElementById('ipp2_2').innerHTML; document.getElementById('ipp2_2').innerHTML = ''}" id="ipp_2" data-fhir="generated">
+             <span style="cursor: pointer; border: 1px grey solid; background-color: #fcdcb3; padding-left: 3px; padding-right: 3px; color: black">Show Usage</span>
+          </div>
+          <div style="display: none" id="ipp2_2">
+
+            <ul>
+
+              <li>
                 <a href="http://terminology.hl7.org/7.0.1/CodeSystem-accepting-patients.html">Accepting Patients</a>
 :                 <a href="ValueSet-appointment-type-and-reasons-vs.html">AppointmentTypeAndReasonsVS</a>
- and                 <a href="StructureDefinition-smart-slot.html">SmartSlot</a>
+ and                 <a href="StructureDefinition-smart-scheduling-slot.html">SmartSchedulingSlot</a>
+              </li>
+
+              <li>
+                <a href="http://terminology.hl7.org/7.0.1/CodeSystem-service-category.html">Service category</a>
+:                 <a href="HealthcareService-ExampleHealhCareService.html">Primary Care Appointments - Online Booking</a>
+              </li>
+
+              <li>
+                <a href="http://terminology.hl7.org/7.0.1/CodeSystem-service-provision-conditions.html">ServiceProvisionConditions</a>
+:                 <a href="HealthcareService-ExampleHealhCareService.html">Primary Care Appointments - Online Booking</a>
+              </li>
+
+              <li>
+                <a href="http://terminology.hl7.org/7.0.1/CodeSystem-service-type.html">Service type</a>
+:                 <a href="Schedule-ExampleSchedule.html">Schedule/ExampleSchedule</a>
               </li>
 
               <li>
                 <a href="http://terminology.hl7.org/7.0.1/CodeSystem-v2-0276.html">appointmentReason</a>
 :                 <a href="ValueSet-appointment-type-and-reasons-vs.html">AppointmentTypeAndReasonsVS</a>
- and                 <a href="StructureDefinition-smart-slot.html">SmartSlot</a>
+ and                 <a href="StructureDefinition-smart-scheduling-slot.html">SmartSchedulingSlot</a>
               </li>
 
 
@@ -53,7 +92,7 @@ This material derives from the HL7 Terminology (THO). THO is copyright &copy;198
     <ul>
       <li>
 
-          IG &copy; 2026+ SMART Scheduling Links.  Package fhir.ig#0.1.0 based on FHIR 4.0.1. Generated 2026-03-02
+          IG &copy; 2026+ SMART Scheduling Links.  Package fhir.ig#0.1.0 based on FHIR 4.0.1. Generated 2026-03-05
           
           
                       Links: Table of Contents |
@@ -92,7 +131,20 @@ fhirig - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; 
       </tr>
       <tr>
         <td>
-          <a href="Location-ExampleSMARTLocation-PrimaryClinic.html">web</a>
+          <a href="HealthcareService-ExampleHealhCareService.html">web</a>
+        </td>
+        <td>
+          <a href="https://appointments.acmehealth.org">appointments.acmehealth.org</a>
+        </td>
+        <td>
+          <b>telecom</b>
+: ph: (555) 123-4567(Work),           <a href="mailto:appointments@acmehealth.org">appointments@acmehealth.org</a>
+,           <a href="https://appointments.acmehealth.org">https://appointments.acmehealth.org</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.html">web</a>
         </td>
         <td>
           <a href="tel:+1-813-555-0100">tel:+1-813-555-0100</a>
@@ -118,7 +170,20 @@ fhirig - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; 
       </tr>
       <tr>
         <td>
-          <a href="Slot-slot-123.html">web</a>
+          <a href="Schedule-ExampleSchedule.html">web</a>
+        </td>
+        <td>
+          <a href="http://snomed.info/id/394802001">snomed.info</a>
+        </td>
+        <td>
+          <b>org/StructureDefinition/specialty</b>
+:           <a href="http://snomed.info/id/394802001">SNOMED CT: 394802001</a>
+ (General medicine)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Slot-ExampleSlot.html">web</a>
         </td>
         <td>
           <a href="https://booking.healthsystem.org/slot/123">booking.healthsystem.org</a>
@@ -130,7 +195,7 @@ fhirig - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; 
       </tr>
       <tr>
         <td>
-          <a href="Location-ExampleSMARTLocation-PrimaryClinic.change.history.html">web</a>
+          <a href="HealthcareService-ExampleHealhCareService.change.history.html">web</a>
         </td>
         <td>
           <a href="http://smart-scheduling-links.org/SMART-Scheduling-Links">smart-scheduling-links.org</a>
@@ -139,7 +204,7 @@ fhirig - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; 
 
           IG &copy; 2026+           <a style="color:var(--footer-hyperlink-text-color)" href="http://smart-scheduling-links.org/SMART-Scheduling-Links">SMART Scheduling Links</a>
 .  Package fhir.ig#0.1.0 based on           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
-. Generated           <span title="Mon, Mar 2, 2026 18:28+0000">2026-03-02</span>
+. Generated           <span title="Thu, Mar 5, 2026 20:47+0000">2026-03-05</span>
 
                     <br/>
 

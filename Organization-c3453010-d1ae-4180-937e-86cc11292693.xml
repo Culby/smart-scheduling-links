@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="c3453010-d1ae-4180-937e-86cc11292693"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Organization c3453010-d1ae-4180-937e-86cc11292693</b></p><a name="c3453010-d1ae-4180-937e-86cc11292693"> </a><a name="hcc3453010-d1ae-4180-937e-86cc11292693"> </a><p><b>active</b>: true</p><p><b>name</b>: Berkshire Family Medicine</p></div>
+  </text>
+  <active value="true"/>
+  <name value="Berkshire Family Medicine"/>
+</Organization>

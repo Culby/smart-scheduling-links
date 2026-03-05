@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Schedule xmlns="http://hl7.org/fhir">
+  <id value="ExampleSchedule"/>
+  <meta>
+    <profile value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-schedule"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Schedule ExampleSchedule</b></p><a name="ExampleSchedule"> </a><a name="hcExampleSchedule"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-smart-scheduling-schedule.html">Schedule</a></p></div><p><b>org/StructureDefinition/specialty</b>: <a href="http://snomed.info/id/394802001">SNOMED CT: 394802001</a> (General medicine)</p><p><b>serviceType</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/service-type 124}">General Practice</span></p><p><b>actor</b>: </p><ul><li><a href="Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.html">Berkshire Family Medicine - Pittsfield</a></li><li><a href="PractitionerRole-ad23d8f2-b88e-48af-ae96-e36f5a5fbd43.html">Dr. John Robert Smith</a></li></ul></div>
+  </text>
+  <extension url="http://fhir-registry.smarthealthit.org/StructureDefinition/specialty">
+    <valueCoding>
+      <system value="http://snomed.info/sct"/>
+      <code value="394802001"/>
+      <display value="General medicine"/>
+    </valueCoding>
+  </extension>
+  <serviceType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-type"/>
+      <code value="124"/>
+      <display value="General Practice"/>
+    </coding>
+  </serviceType>
+  <actor>
+    <reference value="Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af"/>
+    <display value="Berkshire Family Medicine - Pittsfield"/>
+  </actor>
+  <actor>
+    <reference value="PractitionerRole/ad23d8f2-b88e-48af-ae96-e36f5a5fbd43"/>
+    <display value="Dr. John Robert Smith"/>
+  </actor>
+</Schedule>

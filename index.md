@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://smart-scheduling-links.org/ImplementationGuide/fhir.ig | *Version*:0.1.0 |
-| Draft as of 2026-03-02 | *Computable Name*:fhirig |
+| Draft as of 2026-03-05 | *Computable Name*:fhirig |
 
 ## Introduction
 
@@ -17,6 +17,10 @@ This is an unofficial FHIR Implementation Guide (IG) that will be used to captur
 ## Scope and Purpose
 
 Implement the specification as outlined in https://github.com/Culby/smart-scheduling-links/blob/master/specification.md
+
+### Smart Scheduling Links Architectural Diagram
+
+![](SchedulingArchitecture.drawio.png)
 
 
 
@@ -30,7 +34,7 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
   "version" : "0.1.0",
   "name" : "fhirig",
   "status" : "draft",
-  "date" : "2026-03-02T18:28:46+00:00",
+  "date" : "2026-03-05T20:47:10+00:00",
   "publisher" : "SMART Scheduling Links",
   "contact" : [{
     "name" : "SMART Scheduling Links",
@@ -665,11 +669,11 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         "valueString" : "Location"
       }],
       "reference" : {
-        "reference" : "Location/ExampleSMARTLocation-PrimaryClinic"
+        "reference" : "Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af"
       },
-      "name" : "Example SMART Location - Primary Clinic",
+      "name" : "Example Location",
       "description" : "Example Location instance conforming to the SMARTLocation profile.",
-      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-location"
+      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-location"
     },
     {
       "extension" : [{
@@ -679,9 +683,31 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
       "reference" : {
         "reference" : "Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"
       },
-      "name" : "Fhir SmartPractitioner resource example",
+      "name" : "Example Practitioner",
       "description" : "Example Location instance conforming to the SMARTLocation profile.",
-      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"
+      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitioner"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PractitionerRole"
+      }],
+      "reference" : {
+        "reference" : "PractitionerRole/ad23d8f2-b88e-48af-ae96-e36f5a5fbd43"
+      },
+      "name" : "Example PractitionerRole",
+      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitionerRole"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Schedule"
+      }],
+      "reference" : {
+        "reference" : "Schedule/ExampleSchedule"
+      },
+      "name" : "Example Schedule",
+      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-schedule"
     },
     {
       "extension" : [{
@@ -689,11 +715,22 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         "valueString" : "Slot"
       }],
       "reference" : {
-        "reference" : "Slot/slot-123"
+        "reference" : "Slot/ExampleSlot"
       },
-      "name" : "slot-123",
+      "name" : "Example Slot",
       "description" : "Example slot that has the booking extensions",
-      "exampleBoolean" : true
+      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-slot"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "HealthcareService"
+      }],
+      "reference" : {
+        "reference" : "HealthcareService/ExampleHealhCareService"
+      },
+      "name" : "ExampleHealhCareService",
+      "exampleCanonical" : "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-healthcare-service"
     },
     {
       "extension" : [{
@@ -701,10 +738,10 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/smart-location"
+        "reference" : "StructureDefinition/smart-scheduling-healthcare-service"
       },
-      "name" : "SMART Location",
-      "description" : "This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases",
+      "name" : "Healthcare Service",
+      "description" : "This profile sets minimum expections for a HealthcareService resource",
       "exampleBoolean" : false
     },
     {
@@ -713,9 +750,33 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/smart-practitioner"
+        "reference" : "StructureDefinition/smart-scheduling-location"
       },
-      "name" : "SMART Practitioner",
+      "name" : "Location",
+      "description" : "This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      }],
+      "reference" : {
+        "reference" : "Organization/c3453010-d1ae-4180-937e-86cc11292693"
+      },
+      "name" : "Organization example",
+      "description" : "Example of the Organization resource",
+      "exampleBoolean" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/smart-scheduling-practitioner"
+      },
+      "name" : "Practitioner",
       "description" : "This profile sets minimum expections for a Practitioner resource",
       "exampleBoolean" : false
     },
@@ -725,9 +786,21 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/smart-schedule"
+        "reference" : "StructureDefinition/smart-scheduling-practitionerRole"
       },
-      "name" : "SMART Schedule",
+      "name" : "PractitionerRole",
+      "description" : "The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/smart-scheduling-schedule"
+      },
+      "name" : "Schedule",
       "description" : "This profile sets the minimum expectations for a Schedule Resource.",
       "exampleBoolean" : false
     },
@@ -737,22 +810,10 @@ Implement the specification as outlined in https://github.com/Culby/smart-schedu
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/smart-slot"
+        "reference" : "StructureDefinition/smart-scheduling-slot"
       },
-      "name" : "SMART Slot",
+      "name" : "Slot",
       "description" : "This profile sets minimum expectations for a Slot Resource.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/smart-practitionerRole"
-      },
-      "name" : "SmartPractitionerRole",
-      "description" : "The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available",
       "exampleBoolean" : false
     }],
     "page" : {

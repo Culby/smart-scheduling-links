@@ -1,58 +1,65 @@
 fhirig : Validation Results
 =========================================
 
-err = 9, warn = 12, info = 1
+err = 5, warn = 13, info = 1
 IG Publisher Version: 2.1.2
-Generated Mon Mar 02 18:30:11 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
- Build Errors : 4 / 4 / 0
+Generated Thu Mar 05 20:48:36 UTC 2026. FHIR version 4.0.1 for fhir.ig#0.1.0 (canonical = https://smart-scheduling-links.org)
+ Build Errors : 3 / 7 / 0
+ /github/workspace/fhir-ig/fsh-generated/resources/HealthcareService-ExampleHealhCareService : 0 / 0 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/ImplementationGuide-fhir.ig : 0 / 1 / 1
- /github/workspace/fhir-ig/fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic : 0 / 1 / 1
- /github/workspace/fhir-ig/fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6 : 2 / 0 / 1
- /github/workspace/fhir-ig/fsh-generated/resources/Slot-slot-123 : 2 / 1 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af : 0 / 1 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/Organization-c3453010-d1ae-4180-937e-86cc11292693 : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6 : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/PractitionerRole-ad23d8f2-b88e-48af-ae96-e36f5a5fbd43 : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/Schedule-ExampleSchedule : 1 / 1 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/Slot-ExampleSlot : 0 / 1 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-deep-link : 2 / 0 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-phone : 2 / 0 / 1
- /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-location : 0 / 0 / 2
- /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-practitioner : 0 / 0 / 1
- /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-practitionerRole : 0 / 1 / 1
- /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-schedule : 0 / 1 / 1
- /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-slot : 0 / 1 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-scheduling-healthcare-service : 0 / 0 / 2
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-scheduling-location : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-scheduling-practitioner : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-scheduling-practitionerRole : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-scheduling-schedule : 0 / 0 / 1
+ /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-smart-scheduling-slot : 0 / 0 / 1
  /github/workspace/fhir-ig/fsh-generated/resources/ValueSet-appointment-type-and-reasons-vs : 0 / 2 / 1
 </table>
 == n/a ==
-ERROR: package.tgz: Error converting pacakge to R4B: Error processing example/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json: Unknown IdentifierUse code 'Usual'
-ERROR: Slot-slot-123.html#/html/body/div/div/div/div/div/div/p/a at Line 176, column 290: The link 'Schedule/123' for "Schedule/123" cannot be resolved
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource PractitionerRole/ad23d8f2-b88e-48af-ae96-e36f5a5fbd43.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource Schedule/ExampleSchedule.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource HealthcareService/ExampleHealhCareService.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+ERROR: index.html#/html/body/div/div/div/div/div/p/img at Line 193, column 5: The image source 'SchedulingArchitecture.drawio.png' cannot be resolved
 ERROR: specification.html#/html/body/div/div/div/div/div/p/img at Line 229, column 5: The image source '/SchedulingArchitecture.drawio.png' cannot be resolved
 ERROR: specification.html#/html/body/div/div/div/div/div/p/img at Line 265, column 2: The image source 'ERDiagram.png' cannot be resolved
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+== fsh-generated/resources/HealthcareService-ExampleHealhCareService.json ==
 == fsh-generated/resources/ImplementationGuide-fhir.ig.json ==
 WARNING: ImplementationGuide/fhir.ig: ImplementationGuide: Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
-== fsh-generated/resources/Location-ExampleSMARTLocation-PrimaryClinic.json ==
-WARNING: Location/ExampleSMARTLocation-PrimaryClinic: Location.identifier[0].system: No definition could be found for URL value 'https://www.openclintech.com/ids/locations'
+== fsh-generated/resources/Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.json ==
+WARNING: Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af: Location.identifier[0].system: No definition could be found for URL value 'https://www.openclintech.com/ids/locations'
+== fsh-generated/resources/Organization-c3453010-d1ae-4180-937e-86cc11292693.json ==
 == fsh-generated/resources/Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.json ==
-ERROR: Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6: Practitioner.identifier[0].use: The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'
-ERROR: Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6: Practitioner.identifier[0].use: The value provided ('Usual') was not found in the value set 'IdentifierUse' (http://hl7.org/fhir/ValueSet/identifier-use|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'Usual' in the ValueSet 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1'; The provided code '#Usual' was not found in the value set 'http://hl7.org/fhir/ValueSet/identifier-use|4.0.1')
-== fsh-generated/resources/Slot-slot-123.json ==
-WARNING: Slot/slot-123: Slot.extension[0].value.ofType(url): No definition could be found for URL value 'https://booking.healthsystem.org/slot/123'
-ERROR: Slot/slot-123: Slot.schedule: Unable to resolve resource with reference 'Schedule/123'
-ERROR: Slot.text.div: Hyperlink 'Schedule/123' at 'div/p/a' for 'Schedule/123' does not resolve
+== fsh-generated/resources/PractitionerRole-ad23d8f2-b88e-48af-ae96-e36f5a5fbd43.json ==
+== fsh-generated/resources/Schedule-ExampleSchedule.json ==
+ERROR: Schedule/ExampleSchedule: Schedule.extension[0]: The extension http://fhir-registry.smarthealthit.org/StructureDefinition/specialty could not be found so is not allowed here
+WARNING: Schedule/ExampleSchedule: Schedule.extension[0].url: No definition could be found for URL value 'http://fhir-registry.smarthealthit.org/StructureDefinition/specialty'
+== fsh-generated/resources/Slot-ExampleSlot.json ==
+WARNING: Slot/ExampleSlot: Slot.extension[0].value.ofType(url): No definition could be found for URL value 'https://booking.healthsystem.org/slot/123'
 == fsh-generated/resources/StructureDefinition-booking-deep-link.json ==
 ERROR: StructureDefinition.where(url = 'http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link'): Conformance resource /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-deep-link.json - the canonical URL (https://smart-scheduling-links.org/StructureDefinition/booking-deep-link) does not match the URL (http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link). Use the special-url parameter if you really mean for it not to match
 ERROR: /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-deep-link: URL Mismatch https://smart-scheduling-links.org/StructureDefinition/booking-deep-link vs http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link
 == fsh-generated/resources/StructureDefinition-booking-phone.json ==
 ERROR: StructureDefinition.where(url = 'http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone'): Conformance resource /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-phone.json - the canonical URL (https://smart-scheduling-links.org/StructureDefinition/booking-phone) does not match the URL (http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone). Use the special-url parameter if you really mean for it not to match
 ERROR: /github/workspace/fhir-ig/fsh-generated/resources/StructureDefinition-booking-phone: URL Mismatch https://smart-scheduling-links.org/StructureDefinition/booking-phone vs http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone
-== fsh-generated/resources/StructureDefinition-smart-location.json ==
-INFORMATION: StructureDefinition/smart-location: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
-== fsh-generated/resources/StructureDefinition-smart-practitioner.json ==
-== fsh-generated/resources/StructureDefinition-smart-practitionerRole.json ==
-WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/StructureDefinition/smart-practitionerRole'): The Implementation Guide contains no examples for this profile
-== fsh-generated/resources/StructureDefinition-smart-schedule.json ==
-WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/StructureDefinition/smart-schedule'): The Implementation Guide contains no examples for this profile
-== fsh-generated/resources/StructureDefinition-smart-slot.json ==
-WARNING: StructureDefinition.where(url = 'https://smart-scheduling-links.org/StructureDefinition/smart-slot'): The Implementation Guide contains no examples for this profile
+== fsh-generated/resources/StructureDefinition-smart-scheduling-healthcare-service.json ==
+INFORMATION: StructureDefinition/smart-scheduling-healthcare-service: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
+== fsh-generated/resources/StructureDefinition-smart-scheduling-location.json ==
+== fsh-generated/resources/StructureDefinition-smart-scheduling-practitioner.json ==
+== fsh-generated/resources/StructureDefinition-smart-scheduling-practitionerRole.json ==
+== fsh-generated/resources/StructureDefinition-smart-scheduling-schedule.json ==
+== fsh-generated/resources/StructureDefinition-smart-scheduling-slot.json ==
 == fsh-generated/resources/ValueSet-appointment-type-and-reasons-vs.json ==
 WARNING: ValueSet/appointment-type-and-reasons-vs: ValueSet.compose.include[1].system: There are multiple different potential matches for the url 'http://terminology.hl7.org/CodeSystem/v2-0276'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.5.0), 2.1.0 (from hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 3.0.0 (from hl7.terminology.r4#7.0.1). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/CodeSystem/v2-0276' to 'http://terminology.hl7.org/CodeSystem/v2-0276|3.0.0'
 WARNING: ValueSet/appointment-type-and-reasons-vs: ValueSet: Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present

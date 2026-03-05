@@ -1,0 +1,25 @@
+{
+  "resourceType" : "Slot",
+  "id" : "ExampleSlot",
+  "meta" : {
+    "profile" : ["https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-slot"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Slot ExampleSlot</b></p><a name=\"ExampleSlot\"> </a><a name=\"hcExampleSlot\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-smart-scheduling-slot.html\">Slot</a></p></div><p><b>Booking Deep Link</b>: <a href=\"https://booking.healthsystem.org/slot/123\">https://booking.healthsystem.org/slot/123</a></p><p><b>Booking Phone</b>: +1-555-123-4567</p><p><b>schedule</b>: <a href=\"Schedule-ExampleSchedule.html\">Schedule: extension = General medicine (SNOMED CT#394802001); serviceType = General Practice</a></p><p><b>status</b>: Free</p><p><b>start</b>: 2026-03-21 10:45:00-0400</p><p><b>end</b>: 2026-03-21 11:15:00-0400</p></div>"
+  },
+  "extension" : [{
+    "url" : "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link",
+    "valueUrl" : "https://booking.healthsystem.org/slot/123"
+  },
+  {
+    "url" : "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone",
+    "valueString" : "+1-555-123-4567"
+  }],
+  "schedule" : {
+    "reference" : "Schedule/ExampleSchedule"
+  },
+  "status" : "free",
+  "start" : "2026-03-21T10:45:00-04:00",
+  "end" : "2026-03-21T11:15:00-04:00"
+}

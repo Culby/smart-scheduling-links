@@ -1,14 +1,14 @@
-# Fhir SmartPractitioner resource example - v0.1.0
+# Example Practitioner - v0.1.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
-* **Fhir SmartPractitioner resource example**
+* **Example Practitioner**
 
-## Example Practitioner: Fhir SmartPractitioner resource example
+## Example Practitioner: Example Practitioner
 
-Profile: [SMART Practitioner](StructureDefinition-smart-practitioner.md)
+Profile: [Practitioner](StructureDefinition-smart-scheduling-practitioner.md)
 
-**identifier**: [United States National Provider Identifier](http://terminology.hl7.org/6.5.0/NamingSystem-npi.html)/npi-8373s (use: Usual, )
+**identifier**: [United States National Provider Identifier](http://terminology.hl7.org/6.5.0/NamingSystem-npi.html)/npi-8373s (use: usual, )
 
 **active**: true
 
@@ -27,10 +27,10 @@ Profile: [SMART Practitioner](StructureDefinition-smart-practitioner.md)
   "resourceType" : "Practitioner",
   "id" : "fd3c7a99-bb59-4fef-9f79-88d1f7275ca6",
   "meta" : {
-    "profile" : ["https://smart-scheduling-links.org/StructureDefinition/smart-practitioner"]
+    "profile" : ["https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitioner"]
   },
   "identifier" : [{
-    "use" : "Usual",
+    "use" : "usual",
     "system" : "http://hl7.org/fhir/sid/us-npi",
     "value" : "npi-8373s"
   }],

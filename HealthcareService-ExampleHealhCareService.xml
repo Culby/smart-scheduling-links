@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HealthcareService xmlns="http://hl7.org/fhir">
+  <id value="ExampleHealhCareService"/>
+  <meta>
+    <profile value="https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-healthcare-service"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: HealthcareService ExampleHealhCareService</b></p><a name="ExampleHealhCareService"> </a><a name="hcExampleHealhCareService"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-smart-scheduling-healthcare-service.html">Healthcare Service</a></p></div><p><b>active</b>: true</p><p><b>providedBy</b>: <a href="Organization-c3453010-d1ae-4180-937e-86cc11292693.html">ACME Health System</a></p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/service-category 17}">General Practice</span></p><p><b>type</b>: <span title="Codes:{http://snomed.info/sct 308335008}">Primary Care Visit</span></p><p><b>specialty</b>: <span title="Codes:{http://snomed.info/sct 394814009}">General practice</span></p><p><b>location</b>: <a href="Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.html">OpenClinTech Primary Clinic</a></p><p><b>name</b>: Primary Care Appointments - Online Booking</p><p><b>comment</b>: Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care.</p><p><b>telecom</b>: ph: (555) 123-4567(Work), <a href="mailto:appointments@acmehealth.org">appointments@acmehealth.org</a>, <a href="https://appointments.acmehealth.org">https://appointments.acmehealth.org</a></p><p><b>serviceProvisionCode</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/service-provision-conditions cost}">Fees apply</span></p><p><b>appointmentRequired</b>: true</p><blockquote><p><b>availableTime</b></p><p><b>daysOfWeek</b>: Monday, Tuesday, Wednesday, Thursday, Friday</p><p><b>availableStartTime</b>: 08:00:00</p><p><b>availableEndTime</b>: 17:00:00</p></blockquote><p><b>availabilityExceptions</b>: Closed on major holidays. Online booking available 24/7 for future appointments.</p></div>
+  </text>
+  <active value="true"/>
+  <providedBy>
+    <reference value="Organization/c3453010-d1ae-4180-937e-86cc11292693"/>
+    <display value="ACME Health System"/>
+  </providedBy>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-category"/>
+      <code value="17"/>
+      <display value="General Practice"/>
+    </coding>
+  </category>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="308335008"/>
+      <display value="Patient encounter procedure"/>
+    </coding>
+    <text value="Primary Care Visit"/>
+  </type>
+  <specialty>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="394814009"/>
+      <display value="General practice"/>
+    </coding>
+  </specialty>
+  <location>
+    <reference value="Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af"/>
+    <display value="OpenClinTech Primary Clinic"/>
+  </location>
+  <name value="Primary Care Appointments - Online Booking"/>
+  <comment value="Book your primary care appointment online. Appointments available with next available provider. For urgent needs, please call our office or visit urgent care."/>
+  <telecom>
+    <system value="phone"/>
+    <value value="(555) 123-4567"/>
+    <use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="appointments@acmehealth.org"/>
+    <use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="url"/>
+    <value value="https://appointments.acmehealth.org"/>
+    <use value="work"/>
+  </telecom>
+  <serviceProvisionCode>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-provision-conditions"/>
+      <code value="cost"/>
+      <display value="Fees apply"/>
+    </coding>
+  </serviceProvisionCode>
+  <appointmentRequired value="true"/>
+  <availableTime>
+    <daysOfWeek value="mon"/>
+    <daysOfWeek value="tue"/>
+    <daysOfWeek value="wed"/>
+    <daysOfWeek value="thu"/>
+    <daysOfWeek value="fri"/>
+    <availableStartTime value="08:00:00"/>
+    <availableEndTime value="17:00:00"/>
+  </availableTime>
+  <availabilityExceptions value="Closed on major holidays. Online booking available 24/7 for future appointments."/>
+</HealthcareService>

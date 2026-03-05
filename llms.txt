@@ -15,11 +15,12 @@
 
 ### Resource Profiles
 
-* [SMART Location](StructureDefinition-smart-location.md)
-* [SMART Practitioner](StructureDefinition-smart-practitioner.md)
-* [SmartPractitionerRole](StructureDefinition-smart-practitionerRole.md)
-* [SMART Schedule](StructureDefinition-smart-schedule.md)
-* [SMART Slot](StructureDefinition-smart-slot.md)
+* [Healthcare Service](StructureDefinition-smart-scheduling-healthcare-service.md)
+* [Location](StructureDefinition-smart-scheduling-location.md)
+* [Practitioner](StructureDefinition-smart-scheduling-practitioner.md)
+* [PractitionerRole](StructureDefinition-smart-scheduling-practitionerRole.md)
+* [Schedule](StructureDefinition-smart-scheduling-schedule.md)
+* [Slot](StructureDefinition-smart-scheduling-slot.md)
 
 ### Extensions
 
@@ -32,6 +33,10 @@
 
 ### Examples
 
-* [OpenClinTech Primary Clinic (Location)](Location-ExampleSMARTLocation-PrimaryClinic.md)
+* [Primary Care Appointments - Online Booking (HealthcareService)](HealthcareService-ExampleHealhCareService.md)
+* [OpenClinTech Primary Clinic (Location)](Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.md)
+* [Berkshire Family Medicine (Organization)](Organization-c3453010-d1ae-4180-937e-86cc11292693.md)
 * [fd3c7a99-bb59-4fef-9f79-88d1f7275ca6 (Practitioner)](Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.md)
-* [slot-123 (Slot)](Slot-slot-123.md)
+* [ad23d8f2-b88e-48af-ae96-e36f5a5fbd43 (PractitionerRole)](PractitionerRole-ad23d8f2-b88e-48af-ae96-e36f5a5fbd43.md)
+* [ExampleSchedule (Schedule)](Schedule-ExampleSchedule.md)
+* [ExampleSlot (Slot)](Slot-ExampleSlot.md)

@@ -13,11 +13,12 @@ These define constraints on FHIR resources for systems conforming to this implem
 
 | | |
 | :--- | :--- |
-| [SMART Location](StructureDefinition-smart-location.md) | This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases |
-| [SMART Practitioner](StructureDefinition-smart-practitioner.md) | This profile sets minimum expections for a Practitioner resource |
-| [SMART Schedule](StructureDefinition-smart-schedule.md) | This profile sets the minimum expectations for a Schedule Resource. |
-| [SMART Slot](StructureDefinition-smart-slot.md) | This profile sets minimum expectations for a Slot Resource. |
-| [SmartPractitionerRole](StructureDefinition-smart-practitionerRole.md) | The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available |
+| [Healthcare Service](StructureDefinition-smart-scheduling-healthcare-service.md) | This profile sets minimum expections for a HealthcareService resource |
+| [Location](StructureDefinition-smart-scheduling-location.md) | This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases |
+| [Practitioner](StructureDefinition-smart-scheduling-practitioner.md) | This profile sets minimum expections for a Practitioner resource |
+| [PractitionerRole](StructureDefinition-smart-scheduling-practitionerRole.md) | The PractitionerRole resource represents the specific roles that practitioners perform at organizations where appointments are available |
+| [Schedule](StructureDefinition-smart-scheduling-schedule.md) | This profile sets the minimum expectations for a Schedule Resource. |
+| [Slot](StructureDefinition-smart-scheduling-slot.md) | This profile sets minimum expectations for a Slot Resource. |
 
 ### Structures: Extension Definitions 
 
@@ -42,7 +43,11 @@ These are example instances that show what data produced and consumed by systems
 
 | | |
 | :--- | :--- |
-| [Example SMART Location - Primary Clinic](Location-ExampleSMARTLocation-PrimaryClinic.md) | Example Location instance conforming to the SMARTLocation profile. |
-| [Fhir SmartPractitioner resource example](Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.md) | Example Location instance conforming to the SMARTLocation profile. |
-| [slot-123](Slot-slot-123.md) | Example slot that has the booking extensions |
+| [Example Location](Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.md) | Example Location instance conforming to the SMARTLocation profile. |
+| [Example Practitioner](Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.md) | Example Location instance conforming to the SMARTLocation profile. |
+| [Example PractitionerRole](PractitionerRole-ad23d8f2-b88e-48af-ae96-e36f5a5fbd43.md) |  |
+| [Example Schedule](Schedule-ExampleSchedule.md) |  |
+| [Example Slot](Slot-ExampleSlot.md) | Example slot that has the booking extensions |
+| [ExampleHealhCareService](HealthcareService-ExampleHealhCareService.md) |  |
+| [Organization example](Organization-c3453010-d1ae-4180-937e-86cc11292693.md) | Example of the Organization resource |
 

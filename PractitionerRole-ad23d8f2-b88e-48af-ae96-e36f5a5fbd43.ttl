@@ -1,0 +1,86 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://smart-scheduling-links.org/PractitionerRole/ad23d8f2-b88e-48af-ae96-e36f5a5fbd43> a fhir:PractitionerRole ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "ad23d8f2-b88e-48af-ae96-e36f5a5fbd43"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitionerRole"^^xsd:anyURI ;
+       fhir:l <https://smart-scheduling-links.org/StructureDefinition/smart-scheduling-practitionerRole>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole ad23d8f2-b88e-48af-ae96-e36f5a5fbd43</b></p><a name=\"ad23d8f2-b88e-48af-ae96-e36f5a5fbd43\"> </a><a name=\"hcad23d8f2-b88e-48af-ae96-e36f5a5fbd43\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-smart-scheduling-practitionerRole.html\">PractitionerRole</a></p></div><p><b>identifier</b>: <code>https://healthsystem.example.com/practitioner-role-directory</code>/ROLE-12345, <a href=\"http://terminology.hl7.org/6.5.0/NamingSystem-npi.html\" title=\"National Provider Identifier\">United States National Provider Identifier</a>/1234567890</p><p><b>active</b>: true</p><p><b>period</b>: 2020-01-01 --&gt; (ongoing)</p><p><b>practitioner</b>: <a href=\"Practitioner-fd3c7a99-bb59-4fef-9f79-88d1f7275ca6.html\">Dr. John Robert Smith</a></p><p><b>organization</b>: <a href=\"Organization-c3453010-d1ae-4180-937e-86cc11292693.html\">Berkshire Family Medicine</a></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 309343006}\">Physician</span></p><p><b>specialty</b>: <span title=\"Codes:{http://snomed.info/sct 394802001}\">General medicine</span></p><p><b>location</b>: <a href=\"Location-44981b4a-8eae-48f7-bb7f-bf008bbe05af.html\">OpenClinTech Primary Clinic</a></p><p><b>telecom</b>: ph: 413-555-0123, <a href=\"mailto:appointments@berkshirefamilymedicine.example.com\">appointments@berkshirefamilymedicine.example.com</a></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:system [
+       fhir:v "https://healthsystem.example.com/practitioner-role-directory"^^xsd:anyURI ;
+       fhir:l <https://healthsystem.example.com/practitioner-role-directory>
+     ] ;
+     fhir:value [ fhir:v "ROLE-12345" ]
+  ] [
+     fhir:system [
+       fhir:v "http://hl7.org/fhir/sid/us-npi"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/sid/us-npi>
+     ] ;
+     fhir:value [ fhir:v "1234567890" ]
+  ] ) ; # 
+  fhir:active [ fhir:v true] ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2020-01-01"^^xsd:date ]
+  ] ; # 
+  fhir:practitioner [
+     fhir:l <https://smart-scheduling-links.org/Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6> ;
+     fhir:reference [ fhir:v "Practitioner/fd3c7a99-bb59-4fef-9f79-88d1f7275ca6" ] ;
+     fhir:display [ fhir:v "Dr. John Robert Smith" ]
+  ] ; # 
+  fhir:organization [
+     fhir:l <https://smart-scheduling-links.org/Organization/c3453010-d1ae-4180-937e-86cc11292693> ;
+     fhir:reference [ fhir:v "Organization/c3453010-d1ae-4180-937e-86cc11292693" ] ;
+     fhir:display [ fhir:v "Berkshire Family Medicine" ]
+  ] ; # 
+  fhir:code ( [
+     fhir:coding ( [
+       a sct:309343006 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "309343006" ] ;
+       fhir:display [ fhir:v "Physician" ]
+     ] )
+  ] ) ; # 
+  fhir:specialty ( [
+     fhir:coding ( [
+       a sct:394802001 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "394802001" ] ;
+       fhir:display [ fhir:v "General medicine" ]
+     ] )
+  ] ) ; # 
+  fhir:location ( [
+     fhir:l <https://smart-scheduling-links.org/Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af> ;
+     fhir:reference [ fhir:v "Location/44981b4a-8eae-48f7-bb7f-bf008bbe05af" ] ;
+     fhir:display [ fhir:v "OpenClinTech Primary Clinic" ]
+  ] ) ; # 
+  fhir:telecom ( [
+     fhir:system [ fhir:v "phone" ] ;
+     fhir:value [ fhir:v "413-555-0123" ]
+  ] [
+     fhir:system [ fhir:v "email" ] ;
+     fhir:value [ fhir:v "appointments@berkshirefamilymedicine.example.com" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
