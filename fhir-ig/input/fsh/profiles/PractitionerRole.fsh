@@ -20,17 +20,7 @@ Description: "The PractitionerRole resource represents the specific roles that p
 * healthcareService 0..* MS
 * healthcareService only Reference(SmartSchedulingHealthcareService)
 * telecom MS
-* availableTime 0..* MS 
-  * daysOfWeek 0..* MS
-  * allDay 0..1 MS
-  * availableStartTime 0..1 MS
-  * availableEndTime 0..1 MS
-* notAvailable 0..* MS
-  * description 1..1 MS
-  * during 0..1 MS
 
-
-Alias: $sct = http://snomed.info/sct
 
 Instance: ExamplePractitionerRole
 InstanceOf: SmartSchedulingPractitionerRole
@@ -52,10 +42,3 @@ Usage: #example
 * telecom[=].value = "413-555-0123"
 * telecom[+].system = #email
 * telecom[=].value = "appointments@berkshirefamilymedicine.example.com"
-* availableTime.daysOfWeek[0] = #mon
-* availableTime.daysOfWeek[+] = #tue
-* availableTime.daysOfWeek[+] = #wed
-* availableTime.daysOfWeek[+] = #thu
-* availableTime.daysOfWeek[+] = #fri
-* availableTime.availableStartTime = "09:00:00"
-* availableTime.availableEndTime = "17:00:00"
