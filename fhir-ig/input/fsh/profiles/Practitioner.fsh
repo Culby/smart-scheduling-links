@@ -1,7 +1,7 @@
-Profile: SmartPractitioner
+Profile: SmartSchedulingPractitioner
 Parent: Practitioner
-Id: smart-practitioner
-Title: "SMART Practitioner"
+Id: smart-scheduling-practitioner
+Title: "Practitioner"
 Description: "This profile sets minimum expections for a Practitioner resource"
 * id 1..1 MS 
 * identifier 1..1 MS
@@ -36,13 +36,13 @@ Description: "This profile sets minimum expections for a Practitioner resource"
   * period 0..1 MS 
  
 
-Instance: ExampleSmartPractitioner
-InstanceOf: SmartPractitioner
+Instance: ExamplePractitioner
+InstanceOf: SmartSchedulingPractitioner
 Usage: #example
-Title: "Fhir SmartPractitioner resource example"
+Title: "Example Practitioner"
 Description: "Example Location instance conforming to the SMARTLocation profile."
 * id = "fd3c7a99-bb59-4fef-9f79-88d1f7275ca6"
-* identifier.use = #Usual
+* identifier.use = #usual
 * identifier.system = "http://hl7.org/fhir/sid/us-npi"
 * identifier.value = "npi-8373s"
 * active = true

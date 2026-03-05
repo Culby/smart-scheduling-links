@@ -1,7 +1,7 @@
-Profile: SMARTLocation
+Profile: SmartSchedulingLocation
 Parent: Location
-Id: smart-location
-Title: "SMART Location"
+Id: smart-scheduling-location
+Title: "Location"
 Description: """
 This profile sets minimum expectations for the Location resource to enable SMART Schedule Links use cases
 """
@@ -40,12 +40,12 @@ This profile sets minimum expectations for the Location resource to enable SMART
   * latitude MS
   * longitude MS
 
-Instance: ExampleSMARTLocation-PrimaryClinic
-InstanceOf: SMARTLocation
-Title: "Example SMART Location - Primary Clinic"
+Instance: ExampleLocation
+InstanceOf: SmartSchedulingLocation
+Title: "Example Location"
 Description: "Example Location instance conforming to the SMARTLocation profile."
 Usage: #example
-
+* id = "44981b4a-8eae-48f7-bb7f-bf008bbe05af"
 * identifier[0].system = "https://www.openclintech.com/ids/locations"
 * identifier[0].value = "loc-001"
 
@@ -70,3 +70,4 @@ Usage: #example
 
 * position.latitude = 27.9506
 * position.longitude = -82.4572
+
