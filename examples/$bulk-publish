@@ -1,6 +1,6 @@
 {
   "operationDefinition": "http://hl7.org/fhir/uv/bulkdata/OperationDefinition/bulk-publish|1.0.0",
-  "transactionTime": "2026-07-01T02:03:36.582Z",
+  "transactionTime": "2026-08-01T01:24:16.051Z",
   "requiresAccessToken": false,
   "outputFormat": "application/fhir+ndjson",
   "request": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/$bulk-publish",
@@ -23,52 +23,43 @@
     },
     {
       "type": "Slot",
-      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W35.ndjson",
-      "extension": {
-        "state": [
-          "MA"
-        ]
-      }
-    },
-    {
-      "type": "Slot",
-      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W36.ndjson",
-      "extension": {
-        "state": [
-          "MA"
-        ]
-      }
-    },
-    {
-      "type": "Slot",
-      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W37.ndjson",
-      "extension": {
-        "state": [
-          "MA"
-        ]
-      }
-    },
-    {
-      "type": "Slot",
-      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W38.ndjson",
-      "extension": {
-        "state": [
-          "MA"
-        ]
-      }
-    },
-    {
-      "type": "Slot",
-      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W39.ndjson",
-      "extension": {
-        "state": [
-          "MA"
-        ]
-      }
-    },
-    {
-      "type": "Slot",
       "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W40.ndjson",
+      "extension": {
+        "state": [
+          "MA"
+        ]
+      }
+    },
+    {
+      "type": "Slot",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W41.ndjson",
+      "extension": {
+        "state": [
+          "MA"
+        ]
+      }
+    },
+    {
+      "type": "Slot",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W42.ndjson",
+      "extension": {
+        "state": [
+          "MA"
+        ]
+      }
+    },
+    {
+      "type": "Slot",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W43.ndjson",
+      "extension": {
+        "state": [
+          "MA"
+        ]
+      }
+    },
+    {
+      "type": "Slot",
+      "url": "https://raw.githubusercontent.com/Culby/smart-scheduling-links/master/examples/slots-2026-W44.ndjson",
       "extension": {
         "state": [
           "MA"
